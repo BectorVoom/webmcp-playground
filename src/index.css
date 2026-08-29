@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+/*
+ * Tailwind v4 is configured in CSS, not a JS config file. Tokens live here so
+ * the palette has one home; the `dark` variant is driven by a class on <html>
+ * that the `page-control` tool set toggles, which is what makes that tool set
+ * visibly do something (R3.2).
+ */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-surface: oklch(99% 0 0);
+  --color-surface-raised: oklch(97% 0 0);
+  --color-border-subtle: oklch(90% 0 0);
+  --color-ink: oklch(22% 0 0);
+  --color-ink-muted: oklch(52% 0 0);
+  --color-accent: oklch(58% 0.16 258);
+  --color-ok: oklch(60% 0.14 150);
+  --color-warn: oklch(70% 0.15 75);
+  --color-danger: oklch(58% 0.20 25);
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+:root {
+  color-scheme: light;
+}
+
+:root:has(.dark), html.dark {
+  color-scheme: dark;
+}
+
+html.dark {
+  --color-surface: oklch(20% 0.01 258);
+  --color-surface-raised: oklch(25% 0.01 258);
+  --color-border-subtle: oklch(34% 0.01 258);
+  --color-ink: oklch(95% 0 0);
+  --color-ink-muted: oklch(72% 0 0);
+}
+
+body {
+  margin: 0;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+/* Focus visibility is a requirement (N3), not a default we inherit. */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
