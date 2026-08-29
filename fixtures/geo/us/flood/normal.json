@@ -1,0 +1,42 @@
+{
+  "capturedAt": 1740816000000,
+  "upstreamUrl": "https://api.weather.gov/gridpoints/LWX/96,70",
+  "sourceId": "us.nws.forecast",
+  "licence": "U.S. Public Domain",
+  "attribution": "National Oceanic and Atmospheric Administration / National Weather Service",
+  "polygons": [
+    {
+      "id": "us-flood-forecast-1",
+      "hazardClass": "high",
+      "kind": "forecast",
+      "validFrom": 1740816000000,
+      "validTo": 1740902400000,
+      "depth": { "minMetres": 1.5, "maxMetres": 3.0 },
+      "coordinates": [
+        [
+          [-77.045, 38.890],
+          [-77.025, 38.890],
+          [-77.025, 38.905],
+          [-77.045, 38.905],
+          [-77.045, 38.890]
+        ]
+      ]
+    },
+    {
+      "id": "us-flood-scenario-fema",
+      "hazardClass": "moderate",
+      "kind": "scenario",
+      "designEvent": "100-year Base Flood Elevation (Zone AE)",
+      "depth": { "minMetres": 0.5, "maxMetres": 1.5 },
+      "coordinates": [
+        [
+          [-77.050, 38.885],
+          [-77.020, 38.885],
+          [-77.020, 38.910],
+          [-77.050, 38.910],
+          [-77.050, 38.885]
+        ]
+      ]
+    }
+  ]
+}

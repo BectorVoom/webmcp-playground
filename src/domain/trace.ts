@@ -73,6 +73,11 @@ export type TracePayload =
   | { readonly kind: 'TurnFailed'; readonly errorTag: string; readonly message: string; readonly remedy?: string }
   | { readonly kind: 'TurnCancelled' }
   | { readonly kind: 'FaultInjected'; readonly tool: string; readonly fault: FaultKind }
+  | { readonly kind: 'GeoRegionResolved'; readonly region: string; readonly coordinates: readonly [number, number]; readonly rule: string }
+  | { readonly kind: 'GeoUpstreamFetched'; readonly sourceId: string; readonly url: string; readonly status: number; readonly cacheHit: boolean; readonly bytes: number }
+  | { readonly kind: 'GeoGeometryProcessed'; readonly stage: 'clip' | 'simplify' | 'contour' | 'crossings'; readonly featuresIn: number; readonly verticesIn: number; readonly verticesOut: number; readonly durationMs: number }
+  | { readonly kind: 'GeoRoutingFallbackTriggered'; readonly reason: string; readonly origin: readonly [number, number]; readonly destinationCount: number; readonly unavoided: boolean }
+  | { readonly kind: 'GeoMapLayerUpdated'; readonly layerId: string; readonly featureCount: number; readonly vertexCount: number }
   | { readonly kind: 'LogRecord'; readonly level: TraceLevel; readonly message: string; readonly data?: unknown }
   | { readonly kind: 'Defect'; readonly message: string; readonly stack?: string }
   | { readonly kind: 'EventsDiscarded'; readonly count: number }
@@ -122,6 +127,7 @@ export const levelOf = (payload: TracePayload): TraceLevel => {
     case 'FaultInjected':
     case 'EventsDiscarded':
     case 'TurnCancelled':
+    case 'GeoRoutingFallbackTriggered':
       return 'warn'
     case 'LogRecord':
       return payload.level
@@ -131,7 +137,7 @@ export const levelOf = (payload: TracePayload): TraceLevel => {
 }
 
 /** Coarse grouping used by the inspector's filter chips (R5.2). */
-export type TraceCategory = 'session' | 'adapter' | 'tools' | 'model' | 'turn' | 'log' | 'error'
+export type TraceCategory = 'session' | 'adapter' | 'tools' | 'model' | 'turn' | 'geo' | 'log' | 'error'
 
 export const categoryOf = (payload: TracePayload): TraceCategory => {
   switch (payload.kind) {
@@ -150,6 +156,12 @@ export const categoryOf = (payload: TracePayload): TraceCategory => {
     case 'ToolCallCompleted':
     case 'FaultInjected':
       return 'tools'
+    case 'GeoRegionResolved':
+    case 'GeoUpstreamFetched':
+    case 'GeoGeometryProcessed':
+    case 'GeoRoutingFallbackTriggered':
+    case 'GeoMapLayerUpdated':
+      return 'geo'
     case 'ModelRequested':
     case 'ModelResponded':
     case 'ToolCallParseFailed':
@@ -215,6 +227,16 @@ export const summarise = (event: TraceEvent): string => {
       return 'cancelled by user'
     case 'FaultInjected':
       return `${p.fault} on ${p.tool}`
+    case 'GeoRegionResolved':
+      return `resolved region ${p.region.toUpperCase()} (${p.rule})`
+    case 'GeoUpstreamFetched':
+      return `${p.sourceId} → HTTP ${p.status} (${p.bytes} B, cache: ${p.cacheHit ? 'hit' : 'miss'})`
+    case 'GeoGeometryProcessed':
+      return `${p.stage}: ${p.featuresIn} in → ${p.verticesOut} vertices (${p.durationMs}ms)`
+    case 'GeoRoutingFallbackTriggered':
+      return `routing fallback: ${p.reason} (unavoided: ${p.unavoided})`
+    case 'GeoMapLayerUpdated':
+      return `layer '${p.layerId}' updated (${p.featureCount} features, ${p.vertexCount} vertices)`
     case 'LogRecord':
       return p.message
     case 'Defect':

@@ -1,0 +1,37 @@
+{
+  "capturedAt": 1740816000000,
+  "upstreamUrl": "https://gis.fema.gov/arcgis/rest/services/NSS/OpenShelters/MapServer/0/query",
+  "sourceId": "us.fema.shelters",
+  "licence": "U.S. Public Domain",
+  "attribution": "FEMA National Shelter System",
+  "facilities": [
+    {
+      "id": "us-fac-1",
+      "name": "Washington Convention Center Evacuation Shelter",
+      "category": "evacuation_shelter",
+      "longitude": -77.023,
+      "latitude": 38.904
+    },
+    {
+      "id": "us-fac-2",
+      "name": "Capital One Community Relief Center",
+      "category": "evacuation_shelter",
+      "longitude": -77.021,
+      "latitude": 38.898
+    },
+    {
+      "id": "us-fac-3",
+      "name": "Georgetown Safe Haven Complex",
+      "category": "public_facility",
+      "longitude": -77.065,
+      "latitude": 38.907
+    },
+    {
+      "id": "us-fac-4",
+      "name": "National Mall High Ground Assembly Site",
+      "category": "evacuation_site",
+      "longitude": -77.036,
+      "latitude": 38.889
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "capturedAt": 1740816000000,
+  "upstreamUrl": "https://overpass-api.de/api/interpreter",
+  "sourceId": "eu.osm.shelters",
+  "licence": "ODbL 1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "facilities": [
+    {
+      "id": "eu-fac-1",
+      "name": "Westminster Civic Emergency Hub",
+      "category": "evacuation_shelter",
+      "longitude": -0.138,
+      "latitude": 51.498
+    },
+    {
+      "id": "eu-fac-2",
+      "name": "St Thomas Hospital Emergency Reception",
+      "category": "hospital",
+      "longitude": -0.119,
+      "latitude": 51.499
+    },
+    {
+      "id": "eu-fac-3",
+      "name": "Southbank Safe Assembly Ground",
+      "category": "evacuation_site",
+      "longitude": -0.115,
+      "latitude": 51.506
+    }
+  ]
+}

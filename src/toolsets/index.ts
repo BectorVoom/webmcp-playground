@@ -1,5 +1,6 @@
 import type { ToolSet } from '../domain/tool'
 import { diagnosticsToolSet } from './diagnostics'
+import { disasterToolSet } from './disaster'
 import { formsToolSet } from './forms'
 import { pageControlToolSet } from './page-control'
 import { todoToolSet } from './todo'
@@ -13,6 +14,7 @@ export const TOOL_SETS: ReadonlyArray<ToolSet> = [
   pageControlToolSet,
   formsToolSet,
   diagnosticsToolSet,
+  disasterToolSet,
 ]
 
 export const findToolSet = (id: string): ToolSet | undefined =>
@@ -21,3 +23,9 @@ export const findToolSet = (id: string): ToolSet | undefined =>
 export { todoStore, resetTodos } from './todo'
 export { themeStore, highlightStore, applyTheme } from './page-control'
 export { submissionStore } from './forms'
+export {
+  disasterToolSet,
+  setDisasterDataMode,
+  setDisasterGeolocationPort,
+  setDisasterMapPort,
+} from './disaster'

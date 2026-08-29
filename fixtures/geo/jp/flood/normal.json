@@ -1,0 +1,60 @@
+{
+  "capturedAt": 1740816000000,
+  "upstreamUrl": "https://cyberjapandata.gsi.go.jp/xyz/hazardmap_flood_l2_shinsuisin_data/{z}/{x}/{y}.png",
+  "sourceId": "jp.gsi.flood-l2",
+  "vintage": "2025-03",
+  "licence": "GSI Content Terms of Use",
+  "attribution": "国土地理院 国土数値情報（浸水想定区域データ）",
+  "tiles": [
+    {
+      "z": 15,
+      "x": 29080,
+      "y": 12900,
+      "width": 8,
+      "height": 8,
+      "classCounts": { "high": 16, "moderate": 12 },
+      "grid": [
+        null, null, null, null, null, null, null, null,
+        null, "moderate", "moderate", "moderate", "moderate", "moderate", null, null,
+        null, "moderate", "high", "high", "high", "moderate", null, null,
+        null, "moderate", "high", "high", "high", "moderate", null, null,
+        null, "moderate", "high", "high", "high", "moderate", null, null,
+        null, "moderate", "high", "high", "high", "moderate", null, null,
+        null, "moderate", "moderate", "moderate", "moderate", "moderate", null, null,
+        null, null, null, null, null, null, null, null
+      ]
+    }
+  ],
+  "polygons": [
+    {
+      "id": "jp-flood-high-1",
+      "hazardClass": "high",
+      "designEvent": "L2 assumed maximum",
+      "depth": { "minMetres": 3.0, "maxMetres": 5.0 },
+      "coordinates": [
+        [
+          [139.755, 35.675],
+          [139.775, 35.675],
+          [139.775, 35.690],
+          [139.755, 35.690],
+          [139.755, 35.675]
+        ]
+      ]
+    },
+    {
+      "id": "jp-flood-mod-1",
+      "hazardClass": "moderate",
+      "designEvent": "L2 assumed maximum",
+      "depth": { "minMetres": 0.5, "maxMetres": 3.0 },
+      "coordinates": [
+        [
+          [139.750, 35.670],
+          [139.780, 35.670],
+          [139.780, 35.695],
+          [139.750, 35.695],
+          [139.750, 35.670]
+        ]
+      ]
+    }
+  ]
+}

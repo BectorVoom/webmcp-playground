@@ -24,6 +24,37 @@ const HOST_GLOBAL_SELECTORS = [
 ]
 
 /**
+ * R6.1 / design §14.3:
+ * Upstream host literals are confined to src/adapters/geo/**.
+ * maplibre-gl is confined to src/adapters/map/**.
+ * @turf/* is confined to src/lib/geometry/**.
+ */
+const UPSTREAM_HOST_SELECTORS = [
+  {
+    selector:
+      "Literal[value=/api\\.weather\\.gov|hazards\\.fema\\.gov|gis\\.fema\\.gov|cyberjapandata\\.gsi\\.go\\.jp|jma\\.go\\.jp|copernicus\\.eu|meteoalarm\\.org|valhalla1\\.openstreetmap\\.de/]",
+    message:
+      'Upstream host literals may only be used in src/adapters/geo/**. Route through ports (R6.1).',
+  },
+  {
+    selector:
+      "TemplateElement[value.raw=/api\\.weather\\.gov|hazards\\.fema\\.gov|gis\\.fema\\.gov|cyberjapandata\\.gsi\\.go\\.jp|jma\\.go\\.jp|copernicus\\.eu|meteoalarm\\.org|valhalla1\\.openstreetmap\\.de/]",
+    message:
+      'Upstream host literals may only be used in src/adapters/geo/**. Route through ports (R6.1).',
+  },
+]
+
+const MAPLIBRE_IMPORT_SELECTOR = {
+  selector: "ImportDeclaration[source.value=/^maplibre-gl/]",
+  message: 'maplibre-gl may only be imported in src/adapters/map/** (R6.1).',
+}
+
+const TURF_IMPORT_SELECTOR = {
+  selector: "ImportDeclaration[source.value=/^@turf\\//]",
+  message: '@turf/* may only be imported in src/lib/geometry/** (R6.1).',
+}
+
+/**
  * R7.1: control flow in the pure and orchestration layers stays in Effect's
  * typed error channel. Adapters and the server boundary are exempt because they
  * sit against APIs that throw.
@@ -61,14 +92,41 @@ export default defineConfig([
       ],
     },
   },
+  // Base src restrictions across different modules
   {
-    files: ['src/**/*.{ts,tsx}'],
-    ignores: ['src/adapters/webmcp/**'],
-    rules: restrict(...HOST_GLOBAL_SELECTORS),
+    files: ['src/adapters/webmcp/**/*.{ts,tsx}'],
+    rules: restrict(...UPSTREAM_HOST_SELECTORS, MAPLIBRE_IMPORT_SELECTOR, TURF_IMPORT_SELECTOR),
+  },
+  {
+    files: ['src/adapters/geo/**/*.{ts,tsx}'],
+    rules: restrict(...HOST_GLOBAL_SELECTORS, MAPLIBRE_IMPORT_SELECTOR, TURF_IMPORT_SELECTOR),
+  },
+  {
+    files: ['src/adapters/map/**/*.{ts,tsx}'],
+    rules: restrict(...HOST_GLOBAL_SELECTORS, ...UPSTREAM_HOST_SELECTORS, TURF_IMPORT_SELECTOR),
+  },
+  {
+    files: ['src/lib/geometry/**/*.{ts,tsx}'],
+    rules: restrict(...HOST_GLOBAL_SELECTORS, ...UPSTREAM_HOST_SELECTORS, MAPLIBRE_IMPORT_SELECTOR),
   },
   {
     files: ['src/domain/**/*.ts', 'src/ports/**/*.ts', 'src/app/**/*.ts'],
-    rules: restrict(...HOST_GLOBAL_SELECTORS, NO_THROW_SELECTOR),
+    rules: restrict(
+      ...HOST_GLOBAL_SELECTORS,
+      ...UPSTREAM_HOST_SELECTORS,
+      MAPLIBRE_IMPORT_SELECTOR,
+      TURF_IMPORT_SELECTOR,
+      NO_THROW_SELECTOR,
+    ),
+  },
+  {
+    files: ['src/ui/**/*.{ts,tsx}', 'src/toolsets/**/*.{ts,tsx}', 'src/*.{ts,tsx}'],
+    rules: restrict(
+      ...HOST_GLOBAL_SELECTORS,
+      ...UPSTREAM_HOST_SELECTORS,
+      MAPLIBRE_IMPORT_SELECTOR,
+      TURF_IMPORT_SELECTOR,
+    ),
   },
   {
     // Tests describe behaviour, including behaviour at boundaries that throw.

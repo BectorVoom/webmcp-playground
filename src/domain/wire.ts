@@ -67,12 +67,19 @@ export interface UpstreamHealth {
   readonly remedy?: string
 }
 
+export interface GeoHealth {
+  readonly dataMode: 'live' | 'fixture'
+  readonly cacheEntries: number
+  readonly circuitStates: Record<string, 'closed' | 'open'>
+}
+
 export interface HealthResponse {
   readonly ok: true
   readonly backend: 'up'
   readonly upstream: UpstreamHealth
   readonly traceWriteEnabled: boolean
   readonly defaultModel: string | null
+  readonly geo?: GeoHealth
 }
 
 export interface ModelsResponse {

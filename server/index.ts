@@ -10,6 +10,8 @@ import { requestLogger } from './logger'
 import { healthRoutes } from './routes/health'
 import { llmRoutes } from './routes/llm'
 import { traceRoutes } from './routes/traces'
+import { geoRoutes } from './routes/geo'
+import { GeoProxyService } from './geo-proxy'
 
 /** Startup fails loudly and precisely, or not at all (R8.5). */
 const configExit = Effect.runSyncExit(loadConfig())
@@ -64,13 +66,15 @@ const serveFromDist = async (pathname: string): Promise<Response | undefined> =>
 
 export const createApp = (config: ServerConfig) => {
   const app = new Hono<AppEnv>()
+  const geoProxy = new GeoProxyService(config)
 
   app.use('*', requestLogger())
   app.use('/api/*', cors({ origin: DEV_ORIGINS, allowHeaders: ['content-type', 'x-request-id'] }))
 
-  app.route('/api/health', healthRoutes(config))
+  app.route('/api/health', healthRoutes(config, geoProxy))
   app.route('/api/llm', llmRoutes(config))
   app.route('/api/traces', traceRoutes(config))
+  app.route('/api/geo', geoRoutes(config, geoProxy))
 
   app.notFound(async (c) => {
     const pathname = new URL(c.req.url).pathname

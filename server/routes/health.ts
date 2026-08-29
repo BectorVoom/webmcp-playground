@@ -3,6 +3,7 @@ import { Hono } from 'hono'
 import { describeError, remedyFor } from '../../src/domain/errors'
 import type { HealthResponse } from '../../src/domain/wire'
 import type { ServerConfig } from '../config'
+import type { GeoProxyService } from '../geo-proxy'
 import { listModels } from '../upstream'
 
 /**
@@ -12,9 +13,11 @@ import { listModels } from '../upstream'
  * which is the opposite of diagnostic. The body carries the diagnosis instead,
  * so the UI can say "start Ollama" rather than "something failed".
  */
-export const healthRoutes = (config: ServerConfig) =>
+export const healthRoutes = (config: ServerConfig, geoProxy?: GeoProxyService) =>
   new Hono().get('/', async (c) => {
     const result = await Effect.runPromise(Effect.either(listModels(config, 2000)))
+
+    const geoStats = geoProxy?.getStats()
 
     const body: HealthResponse = {
       ok: true,
@@ -35,6 +38,11 @@ export const healthRoutes = (config: ServerConfig) =>
             },
       traceWriteEnabled: config.traceWriteEnabled,
       defaultModel: config.llmDefaultModel ?? null,
+      geo: {
+        dataMode: config.geoDataMode,
+        cacheEntries: geoStats?.cacheEntries ?? 0,
+        circuitStates: geoStats?.circuitStates ?? {},
+      },
     }
 
     return c.json(body)

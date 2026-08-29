@@ -1,0 +1,10 @@
+{
+  "capturedAt": 1740816000000,
+  "upstreamUrl": "https://cyberjapandata.gsi.go.jp/xyz/hazardmap_flood_l2_shinsuisin_data/{z}/{x}/{y}.png",
+  "sourceId": "jp.gsi.flood-l2",
+  "vintage": "2025-03",
+  "licence": "GSI Content Terms of Use",
+  "attribution": "国土地理院 国土数値情報（浸水想定区域データ）",
+  "tiles": [],
+  "polygons": []
+}

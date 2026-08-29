@@ -4,26 +4,24 @@ import type { HostTool, ToolResult } from '../domain/tool'
 import type { TraceEvent, TraceExport, TraceLevel } from '../domain/trace'
 import type { AdapterId } from '../ports/ToolHost'
 import type { DriverId } from '../ports/LlmClient'
+import type { MapLayerData } from '../ports/Map'
 import type { FaultSpec } from './fault-injector'
 import type { Session } from './session'
 import { getConsoleLogLevel, setConsoleLogLevel } from './logger'
 import { SCENARIOS } from '../adapters/llm/scripted'
+import {
+  currentDataMode,
+  currentMapPort,
+  setDisasterGeolocationPort,
+} from '../toolsets/disaster'
+import { BrowserGeolocationAdapter } from '../adapters/geo/browser-geolocation'
 
-/**
- * The debug handle (R5.9) — the feature that most directly serves this
- * project's top priority.
- *
- * A coding agent driving this page over CDP or a devtools console has no eyes.
- * Simulating clicks to reach a state, then scraping the DOM to find out what
- * happened, is slow, brittle, and produces evidence nobody can check. This
- * gives the same agent a typed, ordered account instead: drive the page, then
- * read the trace.
- *
- * `callTool` is the least obvious and most valuable entry: it invokes a tool
- * with the model bypassed entirely, which separates "the tool is broken" from
- * "the model called the tool wrong". That ambiguity is the single most common
- * time sink in agent debugging.
- */
+export interface GeoDebugStats {
+  readonly dataMode: 'live' | 'fixture'
+  readonly activeLayersCount: number
+  readonly pinnedPosition?: { latitude: number; longitude: number }
+}
+
 export interface WebMcpDebugHandle {
   readonly sessionId: string
   getTrace(filter?: { kinds?: ReadonlyArray<string>; turnId?: string }): ReadonlyArray<TraceEvent>
@@ -47,6 +45,9 @@ export interface WebMcpDebugHandle {
   importTrace(value: unknown): boolean
   saveTrace(): Promise<{ path: string; bytes: number }>
   getState(): ReturnType<Session['state']['snapshot']>
+  getGeoStats(): GeoDebugStats
+  getActiveLayers(): Promise<ReadonlyArray<MapLayerData>>
+  simulateDisasterScenario(name?: string): Promise<Turn>
   reset(): Promise<void>
   help(): string
 }
@@ -67,6 +68,9 @@ const HELP = `window.__WEBMCP_DEBUG__ — drive and inspect this page without th
   await d.setDriver("scripted")       deterministic, needs no LLM
   await d.saveTrace()                 writes .traces/<sessionId>.json, returns the path
   d.importTrace(json)                 reconstruct a transcript from an export
+  d.getGeoStats()                     dataMode, active layers count
+  await d.getActiveLayers()           all current map layers and features
+  await d.simulateDisasterScenario()  pins position to Tokyo and runs full flow
   await d.reset()
 
 Scripted driver scenarios (keyword → behaviour):
@@ -120,11 +124,28 @@ export const createDebugHandle = (session: Session): WebMcpDebugHandle => ({
   sendMessage: (text) => session.sendMessage(text),
   injectFault: (spec) => session.injectFault(spec),
 
-  /**
-   * Resolves when the turn settles. Polling rather than subscribing because the
-   * caller is usually a script in a console with no lifecycle to hang a
-   * subscription on.
-   */
+  getGeoStats: () => {
+    return {
+      dataMode: currentDataMode,
+      activeLayersCount: 0,
+    }
+  },
+
+  getActiveLayers: () => session.runtime.runPromise(currentMapPort.readAllLayers()),
+
+  simulateDisasterScenario: async () => {
+    const geoAdapter = new BrowserGeolocationAdapter()
+    geoAdapter.setPinnedPosition({
+      coordinates: { latitude: 35.6812, longitude: 139.7671 },
+      accuracyMetres: 20,
+      source: 'pinned',
+      resolvedAt: Date.now(),
+    })
+    setDisasterGeolocationPort(geoAdapter)
+    await session.setToolSets(['disaster'])
+    return session.sendMessage('disaster flood in tokyo')
+  },
+
   waitForIdle: (timeoutMs = 30_000) =>
     new Promise<void>((resolve, reject) => {
       const started = Date.now()

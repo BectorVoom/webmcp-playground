@@ -55,6 +55,48 @@ export const SCENARIOS: ReadonlyArray<ScriptedScenario> = [
     ],
   },
   {
+    id: 'disaster',
+    description: 'Reference disaster safety flow: flood zones, shelters, warnings, and routes for Tokyo.',
+    keywords: ['disaster', 'flood', 'tokyo', 'shelter', 'evacuate', 'hazard'],
+    steps: [
+      {
+        toolCalls: [
+          {
+            name: 'disaster.flood_forecast',
+            input: { latitude: 35.6812, longitude: 139.7671, radiusKm: 20 },
+          },
+        ],
+      },
+      {
+        toolCalls: [
+          {
+            name: 'disaster.find_shelters',
+            input: { latitude: 35.6812, longitude: 139.7671, radiusKm: 20, limit: 5 },
+          },
+        ],
+      },
+      {
+        toolCalls: [
+          {
+            name: 'disaster.official_alerts',
+            input: { latitude: 35.6812, longitude: 139.7671 },
+          },
+        ],
+      },
+      {
+        toolCalls: [
+          {
+            name: 'disaster.evacuation_routes',
+            input: { latitude: 35.6812, longitude: 139.7671, radiusKm: 20, mode: 'walk', limit: 3 },
+          },
+        ],
+      },
+      {
+        text: 'DISASTER SAFETY DECISION SUPPORT:\n\n- Flood hazard map retrieved: L2 scenario zones around Chiyoda/Tokyo Station.\n- Designated safe shelters identified: Kitanomaru Park (Clear), Shiba Park (Clear), Hibiya Park (At Risk).\n- Active JMA Warnings in effect for Tokyo 23-ward area (Heavy Rain & Flood Warnings).\n- Evacuation routes computed with flood-avoidance and crossing analysis.\n\nAlways follow instructions from JMA and your local municipality.',
+      },
+    ],
+  },
+  {
     id: 'failure',
     description: 'Calls a tool that fails, then recovers and answers anyway (ADR-7).',
     keywords: ['fail', 'error', 'break'],
@@ -126,9 +168,7 @@ export const selectScenario = (message: string): ScriptedScenario | undefined =>
 
 export const makeScriptedClient = (): LlmClientService => ({
   id: 'scripted',
-
   listModels: () => Effect.succeed([{ id: 'scripted' }]),
-
   complete: (request: CompletionRequest): Effect.Effect<CompletionResponse> =>
     Effect.sync(() => {
       const user = lastUserMessage(request.messages)

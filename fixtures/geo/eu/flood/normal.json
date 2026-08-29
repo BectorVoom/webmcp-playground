@@ -1,0 +1,27 @@
+{
+  "capturedAt": 1740816000000,
+  "upstreamUrl": "https://emergency.copernicus.eu/mapping/efas/flood-forecast-pan-eu",
+  "sourceId": "eu.copernicus.efas",
+  "vintage": "2026-04",
+  "licence": "Copernicus Open Access Licence",
+  "attribution": "European Commission Copernicus Emergency Management Service (EFAS)",
+  "polygons": [
+    {
+      "id": "eu-flood-efas-1",
+      "hazardClass": "high",
+      "kind": "forecast",
+      "validFrom": 1740816000000,
+      "validTo": 1740902400000,
+      "depth": { "minMetres": 1.0, "maxMetres": 2.5 },
+      "coordinates": [
+        [
+          [-0.14, 51.50],
+          [-0.10, 51.50],
+          [-0.10, 51.52],
+          [-0.14, 51.52],
+          [-0.14, 51.50]
+        ]
+      ]
+    }
+  ]
+}

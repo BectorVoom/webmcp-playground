@@ -1,0 +1,51 @@
+{
+  "capturedAt": 1740816000000,
+  "upstreamUrl": "https://cyberjapandata.gsi.go.jp/xyz/skhb/tokyo.geojson",
+  "sourceId": "jp.gsi.shelters",
+  "licence": "GSI Content Terms of Use",
+  "attribution": "指定緊急避難場所データ: 国土地理院",
+  "facilities": [
+    {
+      "id": "jp-fac-1",
+      "name": "Hibiya Park Evacuation Site",
+      "category": "evacuation_site",
+      "longitude": 139.756,
+      "latitude": 35.674
+    },
+    {
+      "id": "jp-fac-2",
+      "name": "Tokyo International Forum",
+      "category": "evacuation_shelter",
+      "longitude": 139.764,
+      "latitude": 35.677
+    },
+    {
+      "id": "jp-fac-3",
+      "name": "Shiba Park Disaster Base",
+      "category": "evacuation_site",
+      "longitude": 139.749,
+      "latitude": 35.655
+    },
+    {
+      "id": "jp-fac-4",
+      "name": "Kitanomaru National Park",
+      "category": "evacuation_site",
+      "longitude": 139.751,
+      "latitude": 35.692
+    },
+    {
+      "id": "jp-fac-5",
+      "name": "Ueno Onshi Park Safe Area",
+      "category": "evacuation_site",
+      "longitude": 139.774,
+      "latitude": 35.714
+    },
+    {
+      "id": "jp-fac-6",
+      "name": "Chiyoda Public Safety Complex",
+      "category": "public_facility",
+      "longitude": 139.753,
+      "latitude": 35.694
+    }
+  ]
+}

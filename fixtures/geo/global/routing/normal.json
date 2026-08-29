@@ -1,0 +1,72 @@
+{
+  "capturedAt": 1740816000000,
+  "upstreamUrl": "https://valhalla1.openstreetmap.de/route",
+  "sourceId": "global.valhalla.routing",
+  "licence": "ODbL 1.0",
+  "attribution": "© OpenStreetMap contributors, Valhalla routing engine",
+  "routes": [
+    {
+      "destinationId": "jp-fac-1",
+      "costing": "pedestrian",
+      "metres": 850,
+      "seconds": 680,
+      "steps": [
+        {
+          "instruction": "Walk southwest on Marunouchi Street toward Hibiya.",
+          "metres": 450,
+          "seconds": 360,
+          "streetNames": ["Marunouchi Street"]
+        },
+        {
+          "instruction": "Turn left into Hibiya Park entrance.",
+          "metres": 400,
+          "seconds": 320,
+          "streetNames": ["Hibiya Park Promenade"]
+        }
+      ],
+      "coordinates": [
+        [139.767, 35.681],
+        [139.761, 35.677],
+        [139.756, 35.674]
+      ]
+    },
+    {
+      "destinationId": "jp-fac-3",
+      "costing": "pedestrian",
+      "metres": 2900,
+      "seconds": 2300,
+      "steps": [
+        {
+          "instruction": "Walk south on Hibiya-dori toward Shiba.",
+          "metres": 2900,
+          "seconds": 2300,
+          "streetNames": ["Hibiya-dori"]
+        }
+      ],
+      "coordinates": [
+        [139.767, 35.681],
+        [139.758, 35.668],
+        [139.749, 35.655]
+      ]
+    },
+    {
+      "destinationId": "jp-fac-4",
+      "costing": "pedestrian",
+      "metres": 1800,
+      "seconds": 1400,
+      "steps": [
+        {
+          "instruction": "Walk northwest on Uchibori-dori toward Kitanomaru.",
+          "metres": 1800,
+          "seconds": 1400,
+          "streetNames": ["Uchibori-dori"]
+        }
+      ],
+      "coordinates": [
+        [139.767, 35.681],
+        [139.758, 35.687],
+        [139.751, 35.692]
+      ]
+    }
+  ]
+}

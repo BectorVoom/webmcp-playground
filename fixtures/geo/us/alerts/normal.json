@@ -1,0 +1,25 @@
+{
+  "capturedAt": 1740816000000,
+  "upstreamUrl": "https://api.weather.gov/alerts/active?point=38.8951,-77.0364",
+  "sourceId": "us.nws.alerts",
+  "licence": "U.S. Public Domain",
+  "attribution": "National Weather Service (NWS)",
+  "alerts": [
+    {
+      "id": "urn:oid:2.49.0.1.840.0.nws.alert.12345",
+      "event": "Flood Warning",
+      "severity": "severe",
+      "urgency": "immediate",
+      "certainty": "likely",
+      "headline": "Flood Warning in effect for District of Columbia until 10:00 PM EST",
+      "description": "Potomac River water levels are rising rapidly following intense precipitation. Inundation of low-lying roadways and structures expected.",
+      "instruction": "Turn around, don't drown when encountering flooded roads. Move to higher ground immediately.",
+      "onset": 1740816000000,
+      "effective": 1740816000000,
+      "expires": 1999999999000,
+      "sender": "NWS Baltimore MD/Washington DC",
+      "areaDescription": "District of Columbia; Arlington VA",
+      "language": "en"
+    }
+  ]
+}

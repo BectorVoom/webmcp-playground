@@ -1,0 +1,25 @@
+{
+  "capturedAt": 1000000000000,
+  "issuedAt": 1000000000000,
+  "upstreamUrl": "https://cyberjapandata.gsi.go.jp/xyz/hazardmap_flood_l2_shinsuisin_data/{z}/{x}/{y}.png",
+  "sourceId": "jp.gsi.flood-l2",
+  "vintage": "2020-01",
+  "licence": "GSI Content Terms of Use",
+  "attribution": "国土地理院",
+  "polygons": [
+    {
+      "id": "stale-z1",
+      "hazardClass": "moderate",
+      "designEvent": "L2 assumed maximum",
+      "coordinates": [
+        [
+          [139.75, 35.67],
+          [139.78, 35.67],
+          [139.78, 35.69],
+          [139.75, 35.69],
+          [139.75, 35.67]
+        ]
+      ]
+    }
+  ]
+}

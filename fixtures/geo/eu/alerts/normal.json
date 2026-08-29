@@ -1,0 +1,25 @@
+{
+  "capturedAt": 1740816000000,
+  "upstreamUrl": "https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-uk",
+  "sourceId": "eu.meteoalarm.alerts",
+  "licence": "MeteoAlarm Terms of Use",
+  "attribution": "EUMETNET MeteoAlarm / UK Met Office",
+  "alerts": [
+    {
+      "id": "meteoalarm-uk-flood-1",
+      "event": "Amber Flood Warning",
+      "severity": "severe",
+      "urgency": "immediate",
+      "certainty": "observed",
+      "headline": "Amber Flood Warning for Greater London and Thames Estuary",
+      "description": "High spring tides combined with surge and heavy rainfall causing elevated river levels. Surface water flooding expected.",
+      "instruction": "Avoid walking or driving through flood water. Stay tuned to Environment Agency updates.",
+      "onset": 1740816000000,
+      "effective": 1740816000000,
+      "expires": 1999999999000,
+      "sender": "UK Met Office / Environment Agency",
+      "areaDescription": "Greater London",
+      "language": "en"
+    }
+  ]
+}
