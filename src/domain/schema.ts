@@ -18,6 +18,15 @@ import type { AnyToolDefinition } from './tool'
 export const publishSchema = (tool: AnyToolDefinition): Record<string, unknown> => {
   const generated = JSONSchema.make(tool.inputSchema) as unknown as Record<string, unknown>
   const { $schema: _ignored, ...rest } = generated
+
+  // A tool taking no arguments is `Schema.Struct({})`, which generates JSON Schema's "any object
+  // or array": `{$id, anyOf: [{type: 'object'}, {type: 'array'}]}`. Tool-calling APIs put this
+  // straight into `function.parameters`, where an object schema is required — the anyOf leaves a
+  // grammar-constrained decoder free to emit an array for a tool that takes nothing. Publish the
+  // no-argument case in the shape every host understands.
+  if (rest.type !== 'object') {
+    return { type: 'object', properties: {}, required: [], additionalProperties: false }
+  }
   return rest
 }
 

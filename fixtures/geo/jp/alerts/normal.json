@@ -19,6 +19,7 @@
       "expires": 1999999999000,
       "sender": "気象庁 (JMA)",
       "areaDescription": "東京都 23区",
+      "area": [139.56, 35.53, 139.92, 35.82],
       "language": "ja",
       "officialTranslation": {
         "language": "en",
@@ -41,6 +42,7 @@
       "expires": 1999999999000,
       "sender": "気象庁 (JMA)",
       "areaDescription": "東京都 23区",
+      "area": [139.56, 35.53, 139.92, 35.82],
       "language": "ja",
       "officialTranslation": {
         "language": "en",

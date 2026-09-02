@@ -1,0 +1,180 @@
+{
+  "capturedAt": 1756512000000,
+  "upstreamUrl": "https://nominatim.openstreetmap.org/search",
+  "sourceId": "global.fixture.geocode",
+  "licence": "Fixture Test Data",
+  "attribution": "Simulated gazetteer (Fixture Mode)",
+  "note": "A closed list of well-known places, so the demo resolves a name without the network. Coordinates are real; a query outside the list resolves to nothing rather than to an invented point.",
+  "places": [
+    {
+      "id": "fixture-jp-fukui-station",
+      "name": "福井駅",
+      "displayName": "福井駅, 中央1丁目, 福井市, 福井県, 日本",
+      "aliases": ["福井駅", "Fukui Station", "Fukui Eki", "JR Fukui Station"],
+      "kind": "station",
+      "latitude": 36.0621,
+      "longitude": 136.2222,
+      "countryCode": "jp"
+    },
+    {
+      "id": "fixture-jp-fukui-city",
+      "name": "福井市",
+      "displayName": "福井市, 福井県, 日本",
+      "aliases": ["福井市", "福井", "Fukui", "Fukui City", "Fukui-shi"],
+      "kind": "settlement",
+      "latitude": 36.0641,
+      "longitude": 136.2196,
+      "countryCode": "jp"
+    },
+    {
+      "id": "fixture-jp-tokyo-station",
+      "name": "東京駅",
+      "displayName": "東京駅, 丸の内1丁目, 千代田区, 東京都, 日本",
+      "aliases": ["東京駅", "Tokyo Station", "Tokyo Eki"],
+      "kind": "station",
+      "latitude": 35.6812,
+      "longitude": 139.7671,
+      "countryCode": "jp"
+    },
+    {
+      "id": "fixture-jp-tokyo",
+      "name": "東京",
+      "displayName": "東京都, 日本",
+      "aliases": ["東京", "東京都", "Tokyo", "Tokyo Metropolis"],
+      "kind": "settlement",
+      "latitude": 35.6895,
+      "longitude": 139.6917,
+      "countryCode": "jp"
+    },
+    {
+      "id": "fixture-jp-shinjuku-station",
+      "name": "新宿駅",
+      "displayName": "新宿駅, 新宿区, 東京都, 日本",
+      "aliases": ["新宿駅", "Shinjuku Station", "Shinjuku Eki"],
+      "kind": "station",
+      "latitude": 35.6896,
+      "longitude": 139.7006,
+      "countryCode": "jp"
+    },
+    {
+      "id": "fixture-jp-kyoto-station",
+      "name": "京都駅",
+      "displayName": "京都駅, 下京区, 京都市, 京都府, 日本",
+      "aliases": ["京都駅", "Kyoto Station", "Kyoto Eki"],
+      "kind": "station",
+      "latitude": 34.9858,
+      "longitude": 135.7588,
+      "countryCode": "jp"
+    },
+    {
+      "id": "fixture-jp-osaka-station",
+      "name": "大阪駅",
+      "displayName": "大阪駅, 北区, 大阪市, 大阪府, 日本",
+      "aliases": ["大阪駅", "Osaka Station", "Osaka Eki"],
+      "kind": "station",
+      "latitude": 34.7025,
+      "longitude": 135.4959,
+      "countryCode": "jp"
+    },
+    {
+      "id": "fixture-jp-sendai-station",
+      "name": "仙台駅",
+      "displayName": "仙台駅, 青葉区, 仙台市, 宮城県, 日本",
+      "aliases": ["仙台駅", "Sendai Station", "Sendai Eki"],
+      "kind": "station",
+      "latitude": 38.2602,
+      "longitude": 140.8821,
+      "countryCode": "jp"
+    },
+    {
+      "id": "fixture-jp-aomori-station",
+      "name": "青森駅",
+      "displayName": "青森駅, 新町一丁目, 青森市, 青森県, 日本",
+      "aliases": ["青森駅", "Aomori Station", "Aomori Eki", "JR Aomori Station"],
+      "kind": "station",
+      "latitude": 40.8289,
+      "longitude": 140.7336,
+      "countryCode": "jp"
+    },
+    {
+      "id": "fixture-jp-tsugaru-area",
+      "name": "津軽地方",
+      "displayName": "津軽地方, 青森県, 日本",
+      "aliases": ["津軽", "津軽地方", "Tsugaru", "Tsugaru Area", "Tugaru", "Tugaru Area"],
+      "kind": "area",
+      "latitude": 40.8088,
+      "longitude": 140.3803,
+      "countryCode": "jp"
+    },
+    {
+      "id": "fixture-us-grand-central",
+      "name": "Grand Central Terminal",
+      "displayName": "Grand Central Terminal, Midtown Manhattan, New York, New York, United States",
+      "aliases": ["Grand Central Terminal", "Grand Central Station", "Grand Central"],
+      "kind": "station",
+      "latitude": 40.7527,
+      "longitude": -73.9772,
+      "countryCode": "us"
+    },
+    {
+      "id": "fixture-us-new-york",
+      "name": "New York",
+      "displayName": "New York City, New York, United States",
+      "aliases": ["New York", "New York City", "NYC"],
+      "kind": "settlement",
+      "latitude": 40.7128,
+      "longitude": -74.006,
+      "countryCode": "us"
+    },
+    {
+      "id": "fixture-us-sf-city-hall",
+      "name": "San Francisco City Hall",
+      "displayName": "San Francisco City Hall, Civic Center, San Francisco, California, United States",
+      "aliases": ["San Francisco City Hall", "SF City Hall"],
+      "kind": "poi",
+      "latitude": 37.7793,
+      "longitude": -122.4193,
+      "countryCode": "us"
+    },
+    {
+      "id": "fixture-us-space-needle",
+      "name": "Space Needle",
+      "displayName": "Space Needle, Lower Queen Anne, Seattle, Washington, United States",
+      "aliases": ["Space Needle", "Seattle Space Needle"],
+      "kind": "poi",
+      "latitude": 47.6205,
+      "longitude": -122.3493,
+      "countryCode": "us"
+    },
+    {
+      "id": "fixture-eu-berlin-hbf",
+      "name": "Berlin Hauptbahnhof",
+      "displayName": "Berlin Hauptbahnhof, Moabit, Mitte, Berlin, Deutschland",
+      "aliases": ["Berlin Hauptbahnhof", "Berlin Hbf", "Berlin Central Station"],
+      "kind": "station",
+      "latitude": 52.525,
+      "longitude": 13.3694,
+      "countryCode": "de"
+    },
+    {
+      "id": "fixture-eu-gare-du-nord",
+      "name": "Gare du Nord",
+      "displayName": "Gare du Nord, 10e arrondissement, Paris, Île-de-France, France",
+      "aliases": ["Gare du Nord", "Paris Gare du Nord", "Paris Nord"],
+      "kind": "station",
+      "latitude": 48.8809,
+      "longitude": 2.3553,
+      "countryCode": "fr"
+    },
+    {
+      "id": "fixture-eu-amsterdam-centraal",
+      "name": "Amsterdam Centraal",
+      "displayName": "Amsterdam Centraal, Amsterdam, Noord-Holland, Nederland",
+      "aliases": ["Amsterdam Centraal", "Amsterdam Central Station", "Amsterdam CS"],
+      "kind": "station",
+      "latitude": 52.379,
+      "longitude": 4.9003,
+      "countryCode": "nl"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 # Design — Disaster Safety Tool Set
 
 - **Status:** Draft
-- **Last updated:** 2026-08-29
+- **Last updated:** 2026-08-30
 - **Traces:** [`requirements.md`](./requirements.md) — criteria referenced inline as `R<n>.<m>`
 - **Builds on:** [`webmcp-chat/design.md`](../webmcp-chat/design.md) — ports, trace, error model, and
   the Effect runtime are inherited unchanged and are not restated here.
@@ -39,7 +39,7 @@ path, with live providers as the configured upgrade.
 flowchart TB
     subgraph browser["Browser — existing SPA"]
         loop["Agent loop (inherited)"]
-        set["disaster tool set<br/>7 tools"]
+        set["disaster tool set<br/>8 tools"]
         svc["Hazard services<br/>snapshot · geometry · summary"]
         map["Map surface<br/>MapLibre GL JS"]
         subgraph geoports["Ports (app vocabulary)"]
@@ -47,6 +47,7 @@ flowchart TB
             pp["PlacesPort"]
             rp["RoutingPort"]
             ap["AlertsPort"]
+            cp["GeocodingPort"]
             gp["GeolocationPort"]
             mp["MapPort"]
         end
@@ -54,8 +55,9 @@ flowchart TB
             us["us/*"]
             eu["eu/*"]
             jp["jp/*"]
+            sh["region-independent<br/>overpass-places · glofas-flood · nominatim-geocoding"]
             fx["fixture/*"]
-            val["routing/valhalla"]
+            val["routing/stadia"]
             ml["map/maplibre"]
             br["browser-geolocation"]
         end
@@ -67,15 +69,15 @@ flowchart TB
         proxy["/api/geo/*<br/>validate · allowlist · cache · breaker"]
     end
 
-    upstreams["Regional upstreams<br/>flood · places · alerts · routing"]
+    upstreams["Upstreams<br/>flood · places · alerts · routing · geocoding"]
 
     loop --> set --> svc
-    svc --> fp & pp & rp & ap & gp
+    svc --> fp & pp & rp & ap & cp & gp
     svc --> mp --> ml --> map
-    fp & pp & rp & ap --> us & eu & jp & fx
-    rp --> val
+    fp & pp & ap & cp --> us & eu & jp & sh & fx
+    rp --> val & fx
     gp --> br
-    us & eu & jp & val -->|fetch| proxy --> upstreams
+    us & eu & jp & sh & val -->|fetch| proxy --> upstreams
     svc --> trace
     dbg --> svc
     dbg --> mp
@@ -100,28 +102,39 @@ src/
     places.ts           SafeFacility, FacilityCategory, RiskState
     routing.ts          EvacuationRoute, RouteStep, Costing, CrossingReport
     alerts.ts           OfficialAlert (CAP-aligned), Severity, Urgency, Certainty
+    geocoding.ts        GeocodedPlace, PlaceKind, GeocodeResultSet, ambiguity rules (R11)
     provenance.ts       Provenance, DataMode, Staleness, Coverage
     geo-errors.ts       the feature's tagged errors (§11)
   ports/
-    FloodData.ts  Places.ts  Routing.ts  Alerts.ts  Geolocation.ts  Map.ts
+    FloodData.ts  Places.ts  Routing.ts  Alerts.ts  Geocoding.ts  Geolocation.ts  Map.ts
   adapters/
     geo/
       region.ts             region resolution + rules record
-      registry.ts           region bundles — the one line a provider adds
+      registry.ts           region bundles + the region-free geocoder slot (§4.1)
       conformance.test.ts   shared suite, parameterised over every provider
       http.ts               backend-proxied fetch + boundary schema decode
-      us/  eu/  jp/         one module per upstream
+      proxy-client.ts       the browser side of /api/geo/*
+      cap.ts                one CAP decoder, shared by all three alert providers
+      us/  eu/  jp/         one module per national upstream
+      overpass-places.ts    OSM facilities — one provider, parameterised by region
+      glofas-flood.ts       the global model that backs every region (§4.1)
+      nominatim-geocoding.ts  name → coordinates, region-free (§4.1)
       fixture/              recorded responses; a peer, not a double
-      routing/valhalla.ts
+      routing/stadia.ts     Stadia Maps, over the Valhalla wire format
+      routing/valhalla-trip.ts  that wire format, shared with the recorded fixtures
       browser-geolocation.ts
-    map/maplibre.ts
+    map/maplibre.ts  map/memory-map.ts
   lib/geometry/
     circle.ts  clip.ts  simplify.ts  tiles.ts  raster.ts  contour.ts  measure.ts
+    crossings.ts  directions.ts  road-network.ts
+  lib/hazard-palette.ts     the one hazard-class colour table (§9)
   app/
-    hazard/snapshot.ts      one location → flood + places + alerts, with partials
-    hazard/summarise.ts     domain → the budgeted result text
+    hazard/snapshot.ts        one location → flood + places + alerts, with partials
+    hazard/routing-service.ts  destination ranking, exclusions, fallback (§8)
+    hazard/summarise.ts       domain → the budgeted result text
   toolsets/disaster.ts
-  ui/map/                   MapPane, Legend, LayerList, AttributionBar, DataModeBanner
+  ui/map/                   MapPane, Legend, LayerList, AttributionBar, DataModeBanner,
+                            RouteDirections, TextEquivalentListView
 server/routes/geo.ts        proxy routes, cache, breaker, allowlist
 fixtures/geo/<region>/<source>/<case>.json
 ```
@@ -248,7 +261,7 @@ field, because a field the tool can fill is a field the tool will eventually fil
 
 ## 4. Ports
 
-Six narrow ports. Each is defined by what the tool set needs, not by what any upstream offers.
+Seven narrow ports. Each is defined by what the tool set needs, not by what any upstream offers.
 
 ```ts
 // ports/FloodData.ts
@@ -270,7 +283,9 @@ export interface FloodQueryResult {
 }
 ```
 
-`PlacesPort.facilitiesWithin` and `AlertsPort.alertsFor` follow the same shape. `RoutingPort.route`
+`PlacesPort.facilitiesWithin` and `AlertsPort.alertsFor` follow the same shape. `GeocodingPort.search`
+runs the other way — a name in, coordinates out — and is the only port not selected by region, because
+resolving a name is what produces the coordinates a region is resolved from (§4.1, R11.1). `RoutingPort.route`
 takes origin, destinations, costing, and *optional* exclusion polygons, and returns per-destination
 either a route or a tagged reason. `GeolocationPort.current` returns a `ResolvedLocation` carrying
 `source: 'geolocation' | 'explicit' | 'pinned'` (R1.7). `MapPort` is a command port —
@@ -281,11 +296,24 @@ set never imports MapLibre, and the debug handle reads layers through the same p
 
 ```ts
 // adapters/geo/registry.ts — the one file a new provider touches (R6.8)
-export const BUNDLES: Record<RegionId, RegionBundle> = {
-  us: { flood: [usFloodForecast, usFloodScenario], places: [usShelters], alerts: [usAlerts] },
-  eu: { flood: [euFloodForecast],                  places: [euFacilities], alerts: [euAlerts] },
-  jp: { flood: [jpFloodScenario],                  places: [jpShelters],   alerts: [jpAlerts] },
+export interface RegionBundle {
+  readonly flood: ReadonlyArray<FloodDataPort>
+  readonly places: ReadonlyArray<PlacesPort>
+  readonly alerts: ReadonlyArray<AlertsPort>
+  readonly routing: RoutingPort
 }
+
+export const createLiveBundles = (fetchImpl?: typeof fetch): BundleRegistry => ({
+  us: { flood: [usFloodForecast, usFloodScenario(fetchImpl), glofas(fetchImpl)],
+        places: [overpass('us', fetchImpl)], alerts: [usAlerts(fetchImpl)], routing: stadia(fetchImpl) },
+  eu: { flood: [euFloodForecast(fetchImpl), glofas(fetchImpl)],
+        places: [overpass('eu', fetchImpl)], alerts: [euAlerts(fetchImpl)], routing: stadia(fetchImpl) },
+  jp: { flood: [kikikuru(fetchImpl), gsiFloodL2(fetchImpl), glofas(fetchImpl)],
+        places: [overpass('jp', fetchImpl)], alerts: [jmaAlerts(fetchImpl)], routing: stadia(fetchImpl) },
+})
+
+// FIXTURE_BUNDLES mirrors the shape from recorded payloads. `getRegistryForMode(mode, routingMode)`
+// picks between them, and takes routing's mode separately — see `ROUTING_MODE` in §10.1.
 ```
 
 A bundle's flood slot is a **list**, because the regions genuinely differ in kind: a region may have
@@ -293,18 +321,48 @@ a coarse pan-continental forecast and a fine national scenario map, and both bel
 labelled (R2.2). Results are merged per source with provenance intact; a source that fails
 contributes a `failedSources` entry rather than failing the call (R6.9).
 
-### 4.2 Candidate upstreams
+Japan now exercises that properly, with three products answering three different questions:
+`jp.jma.kikikuru` (気象庁 キキクル — what is dangerous **right now**, on a ten-minute cycle),
+`jp.gsi.flood-l2` (the assumed-maximum planning envelope, no valid time) and
+`global.copernicus.glofas` (a global 100-year model, coarser than either). `clipAndMergeZones`
+therefore keys its union on **hazard class, zone kind and source id** — not on class alone. Keying
+on class alone unions a キキクル level-4 *forecast* into a GSI *scenario* polygon and stamps the
+result with whichever provider ran first, which is ADR-2's "narrate the scenario map as tonight's
+forecast" arriving as a silent data merge rather than as a type error.
 
-**These are candidates, not commitments.** Endpoints, payload shapes, auth, and above all licence
-terms must be confirmed by the source survey (task 1.1) before a provider is written; a source whose
-terms this project cannot satisfy does not ship, however good its data.
+Two slots are filled by one region-free provider each rather than by a national one, because no
+national source exists for them at this stage: OSM through Overpass for facilities, and GloFAS for
+flood. GloFAS sits in *every* region's list, as the coarse global floor under whatever national
+product is above it — including Europe's, which for a long time had nothing above it at all.
+
+Europe's national slot is now filled by `eu.copernicus.glofas-forecast`, and what fills it is worth
+recording because the obvious answer is the wrong one. EFAS is the European product — 1.5 km,
+purpose-built — but a non-partner token gets it on a 30-day delay against a 15-day maximum lead
+time, so every EFAS forecast such a key can retrieve has already expired. GloFAS's *forecast*
+stream is published daily, and scoring its ensemble against each cell's own 1991–2020 flood
+frequency turns a discharge into a hazard statement. That leaves two GloFAS products in the
+European list answering different questions — a five-day ensemble forecast and a 100-year planning
+envelope — which `clipAndMergeZones` keeps apart on zone kind exactly as it does in Japan.
+
+Routing is a single slot, not a list: there is one engine (§8).
+
+Geocoding sits outside the bundles, reached through `getGeocoderForMode` instead. Putting it in one
+would be circular: a bundle is chosen by region, a region is resolved from coordinates, and the
+geocoder is what produces the coordinates. It would also make the answer to "where is Fukui Station"
+depend on where the asker happens to be standing, which it must not (R11.1).
+
+### 4.2 Wired upstreams
+
+The source survey (task 1.1) has run; this is what it left standing. A source whose terms this
+project cannot satisfy does not ship, however good its data, and a slot with no honest source stays
+visibly empty rather than being filled with something adjacent.
 
 | Region | Flood | Safe facilities | Alerts | Notes |
 | --- | --- | --- | --- | --- |
-| `us` | NWS/NWPS river forecasts and flood inundation products (forecast); FEMA National Flood Hazard Layer (scenario) | FEMA/Red Cross open-shelter feeds; OSM as declared fallback | NWS `api.weather.gov` active alerts (CAP-derived) | NWS requires an identifying `User-Agent`; NFHL is explicitly scenario, not forecast |
-| `eu` | Copernicus EMS — EFAS/GloFAS river-flood forecasts (coarse); national services as an extension point | National open datasets where licensing permits; OSM fallback | MeteoAlarm CAP feeds, aggregating national meteorological services | Copernicus access needs registration; coverage is pan-European and coarse — say so (R8.5) |
-| `jp` | GSI Hazard Map Portal inundation raster tiles (scenario, assumed-maximum) | GSI designated emergency evacuation sites | JMA warnings and advisories | Raster-only flood data drives §7.2; JMA publishes official English, so R4.7 is satisfiable without translation |
-| any | — | — | — | `fixture/*` mirrors each of the above from recorded payloads |
+| `us` | `us.fema.nfhl` (scenario) and `global.copernicus.glofas`; the forecast slot is a labelled fixture, `us.fixture.flood-forecast` | `global.osm.overpass` | `us.nws.alerts` (CAP-derived) | NWS requires an identifying `User-Agent`. NWS river-flood *forecast* inundation is gridded AHPS, not point-queryable, so there is no live forecast provider — reporting the NFHL scenario map twice, once labelled "forecast", is the mislabelling this feature exists to prevent |
+| `eu` | `eu.copernicus.glofas-forecast` (5-day ensemble, scored against 1991–2020 return levels) and `global.copernicus.glofas` (100-year envelope) | `global.osm.overpass` | `eu.meteoalarm.alerts` (CC BY 4.0), aggregating national services | The forecast is retrieved server-side from the ECMWF Data Store: token-authenticated, and answered as a queued job rather than a reply, so the route is cache-first and reports `pending` instead of an empty map. EFAS is rejected as a forecast — 30-day delay against a 15-day lead time. Coverage is coarse — say so (R8.5) |
+| `jp` | `jp.jma.kikikuru` (real-time risk), `jp.gsi.flood-l2` (assumed-maximum scenario), `global.copernicus.glofas` | `global.osm.overpass` | `jp.jma.warnings` | Both national flood products are raster tiles, which is what drives §7.2. JMA publishes official English, so R4.7 is satisfiable without translation |
+| *(region-free)* | — | — | — | `global.osm.nominatim` geocoding (§4.1); `fixture/*` mirrors every row above from recorded payloads |
 
 Each provider declares `ProviderMeta { sourceId, sourceName, docsUrl, vintage, licence, attribution, expectedRefreshMs }`, displayed in the UI and attached to every datum (R6.7).
 
@@ -327,24 +385,29 @@ rule matched, and returns `RegionUnsupported` otherwise (R6.3). Two deliberate c
 
 ## 6. The tool set
 
-One selectable set, `disaster`, seven tools. The count is a budget, not an accident: the driving
+One selectable set, `disaster`, eight tools. The count is a budget, not an accident: the driving
 model is an 8B local model with native tool calls, and every additional tool and every nested schema
-field costs accuracy. Schemas are flat, every field is optional except the discriminating one, and
+field costs accuracy. `disaster.geocode` was added against that budget deliberately: without it every
+question about a named place either failed or was answered at coordinates the model produced from
+memory, and a confidently wrong coordinate is the one failure mode this whole feature exists to
+prevent. It is the only tool whose absence made the other seven answer the wrong question. Schemas are flat, every field is optional except the discriminating one, and
 defaults do the work (R1.9, R2.11).
 
 | Tool | Input | Does | Reqs |
 | --- | --- | --- | --- |
 | `disaster.locate` | — | Resolves and pins the position; returns coordinates, accuracy, source, region | R1.1–R1.8, R6.2 |
+| `disaster.geocode` | `query`, `limit?=5`, `nearLatitude?`, `nearLongitude?` | Resolves a place name to ranked coordinates; draws `search-results` | R11.* |
 | `disaster.flood_forecast` | `latitude?`, `longitude?`, `radiusKm?=20`, `horizonHours?=24` | Flood zones in radius; draws `flood-zones` | R2.* |
 | `disaster.find_shelters` | `latitude?`, `longitude?`, `radiusKm?=20`, `limit?=10`, `category?` | Safe facilities with risk state; draws `facilities` | R3.1, R3.2, R3.10 |
-| `disaster.evacuation_routes` | `latitude?`, `longitude?`, `radiusKm?=20`, `mode?='walk'`, `limit?=3`, `avoidFlood?=true` | Routes to the best-ranked destinations; draws `routes` | R3.3–R3.9 |
+| `disaster.evacuation_routes` | `latitude?`, `longitude?`, `radiusKm?=20`, `mode?='walk'`, `limit?=3`, `avoidFlood?=true`, `destination?` | Road-network candidates to the best-ranked destinations, safest first; draws `routes` | R3.3–R3.9, R3.11, R3.12 |
 | `disaster.official_alerts` | `latitude?`, `longitude?`, `radiusKm?=20`, `minSeverity?`, `limit?=10` | Alerts in force, verbatim | R4.* |
-| `disaster.focus_map` | `target: 'user'\|'floods'\|'facilities'\|'routes'\|'all'` | Re-frames the viewport | R5.3 |
+| `disaster.focus_map` | `target: 'user'\|'floods'\|'facilities'\|'routes'\|'search'\|'all'` | Re-frames the viewport | R5.3 |
 | `disaster.clear_map` | — | Clears every data layer | R5.3 |
 
 `annotations`: every tool is `readOnlyHint: true` — none mutates anything but the map — and
-`untrustedContentHint: true` for `official_alerts`, `find_shelters`, and `evacuation_routes`, all of
-which carry upstream free text (R4.8, R8.6).
+`untrustedContentHint: true` for `official_alerts`, `find_shelters`, `evacuation_routes`, and
+`geocode`, all of which carry upstream free text (R4.8, R8.6) — OpenStreetMap place names are
+contributed by the public and reach the model verbatim.
 
 ### 6.1 Result text — the contract that carries the safety requirements
 
@@ -386,12 +449,13 @@ flowchart LR
     loc["ResolvedLocation"] --> circ["circle(at, radiusKm)<br/>turf.circle, 64 steps"]
     circ --> q{"provider kind"}
     q -->|vector| fetchv["fetch features in bbox"]
-    q -->|raster tiles| tilesel["tiles intersecting circle<br/>cap 64 (R2.5)"]
+    q -->|raster tiles| tilesel["tiles intersecting circle<br/>cap GEO_TILE_CAP (R2.5)"]
     tilesel --> classify["classify pixels<br/>by published legend"]
-    classify --> contour["vectorise (marching squares)"]
+    classify --> coarsen["coarsen to working cell<br/>most severe class wins"]
+    coarsen --> contour["vectorise: runs → rectangles<br/>→ one union pass"]
     fetchv --> clip
     contour --> clip["turf.intersect with circle"]
-    clip --> merge["union per hazard class"]
+    clip --> merge["union per class + kind + source"]
     merge --> simp["turf.simplify to vertex budget"]
     simp --> stats["measure: area, nearest edge,<br/>point-in-polygon, line crossings"]
     stats --> out["HazardSnapshot"]
@@ -403,7 +467,7 @@ flowchart LR
 | --- | --- | --- |
 | Query circle | `circle`, `bbox` | R1.9, and the bbox is what upstreams actually accept |
 | Clip to circle | `intersect` | R2.6 — a zone half outside the radius must not inflate the count |
-| Merge same-class zones | `union` | R2.6 — overlapping tiles and sources otherwise double-count |
+| Merge zones of one class, kind and source | `union` | R2.6 — overlapping tiles otherwise double-count; keying on class alone would union a forecast into a scenario (§4.1) |
 | Simplify | `simplify` (tolerance search) | R2.6, N5, and the routing engine's vertex limit (§8) |
 | User in zone | `booleanPointInPolygon` | R2.7 |
 | Nearest edge + bearing | `nearestPointOnLine`, `distance`, `bearing` | R2.7 |
@@ -424,45 +488,153 @@ Japan's national flood data is published as **raster tiles** (colour-coded assum
 inundation depth), so a vector query is not available and the pipeline must earn its polygons:
 
 1. Compute the slippy-tile range covering the circle at the source's published maximum zoom; cap the
-   count at 64 and record the covered fraction if the cap binds (R2.5).
+   count at `GEO_TILE_CAP` (512 by default, enough for the whole 20 km circle at z14) and record the
+   covered fraction if the cap binds (R2.5).
 2. Fetch tiles through the backend proxy, draw each to an `OffscreenCanvas`, read pixels.
 3. Classify each pixel against the **source's published legend** — a lookup table transcribed from
    the authority's documentation, held in the provider module with a link to the legend page. Nearest
    colour within a tolerance; anything outside it is `unclassified`, never guessed (R8.3).
-4. Vectorise each depth class with marching squares, convert tile-pixel coordinates to WGS84, then
-   rejoin across tile seams with `union` before clipping.
+4. Coarsen to a working cell chosen from the query radius — 40 m close in, 120 m at 20 km —
+   keeping the **most severe** class in each cell, so that coarsening can only ever overstate depth
+   and never understate it. Resolution tracks the scale of the question, which is what makes full
+   coverage affordable at every radius: vertices after simplification are governed by how many
+   separate polygons come out, Douglas-Peucker cannot take a ring below four points, and polygon
+   count grows with area over cell squared.
+5. Take horizontal pixel runs per depth class, coalesce runs that share their columns on
+   consecutive rows into maximal rectangles, and dissolve each class with a **single** `union` pass
+   — once per tile, then once more across tiles. Convert tile-pixel coordinates to WGS84.
 
-Two honest limits, recorded in the result and in `tech-debt.md`: classification is only as good as
-the legend transcription, and marching squares at tile resolution produces stair-stepped edges of
-roughly one pixel (≈1 m at max zoom). Fixtures pin known tiles to expected polygon counts and areas,
-so a regression in the classifier is a failing test rather than a subtly wrong map.
+Step 5 is written as one pass on purpose. Dissolving pairwise against a running accumulator re-clips
+the whole accumulated geometry once per piece; with the ~4 700 pieces a single real GSI tile
+produces, the query does not return at all, and the flood layer is never drawn. That was the state
+of this pipeline until 30 August 2026 — see `tech-debt.md` §1.
+
+Three honest limits, recorded in the result and in `tech-debt.md`: classification is only as good as
+the legend transcription — which is why the table is now pinned by test against colours read out of
+real tiles at 15 locations rather than against documentation; edges are stair-stepped at the working
+cell size; and the coarser cell at wide radii means a shelter within one cell of mapped water is
+reported at risk, which is the conservative direction but will sometimes overstate. Fixtures record
+real tiles, so a regression in the classifier or the vectoriser is a failing test rather than a
+subtly wrong map.
+
+Measured warm over the two densest flood plains reachable — Fukui and the Echigo plain — a 20 km
+query covers 100% of its circle in ~1.5 s at ~19 000 vertices, inside N2 and N5.
 
 ## 8. Routing
 
-Valhalla, reached through a hosted provider or a self-hosted instance chosen by configuration
-(`ROUTING_BASE_URL`). One request per destination — Valhalla's matrix endpoint would be cheaper but
-returns no geometry, and the geometry is what R3.6 needs.
+Valhalla, hosted by **Stadia Maps** by default and reachable at a self-hosted instance through
+configuration (`ROUTING_BASE_URL`, `ROUTING_ROUTE_PATH`). Stadia runs Valhalla on OSM data, so the
+request and reply shapes are Valhalla's throughout and one parser (`routing/valhalla-trip.ts`)
+serves both the live adapter and the recorded fixtures. One request per destination — Valhalla's
+matrix endpoint would be cheaper but returns no geometry, and the geometry is what R3.6 and R3.11
+both need.
 
-- **Costing** defaults to pedestrian; `walk | bike | car` maps to `pedestrian | bicycle | auto`. The
-  engine's assumptions go into the result verbatim (R3.9): the road network does not know about
-  closures, damage, or standing water.
-- **Exclusions.** Simplified flood polygons are passed as the engine's exclusion areas, respecting
-  its documented limits on polygon and vertex count; the simplification budget for routing is
-  therefore tighter than for the map. `exclusions: 'applied'`.
-- **Fallback (R3.5).** If the engine refuses the request because of the exclusions, or finds no route
-  with them applied, retry **once** without them and mark `exclusions: 'unavoided'`. The summariser
-  prints `route may cross a flood zone — exclusions could not be applied`. Silently dropping
-  exclusions here would produce the most dangerous artefact this feature can make: a confident route
-  through water.
-- **Crossings (R3.6)** are computed by us, not by the engine, and on the *returned* geometry — so an
-  `unavoided` route still reports exactly where it enters a zone.
-- **No engine (R3.8).** Unreachable, quota-exhausted, and circuit-open are three distinct errors. The
-  fallback is a bearing-and-distance list under the heading `STRAIGHT-LINE DISTANCES — NOT ROUTES.
-  Do not navigate by these.`
+The API key never reaches the browser: the client posts to this server's `/api/geo/route`, and the
+proxy attaches `?api_key=` and redacts it before anything is written down.
+
+### 8.1 A drawn route follows roads, and we check (R3.11)
+
+A straight line to a shelter is a bearing and a distance, not a way to get there: it runs through
+buildings, over rivers and across railways. Drawn in the same style as a routed path, it is an
+instruction to walk it. So `EvacuationRoute` carries `network: 'road' | 'straight-line'`, **only
+`road` is ever drawn**, and which one a geometry is gets decided by looking at the geometry rather
+than by believing the engine.
+
+`lib/geometry/road-network.ts` asks whether a polyline *could* have come off a road network — not
+which roads it used, which would need the network itself:
+
+| Signal | Threshold | Why |
+| --- | --- | --- |
+| Shape-point count | ≥ 5 | An L-shaped shortcut tops out at four; a routed path bends at every junction and kerb |
+| Metres per shape point | ≤ 200 | Even a long straight avenue carries side roads and crossings; a synthesised path spans hundreds of metres per point |
+| Detour ratio | reported, not thresholded | Exactly 1 for a line between the endpoints — diagnostic, and in the reason string |
+| Length | < 60 m exempt | A single straight segment across a forecourt is a plausible thing for an engine to return |
+
+The adapter applies this to every candidate before returning it and fails the destination if none
+passes, with the reason named. The check is deliberately duplicated in kind, not in code: the
+adapter refuses to *pass off* a crow-flight, and the planner refuses to *draw* anything whose
+`network` is not `road`. A destination no candidate gets past is reported under the straight-line
+fallback of R3.8 and is not drawn.
+
+### 8.2 Several candidates, ranked by distance spent in water (R3.12)
+
+The engine is asked for `alternates` — three ways round per destination by default, which is what a
+navigation app offers and about where a genuinely different way round has appeared. Candidates are
+then ranked by `compareRouteSafety`:
+
+1. **Metres of the path inside a flood zone** (`CrossingReport.exposedMetres`), ascending.
+2. Crossing count, as the tie-break.
+3. Distance.
+
+Exposure leads and crossing count follows, because one crossing can mean stepping over the corner
+of a zone or wading three hundred metres, and it is the wading that decides whether the route is
+survivable. A candidate whose exposure could not be assessed — no flood coverage — sorts behind
+every candidate that *was* assessed and found clear: an unknown is not a clean bill of health.
+
+`selectRouteCandidates` then trims to what a map can show as a choice rather than a thicket (six),
+taking each destination's best option before any second or third way round, so a reader who asked
+for three shelters never loses two of them to alternatives for the first. The cap never costs a
+destination its route — asking for ten shelters returns all ten that could be routed to — because a
+route computed and then silently left off the map is worse than a busy map: nothing downstream says
+it happened. Rank 1 is the recommendation; §9 draws every candidate and highlights exactly one.
+
+### 8.3 Exclusions, and the two places the fallback lives (R3.4, R3.5)
+
+Simplified flood polygons are passed as Valhalla `exclude_polygons`, one ring each — holes are not
+expressible on that wire — under a tighter simplification budget than the map's:
+`ROUTING_VERTEX_BUDGET` is 1 000 against `MAP_VERTEX_BUDGET`'s 20 000. `exclusions: 'applied'`.
+
+The retry of R3.5 happens at two levels, and both mark `unavoided`:
+
+- **Per destination, in the adapter.** Excluding an area the walker is standing in leaves the engine
+  nothing to start from and it refuses the whole route. A real road route that has to pass through
+  water still beats a straight line drawn over the rooftops, so that one destination is re-asked
+  without exclusions.
+- **For the plan, in the service.** If the engine refused outright, or if destinations came back
+  unserved while exclusions were in force, the whole request is retried once without them.
+
+Then a third rule, which is the one that makes the label mean anything: **`applied` is verified, not
+accepted.** Avoidance was asked for, so if the returned geometry still runs through a zone, the
+route is relabelled `unavoided` whatever the engine claimed. Reporting "applied" over a route that
+crosses standing water is the one error here a reader cannot recover from. The summariser prints
+`route may cross a flood zone — exclusions could not be applied`.
+
+### 8.4 Crossings, and what happens with no engine
+
+**Crossings (R3.6)** are computed by us, not by the engine, and on the *returned* geometry — so an
+`unavoided` route still reports exactly where it enters a zone. `CrossingReport` carries the count,
+the along-route distance to the first crossing, `exposedMetres`, and `assessed: false` when there
+was no flood coverage to assess against, which is never the same as "no crossings".
+
+**No engine (R3.8).** Unreachable, quota-exhausted, and circuit-open are three distinct errors. Live
+and recorded routing mix per destination rather than all-or-nothing: destinations the live engine
+served keep their live routes, the rest come from the recorded provider, and `engineNotes` says so
+*and says why* — a silent downgrade reads as "the engine had nothing better" when the real answer is
+usually a missing key. When nothing followed a road network at all, the answer is a bearing-and-
+distance list under the heading `STRAIGHT-LINE DISTANCES — NOT ROUTES. These follow no road; do
+not navigate by them.`
+The fallback list is offered *alongside* the routes, not only instead of them: knowing a shelter is
+400 m north-east still helps when it could not be routed to.
+
+**Costing** defaults to pedestrian; `walk | bike | car` maps to `pedestrian | bicycle | auto`. The
+engine's assumptions go into the result verbatim (R3.9): the road network does not know about
+closures, damage, or standing water. Steps carry a `maneuver` from the shared turn vocabulary and
+the coordinate they begin at, kept separate from the engine's `instruction` prose so the UI can show
+an arrow without parsing text and a Japanese or German instruction still gets the right icon.
+
+### 8.5 Choosing destinations
 
 Destination selection ranks `clear` before `at_risk` before `unknown`, then by distance, and routes
 only the top `limit`. `at_risk` destinations are still listed (R3.2) — the user may know something
-the data does not.
+the data does not. A caller may also name one through the tool's `destination` argument, matched
+against the facilities in range by id, then exact name, then containment either way, over
+NFKC-folded and space-stripped text: a name makes a round trip through a model and a user before it
+comes back, and `指定緊急避難場所 (北部地区センター)` has to match `指定緊急避難場所（北部地区センター）`.
+Without that, "route me to the north district centre" had nowhere to go and the model asked the user
+for latitude and longitude.
+
+With no facility in the radius, the result says so and names the radius searched; the search is
+never silently widened (R3.10).
 
 ## 9. Map layers
 
@@ -470,9 +642,10 @@ the data does not.
 | --- | --- | --- | --- |
 | `user-position` | point + accuracy circle | marker + translucent circle | accuracy radius drawn to scale |
 | `query-radius` | circle | dashed outline | makes "within 20 km" literal |
-| `flood-zones` | polygons | fill by hazard class + hatch pattern per class | pattern satisfies R5.7 |
+| `flood-zones` | polygons | fill and outline by hazard class, from `lib/hazard-palette.ts` | one table drives the map paint expression **and** the legend swatches; the hatch pattern R5.7 also asks for is not implemented yet (`tech-debt.md` §1c) |
 | `facilities` | points | shape by category, ring by risk state | `at_risk` gets a distinct shape, not only a colour |
-| `routes` | lines | width by rank, dashed where `unavoided` | crossings marked with an explicit symbol |
+| `routes` | lines | the highlighted candidate gets a white casing, full width and a colour carrying its `exclusions` state (orange for `unavoided`); every other candidate is grey, thinner and half-opaque | exactly one candidate is highlighted at a time and the rest stay visible and plainly secondary (R3.12, §8.2), the way a navigation app greys the routes you did not pick; the map adapter exposes `highlightRoute(rank)`, driven by the map pane and the route list rather than through `MapPort` — which candidate is highlighted is view state, not something a tool commands |
+| `search-results` | points | magenta ring + label | a place the user *asked about*; magenta because every other colour on this map already means a hazard or a shelter state |
 
 Every layer is individually toggleable (R5.2) and has a text-equivalent list view (R5.8) that is the
 same data the model saw. The attribution bar renders every contributing source's required attribution
@@ -488,13 +661,20 @@ pane is replaced by the list view and the tools are unaffected (R5.9). Camera mo
 New routes under `/api/geo/*`, thin in the same sense as the existing LLM proxy: a credential
 boundary, a validator, a cache, and a circuit breaker.
 
+`POST /api/geo/raster` is the binary sibling of the JSON proxy, for sources whose URL only the
+client can build: キキクル embeds a basetime, a member and a validtime taken from its own index, and
+GloFAS is a WMS `GetMap` with a bbox — neither fits the `/tiles/:source/{z}/{x}/{y}` template. The
+client picks the URL; the allowlist, breaker and cache still decide whether it may be called.
+
 | Route | Purpose |
 | --- | --- |
 | `POST /api/geo/flood` | Region-routed flood query; returns per-source results with provenance |
 | `POST /api/geo/places` | Safe facilities in radius |
+| `POST /api/geo/geocode` | Place name → ranked candidates (R11) |
 | `POST /api/geo/alerts` | Alerts in force |
-| `POST /api/geo/route` | Valhalla request, with exclusions |
+| `POST /api/geo/route` | Valhalla request, with exclusions; `ROUTING_API_KEY` attached here |
 | `GET /api/geo/tiles/:source/:z/:x/:y` | Proxied raster tile, key added server-side |
+| `POST /api/geo/raster` | Client-built raster URL, allowlisted and cached — see above |
 | `GET /api/geo/providers` | Configured sources, vintages, licences, circuit state, data mode |
 
 Cross-cutting behaviour, all inherited-in-style from the existing backend and applied per source:
@@ -518,11 +698,13 @@ Cross-cutting behaviour, all inherited-in-style from the existing backend and ap
 | --- | --- | --- |
 | `GEO_DATA_MODE` | `fixture` | `live` or `fixture`; `live` with no keys still starts, per-source (R7.7) |
 | `GEO_ALLOWED_HOSTS` | *(the documented source hosts)* | Outbound allowlist (R7.8) |
-| `ROUTING_BASE_URL` | *(hosted Valhalla)* | Hosted or self-hosted engine |
-| `ROUTING_API_KEY` | *(empty)* | Absent ⇒ routing serves fixtures and says so |
+| `ROUTING_BASE_URL` | `https://api.stadiamaps.com` | Stadia Maps, or a self-hosted Valhalla |
+| `ROUTING_ROUTE_PATH` | `/route/v1` | `/route` for a bare Valhalla |
+| `ROUTING_MODE` | `auto` | `auto` routes live where an engine is configured, else recorded; `fixture` forces recorded; `live` forces the engine. Deliberately independent of `GEO_DATA_MODE` — a simulated route is not a route |
+| `ROUTING_API_KEY` | *(empty)* | Attached server-side as `?api_key=`; absent ⇒ Stadia answers 401, routing falls back to recorded replies and the engine notes say why |
 | `MAP_TILE_URL` / `MAP_TILE_KEY` | *(empty)* | Absent ⇒ no basemap (R5.6) |
 | `GEO_CACHE_TTL_*_MS` | per §10 | Per-source TTLs |
-| `GEO_TILE_CAP` | `64` | R2.5 |
+| `GEO_TILE_CAP` | `512` | R2.5 |
 | `GEO_TIMEOUT_MS` | `8000` | Per-source request timeout |
 | `GEO_BREAKER_THRESHOLD` / `_COOLDOWN_MS` | `5` / `60000` | R7.6 |
 | `GEO_COORD_PRECISION` | `4` | Max decimals sent upstream (R1.6) |
@@ -550,6 +732,7 @@ correlation ids, exhaustive handlers:
 | `UpstreamTooLarge` | proxy | sourceId, bytes, cap | "Narrow the radius" |
 | `HostNotAllowed` | proxy | host | "Add the host to `GEO_ALLOWED_HOSTS` if intended" |
 | `TileAnalysisFailed` | raster pipeline | tile, stage | "Fewer tiles, or a lower zoom" |
+| `GeocodeQueryInvalid` | geocoder | query, reason | "Pass a place name, not an empty string or a coordinate pair" (R11.7) |
 | `RoutingUnavailable` | routing adapter | engine, cause | "Straight-line distances only" |
 | `RouteNotFound` | routing adapter | destination id | "Try another destination or costing" |
 | `NoDataCoverage` | snapshot service | sourceIds tried | **not an error to the model** — see below |
@@ -643,7 +826,7 @@ non-error empty state explicitly. *Accepted — that is the point.*
 
 **ADR-4 — One summariser, fixed section order.**
 Every safety requirement about wording is enforced in one file with golden tests, rather than
-repeated in seven tools. *Cost:* less per-tool expressiveness. *Accepted.*
+repeated in eight tools. *Cost:* less per-tool expressiveness. *Accepted.*
 
 **ADR-5 — Never machine-translate official text.**
 A mistranslated instruction is worse than an untranslated one, and the authorities in two of the
@@ -663,7 +846,7 @@ by chunking (N3). *Accepted.*
 **ADR-8 — Raster tiles are vectorised, not merely overlaid.**
 An overlay would be cheaper, but then "is this shelter in a flood zone" and "does this route cross
 water" are unanswerable, and those are the questions the feature exists for. *Cost:* a classifier and
-a contourer to maintain and to be honest about (§7.2). *Accepted.*
+a vectoriser to maintain and to be honest about (§7.2). *Accepted.*
 
 **ADR-9 — One request per destination to the routing engine.**
 The matrix endpoint is cheaper but geometry-free, and geometry is what crossing detection needs.
@@ -673,6 +856,30 @@ The matrix endpoint is cheaper but geometry-free, and geometry is what crossing 
 One rounding helper at the proxy and one at the trace sink, so a new provider cannot leak precision
 by forgetting. *Cost:* routing loses sub-11 m origin accuracy, which is below pedestrian routing's
 own resolution anyway. *Accepted.*
+
+**ADR-11 — The fixture geocoder resolves only names it holds.**
+Every other fixture provider may synthesise data near the query — a simulated shelter is still
+recognisably a shelter, and is labelled simulated. A synthesised *coordinate* is different in kind:
+it is a specific claim about where a named place is, and every tool downstream would then answer
+truthfully about the wrong place, with no marker anywhere saying so. An unknown name resolves to
+nothing and names the limitation instead. *Cost:* the offline demo can only geocode a closed list.
+*Accepted* (R11.8).
+
+**ADR-12 — Whether a line is a route is decided by its geometry, not by the engine's word.**
+Every routing engine returns something; a misconfigured one, a fixture with no recorded reply, and
+a genuine no-route all tend to return a line between the two points. Drawn in route styling, that
+line tells a reader to walk through a building or across a river during an evacuation. So the shape
+itself is tested (§8.1) and only a road-shaped path is drawn. *Cost:* a heuristic with thresholds
+that will occasionally reject a legitimate very short or very straight route, which then degrades to
+a straight-line entry rather than to a wrong line on the map. *Accepted* (R3.11).
+
+**ADR-13 — Several candidates, ranked by flood exposure, with exactly one highlighted.**
+A single route is a decision made on the user's behalf with data that does not know about closures
+or damage. Offering the ways round the engine already found, ranked by how far each runs through
+water, keeps the choice visible without making the reader do the ranking. Highlighting one — and
+greying the rest — is what stops "here are your options" from becoming an unreadable thicket in
+which the recommendation is lost. *Cost:* more requests (`alternates`), more lines on the map, and
+a cap to maintain (§8.2). *Accepted* (R3.12).
 
 ## 16. Open questions
 

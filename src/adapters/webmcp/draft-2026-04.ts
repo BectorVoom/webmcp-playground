@@ -1,5 +1,9 @@
 import { Effect } from 'effect'
 import { publishSchema } from '../../domain/schema'
+import {
+  errorFromToolBoundaryResult,
+  resultForToolBoundaryError,
+} from '../../domain/tool-boundary'
 import { ToolNotFound, ToolHostUnavailable, ToolRegistrationError } from '../../domain/errors'
 import type { HostTool } from '../../domain/tool'
 import type { AdapterId, SpecRevision, ToolHostService } from '../../ports/ToolHost'
@@ -10,18 +14,20 @@ import {
   errorFromHostRejection,
   hostMessageOf,
   resultFromHostValue,
+  schemaFromHostValue,
   validateRegistration,
 } from './host-boundary'
+import { fromChangeSubscription } from './change-stream'
 
 const ID: AdapterId = 'draft-2026-04'
 
 const REVISION: SpecRevision = {
-  label: 'W3C CG Draft Report, 2026-04-23',
+  label: 'W3C CG Draft Report, 2026-08-26 (Origin Trial compatible)',
   url: 'https://webmachinelearning.github.io/webmcp/',
 }
 
 /**
- * Adapter for `document.modelContext` as specified in the April 2026 draft.
+ * Adapter for the current `document.modelContext` API and the measured Chrome/Edge Origin Trial.
  *
  * Two spec details are worth noting because they shape the code:
  *
@@ -37,10 +43,10 @@ export const makeDraftHost = (
   runner: ToolRunner,
   sink: TraceSinkService,
 ): ToolHostService => {
-  const listeners = new Set<() => void>()
-  const onToolChange = () => {
-    for (const listener of listeners) listener()
-  }
+  const changes = fromChangeSubscription((listener) => {
+    modelContext.addEventListener('toolchange', listener)
+    return () => modelContext.removeEventListener('toolchange', listener)
+  })
 
   const findRegistered = (
     name: string,
@@ -79,8 +85,24 @@ export const makeDraftHost = (
                   readOnlyHint: tool.annotations.readOnlyHint,
                   untrustedContentHint: tool.annotations.untrustedContentHint,
                 },
-                execute: (input, options) =>
-                  runner.executeAsPromise(tool, input, { signal: options.signal }),
+                // Shipping hosts call this with one argument and no signal, so
+                // the fallback is the normal path rather than defensive
+                // padding. Without it every host-driven invocation throws on
+                // `options.signal` before the tool body is reached.
+                execute: async (input, options) => {
+                  try {
+                    return await runner.executeAsPromise(tool, input, {
+                      signal: options?.signal ?? new AbortController().signal,
+                    })
+                  } catch (cause) {
+                    // Chrome and Edge replace any rejected callback promise with
+                    // one opaque DOMException. Fulfil a marked error result
+                    // instead; stringification preserves its typed fields.
+                    const result = resultForToolBoundaryError(cause)
+                    if (result !== undefined) return result
+                    throw cause
+                  }
+                },
               },
               { signal: controller.signal },
             ),
@@ -110,7 +132,7 @@ export const makeDraftHost = (
             name: tool.name,
             title: tool.title,
             description: tool.description,
-            inputSchema: tool.inputSchema,
+            inputSchema: schemaFromHostValue(tool.inputSchema),
             annotations:
               tool.annotations === undefined
                 ? undefined
@@ -129,20 +151,29 @@ export const makeDraftHost = (
         ),
         Effect.flatMap((registered) =>
           Effect.tryPromise({
-            try: () => modelContext.executeTool(registered, input as object, options),
+            // Early Origin Trial hosts take JSON text; the August draft takes an object. Try the
+            // deployed form first. A current Web IDL binding rejects that primitive with TypeError
+            // before invocation, which is the only safe time to retry — catching arbitrary tool
+            // failures here could run a side-effecting tool twice.
+            try: async () => {
+              const value = input !== null && typeof input === 'object' ? input : {}
+              try {
+                return await modelContext.executeTool(registered, JSON.stringify(value), options)
+              } catch (cause) {
+                if (!(cause instanceof TypeError)) throw cause
+                return modelContext.executeTool(registered, value, options)
+              }
+            },
             catch: (cause) => errorFromHostRejection(name, cause),
           }),
         ),
-        Effect.map(resultFromHostValue),
+        Effect.flatMap((raw) => {
+          const result = resultFromHostValue(raw)
+          const error = errorFromToolBoundaryResult(name, result)
+          return error === undefined ? Effect.succeed(result) : Effect.fail(error)
+        }),
       ),
 
-    subscribeToChanges: (listener) => {
-      if (listeners.size === 0) modelContext.addEventListener('toolchange', onToolChange)
-      listeners.add(listener)
-      return () => {
-        listeners.delete(listener)
-        if (listeners.size === 0) modelContext.removeEventListener('toolchange', onToolChange)
-      }
-    },
+    changes,
   }
 }

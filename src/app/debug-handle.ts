@@ -5,6 +5,7 @@ import type { TraceEvent, TraceExport, TraceLevel } from '../domain/trace'
 import type { AdapterId } from '../ports/ToolHost'
 import type { DriverId } from '../ports/LlmClient'
 import type { MapLayerData } from '../ports/Map'
+import type { RenderedLayerReport } from '../adapters/map/maplibre'
 import type { FaultSpec } from './fault-injector'
 import type { Session } from './session'
 import { getConsoleLogLevel, setConsoleLogLevel } from './logger'
@@ -15,6 +16,7 @@ import {
   setDisasterGeolocationPort,
 } from '../toolsets/disaster'
 import { BrowserGeolocationAdapter } from '../adapters/geo/browser-geolocation'
+import { MapLibreAdapter } from '../adapters/map/maplibre'
 
 export interface GeoDebugStats {
   readonly dataMode: 'live' | 'fixture'
@@ -47,6 +49,7 @@ export interface WebMcpDebugHandle {
   getState(): ReturnType<Session['state']['snapshot']>
   getGeoStats(): GeoDebugStats
   getActiveLayers(): Promise<ReadonlyArray<MapLayerData>>
+  getMapRendering(): ReadonlyArray<RenderedLayerReport> | null
   simulateDisasterScenario(name?: string): Promise<Turn>
   reset(): Promise<void>
   help(): string
@@ -70,6 +73,9 @@ const HELP = `window.__WEBMCP_DEBUG__ — drive and inspect this page without th
   d.importTrace(json)                 reconstruct a transcript from an export
   d.getGeoStats()                     dataMode, active layers count
   await d.getActiveLayers()           all current map layers and features
+  d.getMapRendering()                 per layer: source, sublayers, visibility and the
+                                      feature count MapLibre actually drew — the first
+                                      thing to check when the map looks empty
   await d.simulateDisasterScenario()  pins position to Tokyo and runs full flow
   await d.reset()
 
@@ -130,6 +136,11 @@ export const createDebugHandle = (session: Session): WebMcpDebugHandle => ({
       activeLayersCount: 0,
     }
   },
+
+  // Only a real MapLibre map can say what it drew; the in-memory port used in tests and in the
+  // no-WebGL list view has no canvas to ask, and says so rather than inventing zeroes.
+  getMapRendering: () =>
+    currentMapPort instanceof MapLibreAdapter ? currentMapPort.inspectRendering() : null,
 
   getActiveLayers: () => session.runtime.runPromise(currentMapPort.readAllLayers()),
 

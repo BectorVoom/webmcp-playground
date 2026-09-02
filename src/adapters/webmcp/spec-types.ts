@@ -1,6 +1,7 @@
 /**
  * Hand-written typings for the WebMCP host APIs. Two shapes are modelled: the
- * W3C Community Group Draft Report of 2026-04-23, and the superseded
+ * current `document.modelContext` API (including the Chrome Origin Trial's
+ * measured April wire behavior), and the superseded
  * `navigator.modelContext.provideContext` form that most published material
  * still describes.
  *
@@ -23,7 +24,14 @@ export interface DraftToolDescriptor {
   readonly description: string
   readonly inputSchema?: object
   readonly annotations?: DraftToolAnnotations
-  readonly execute: (input: object, options: DraftToolExecuteOptions) => Promise<unknown>
+  /**
+   * `options` is optional because it is genuinely absent in shipping hosts:
+   * Chrome 152 and Edge 151 both invoke this callback with exactly one
+   * argument (measured — see docs/browser-verification.md). A host that passes
+   * no signal cannot cancel a running tool, so the adapter supplies its own
+   * rather than dereferencing undefined.
+   */
+  readonly execute: (input: object, options?: DraftToolExecuteOptions) => Promise<unknown>
 }
 
 export interface DraftRegisterOptions {
@@ -35,16 +43,22 @@ export interface DraftRegisteredTool {
   readonly name: string
   readonly title?: string
   readonly description: string
-  readonly inputSchema?: object
+  /** Current hosts return an object; early Origin Trial hosts returned a JSON string. */
+  readonly inputSchema?: object | string
   readonly origin?: string
   readonly annotations?: DraftToolAnnotations
 }
 
-/** `document.modelContext`, per the 2026-04-23 draft. */
+/** `document.modelContext`, current draft plus the measured Origin Trial compatibility surface. */
 export interface DraftModelContext extends EventTarget {
   registerTool(tool: DraftToolDescriptor, options?: DraftRegisterOptions): Promise<void>
   getTools(options?: object): Promise<ReadonlyArray<DraftRegisteredTool>>
-  executeTool(tool: DraftRegisteredTool, input?: object, options?: object): Promise<string>
+  /**
+   * The August draft takes an object. Chrome 152 and Edge 151's Origin Trial
+   * implementation takes a JSON string. The adapter selects safely between the
+   * two without ever retrying an invocation that reached a tool body.
+   */
+  executeTool(tool: DraftRegisteredTool, args?: object | string, options?: object): Promise<string>
 }
 
 /** `navigator.modelContext`, the superseded whole-set-replacement shape. */

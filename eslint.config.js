@@ -73,7 +73,12 @@ const NO_THROW_SELECTOR = {
 const restrict = (...selectors) => ({ 'no-restricted-syntax': ['error', ...selectors] })
 
 export default defineConfig([
-  globalIgnores(['dist', '.traces', 'node_modules']),
+  // `movie` is a separate Remotion package with its own ESLint/TypeScript
+  // versions and quality gate. Letting the root ESLint walk into its nested
+  // node_modules mixes two parser scope-manager versions and crashes before
+  // either project can report a real lint finding. Runtime caches are data, not
+  // source, and can contain thousands of large binary/JSON retrievals.
+  globalIgnores(['dist', '.traces', '.cache', 'movie', 'node_modules']),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
@@ -127,6 +132,13 @@ export default defineConfig([
       MAPLIBRE_IMPORT_SELECTOR,
       TURF_IMPORT_SELECTOR,
     ),
+  },
+  {
+    // The inspector opts out of React Compiler with `'use no memo'`: TanStack Virtual owns mutable
+    // scroll and row-measurement state. Its incompatible-library warning is therefore inapplicable
+    // to this one, deliberately non-compiled component.
+    files: ['src/ui/inspector/InspectorPane.tsx'],
+    rules: { 'react-hooks/incompatible-library': 'off' },
   },
   {
     // Tests describe behaviour, including behaviour at boundaries that throw.

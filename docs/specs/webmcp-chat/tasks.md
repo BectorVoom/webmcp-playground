@@ -9,10 +9,11 @@
 All ten phases are implemented and every checkpoint has been met. `bun run check` (types, lint,
 216 tests + 1 deliberate skip) is green; `bun run build` and `bun run start` are verified.
 
-Per-requirement evidence is in [`traceability.md`](./traceability.md), including the one remaining
-gap: cross-browser verification (N6 / task 9.7) could not be performed, because no browser on this
-machine implements WebMCP. Two gaps the audit itself found — an untested retry schedule and an
-unasserted turn retry — were closed rather than recorded.
+Per-requirement evidence is in [`traceability.md`](./traceability.md). No gaps remain: the last one,
+cross-browser verification (N6 / task 9.7), is closed by `bun tools/browser-verify.ts` against
+Chrome, Edge, Firefox and Safari — see [browser verification](../../browser-verification.md). Two
+gaps the audit itself found — an untested retry schedule and an unasserted turn retry — were closed
+rather than recorded.
 
 Three deviations from `design.md` were made during implementation and are documented in
 [design §13](./design.md#13-implementation-notes) and [`docs/tech-debt.md`](../../tech-debt.md).
@@ -227,7 +228,7 @@ screenshot and no DOM scraping. **This is the acceptance test for the project's 
 | 9.4 | `docs/adding-a-toolset.md`. | 4.5 | S | R3.8 |
 | 9.5 | Traceability audit: every `R*` criterion maps to a passing test or a documented manual check; record gaps explicitly. | all | M | §7 DoD |
 | 9.6 | Offline check: no third-party origins requested at runtime. | 9.1 | S | **N4** |
-| 9.7 | Cross-browser check on Chrome, Edge, Firefox, Safari; confirm graceful degradation to the in-memory adapter. | 7.13 | M | **N6** |
+| 9.7 | Cross-browser check on Chrome, Edge, Firefox, Safari; confirm graceful degradation to the in-memory adapter. Done by `tools/browser-verify.ts`; also verifies the draft adapter against Chrome's and Edge's real `document.modelContext`. | 7.13 | M | **N6** |
 | 9.8 | Record any technical debt taken, with rationale, in `docs/tech-debt.md`. | all | S | Boy-Scout |
 
 **Checkpoint 9 — Definition of done:** `bun run check` green; conformance suite green for all three

@@ -22,7 +22,9 @@ export interface ClientConfig {
 }
 
 export const DEFAULT_CONFIG: ClientConfig = {
-  toolSets: ['todo', 'diagnostics'],
+  // The product opens with its competition surface, not the harness tools. Todo, forms,
+  // diagnostics, and page control remain selectable for adapter development and regression work.
+  toolSets: ['disaster'],
   adapter: undefined,
   driver: undefined,
   model: undefined,

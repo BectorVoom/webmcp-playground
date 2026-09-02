@@ -111,7 +111,7 @@ The single skip is the real-browser adapter slot, which skips with a printed rea
 | R8.3 | Auto | `routes.test.ts` "rejects a malformed body with 400", "rejects a missing body" |
 | R8.4 | Verified | One JSON line per request, observed in the dev and production smoke runs. |
 | R8.5 | Auto | `config.test.ts` (7 cases, each naming the offending variable) |
-| R8.6 | Verified | Binds `127.0.0.1`; CORS limited to the two dev origins. Observed, not asserted. |
+| R8.6 | Auto | `config.test.ts` asserts loopback default, explicit production bind, and malformed-host rejection; CORS remains limited to the two dev origins. |
 | R8.7 | Auto | `routes.test.ts` "refuses a session id that could escape the trace directory", "refuses an over-long session id" |
 
 ## R9 — Developer experience
@@ -128,20 +128,25 @@ The single skip is the real-browser adapter slot, which skips with a printed rea
 | ID | Status | Evidence |
 | --- | --- | --- |
 | N1 | Auto | `debug-handle.test.ts` "adds under 5 ms per trivial tool call" (100 calls, warmed) |
-| N2 | Auto | `memory-store.test.ts` "drops the oldest events past the cap and counts the loss"; inspector windows to 300 |
+| N2 | Auto | `memory-store.test.ts` "drops the oldest events past the cap and counts the loss"; `ui.test.tsx` drives the virtualised inspector to the end of a 500-event trace without mounting every row |
 | N3 | Auto (partial) | `ui.test.tsx` "announces the transcript as a live region"; keyboard operability uses native controls and a visible `:focus-visible` ring, not separately asserted |
 | N4 | Verified | Runtime `fetch` targets are `/api/health`, `/api/traces` and the configured local URL only. External strings in the bundle are spec links and library constants, not requests. |
 | N5 | Verified | `.env` and `.traces/` git-ignored; no secret in source |
-| N6 | **Gap** | See below |
+| N6 | Auto | `bun tools/browser-verify.ts` — 12 checks against Chrome 152, Edge 151, Firefox 154 and Safari 26.6, all passing; see [browser verification](../../browser-verification.md) |
 
 ## Gaps
 
-1. **N6 / task 9.7 — cross-browser verification.** Not performed. No browser on this machine
-   implements WebMCP, and Chrome/Edge/Firefox/Safari were not manually exercised. The in-memory
-   fallback is proven by the conformance suite, so degradation should be graceful, but it has not
-   been observed. The conformance suite already has a real-browser slot that skips with a printed
-   reason.
+None outstanding.
 
-That is the only outstanding gap. Two earlier ones — the untested retry schedule (R4.8) and the
-unasserted turn retry (R1.7) — were found by this audit and closed: see `server/upstream.test.ts`
-and `src/app/session.test.ts`.
+**N6 / task 9.7 — cross-browser verification** was the last one, and is now closed by
+[`tools/browser-verify.ts`](../../../tools/browser-verify.ts), which drives the built app through
+`window.__WEBMCP_DEBUG__` over each browser's own automation protocol. It also overturned the premise
+the gap rested on: `document.modelContext` *is* implemented, behind
+`--enable-experimental-web-platform-features` in Chrome 152 and Edge 151, so the draft adapter is now
+verified against a real host rather than only against our model of one. That exposed four live
+defects — stringified arguments, a missing `options` argument, a stringified `inputSchema`, and
+`DOMException` rejections rendering as `"{}"` — all fixed, with the fakes recalibrated so the
+conformance suite would catch a regression.
+
+Two earlier gaps — the untested retry schedule (R4.8) and the unasserted turn retry (R1.7) — were
+found by the original audit and closed: see `server/upstream.test.ts` and `src/app/session.test.ts`.

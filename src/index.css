@@ -14,12 +14,43 @@
   --color-surface-raised: oklch(97% 0 0);
   --color-border-subtle: oklch(90% 0 0);
   --color-ink: oklch(22% 0 0);
-  --color-ink-muted: oklch(52% 0 0);
-  --color-accent: oklch(58% 0.16 258);
-  --color-ok: oklch(60% 0.14 150);
-  --color-warn: oklch(70% 0.15 75);
-  --color-danger: oklch(58% 0.20 25);
+  --color-ink-muted: oklch(48% 0 0);
+
+  /*
+   * Status hues are text far more often than they are fill, so each is set to
+   * the lightest value of its hue that still clears WCAG AA (4.5:1) against
+   * `surface-raised`, the tighter of the two light backgrounds. The previous
+   * values were chosen to look right and measured 2.66:1 (warn), 3.61 (ok) and
+   * 4.22 (accent) — warn, the backend indicator in the status bar, was the
+   * least readable thing on the page. Amber cannot reach AA on white at any
+   * lightness, so warn also drops chroma and turns toward ochre; that is the
+   * cost of a warning colour that can be read.
+   */
+  --color-accent: oklch(54% 0.16 258);
+  --color-ok: oklch(52% 0.14 150);
+  --color-warn: oklch(54% 0.12 65);
+  --color-danger: oklch(56% 0.20 25);
+  /* Foreground for text sitting *on* a filled accent, which flips with theme. */
+  --color-on-accent: oklch(100% 0 0);
+
   --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+
+  /*
+   * One type scale, named by role rather than size, so a pane's density is a
+   * decision made here and not re-litigated per element. 12px is the floor:
+   * the UI was largely 10–11px, which is below what this much dense, mono, and
+   * numeric content stays readable at. Every step carries its own line-height,
+   * which is what stops an arbitrary `text-[11px]` from silently inheriting a
+   * 1.2 leading again.
+   */
+  --text-meta: 0.75rem; /* 12px — ids, counts, timestamps, attribution */
+  --text-meta--line-height: 1.45;
+  --text-ui: 0.8125rem; /* 13px — controls, labels, dense list rows */
+  --text-ui--line-height: 1.5;
+  --text-body: 0.875rem; /* 14px — anything read rather than scanned */
+  --text-body--line-height: 1.6;
+  --text-title: 1rem; /* 16px — pane headings */
+  --text-title--line-height: 1.4;
 }
 
 :root {
@@ -36,6 +67,14 @@ html.dark {
   --color-border-subtle: oklch(34% 0.01 258);
   --color-ink: oklch(95% 0 0);
   --color-ink-muted: oklch(72% 0 0);
+
+  /* Same rule against the dark `surface-raised`: the darkest value of each hue
+   * that still clears 4.5:1. Unthemed, `danger` sat at 3.38 here. */
+  --color-accent: oklch(64% 0.16 258);
+  --color-ok: oklch(62% 0.14 150);
+  --color-warn: oklch(71% 0.15 75);
+  --color-danger: oklch(66% 0.20 25);
+  --color-on-accent: oklch(20% 0.02 258);
 }
 
 body {
@@ -43,6 +82,8 @@ body {
   background: var(--color-surface);
   color: var(--color-ink);
   font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
 }
 
 /* Focus visibility is a requirement (N3), not a default we inherit. */

@@ -91,10 +91,22 @@ export class FixtureFloodProvider implements FloodDataPort {
       }
     })
 
-    // If query is far from static fixtures, generate simulated local flood zones around query.at
-    const hasNearby = zones.some((z) => {
-      const ring = z.geometry.coordinates[0]
-      const coord = ring ? ring[0] : null
+    /**
+     * Only the zones near the query.
+     *
+     * A fixture holds a handful of recorded areas — Tokyo and Fukui, for the JP file — and handing
+     * a Fukui query the Tokyo polygons would put a hazard 300 km away into the answer. They would
+     * be clipped out downstream, but the coverage state would already have claimed `full`, which
+     * is the lie that matters: an empty map that says "full coverage" reads as "no flood risk".
+     *
+     * This used to be an all-or-nothing check across the whole file, so a file with two recorded
+     * areas served both or neither. What it must never do is what it did before that: synthesise a
+     * polygon centred on the query point whenever the recordings were far away, which told every
+     * user in Japan they stood in a 3–5 m inundation zone that did not exist. An invented hazard is
+     * worse than an absent one.
+     */
+    const inArea = zones.filter((z) => {
+      const coord = z.geometry.coordinates[0]?.[0]
       if (!coord || coord.length < 2) return false
       const lon = Number(coord[0])
       const lat = Number(coord[1])
@@ -103,56 +115,24 @@ export class FixtureFloodProvider implements FloodDataPort {
       return Math.sqrt(dLat * dLat + dLon * dLon) <= query.radiusKm + 20
     })
 
-    if (!hasNearby) {
-      const lon = query.at.longitude
-      const lat = query.at.latitude
-      const simZones: Array<FloodZone> = [
-        {
-          id: `${this.region}-sim-flood-high`,
-          kind: { kind: 'scenario', designEvent: 'L2 assumed maximum flood' },
-          hazardClass: 'high',
-          depth: { minMetres: 3.0, maxMetres: 5.0 },
-          geometry: {
-            type: 'Polygon',
-            coordinates: [
-              [
-                [lon - 0.006, lat - 0.008],
-                [lon + 0.012, lat - 0.005],
-                [lon + 0.015, lat + 0.008],
-                [lon - 0.003, lat + 0.006],
-                [lon - 0.006, lat - 0.008],
-              ],
-            ],
-          },
-          provenance,
+    if (inArea.length === 0) {
+      return Effect.succeed({
+        zones: [],
+        coverage: {
+          state: 'none' as const,
+          reason: 'no_data_for_area' as const,
+          detail: `Fixture mode carries recorded ${this.region.toUpperCase()} flood zones only for the areas they were captured in, and none of them reaches this location. Set GEO_DATA_MODE=live to query the real hazard map here.`,
+          failedSources: [],
         },
-        {
-          id: `${this.region}-sim-flood-moderate`,
-          kind: { kind: 'scenario', designEvent: 'L2 assumed maximum flood' },
-          hazardClass: 'moderate',
-          depth: { minMetres: 0.5, maxMetres: 3.0 },
-          geometry: {
-            type: 'Polygon',
-            coordinates: [
-              [
-                [lon - 0.010, lat - 0.012],
-                [lon + 0.018, lat - 0.008],
-                [lon + 0.020, lat + 0.012],
-                [lon - 0.007, lat + 0.010],
-                [lon - 0.010, lat - 0.012],
-              ],
-            ],
-          },
-          provenance,
-        },
-      ]
-      zones.push(...simZones)
+        staleness: { stale: false },
+      })
     }
 
     return Effect.succeed({
-      zones,
+      zones: inArea,
       coverage: {
-        state: zones.length > 0 ? 'full' : 'none',
+        state: 'full' as const,
+        detail: `Recorded ${this.region.toUpperCase()} flood zones for this area, generalised — simulated data standing in for the live hazard map.`,
         failedSources: [],
       },
       staleness: { stale: false },

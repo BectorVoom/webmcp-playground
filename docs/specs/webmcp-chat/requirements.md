@@ -167,7 +167,7 @@ change is a contained edit rather than a refactor.
 | R8.3 | THE SYSTEM SHALL validate every request body at the backend boundary and SHALL return a `400` with a structured body naming the invalid fields. |
 | R8.4 | THE SYSTEM SHALL log one structured line per request containing method, path, status, duration, and `x-request-id`. |
 | R8.5 | THE SYSTEM SHALL read all configuration from environment variables with documented defaults, and SHALL fail fast at startup with a precise message if a required variable is malformed. |
-| R8.6 | THE SYSTEM SHALL bind to `127.0.0.1` only and SHALL NOT enable permissive CORS for non-local origins. |
+| R8.6 | THE SYSTEM SHALL bind to `127.0.0.1` by default, SHALL require an explicit `HOST` override for a production bind, and SHALL NOT enable permissive CORS for non-local origins. |
 | R8.7 | WHERE `POST /api/traces` is enabled, THE SYSTEM SHALL write only inside the project's `.traces/` directory and SHALL reject any `sessionId` that is not a plain identifier. |
 
 ### R9 — Developer experience

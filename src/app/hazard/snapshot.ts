@@ -19,8 +19,32 @@ export interface CompleteHazardSnapshot {
   readonly hazardSnapshot: HazardSnapshot
   readonly facilities: ReadonlyArray<SafeFacility>
   readonly alerts: ReadonlyArray<OfficialAlert>
+  readonly alertsCoverage: Coverage
   readonly totalAlertCount: number
   readonly expiredAlertCount: number
+}
+
+/**
+ * One coverage line for however many alert feeds a region bundle holds.
+ *
+ * `no_data_for_area` only survives while nothing was found at all: one feed not reaching the user
+ * does not make the alerts another feed did return any less complete.
+ */
+const mergeAlertsCoverage = (
+  alertCount: number,
+  coverages: ReadonlyArray<Coverage>,
+  failedSources: ReadonlyArray<{ readonly sourceId: string; readonly error: string }>,
+): Coverage => {
+  if (coverages.length === 0) {
+    return { state: 'none', reason: 'source_failed', failedSources }
+  }
+  if (alertCount === 0) {
+    const noData = coverages.find((c) => c.reason === 'no_data_for_area')
+    if (noData) return { ...noData, failedSources }
+  }
+  const degraded = coverages.find((c) => c.state !== 'full')
+  if (degraded) return { ...degraded, state: 'partial', failedSources }
+  return { state: 'full', failedSources }
 }
 
 export interface BuildSnapshotOptions {
@@ -47,6 +71,10 @@ export const buildHazardSnapshot = (
     const rawZones: Array<FloodZone> = []
     let hasAnyFloodData = false
     let isAnyFloodStale = false
+    // Each provider explains its own gaps — "this fixture was captured 300 km away", "GSI maps no
+    // inundation within 20 km". Those sentences are the only thing that tells a reader whether an
+    // empty map means no risk, no data, or the wrong data mode, and they used to be dropped here.
+    const providerNotes: Array<string> = []
 
     for (const floodProvider of bundle.flood) {
       const floodRes = yield* Effect.either(
@@ -62,6 +90,7 @@ export const buildHazardSnapshot = (
         hasAnyFloodData = true
         rawZones.push(...floodRes.right.zones)
         if (floodRes.right.staleness.stale) isAnyFloodStale = true
+        if (floodRes.right.coverage.detail) providerNotes.push(floodRes.right.coverage.detail)
       } else {
         failedSources.push({
           sourceId: floodProvider.sourceId,
@@ -98,6 +127,7 @@ export const buildHazardSnapshot = (
           : floodCoverageState === 'partial'
             ? 'source_failed'
             : undefined,
+      detail: providerNotes.length > 0 ? providerNotes.join(' ') : undefined,
       failedSources,
     }
 
@@ -159,6 +189,8 @@ export const buildHazardSnapshot = (
 
     // 4. Query Alerts (R4.1-R4.10)
     const alerts: Array<OfficialAlert> = []
+    const alertsCoverages: Array<Coverage> = []
+    const failedAlertSources: Array<{ sourceId: string; error: string }> = []
     let totalAlertCount = 0
     let expiredAlertCount = 0
 
@@ -174,13 +206,16 @@ export const buildHazardSnapshot = (
 
       if (alertsRes._tag === 'Right') {
         alerts.push(...alertsRes.right.alerts)
+        alertsCoverages.push(alertsRes.right.coverage)
         totalAlertCount += alertsRes.right.totalActiveCount
         expiredAlertCount += alertsRes.right.expiredCount
       } else {
-        failedSources.push({
+        const failure = {
           sourceId: alertsProvider.sourceId,
           error: alertsRes.left.message ?? alertsRes.left._tag,
-        })
+        }
+        failedSources.push(failure)
+        failedAlertSources.push(failure)
       }
     }
 
@@ -192,6 +227,7 @@ export const buildHazardSnapshot = (
       hazardSnapshot,
       facilities: assessedFacilities,
       alerts,
+      alertsCoverage: mergeAlertsCoverage(alerts.length, alertsCoverages, failedAlertSources),
       totalAlertCount,
       expiredAlertCount,
     }

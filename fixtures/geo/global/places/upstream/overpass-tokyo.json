@@ -1,0 +1,1002 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T22:46:21Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 990952284,
+  "lat": 35.6501826,
+  "lon": 139.7344967,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "南麻布医院"
+  }
+},
+{
+  "type": "node",
+  "id": 992380464,
+  "lat": 35.7038132,
+  "lon": 139.7693281,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "萩原医院",
+    "name:en": "Hagiwara Clinic"
+  }
+},
+{
+  "type": "node",
+  "id": 1048882804,
+  "lat": 35.6972162,
+  "lon": 139.7724786,
+  "tags": {
+    "amenity": "hospital",
+    "check_date": "2026-02-04",
+    "description": "8F",
+    "healthcare": "hospital",
+    "name": "秋葉原メディカルクリニック",
+    "name:en": "Akihabara Medical Clinic",
+    "phone": "+81 3-3251-5215"
+  }
+},
+{
+  "type": "node",
+  "id": 1352041880,
+  "lat": 35.7002949,
+  "lon": 139.8017290,
+  "tags": {
+    "amenity": "hospital",
+    "check_date": "2026-04-17",
+    "healthcare": "hospital",
+    "name": "粉川医院",
+    "name:en": "Kogawa Clinic"
+  }
+},
+{
+  "type": "node",
+  "id": 1352143845,
+  "lat": 35.7009893,
+  "lon": 139.8009416,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "山田記念病院",
+    "name:en": "Yamada Memorial Hospital"
+  }
+},
+{
+  "type": "node",
+  "id": 1367525150,
+  "lat": 35.6517704,
+  "lon": 139.7522040,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "芝公園かみやまクリニック"
+  }
+},
+{
+  "type": "node",
+  "id": 1420765470,
+  "lat": 35.6999020,
+  "lon": 139.7791260,
+  "tags": {
+    "addr:full": "東京都千代田区神田和泉町1",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "三井記念病院",
+    "name:en": "Mitsui Memorial Hospital",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wikidata": "Q11354313",
+    "wikimedia_commons": "Category:Mitsui Memorial Hospital",
+    "wikipedia": "ja:三井記念病院"
+  }
+},
+{
+  "type": "node",
+  "id": 1420766935,
+  "lat": 35.6984020,
+  "lon": 139.7629330,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "佐々木研究所附属杏雲堂病院",
+    "name:en": "Kyoundo Hospital",
+    "name:es": "Hospital Kyoundo",
+    "name:ja": "佐々木研究所附属杏雲堂病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年　国土交通省",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1420767069,
+  "lat": 35.6711246,
+  "lon": 139.8078845,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "修世会木場病院",
+    "name:en": "Kiba Hospital",
+    "source": "KSJ2"
+  }
+},
+{
+  "type": "node",
+  "id": 1420767080,
+  "lat": 35.7095410,
+  "lon": 139.8149280,
+  "tags": {
+    "addr:full": "東京都墨田区押上1-25-10",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "健生堂病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420768095,
+  "lat": 35.6455257,
+  "lon": 139.7263860,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "北里研究所病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年　国土交通省",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wheelchair": "yes",
+    "wikidata": "Q11404247",
+    "wikipedia": "ja:北里研究所病院"
+  }
+},
+{
+  "type": "node",
+  "id": 1420770174,
+  "lat": 35.6676550,
+  "lon": 139.7588780,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "十仁病院",
+    "name:en": "Jujin Clinics",
+    "name:es": "Clínica Jujin",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年　国土交通省",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420770960,
+  "lat": 35.6476920,
+  "lon": 139.7352090,
+  "tags": {
+    "addr:full": "東京都港区南麻布2-10-21",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "厚生会古川橋病院",
+    "name:en": "Furukawabashi Hospital",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420771054,
+  "lat": 35.6781810,
+  "lon": 139.7341860,
+  "tags": {
+    "addr:full": "東京都港区元赤坂1-1-5",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "友仁会赤坂見附前田病院",
+    "name:en": "Akasaka-mitsuke Maeda Hospital",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420771199,
+  "lat": 35.6952120,
+  "lon": 139.7713460,
+  "tags": {
+    "addr:full": "東京都千代田区神田須田町1-18",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "同仁記念会明和病院",
+    "name:en": "Meiwa Hospital",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator": "同仁記念会",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420771207,
+  "lat": 35.6998470,
+  "lon": 139.7944320,
+  "tags": {
+    "addr:full": "東京都墨田区横網2-1-11",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "同愛記念病院",
+    "name:en": "Doai Memorial Hospital",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wikidata": "Q11414648",
+    "wikipedia": "ja:同愛記念病院"
+  }
+},
+{
+  "type": "node",
+  "id": 1420771222,
+  "lat": 35.6974860,
+  "lon": 139.7662940,
+  "tags": {
+    "addr:full": "東京都千代田区神田駿河台4-2",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "名倉クリニック",
+    "name:en": "Nagura Clinic",
+    "name:es": "Clínica Nagura",
+    "name:ja": "名倉クリニック",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420771640,
+  "lat": 35.6653670,
+  "lon": 139.7682870,
+  "tags": {
+    "addr:full": "東京都中央区築地5-1-1",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "国立がん研究センター中央病院",
+    "name:en": "National Cancer Center Hospital",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wikidata": "Q131457218",
+    "wikipedia": "ja:国立がん研究センター中央病院"
+  }
+},
+{
+  "type": "node",
+  "id": 1420776242,
+  "lat": 35.6997030,
+  "lon": 139.7613620,
+  "tags": {
+    "addr:full": "東京都千代田区神田駿河台2-5",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "小畑会浜田病院",
+    "name:en": "Hamada Hospital",
+    "name:ja": "小畑会浜田病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420777001,
+  "lat": 35.6862650,
+  "lon": 139.7906000,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "山村病院",
+    "name:en": "Yamamura Hospital",
+    "name:es": "Hospital de Yamamura",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年　国土交通省",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420780277,
+  "lat": 35.6535170,
+  "lon": 139.7265490,
+  "tags": {
+    "addr:full": "東京都港区南麻布5-6-8",
+    "amenity": "hospital",
+    "full_name": "恩賜財団母子愛育会総合母子保健センター愛育病院",
+    "healthcare": "hospital",
+    "name": "愛育病院",
+    "name:en": "Aiiku Hospital",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wheelchair": "yes",
+    "wikidata": "Q11073872",
+    "wikimedia_commons": "Category:Aiiku Hospital",
+    "wikipedia": "ja:愛育病院"
+  }
+},
+{
+  "type": "node",
+  "id": 1420780357,
+  "lat": 35.7131780,
+  "lon": 139.7568210,
+  "tags": {
+    "addr:full": "東京都文京区本郷6-12-5",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "慈愛病院",
+    "name:en": "Jiai Hospital",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420782890,
+  "lat": 35.7010409,
+  "lon": 139.7641648,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "東京科学大学病院",
+    "name:en": "Institute of Science Tokyo Hospital",
+    "name:ja": "東京科学大学病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年　国土交通省",
+    "old_name": "東京医科歯科大学病院",
+    "old_name:en": "Tokyo Medical and Dental University Hospital",
+    "old_name:ja": "東京医科歯科大学病院",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wheelchair": "yes",
+    "wikidata": "Q130394004",
+    "wikipedia": "ja:東京医科歯科大学病院"
+  }
+},
+{
+  "type": "node",
+  "id": 1420783540,
+  "lat": 35.7120160,
+  "lon": 139.7653780,
+  "tags": {
+    "addr:full": "東京都文京区本郷7-3-1",
+    "amenity": "hospital",
+    "emergency": "yes",
+    "healthcare": "hospital",
+    "name": "東京大学医学部附属病院",
+    "name:en": "The University of Tokyo Hospital",
+    "name:es": "Hospital de la Universidad de Tokio",
+    "name:ja": "東京大学医学部附属病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wheelchair": "yes",
+    "wikidata": "Q11524663"
+  }
+},
+{
+  "type": "node",
+  "id": 1420783953,
+  "lat": 35.6547149,
+  "lon": 139.7436219,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "国際医療福祉大学三田病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年　国土交通省",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wikidata": "Q11422388",
+    "wikimedia_commons": "Category:IUHW Mita Hospital",
+    "wikipedia": "ja:国際医療福祉大学三田病院"
+  }
+},
+{
+  "type": "node",
+  "id": 1420784148,
+  "lat": 35.7013550,
+  "lon": 139.7549180,
+  "tags": {
+    "addr:full": "東京都千代田区三崎町2-9-18",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "東京歯科大学水道橋病院",
+    "name:en": "Tokyo Dental College Suidobashi Hospital",
+    "name:ja": "東京歯科大学水道橋病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420784987,
+  "lat": 35.6989320,
+  "lon": 139.7896680,
+  "tags": {
+    "addr:full": "東京都台東区柳橋2-20-4",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "東京自動車連合健康保険組合柳橋病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420785374,
+  "lat": 35.7001030,
+  "lon": 139.7612790,
+  "tags": {
+    "addr:full": "東京都千代田区神田駿河台2-5",
+    "amenity": "hospital",
+    "fixme": "addr:fullを機械付与した時点でオリジナルと位置が32.2m変化しています",
+    "healthcare": "hospital",
+    "name": "東京都教職員互助会三楽病院",
+    "name:en": "Sanraku Hospital",
+    "name:ja": "東京都教職員互助会三楽病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wikidata": "Q11355990",
+    "wikipedia": "ja:三楽病院"
+  }
+},
+{
+  "type": "node",
+  "id": 1420785393,
+  "lat": 35.6540170,
+  "lon": 139.7436300,
+  "tags": {
+    "addr:block_number": "4",
+    "addr:city": "港区",
+    "addr:housenumber": "17",
+    "addr:neighbourhood": "三田一丁目",
+    "addr:province": "東京都",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "東京都済生会中央病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wikidata": "Q11525340",
+    "wikipedia": "ja:東京都済生会中央病院"
+  }
+},
+{
+  "type": "node",
+  "id": 1420788190,
+  "lat": 35.6696270,
+  "lon": 139.7568790,
+  "tags": {
+    "addr:full": "東京都千代田区内幸町1-3-2",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "浩邦会日比谷病院",
+    "name:en": "Hibiya Hospital",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420788497,
+  "lat": 35.6827660,
+  "lon": 139.8146520,
+  "tags": {
+    "addr:full": "東京都江東区扇橋2-2-3",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "深川立川病院",
+    "name:en": "Fukagawa Tachikawa Hospital",
+    "operator:type": "private",
+    "source": "KSJ2"
+  }
+},
+{
+  "type": "node",
+  "id": 1420789236,
+  "lat": 35.6610170,
+  "lon": 139.7532960,
+  "tags": {
+    "addr:full": "東京都港区新橋6-19-21",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "港勤労者医療協会芝病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420792301,
+  "lat": 35.6969580,
+  "lon": 139.7665990,
+  "tags": {
+    "addr:full": "東京都千代田区神田淡路町2-25",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "神尾記念病院",
+    "name:en": "Kamio Memorial Hospital",
+    "name:ja": "神尾記念病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wikidata": "Q11589513",
+    "wikipedia": "ja:神尾記念病院"
+  }
+},
+{
+  "type": "node",
+  "id": 1420792420,
+  "lat": 35.7022340,
+  "lon": 139.7271850,
+  "tags": {
+    "addr:full": "東京都新宿区弁天町91",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "神経研究所附属晴和病院",
+    "name:en": "Seiwa Hospital",
+    "note": "建て替え中",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wikidata": "Q11514724",
+    "wikipedia": "ja:晴和病院"
+  }
+},
+{
+  "type": "node",
+  "id": 1420796582,
+  "lat": 35.6854720,
+  "lon": 139.7427640,
+  "tags": {
+    "addr:full": "東京都千代田区麹町1-10",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "茂恵会半蔵門病院",
+    "name:en": "Hanzomon Hospital",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wikidata": "Q11407115",
+    "wikipedia": "ja:半蔵門病院"
+  }
+},
+{
+  "type": "node",
+  "id": 1420797393,
+  "lat": 35.6687404,
+  "lon": 139.7450297,
+  "tags": {
+    "addr:block_number": "2",
+    "addr:city": "港区",
+    "addr:housenumber": "2",
+    "addr:neighbourhood": "2",
+    "addr:postcode": "105-8470",
+    "addr:province": "東京都",
+    "addr:quarter": "虎ノ門",
+    "amenity": "hospital",
+    "building:levels": "19",
+    "emergency": "yes",
+    "healthcare": "hospital",
+    "healthcare:speciality": "general",
+    "height": "99.55",
+    "name": "虎の門病院",
+    "name:en": "Toranomon Hospital",
+    "name:es": "Hospital de Toranomon",
+    "note:ja": "国土数値情報（公共施設データ）平成19年　国土交通省",
+    "operator": "国家公務員共済組合連合会",
+    "source": "survey",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "website": "http://www.toranomon.gr.jp/",
+    "wikidata": "Q11625273",
+    "wikipedia": "ja:虎の門病院"
+  }
+},
+{
+  "type": "node",
+  "id": 1420798232,
+  "lat": 35.7025900,
+  "lon": 139.8140660,
+  "tags": {
+    "addr:full": "東京都墨田区太平3-20-2",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "賛育会病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wikidata": "Q11635058",
+    "wikipedia": "ja:賛育会病院"
+  }
+},
+{
+  "type": "node",
+  "id": 1420798715,
+  "lat": 35.6468790,
+  "lon": 139.7216050,
+  "tags": {
+    "addr:full": "東京都渋谷区恵比寿2-34-10",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "都立広尾病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator": "東京都",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420799361,
+  "lat": 35.6992340,
+  "lon": 139.7269910,
+  "tags": {
+    "addr:block_number": "25",
+    "addr:city": "新宿区",
+    "addr:neighbourhood": "市谷柳町",
+    "addr:province": "東京都",
+    "amenity": "hospital",
+    "name": "鉄友会柳町病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年　国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "node",
+  "id": 1420800044,
+  "lat": 35.6615790,
+  "lon": 139.8069230,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "青藍会鈴木病院",
+    "name:en": "Suzuki Hospital",
+    "source": "KSJ2"
+  }
+},
+{
+  "type": "node",
+  "id": 1420800058,
+  "lat": 35.6697040,
+  "lon": 139.7271910,
+  "tags": {
+    "addr:full": "東京都港区赤坂8-10-16",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "順和会山王病院",
+    "name:en": "Sanno Hospital",
+    "name:es": "Hospital Sanno",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wikidata": "Q11470055",
+    "wikipedia": "ja:山王病院"
+  }
+},
+{
+  "type": "node",
+  "id": 1895720128,
+  "lat": 35.6588948,
+  "lon": 139.7272687,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "心臓血管研究所付属病院",
+    "name:en": "The Cardiovascular Institute Hospital",
+    "wheelchair": "yes",
+    "wikidata": "Q30254277"
+  }
+},
+{
+  "type": "node",
+  "id": 2204921527,
+  "lat": 35.6982600,
+  "lon": 139.7634569,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "healthcare:speciality": "dentistry",
+    "name": "日本大学歯学部付属歯科病院",
+    "name:en": "Nihon University School of Dentistry Dental Hospital",
+    "wheelchair": "yes",
+    "wikidata": "Q11507855",
+    "wikimedia_commons": "Category:Nihon University School of Dentistry Dental Hospital",
+    "wikipedia": "ja:日本大学歯学部付属歯科病院"
+  }
+},
+{
+  "type": "node",
+  "id": 3174709241,
+  "lat": 35.6955722,
+  "lon": 139.7924394,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "湘南メディカル記念病院",
+    "name:en": "Shonan Medical Memorial Hospital",
+    "old_name": "両国駅前病院",
+    "website": "https://www.sbc-hospital.jp"
+  }
+},
+{
+  "type": "node",
+  "id": 3444449754,
+  "lat": 35.6459427,
+  "lon": 139.7525551,
+  "tags": {
+    "amenity": "hospital",
+    "designation": "OBGYN",
+    "emergency": "yes",
+    "healthcare": "hospital",
+    "healthcare:speciality": "gynaecology",
+    "name": "愛育病院",
+    "name:en": "Aiiku Hospital",
+    "name:ja": "愛育病院",
+    "wheelchair": "yes",
+    "wikidata": "Q11073872",
+    "wikimedia_commons": "Category:Aiiku Hospital",
+    "wikipedia": "ja:愛育病院"
+  }
+},
+{
+  "type": "node",
+  "id": 3851695361,
+  "lat": 35.6938447,
+  "lon": 139.7522986,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "九段坂病院",
+    "name:en": "Kudanzaka Hospital",
+    "name:it": "Kudanzaka",
+    "payment:american_express": "yes",
+    "payment:coins": "yes",
+    "payment:jcb": "yes",
+    "payment:mastercard": "yes",
+    "payment:notes": "yes",
+    "payment:visa": "yes",
+    "phone": "03-3262-9191",
+    "website": "http://www.kudanzaka.com/",
+    "wikidata": "Q30280522",
+    "wikipedia": "ja:九段坂病院"
+  }
+},
+{
+  "type": "node",
+  "id": 3874159018,
+  "lat": 35.6732370,
+  "lon": 139.7803720,
+  "tags": {
+    "addr:block_number": "8",
+    "addr:city": "中央区",
+    "addr:housenumber": "15",
+    "addr:neighbourhood": "湊一丁目",
+    "addr:postcode": "104-0043",
+    "addr:province": "東京都",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "level": "2",
+    "name": "いしせ脳神経外科クリニック",
+    "opening_hours": "09:30-19:00",
+    "toilets:wheelchair": "no",
+    "website": "https://ishise.com/",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 4706273779,
+  "lat": 35.6479483,
+  "lon": 139.7350721,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "古川橋病院検診センター",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年　国土交通省",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 4733665329,
+  "lat": 35.6723445,
+  "lon": 139.7263486,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "Sanno Medical Center",
+    "name:ja": "Sanno Medical Center"
+  }
+},
+{
+  "type": "node",
+  "id": 5525436410,
+  "lat": 35.6997024,
+  "lon": 139.7831791,
+  "tags": {
+    "emergency": "assembly_point",
+    "name": "柳北公園 一時集合場所"
+  }
+},
+{
+  "type": "node",
+  "id": 5592737110,
+  "lat": 35.7032883,
+  "lon": 139.7785775,
+  "tags": {
+    "emergency": "assembly_point",
+    "name": "一時集合場所"
+  }
+},
+{
+  "type": "node",
+  "id": 5602363696,
+  "lat": 35.7055540,
+  "lon": 139.7835391,
+  "tags": {
+    "emergency": "assembly_point"
+  }
+},
+{
+  "type": "node",
+  "id": 5995139485,
+  "lat": 35.6583487,
+  "lon": 139.8113558,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "鈴木リハビリテーション病院"
+  }
+},
+{
+  "type": "node",
+  "id": 10219741801,
+  "lat": 35.7038519,
+  "lon": 139.7739073,
+  "tags": {
+    "emergency": "assembly_point",
+    "source": "survey"
+  }
+},
+{
+  "type": "node",
+  "id": 10219741802,
+  "lat": 35.7065527,
+  "lon": 139.7722473,
+  "tags": {
+    "emergency": "assembly_point"
+  }
+},
+{
+  "type": "node",
+  "id": 10219741803,
+  "lat": 35.7039933,
+  "lon": 139.7890157,
+  "tags": {
+    "emergency": "assembly_point",
+    "source": "survey"
+  }
+},
+{
+  "type": "node",
+  "id": 10248569878,
+  "lat": 35.7019696,
+  "lon": 139.7824249,
+  "tags": {
+    "emergency": "assembly_point",
+    "name": "NBK浅草橋ビル前周辺 一時集合場所"
+  }
+},
+{
+  "type": "node",
+  "id": 10572028663,
+  "lat": 35.7064720,
+  "lon": 139.8125993,
+  "tags": {
+    "emergency": "assembly_point"
+  }
+},
+{
+  "type": "node",
+  "id": 10613392558,
+  "lat": 35.7004498,
+  "lon": 139.7892136,
+  "tags": {
+    "emergency": "assembly_point",
+    "source": "survey"
+  }
+},
+{
+  "type": "node",
+  "id": 10680972840,
+  "lat": 35.7019724,
+  "lon": 139.7780509,
+  "tags": {
+    "emergency": "assembly_point",
+    "source": "survey"
+  }
+}
+
+  ]
+}

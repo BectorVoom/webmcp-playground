@@ -131,6 +131,8 @@ destination from a map under stress.
 | R3.8 | IF the routing engine is unreachable or its quota is exhausted, THEN THE SYSTEM SHALL fail with a distinct tagged error per case and SHALL fall back to a straight-line distance and bearing list, explicitly labelled as **not a route** and not usable for navigation. |
 | R3.9 | THE SYSTEM SHALL state the routing engine's own assumptions in the result — costing model, that road closures and flood damage are not represented in the road network, and the data vintage where the engine reports one. |
 | R3.10 | IF no safe facility exists within the radius, THEN THE SYSTEM SHALL say so explicitly, name the radius searched, and SHALL NOT widen the search silently. |
+| R3.11 | THE SYSTEM SHALL draw as a route only geometry that follows a road network, SHALL verify the engine's geometry against that criterion rather than accepting the engine's claim, and IF no candidate to a destination follows a road network THEN THE SYSTEM SHALL report that destination as a straight-line distance and bearing under R3.8 and SHALL NOT draw it. |
+| R3.12 | THE SYSTEM SHALL offer several route candidates where the engine finds them, ranked by how much of each route's length runs through flood water and then by distance, SHALL present the leader as the recommendation, and SHALL highlight exactly one candidate at a time while keeping the others visible and plainly secondary. |
 
 ### R4 — Official alerts and advisories
 
@@ -236,6 +238,23 @@ Extends `webmcp-chat` R5; the mechanisms are inherited, the events are new.
 | R10.2 | THE SYSTEM SHALL document, in `docs/adding-a-region-provider.md`, the steps and the conformance bar for a new provider or region. |
 | R10.3 | The README SHALL state which upstreams are used per region, which need a key, what each licence requires, and how to run the feature with no key at all. |
 | R10.4 | `bun run check` SHALL remain green with no network access and no API keys configured. |
+
+### R11 — Place name resolution
+
+**As a** user asking about somewhere other than where I am standing — my daughter's school, the
+station I am about to walk to — **I want** to name it, **so that** I do not have to produce
+coordinates for it myself, and neither does the model from memory.
+
+| ID | Criterion |
+| --- | --- |
+| R11.1 | THE SYSTEM SHALL provide a tool that resolves a natural-language place name, in any language the source indexes, to WGS84 coordinates, and SHALL return the coordinates at the precision required by R1.6. |
+| R11.2 | THE SYSTEM SHALL return the candidate matches ranked, each carrying its own name, enough address context to distinguish it from a like-named place, its kind, and its provenance. |
+| R11.3 | IF no place matches, THEN THE SYSTEM SHALL say so and SHALL state that no coordinates were produced — and SHALL NOT return an approximate, nearest, or invented location. |
+| R11.4 | IF two or more candidates answer the query about equally well AND they lie more than 1 km apart, THEN THE SYSTEM SHALL mark the result ambiguous and SHALL NOT nominate one of them as the coordinates to act on. Candidates closer together than that are two names for one place at the resolution every other tool works at, and SHALL NOT be reported as a choice. |
+| R11.5 | WHERE a match denotes an area rather than a point, THE SYSTEM SHALL state that its coordinates are a label point within that area and not a specific address. |
+| R11.6 | THE SYSTEM SHALL state, for every match, whether it falls inside a supported region and which authority covers it, so a caller learns before a second tool call that no hazard data exists for it. |
+| R11.7 | IF the query is empty or is itself a coordinate pair, THEN THE SYSTEM SHALL fail with a tagged error naming the problem rather than issuing a search. |
+| R11.8 | The fixture geocoder SHALL resolve only names it actually holds, and SHALL NOT synthesise a location for an unknown name in the way the fixture providers for area-based data legitimately may. |
 
 ## 3. Non-functional requirements
 

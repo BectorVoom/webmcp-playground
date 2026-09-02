@@ -14,15 +14,32 @@ import type { AdapterId } from '../../ports/ToolHost'
  * so both are solved once, here.
  */
 
+/**
+ * The host's own words for a rejection, whatever it chose to throw.
+ *
+ * `DOMException` needs its own arm: it is not an `Error` subclass and carries
+ * no enumerable own properties, so `JSON.stringify` renders it `"{}"`. That is
+ * the shape a shipping browser actually rejects with — Chrome 152 and Edge 151
+ * both answer a failed tool with `UnknownError: Tool was executed but the
+ * invocation failed…` — so without this the one message that explains the
+ * failure would arrive as an empty object.
+ */
+const describeCause = (cause: unknown): string | undefined => {
+  if (cause instanceof Error) return cause.message
+  if (typeof cause === 'string') return cause
+  if (typeof cause === 'object' && cause !== null) {
+    const { name, message } = cause as { name?: unknown; message?: unknown }
+    if (typeof message === 'string' && message !== '') {
+      return typeof name === 'string' && name !== '' ? `${name}: ${message}` : message
+    }
+  }
+  return undefined
+}
+
 /** Rejected as a string; recovered as a tag where the host preserved it (R6.8). */
 export const errorFromHostRejection = (toolName: string, cause: unknown): ToolError => {
   if (isToolBoundaryError(cause)) return cause.detail as ToolError
-  const message =
-    cause instanceof Error
-      ? cause.message
-      : typeof cause === 'string'
-        ? cause
-        : JSON.stringify(cause)
+  const message = describeCause(cause) ?? JSON.stringify(cause) ?? String(cause)
   return new ToolExecutionError({ tool: toolName, message, cause })
 }
 
@@ -45,6 +62,23 @@ export const resultFromHostValue = (raw: unknown): ToolResult => {
     return { content: [{ type: 'text', text: raw }] }
   }
   return { content: [{ type: 'text', text: JSON.stringify(raw) ?? String(raw) }] }
+}
+
+/**
+ * A tool's input schema as read back from the host.
+ *
+ * Chrome 152 and Edge 151 store the schema stringified: an object goes in via
+ * `registerTool` and a JSON string comes back out of `getTools`. That value is
+ * handed straight to the model as its `parameters`, so leaving it as a string
+ * publishes every tool with a schema no endpoint can read — a failure that
+ * looks like the model ignoring the tools rather than like a type error.
+ */
+export const schemaFromHostValue = (raw: unknown): object | undefined => {
+  if (typeof raw === 'string') {
+    const parsed = tryParseJson(raw)
+    return typeof parsed === 'object' && parsed !== null ? (parsed as object) : undefined
+  }
+  return typeof raw === 'object' && raw !== null ? (raw as object) : undefined
 }
 
 const tryParseJson = (text: string): unknown => {
@@ -85,4 +119,4 @@ export const validateRegistration = (
 }
 
 export const hostMessageOf = (cause: unknown): string =>
-  cause instanceof Error ? cause.message : typeof cause === 'string' ? cause : JSON.stringify(cause)
+  describeCause(cause) ?? JSON.stringify(cause) ?? String(cause)

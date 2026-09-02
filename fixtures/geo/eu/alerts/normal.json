@@ -19,6 +19,7 @@
       "expires": 1999999999000,
       "sender": "UK Met Office / Environment Agency",
       "areaDescription": "Greater London",
+      "area": [-0.51, 51.28, 0.33, 51.69],
       "language": "en"
     }
   ]

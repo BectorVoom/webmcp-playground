@@ -1,0 +1,644 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T22:46:21Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 1420944968,
+  "lat": 36.0842550,
+  "lon": 136.2283870,
+  "tags": {
+    "addr:full": "福井県福井市大願寺3-9-3",
+    "amenity": "hospital",
+    "name": "コンコルディア大滝外科胃腸科病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420945229,
+  "lat": 36.0622671,
+  "lon": 136.2031827,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "佐藤整形・形成外科病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年　国土交通省",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420945233,
+  "lat": 36.0629880,
+  "lon": 136.2267660,
+  "tags": {
+    "addr:full": "福井県福井市日之出2-12-2",
+    "amenity": "hospital",
+    "name": "健友会原整形外科病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420945240,
+  "lat": 36.0657990,
+  "lon": 136.1960710,
+  "tags": {
+    "addr:full": "福井県福井市光陽3-9-23",
+    "amenity": "hospital",
+    "name": "光陽生協病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wikidata": "Q24865857"
+  }
+},
+{
+  "type": "node",
+  "id": 1420945270,
+  "lat": 36.0533840,
+  "lon": 136.2117920,
+  "tags": {
+    "addr:full": "福井県福井市西木田3-5-13",
+    "amenity": "hospital",
+    "name": "冨永病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420945275,
+  "lat": 36.0716880,
+  "lon": 136.2205130,
+  "tags": {
+    "addr:full": "福井県福井市松本4-5-10",
+    "amenity": "hospital",
+    "name": "初生会福井中央クリニック",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420946626,
+  "lat": 36.0593840,
+  "lon": 136.2182360,
+  "tags": {
+    "addr:full": "福井県福井市中央2-7-19",
+    "amenity": "hospital",
+    "name": "安土病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420946641,
+  "lat": 36.0951310,
+  "lon": 136.2469550,
+  "tags": {
+    "addr:full": "福井県福井市大和田町30-7",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "安川病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wikidata": "Q24865885",
+    "wikipedia": "ja:安川病院"
+  }
+},
+{
+  "type": "node",
+  "id": 1420946754,
+  "lat": 36.0752430,
+  "lon": 136.2173750,
+  "tags": {
+    "addr:full": "福井県福井市文京2-1-15",
+    "amenity": "hospital",
+    "name": "小林病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420947053,
+  "lat": 36.0531473,
+  "lon": 136.2344529,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "嶋田病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年　国土交通省",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420947966,
+  "lat": 36.0618550,
+  "lon": 136.2091530,
+  "tags": {
+    "KSJ2:ADS": "つくも2-5-5",
+    "KSJ2:AdminArea": "福井県福井市",
+    "amenity": "hospital",
+    "name": "幸和会西浦病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年　国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420948053,
+  "lat": 36.0643371,
+  "lon": 136.2238573,
+  "tags": {
+    "amenity": "hospital",
+    "name": "慈豊会田中病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年　国土交通省",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1420948077,
+  "lat": 36.0640220,
+  "lon": 136.2280400,
+  "tags": {
+    "addr:full": "福井県福井市日之出2-15-10",
+    "amenity": "hospital",
+    "name": "成蹊会岩井病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420948332,
+  "lat": 36.0914070,
+  "lon": 136.2067650,
+  "tags": {
+    "addr:full": "福井県福井市新田塚1-42-1",
+    "amenity": "hospital",
+    "name": "新田塚医療福祉センター福井病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420948333,
+  "lat": 36.0920630,
+  "lon": 136.2064470,
+  "tags": {
+    "addr:full": "福井県福井市新田塚1-42-1",
+    "amenity": "hospital",
+    "fixme": "addr:fullを機械付与した時点でオリジナルと位置が46.5m変化しています",
+    "healthcare": "hospital",
+    "name": "新田塚医療福祉センター福井病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420948334,
+  "lat": 36.0913720,
+  "lon": 136.2070110,
+  "tags": {
+    "addr:full": "福井県福井市新田塚1-42-1",
+    "amenity": "hospital",
+    "name": "新田塚医療福祉センター福井総合病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420948337,
+  "lat": 36.0636610,
+  "lon": 136.2120970,
+  "tags": {
+    "addr:full": "福井県福井市中央3-7-12",
+    "amenity": "hospital",
+    "name": "新田胃腸科放射線科病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420948486,
+  "lat": 36.0779920,
+  "lon": 136.2188460,
+  "tags": {
+    "addr:full": "福井県福井市文京2-9-1",
+    "amenity": "hospital",
+    "name": "松原病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420948677,
+  "lat": 36.0695490,
+  "lon": 136.2266790,
+  "tags": {
+    "addr:full": "福井県福井市宝永2-10-8",
+    "amenity": "hospital",
+    "name": "泉水会山田病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420948695,
+  "lat": 36.0612720,
+  "lon": 136.2055700,
+  "tags": {
+    "addr:full": "福井県福井市足羽2-1-22",
+    "amenity": "hospital",
+    "name": "清水内科循環器科病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420948891,
+  "lat": 36.1083780,
+  "lon": 136.2273740,
+  "tags": {
+    "addr:full": "福井県福井市下森田新町13",
+    "amenity": "hospital",
+    "name": "畑内科病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420949150,
+  "lat": 36.0358792,
+  "lon": 136.2330775,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "福井厚生病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年　国土交通省",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wikidata": "Q22123886"
+  }
+},
+{
+  "type": "node",
+  "id": 1420949330,
+  "lat": 36.0779660,
+  "lon": 136.2502050,
+  "tags": {
+    "KSJ2:ADS": "新保2-228",
+    "KSJ2:AdminArea": "福井県福井市",
+    "amenity": "hospital",
+    "name": "福井循環器病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年　国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wikidata": "Q24863758"
+  }
+},
+{
+  "type": "node",
+  "id": 1420949343,
+  "lat": 36.0783810,
+  "lon": 136.2511280,
+  "tags": {
+    "addr:full": "福井県福井市新保2-212",
+    "amenity": "hospital",
+    "name": "福井愛育病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wikidata": "Q24863737"
+  }
+},
+{
+  "type": "node",
+  "id": 1420949477,
+  "lat": 36.0694390,
+  "lon": 136.2380120,
+  "tags": {
+    "addr:full": "福井県福井市四ツ井2-8-48",
+    "amenity": "hospital",
+    "name": "福井県小児療育センター",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator": "福井県",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420949513,
+  "lat": 36.0473580,
+  "lon": 136.2521780,
+  "tags": {
+    "addr:full": "福井県福井市和田中町舟橋7-1",
+    "amenity": "hospital",
+    "name": "福井県済生会病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wikidata": "Q11591457"
+  }
+},
+{
+  "type": "node",
+  "id": 1420949549,
+  "lat": 36.0690815,
+  "lon": 136.2389397,
+  "tags": {
+    "amenity": "hospital",
+    "name": "福井県立病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年　国土交通省",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wikidata": "Q11591485"
+  }
+},
+{
+  "type": "node",
+  "id": 1420949637,
+  "lat": 36.0474871,
+  "lon": 136.2130280,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "福井赤十字病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年　国土交通省",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
+    "wikidata": "Q11591744"
+  }
+},
+{
+  "type": "node",
+  "id": 1420949652,
+  "lat": 36.0758960,
+  "lon": 136.2063160,
+  "tags": {
+    "addr:full": "福井県福井市文京5-10-1",
+    "amenity": "hospital",
+    "fixme": "addr:fullを機械付与した時点でオリジナルと位置が32.9m変化しています",
+    "healthcare": "hospital",
+    "name": "福仁会病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420949680,
+  "lat": 36.0697531,
+  "lon": 136.2034884,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "穂仁会大滝病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年　国土交通省",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420949858,
+  "lat": 36.0696050,
+  "lon": 136.2200410,
+  "tags": {
+    "addr:full": "福井県福井市宝永4-15-7",
+    "amenity": "hospital",
+    "name": "藤田記念病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年 国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 1420949889,
+  "lat": 36.0602450,
+  "lon": 136.2118470,
+  "tags": {
+    "KSJ2:ADS": "左内町11-22",
+    "KSJ2:AdminArea": "福井県福井市",
+    "amenity": "hospital",
+    "name": "角野病院",
+    "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
+    "note:ja": "国土数値情報（公共施設データ）平成19年　国土交通省",
+    "operator:type": "private",
+    "source": "KSJ2",
+    "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html"
+  }
+},
+{
+  "type": "node",
+  "id": 11409667969,
+  "lat": 36.0249903,
+  "lon": 136.2089690,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "さくら病院"
+  }
+},
+{
+  "type": "node",
+  "id": 12386052629,
+  "lat": 36.0713510,
+  "lon": 136.2032998,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "大滝病院"
+  }
+},
+{
+  "type": "node",
+  "id": 12386215724,
+  "lat": 36.0655535,
+  "lon": 136.1953919,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "光陽生協病院"
+  }
+},
+{
+  "type": "way",
+  "id": 836341335,
+  "center": {
+    "lat": 36.0917301,
+    "lon": 136.2064858
+  },
+  "nodes": [
+    7806072691,
+    7806072692,
+    7806072693,
+    11369949615,
+    7806072695,
+    7806072691
+  ],
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital"
+  }
+},
+{
+  "type": "way",
+  "id": 838420808,
+  "center": {
+    "lat": 36.0920294,
+    "lon": 136.2063468
+  },
+  "nodes": [
+    7824847784,
+    7824872285,
+    7824872286,
+    7824872287,
+    7824872288,
+    7824872289,
+    7824872290,
+    7824872291,
+    7824872292,
+    7824847784
+  ],
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital"
+  }
+},
+{
+  "type": "way",
+  "id": 1050459291,
+  "center": {
+    "lat": 36.0471480,
+    "lon": 136.2133616
+  },
+  "nodes": [
+    9653299973,
+    9653299974,
+    9653300091,
+    9653299975,
+    9653299976,
+    9653299977,
+    9653299978,
+    9653300126,
+    9653299979,
+    9653299980,
+    9653299981,
+    9653299982,
+    9653299983,
+    9653299984,
+    9653299985,
+    9653299986,
+    9653299987,
+    9653299988,
+    9653299973
+  ],
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "福井赤十字病院"
+  }
+}
+
+  ]
+}

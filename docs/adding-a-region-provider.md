@@ -24,6 +24,12 @@ Implement the four domain ports defined in `src/ports/`:
 4. **`RoutingPort`** (`src/ports/Routing.ts`):
    - Use Valhalla or regional pedestrian routing with polygon exclusion areas and unavoided crossing detection.
 
+**Not part of a region bundle: `GeocodingPort`** (`src/ports/Geocoding.ts`). A geocoder turns a name
+into coordinates, and the region is resolved *from* coordinates — so selecting one by region would be
+circular, and would make "where is Fukui Station" depend on where the asker is standing. One global
+provider serves every region, bound through `getGeocoderForMode` rather than through a bundle. Add a
+regional geocoder only if it answers better *for names anywhere*, and register it there.
+
 ---
 
 ## 2. Register Regional Bounding Box
@@ -67,7 +73,7 @@ export const LIVE_BUNDLES: BundleRegistry = {
     flood: [new TwFloodProvider()],
     places: [new TwPlacesProvider()],
     alerts: [new TwAlertsProvider()],
-    routing: new ValhallaRoutingProvider(),
+    routing: new StadiaRoutingProvider(),
   },
 }
 ```
@@ -79,8 +85,11 @@ export const LIVE_BUNDLES: BundleRegistry = {
 If the provider queries live upstream HTTP APIs, add the hostnames to `.env.example` and `server/config.ts` default `GEO_ALLOWED_HOSTS`:
 
 ```env
-GEO_ALLOWED_HOSTS="api.weather.gov,cyberjapandata.gsi.go.jp,cwa.gov.tw,..."
+GEO_ALLOWED_HOSTS="api.weather.gov,cyberjapandata.gsi.go.jp,nominatim.openstreetmap.org,cwa.gov.tw,..."
 ```
+
+Keep the two in step: a host missing from either list is refused before the request leaves the
+process, and the failure looks like an outage rather than a configuration mistake.
 
 ---
 

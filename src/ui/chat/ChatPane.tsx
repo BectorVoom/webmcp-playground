@@ -22,7 +22,7 @@ function ToolCallEntry({ call, index }: { call: Turn['toolCalls'][number]; index
         failed ? 'border-danger/40 bg-danger/5' : 'border-border-subtle bg-surface-raised'
       }`}
     >
-      <div className="flex items-baseline gap-2 text-xs">
+      <div className="flex items-baseline gap-2 text-ui">
         <span className="text-ink-muted">#{index + 1}</span>
         <span className="font-mono font-semibold">{call.name}</span>
         <span className="text-ink-muted">{call.durationMs ?? 0} ms</span>
@@ -55,10 +55,10 @@ function TurnView({ turn }: { turn: Turn }) {
   return (
     <li data-testid={`chat-turn-${turn.id}`} className="flex flex-col gap-2">
       <div className="flex items-baseline gap-2">
-        <span className="rounded bg-accent/15 px-1.5 py-0.5 text-[11px] font-semibold text-accent">
+        <span className="rounded bg-accent/15 px-1.5 py-0.5 text-ui font-semibold text-accent">
           you
         </span>
-        <p className="whitespace-pre-wrap">{turn.userMessage}</p>
+        <p className="max-w-[70ch] whitespace-pre-wrap">{turn.userMessage}</p>
       </div>
 
       {turn.toolCalls.length > 0 && (
@@ -71,10 +71,10 @@ function TurnView({ turn }: { turn: Turn }) {
 
       {turn.finalText !== null && (
         <div className="flex items-baseline gap-2">
-          <span className="rounded bg-ok/15 px-1.5 py-0.5 text-[11px] font-semibold text-ok">
+          <span className="rounded bg-ok/15 px-1.5 py-0.5 text-ui font-semibold text-ok">
             assistant
           </span>
-          <p className="whitespace-pre-wrap">{turn.finalText}</p>
+          <p className="max-w-[70ch] whitespace-pre-wrap">{turn.finalText}</p>
         </div>
       )}
 
@@ -91,7 +91,7 @@ function TurnView({ turn }: { turn: Turn }) {
         </div>
       )}
 
-      <div className="ml-6 flex items-center gap-2 text-[11px] text-ink-muted">
+      <div className="ml-6 flex items-center gap-2 text-ui text-ink-muted">
         <span data-testid={`chat-turn-state-${turn.id}`}>
           {STATE_LABEL[turn.state]} · {turn.steps} step(s) ·{' '}
           {turn.endedAt === undefined ? '—' : `${turn.endedAt - turn.startedAt} ms`}
@@ -142,7 +142,7 @@ export function ChatPane() {
       {state.notice !== null && (
         <div
           data-testid="chat-notice"
-          className="border-b border-warn/30 bg-warn/10 px-3 py-2 text-xs text-ink"
+          className="border-b border-warn/30 bg-warn/10 px-3 py-2 text-body text-ink"
         >
           {state.notice}
         </div>
@@ -152,12 +152,15 @@ export function ChatPane() {
         data-testid="chat-transcript"
         aria-live="polite"
         aria-label="Conversation transcript"
-        className="flex flex-1 flex-col gap-5 overflow-y-auto p-4 text-sm"
+        className="flex flex-1 flex-col gap-5 overflow-y-auto p-4 text-body"
       >
         {state.turns.length === 0 && (
-          <li className="text-ink-muted">
-            Send a message to start. With the scripted driver, try “add milk”, “please fail”,
-            “hang please”, or “loop forever”.
+          <li className="rounded-lg border border-accent/20 bg-accent/5 p-4">
+            <p className="font-semibold text-ink">Ask for a safer next step.</p>
+            <p className="mt-1 max-w-[70ch] text-ink-muted">
+              Try “Show flood risk and evacuation options near Tokyo Station” or ask about your
+              current location. The map and evidence update as WebMCP tools run.
+            </p>
           </li>
         )}
         {state.turns.map((turn) => (
@@ -176,7 +179,7 @@ export function ChatPane() {
           data-testid="chat-input-message"
           aria-label="Message"
           rows={2}
-          className="flex-1 resize-none rounded border border-border-subtle bg-surface px-2 py-1.5 text-sm"
+          className="flex-1 resize-none rounded border border-border-subtle bg-surface px-2 py-1.5 text-body"
           placeholder="Message…"
           value={draft}
           disabled={running}
@@ -192,7 +195,7 @@ export function ChatPane() {
           <button
             type="button"
             data-testid="chat-button-cancel"
-            className="self-end rounded border border-danger/50 px-3 py-1.5 text-sm text-danger hover:bg-danger/10"
+            className="self-end rounded border border-danger/50 px-3 py-1.5 text-body text-danger hover:bg-danger/10"
             onClick={() => session.cancel()}
           >
             cancel
@@ -201,7 +204,7 @@ export function ChatPane() {
           <button
             type="button"
             data-testid="chat-button-send"
-            className="self-end rounded bg-accent px-3 py-1.5 text-sm text-white disabled:opacity-40"
+            className="self-end rounded bg-accent px-3 py-1.5 text-body text-on-accent disabled:opacity-40"
             disabled={draft.trim() === ''}
             onClick={submit}
           >

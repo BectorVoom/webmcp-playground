@@ -64,14 +64,25 @@ export interface ResolvedRegion {
   readonly rule: RegionRule
 }
 
+/**
+ * The region containing a point, or `undefined` where none does. For callers that treat "outside
+ * every supported region" as a fact to report rather than a failure to propagate — a geocoder,
+ * most obviously, which can legitimately resolve a place nothing else here has data for.
+ */
+export const findRegion = (coords: LonLat): ResolvedRegion | undefined => {
+  for (const rule of REGION_RULES) {
+    if (rule.bboxes.some((box) => inBBox(coords, box))) {
+      return { region: rule.id, rule }
+    }
+  }
+  return undefined
+}
+
 export const resolveRegion = (
   coords: LonLat,
 ): Effect.Effect<ResolvedRegion, RegionUnsupported> => {
-  for (const rule of REGION_RULES) {
-    if (rule.bboxes.some((box) => inBBox(coords, box))) {
-      return Effect.succeed({ region: rule.id, rule })
-    }
-  }
+  const found = findRegion(coords)
+  if (found) return Effect.succeed(found)
 
   return Effect.fail(
     new RegionUnsupported({

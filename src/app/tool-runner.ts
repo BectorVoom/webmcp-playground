@@ -2,7 +2,7 @@ import { Cause, Effect, Exit } from 'effect'
 import { decodeToolInput } from '../domain/schema'
 import { ToolAborted, ToolExecutionError, ToolTimeout, describeError, type ToolError } from '../domain/errors'
 import { ToolBoundaryError } from '../domain/tool-boundary'
-import { newCallId, type TurnId } from '../domain/ids'
+import type { IdFactory, TurnId } from '../domain/ids'
 import type { AnyToolDefinition, ToolResult } from '../domain/tool'
 import type { ToolRunner, ToolRunOptions } from '../ports/ToolRunner'
 import type { TraceSinkService } from '../ports/TraceSink'
@@ -11,6 +11,7 @@ import type { FaultInjector } from './fault-injector'
 export interface ToolRunnerDeps {
   readonly sink: TraceSinkService
   readonly faults: FaultInjector
+  readonly ids: IdFactory
   readonly timeoutMs: () => number
   readonly currentTurnId: () => TurnId | undefined
 }
@@ -35,7 +36,7 @@ export const createToolRunner = (deps: ToolRunnerDeps): ToolRunner => {
     rawInput: unknown,
     options: ToolRunOptions,
   ): Effect.Effect<ToolResult, ToolError> => {
-    const callId = options.callId ?? newCallId()
+    const callId = options.callId ?? deps.ids.newCallId()
     const turnId = options.turnId ?? deps.currentTurnId()
     const correlation = { callId, turnId }
     const timeoutMs = deps.timeoutMs()

@@ -1,0 +1,878 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:cap="urn:oasis:names:tc:emergency:cap:1.2">
+  <link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+  <link type="application/atom+xml" rel="self" href="https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-france"/>
+  <link type="text/html" rel="alternate" href="https://meteoalarm.org"/>
+  <rights>Copyright © 2026 MeteoAlarm.Org. Licensed under terms equivalent to CC BY 4.0, with additional requirements for redistributing outlined in our Terms and Conditions.</rights>
+  <generator>MeteoAlarm Producer Server</generator>
+  <logo>https://feeds.meteoalarm.org/images/logo.svg</logo>
+  <author>
+    <name>meteoalarm.org</name>
+    <uri>https://meteoalarm.org</uri>
+    <email>meteoalarm@geosphere.at</email>
+  </author>
+  <id>tag:meteoalarm.org,2021-02-19:FR</id>
+  <title>MeteoAlarm - Alerting Europe for Extreme Weather</title>
+  <updated>2026-08-29T22:36:34.496354Z</updated>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR832</value>
+    </cap:geocode>
+    <link title="Haute-Corse" href="https://meteoalarm.org?geocode=EMMA_ID:FR089" hreflang="en"/>
+    <cap:areaDesc>Haute-Corse</cap:areaDesc>
+    <cap:event>Moderate high-temperature warning</cap:event>
+    <cap:sent>2026-08-29T14:00:42+00:00</cap:sent>
+    <cap:expires>2026-08-30T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T22:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T22:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160042.610026</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/c7a2db07-6ab4-43e9-ad00-f715adf9bf91"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:42Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/c7a2db07-6ab4-43e9-ad00-f715adf9bf91?index_info=1&amp;index_area=1&amp;index_geocode=0</id>
+    <title>Yellow High-temperature Warning issued for France - Haute-Corse</title>
+    <updated>2026-08-29T14:00:42Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR831</value>
+    </cap:geocode>
+    <link title="Corse-du-Sud" href="https://meteoalarm.org?geocode=EMMA_ID:FR090" hreflang="en"/>
+    <cap:areaDesc>Corse-du-Sud</cap:areaDesc>
+    <cap:event>Moderate high-temperature warning</cap:event>
+    <cap:sent>2026-08-29T14:00:42+00:00</cap:sent>
+    <cap:expires>2026-08-30T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T22:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T22:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160042.610026</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/c7a2db07-6ab4-43e9-ad00-f715adf9bf91"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:42Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/c7a2db07-6ab4-43e9-ad00-f715adf9bf91?index_info=1&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Yellow High-temperature Warning issued for France - Corse-du-Sud</title>
+    <updated>2026-08-29T14:00:42Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR301</value>
+    </cap:geocode>
+    <link title="Nord" href="https://meteoalarm.org?geocode=EMMA_ID:FR070" hreflang="en"/>
+    <cap:areaDesc>Nord</cap:areaDesc>
+    <cap:event>Moderate thunderstorm warning</cap:event>
+    <cap:sent>2026-08-29T14:00:38+00:00</cap:sent>
+    <cap:expires>2026-08-30T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T22:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T22:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160038.184023</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:38Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97?index_info=1&amp;index_area=16&amp;index_geocode=0</id>
+    <title>Yellow Thunderstorm Warning issued for France - Nord</title>
+    <updated>2026-08-29T14:00:38Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR261</value>
+    </cap:geocode>
+    <link title="Côte-d'Or" href="https://meteoalarm.org?geocode=EMMA_ID:FR078" hreflang="en"/>
+    <cap:areaDesc>Côte-d'Or</cap:areaDesc>
+    <cap:event>Moderate thunderstorm warning</cap:event>
+    <cap:sent>2026-08-29T14:00:38+00:00</cap:sent>
+    <cap:expires>2026-08-30T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T22:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T22:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160038.184023</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:38Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97?index_info=1&amp;index_area=15&amp;index_geocode=0</id>
+    <title>Yellow Thunderstorm Warning issued for France - Côte-d'Or</title>
+    <updated>2026-08-29T14:00:38Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR302</value>
+    </cap:geocode>
+    <link title="Pas-de-Calais" href="https://meteoalarm.org?geocode=EMMA_ID:FR069" hreflang="en"/>
+    <cap:areaDesc>Pas-de-Calais</cap:areaDesc>
+    <cap:event>Moderate thunderstorm warning</cap:event>
+    <cap:sent>2026-08-29T14:00:38+00:00</cap:sent>
+    <cap:expires>2026-08-30T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T22:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T22:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160038.184023</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:38Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97?index_info=1&amp;index_area=14&amp;index_geocode=0</id>
+    <title>Yellow Thunderstorm Warning issued for France - Pas-de-Calais</title>
+    <updated>2026-08-29T14:00:38Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR434</value>
+    </cap:geocode>
+    <link title="Territoire de Belfort" href="https://meteoalarm.org?geocode=EMMA_ID:FR081" hreflang="en"/>
+    <cap:areaDesc>Territoire de Belfort</cap:areaDesc>
+    <cap:event>Moderate thunderstorm warning</cap:event>
+    <cap:sent>2026-08-29T14:00:38+00:00</cap:sent>
+    <cap:expires>2026-08-30T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T22:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T22:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160038.184023</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:38Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97?index_info=1&amp;index_area=13&amp;index_geocode=0</id>
+    <title>Yellow Thunderstorm Warning issued for France - Territoire de Belfort</title>
+    <updated>2026-08-29T14:00:38Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR223</value>
+    </cap:geocode>
+    <link title="Somme" href="https://meteoalarm.org?geocode=EMMA_ID:FR071" hreflang="en"/>
+    <cap:areaDesc>Somme</cap:areaDesc>
+    <cap:event>Moderate thunderstorm warning</cap:event>
+    <cap:sent>2026-08-29T14:00:38+00:00</cap:sent>
+    <cap:expires>2026-08-30T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T22:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T22:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160038.184023</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:38Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97?index_info=1&amp;index_area=12&amp;index_geocode=0</id>
+    <title>Yellow Thunderstorm Warning issued for France - Somme</title>
+    <updated>2026-08-29T14:00:38Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR433</value>
+    </cap:geocode>
+    <link title="Haute-Saône" href="https://meteoalarm.org?geocode=EMMA_ID:FR082" hreflang="en"/>
+    <cap:areaDesc>Haute-Saône</cap:areaDesc>
+    <cap:event>Moderate thunderstorm warning</cap:event>
+    <cap:sent>2026-08-29T14:00:38+00:00</cap:sent>
+    <cap:expires>2026-08-30T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T22:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T22:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160038.184023</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:38Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97?index_info=1&amp;index_area=11&amp;index_geocode=0</id>
+    <title>Yellow Thunderstorm Warning issued for France - Haute-Saône</title>
+    <updated>2026-08-29T14:00:38Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR252</value>
+    </cap:geocode>
+    <link title="Manche" href="https://meteoalarm.org?geocode=EMMA_ID:FR051" hreflang="en"/>
+    <cap:areaDesc>Manche</cap:areaDesc>
+    <cap:event>Moderate thunderstorm warning</cap:event>
+    <cap:sent>2026-08-29T14:00:38+00:00</cap:sent>
+    <cap:expires>2026-08-30T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T22:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T22:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160038.184023</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:38Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97?index_info=1&amp;index_area=10&amp;index_geocode=0</id>
+    <title>Yellow Thunderstorm Warning issued for France - Manche</title>
+    <updated>2026-08-29T14:00:38Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR522</value>
+    </cap:geocode>
+    <link title="Finistère" href="https://meteoalarm.org?geocode=EMMA_ID:FR046" hreflang="en"/>
+    <cap:areaDesc>Finistère</cap:areaDesc>
+    <cap:event>Moderate thunderstorm warning</cap:event>
+    <cap:sent>2026-08-29T14:00:38+00:00</cap:sent>
+    <cap:expires>2026-08-30T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T22:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T22:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160038.184023</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:38Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97?index_info=1&amp;index_area=9&amp;index_geocode=0</id>
+    <title>Yellow Thunderstorm Warning issued for France - Finistère</title>
+    <updated>2026-08-29T14:00:38Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR431</value>
+    </cap:geocode>
+    <link title="Doubs" href="https://meteoalarm.org?geocode=EMMA_ID:FR080" hreflang="en"/>
+    <cap:areaDesc>Doubs</cap:areaDesc>
+    <cap:event>Moderate thunderstorm warning</cap:event>
+    <cap:sent>2026-08-29T14:00:38+00:00</cap:sent>
+    <cap:expires>2026-08-30T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T22:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T22:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160038.184023</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:38Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97?index_info=1&amp;index_area=8&amp;index_geocode=0</id>
+    <title>Yellow Thunderstorm Warning issued for France - Doubs</title>
+    <updated>2026-08-29T14:00:38Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR521</value>
+    </cap:geocode>
+    <link title="Côtes d'Armor" href="https://meteoalarm.org?geocode=EMMA_ID:FR047" hreflang="en"/>
+    <cap:areaDesc>Côtes d'Armor</cap:areaDesc>
+    <cap:event>Moderate thunderstorm warning</cap:event>
+    <cap:sent>2026-08-29T14:00:38+00:00</cap:sent>
+    <cap:expires>2026-08-30T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T22:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T22:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160038.184023</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:38Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97?index_info=1&amp;index_area=7&amp;index_geocode=0</id>
+    <title>Yellow Thunderstorm Warning issued for France - Côtes d'Armor</title>
+    <updated>2026-08-29T14:00:38Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR721</value>
+    </cap:geocode>
+    <link title="Allier" href="https://meteoalarm.org?geocode=EMMA_ID:FR043" hreflang="en"/>
+    <cap:areaDesc>Allier</cap:areaDesc>
+    <cap:event>Moderate thunderstorm warning</cap:event>
+    <cap:sent>2026-08-29T14:00:38+00:00</cap:sent>
+    <cap:expires>2026-08-30T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T22:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T22:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160038.184023</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:38Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97?index_info=1&amp;index_area=6&amp;index_geocode=0</id>
+    <title>Yellow Thunderstorm Warning issued for France - Allier</title>
+    <updated>2026-08-29T14:00:38Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR414</value>
+    </cap:geocode>
+    <link title="Vosges" href="https://meteoalarm.org?geocode=EMMA_ID:FR084" hreflang="en"/>
+    <cap:areaDesc>Vosges</cap:areaDesc>
+    <cap:event>Moderate thunderstorm warning</cap:event>
+    <cap:sent>2026-08-29T14:00:38+00:00</cap:sent>
+    <cap:expires>2026-08-30T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T22:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T22:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160038.184023</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:38Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97?index_info=1&amp;index_area=5&amp;index_geocode=0</id>
+    <title>Yellow Thunderstorm Warning issued for France - Vosges</title>
+    <updated>2026-08-29T14:00:38Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR263</value>
+    </cap:geocode>
+    <link title="Saône-et-Loire" href="https://meteoalarm.org?geocode=EMMA_ID:FR077" hreflang="en"/>
+    <cap:areaDesc>Saône-et-Loire</cap:areaDesc>
+    <cap:event>Moderate thunderstorm warning</cap:event>
+    <cap:sent>2026-08-29T14:00:38+00:00</cap:sent>
+    <cap:expires>2026-08-30T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T22:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T22:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160038.184023</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:38Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97?index_info=1&amp;index_area=4&amp;index_geocode=0</id>
+    <title>Yellow Thunderstorm Warning issued for France - Saône-et-Loire</title>
+    <updated>2026-08-29T14:00:38Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR232</value>
+    </cap:geocode>
+    <link title="Seine-Maritime" href="https://meteoalarm.org?geocode=EMMA_ID:FR055" hreflang="en"/>
+    <cap:areaDesc>Seine-Maritime</cap:areaDesc>
+    <cap:event>Moderate thunderstorm warning</cap:event>
+    <cap:sent>2026-08-29T14:00:38+00:00</cap:sent>
+    <cap:expires>2026-08-30T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T22:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T22:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160038.184023</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:38Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97?index_info=1&amp;index_area=3&amp;index_geocode=0</id>
+    <title>Yellow Thunderstorm Warning issued for France - Seine-Maritime</title>
+    <updated>2026-08-29T14:00:38Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR422</value>
+    </cap:geocode>
+    <link title="Haut-Rhin" href="https://meteoalarm.org?geocode=EMMA_ID:FR083" hreflang="en"/>
+    <cap:areaDesc>Haut-Rhin</cap:areaDesc>
+    <cap:event>Moderate thunderstorm warning</cap:event>
+    <cap:sent>2026-08-29T14:00:38+00:00</cap:sent>
+    <cap:expires>2026-08-30T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T22:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T22:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160038.184023</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:38Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97?index_info=1&amp;index_area=2&amp;index_geocode=0</id>
+    <title>Yellow Thunderstorm Warning issued for France - Haut-Rhin</title>
+    <updated>2026-08-29T14:00:38Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR432</value>
+    </cap:geocode>
+    <link title="Jura" href="https://meteoalarm.org?geocode=EMMA_ID:FR079" hreflang="en"/>
+    <cap:areaDesc>Jura</cap:areaDesc>
+    <cap:event>Moderate thunderstorm warning</cap:event>
+    <cap:sent>2026-08-29T14:00:38+00:00</cap:sent>
+    <cap:expires>2026-08-30T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T22:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T22:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160038.184023</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:38Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97?index_info=1&amp;index_area=1&amp;index_geocode=0</id>
+    <title>Yellow Thunderstorm Warning issued for France - Jura</title>
+    <updated>2026-08-29T14:00:38Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR251</value>
+    </cap:geocode>
+    <link title="Calvados" href="https://meteoalarm.org?geocode=EMMA_ID:FR052" hreflang="en"/>
+    <cap:areaDesc>Calvados</cap:areaDesc>
+    <cap:event>Moderate thunderstorm warning</cap:event>
+    <cap:sent>2026-08-29T14:00:38+00:00</cap:sent>
+    <cap:expires>2026-08-30T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T22:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T22:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160038.184023</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:38Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/1eaf73b2-0dc6-47d8-9c81-fcf8d74dcc97?index_info=1&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Yellow Thunderstorm Warning issued for France - Calvados</title>
+    <updated>2026-08-29T14:00:38Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR302</value>
+    </cap:geocode>
+    <link title="Pas-de-Calais" href="https://meteoalarm.org?geocode=EMMA_ID:FR069" hreflang="en"/>
+    <cap:areaDesc>Pas-de-Calais</cap:areaDesc>
+    <cap:event>Moderate wind warning</cap:event>
+    <cap:sent>2026-08-29T14:00:34+00:00</cap:sent>
+    <cap:expires>2026-08-30T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T22:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T22:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160034.562021</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/7a75484c-7277-4f8a-b5af-688bfa7a725c"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:34Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/7a75484c-7277-4f8a-b5af-688bfa7a725c?index_info=1&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Yellow Wind Warning issued for France - Pas-de-Calais</title>
+    <updated>2026-08-29T14:00:34Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR832</value>
+    </cap:geocode>
+    <link title="Haute-Corse" href="https://meteoalarm.org?geocode=EMMA_ID:FR089" hreflang="en"/>
+    <cap:areaDesc>Haute-Corse</cap:areaDesc>
+    <cap:event>Moderate high-temperature warning</cap:event>
+    <cap:sent>2026-08-29T14:00:30+00:00</cap:sent>
+    <cap:expires>2026-08-29T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T14:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T14:00:10+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160030.042026</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/02fa0db4-381a-4f29-b596-fdc5c165f512"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:30Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/02fa0db4-381a-4f29-b596-fdc5c165f512?index_info=1&amp;index_area=1&amp;index_geocode=0</id>
+    <title>Yellow High-temperature Warning issued for France - Haute-Corse</title>
+    <updated>2026-08-29T14:00:30Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR831</value>
+    </cap:geocode>
+    <link title="Corse-du-Sud" href="https://meteoalarm.org?geocode=EMMA_ID:FR090" hreflang="en"/>
+    <cap:areaDesc>Corse-du-Sud</cap:areaDesc>
+    <cap:event>Moderate high-temperature warning</cap:event>
+    <cap:sent>2026-08-29T14:00:30+00:00</cap:sent>
+    <cap:expires>2026-08-29T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T14:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T14:00:10+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160030.042026</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/02fa0db4-381a-4f29-b596-fdc5c165f512"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:30Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/02fa0db4-381a-4f29-b596-fdc5c165f512?index_info=1&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Yellow High-temperature Warning issued for France - Corse-du-Sud</title>
+    <updated>2026-08-29T14:00:30Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR301</value>
+    </cap:geocode>
+    <link title="Nord" href="https://meteoalarm.org?geocode=EMMA_ID:FR070" hreflang="en"/>
+    <cap:areaDesc>Nord</cap:areaDesc>
+    <cap:event>Moderate thunderstorm warning</cap:event>
+    <cap:sent>2026-08-29T14:00:25+00:00</cap:sent>
+    <cap:expires>2026-08-29T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T14:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T14:00:10+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160025.889023</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/21374976-ec09-4a3e-895a-7c64e5998512"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:25Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/21374976-ec09-4a3e-895a-7c64e5998512?index_info=1&amp;index_area=1&amp;index_geocode=0</id>
+    <title>Yellow Thunderstorm Warning issued for France - Nord</title>
+    <updated>2026-08-29T14:00:25Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR302</value>
+    </cap:geocode>
+    <link title="Pas-de-Calais" href="https://meteoalarm.org?geocode=EMMA_ID:FR069" hreflang="en"/>
+    <cap:areaDesc>Pas-de-Calais</cap:areaDesc>
+    <cap:event>Moderate thunderstorm warning</cap:event>
+    <cap:sent>2026-08-29T14:00:25+00:00</cap:sent>
+    <cap:expires>2026-08-29T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T14:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T14:00:10+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160025.889023</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/21374976-ec09-4a3e-895a-7c64e5998512"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:25Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/21374976-ec09-4a3e-895a-7c64e5998512?index_info=1&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Yellow Thunderstorm Warning issued for France - Pas-de-Calais</title>
+    <updated>2026-08-29T14:00:25Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR302</value>
+    </cap:geocode>
+    <link title="Pas-de-Calais" href="https://meteoalarm.org?geocode=EMMA_ID:FR069" hreflang="en"/>
+    <cap:areaDesc>Pas-de-Calais</cap:areaDesc>
+    <cap:event>Moderate wind warning</cap:event>
+    <cap:sent>2026-08-29T14:00:22+00:00</cap:sent>
+    <cap:expires>2026-08-29T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T14:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T14:00:10+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160022.521021</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/7366774b-ce62-4b18-9cd6-a769e63cbaec"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:22Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/7366774b-ce62-4b18-9cd6-a769e63cbaec?index_info=1&amp;index_area=1&amp;index_geocode=0</id>
+    <title>Yellow Wind Warning issued for France - Pas-de-Calais</title>
+    <updated>2026-08-29T14:00:22Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>NUTS3</valueName>
+      <value>FR252</value>
+    </cap:geocode>
+    <link title="Manche" href="https://meteoalarm.org?geocode=EMMA_ID:FR051" hreflang="en"/>
+    <cap:areaDesc>Manche</cap:areaDesc>
+    <cap:event>Moderate wind warning</cap:event>
+    <cap:sent>2026-08-29T14:00:22+00:00</cap:sent>
+    <cap:expires>2026-08-29T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T14:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T14:00:10+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160022.521021</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/7366774b-ce62-4b18-9cd6-a769e63cbaec"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:22Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/7366774b-ce62-4b18-9cd6-a769e63cbaec?index_info=1&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Yellow Wind Warning issued for France - Manche</title>
+    <updated>2026-08-29T14:00:22Z</updated>
+  </entry>
+  <entry>
+    <cap:polygon>50.391,1.515 50.4892,1.2529 50.2912,1.1956 50.2269,1.1483 50.0879,1.3552 50.1678,1.4436 50.2752,1.4894 50.391,1.515</cap:polygon>
+    <link title="Somme" href="https://meteoalarm.org?polygon=f22115b2-6370-4af1-84ba-b663e951f419,1,2,0" hreflang="en"/>
+    <cap:areaDesc>Somme</cap:areaDesc>
+    <cap:event>Moderate coastalevent warning</cap:event>
+    <cap:sent>2026-08-29T14:00:45+00:00</cap:sent>
+    <cap:expires>2026-08-30T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T22:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T22:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160045.781029</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/f22115b2-6370-4af1-84ba-b663e951f419"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:45Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/f22115b2-6370-4af1-84ba-b663e951f419?index_info=1&amp;index_area=2&amp;index_polygon=0</id>
+    <title>Yellow Coastalevent Warning issued for France - Somme</title>
+    <updated>2026-08-29T14:00:45Z</updated>
+  </entry>
+  <entry>
+    <cap:polygon>49.6232,0.0939 49.5164,0.0393 49.468,0.0469 49.5763,-0.1955 49.6173,-0.1952 49.7516,-0.1262 49.8725,-0.0218 50.0598,0.4633 50.0715,0.6138 50.1149,0.8886 50.2267,1.1483 50.0878,1.3551 50.0066,1.1967 49.9552,1.0559 49.8987,0.7462 49.8834,0.5881 49.7192,0.1579 49.6232,0.0939</cap:polygon>
+    <link title="Seine-Maritime" href="https://meteoalarm.org?polygon=f22115b2-6370-4af1-84ba-b663e951f419,1,1,0" hreflang="en"/>
+    <cap:areaDesc>Seine-Maritime</cap:areaDesc>
+    <cap:event>Moderate coastalevent warning</cap:event>
+    <cap:sent>2026-08-29T14:00:45+00:00</cap:sent>
+    <cap:expires>2026-08-30T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T22:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T22:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160045.781029</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/f22115b2-6370-4af1-84ba-b663e951f419"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:45Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/f22115b2-6370-4af1-84ba-b663e951f419?index_info=1&amp;index_area=1&amp;index_polygon=0</id>
+    <title>Yellow Coastalevent Warning issued for France - Seine-Maritime</title>
+    <updated>2026-08-29T14:00:45Z</updated>
+  </entry>
+  <entry>
+    <cap:polygon>51.0984,1.4893 51.1657,1.6758 51.2176,1.9628 51.0382,2.0838 50.9884,1.8024 50.9429,1.6711 50.8829,1.5447 50.5497,1.5331 50.3915,1.5151 50.4892,1.253 50.619,1.2734 50.986,1.2892 51.0984,1.4893</cap:polygon>
+    <link title="Pas-de-Calais" href="https://meteoalarm.org?polygon=f22115b2-6370-4af1-84ba-b663e951f419,1,0,0" hreflang="en"/>
+    <cap:areaDesc>Pas-de-Calais</cap:areaDesc>
+    <cap:event>Moderate coastalevent warning</cap:event>
+    <cap:sent>2026-08-29T14:00:45+00:00</cap:sent>
+    <cap:expires>2026-08-30T22:00:00+00:00</cap:expires>
+    <cap:effective>2026-08-29T22:00:00+00:00</cap:effective>
+    <cap:onset>2026-08-29T22:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.250.0.FR.20260829160045.781029</cap:identifier>
+    <link type="application/cap+xml" href="https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/f22115b2-6370-4af1-84ba-b663e951f419"/>
+    <link title="France" rel="related" href="https://meteoalarm.org?region=FR" hreflang="en"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2026-08-29T14:00:45Z</published>
+    <id>https://feeds.meteoalarm.org/api/v1/warnings/feeds-france/f22115b2-6370-4af1-84ba-b663e951f419?index_info=1&amp;index_area=0&amp;index_polygon=0</id>
+    <title>Yellow Coastalevent Warning issued for France - Pas-de-Calais</title>
+    <updated>2026-08-29T14:00:45Z</updated>
+  </entry>
+</feed>

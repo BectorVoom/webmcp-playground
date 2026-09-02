@@ -14,7 +14,7 @@ export const AttributionBar: React.FC<AttributionBarProps> = ({ attributions, no
   return (
     <footer
       data-testid="map-bar-attribution"
-      className="bg-slate-900/90 text-slate-400 text-[10px] px-3 py-1.5 border-t border-slate-800 flex flex-wrap items-center justify-between gap-2"
+      className="bg-slate-900/90 text-slate-400 text-meta px-3 py-1.5 border-t border-slate-800 flex flex-wrap items-center justify-between gap-2"
     >
       <div className="flex flex-wrap items-center gap-2">
         <span className="font-semibold text-slate-300">Data Sources:</span>

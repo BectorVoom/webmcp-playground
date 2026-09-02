@@ -1,0 +1,1597 @@
+[
+    {
+        "controlDatetime": "2026-08-29T22:24:05Z",
+        "reportDatetime": "2026-08-30T07:24:00+09:00",
+        "infoType": "\u767a\u8868",
+        "publishingOffice": "\u798f\u4e95\u5730\u65b9\u6c17\u8c61\u53f0",
+        "headlineText": "\u3010\u7279\u5225\u8b66\u5831\uff08\u5927\u96e8\uff09\u3011\u5dba\u5317\u5317\u90e8\u3001\u5965\u8d8a\u306b\u30ec\u30d9\u30eb\uff15\u5927\u96e8\u7279\u5225\u8b66\u5831\u3092\u767a\u8868\u3057\u3066\u3044\u307e\u3059\u3002\u4f4e\u3044\u571f\u5730\u306e\u6d78\u6c34\u3084\u6cb3\u5ddd\u306e\u5897\u6c34\u306b\u6700\u5927\u7d1a\u306e\u8b66\u6212\u3092\u3057\u3066\u304f\u3060\u3055\u3044\u3002",
+        "warning": {
+            "class10Items": [
+                {
+                    "areaCode": "180010",
+                    "kinds": [
+                        {
+                            "code": "33",
+                            "status": "\u7d99\u7d9a"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "180020",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                }
+            ],
+            "class20Items": [
+                {
+                    "areaCode": "1820100",
+                    "kinds": [
+                        {
+                            "code": "33",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u5927\u96e8\u6d78\u6c34\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "51"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820400",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820500",
+                    "kinds": [
+                        {
+                            "code": "33",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u5927\u96e8\u6d78\u6c34\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "51"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820600",
+                    "kinds": [
+                        {
+                            "code": "33",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u5927\u96e8\u6d78\u6c34\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "51"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820700",
+                    "kinds": [
+                        {
+                            "code": "03",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u5927\u96e8\u6d78\u6c34\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "31"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820800",
+                    "kinds": [
+                        {
+                            "code": "03",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u5927\u96e8\u6d78\u6c34\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "31"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820900",
+                    "kinds": [
+                        {
+                            "code": "03",
+                            "status": "\u767a\u8868",
+                            "properties": [
+                                {
+                                    "type": "\u5927\u96e8\u6d78\u6c34\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "31"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1821000",
+                    "kinds": [
+                        {
+                            "code": "43",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u5927\u96e8\u6d78\u6c34\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "41"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1832200",
+                    "kinds": [
+                        {
+                            "code": "43",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u5927\u96e8\u6d78\u6c34\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "41"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1838200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1840400",
+                    "kinds": [
+                        {
+                            "code": "10",
+                            "status": "\u767a\u8868",
+                            "properties": [
+                                {
+                                    "type": "\u5927\u96e8\u6d78\u6c34\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "21"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1842300",
+                    "kinds": [
+                        {
+                            "code": "03",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u5927\u96e8\u6d78\u6c34\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "31"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1844200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1848100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1848300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1850100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                }
+            ]
+        },
+        "dataTypeCode": "VPWW55"
+    },
+    {
+        "controlDatetime": "2026-08-29T22:24:05Z",
+        "reportDatetime": "2026-08-30T07:24:00+09:00",
+        "infoType": "\u767a\u8868",
+        "publishingOffice": "\u798f\u4e95\u5730\u65b9\u6c17\u8c61\u53f0",
+        "headlineText": "\u5dba\u5317\u3067\u306f\u3001\u571f\u7802\u707d\u5bb3\u306b\u53b3\u91cd\u306b\u8b66\u6212\u3057\u3066\u304f\u3060\u3055\u3044\u3002",
+        "warning": {
+            "class10Items": [
+                {
+                    "areaCode": "180010",
+                    "kinds": [
+                        {
+                            "code": "49",
+                            "status": "\u7d99\u7d9a"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "180020",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                }
+            ],
+            "class20Items": [
+                {
+                    "areaCode": "1820100",
+                    "kinds": [
+                        {
+                            "code": "49",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u571f\u7802\u707d\u5bb3\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "41"
+                                            }
+                                        ]
+                                    },
+                                    "criteriaPeriod": {
+                                        "locals": [
+                                            {
+                                                "sentence": "\uff13\uff10\u65e5\uff17\u6642\u304b\u3089\uff11\uff18\u6642\u307e\u3067\u3001\u8b66\u6212\u30ec\u30d9\u30eb\uff14\u76f8\u5f53",
+                                                "code": "41",
+                                                "time": "2026-08-30T07:00:00+09:00",
+                                                "duration": "PT11H"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820400",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820500",
+                    "kinds": [
+                        {
+                            "code": "49",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u571f\u7802\u707d\u5bb3\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "41"
+                                            }
+                                        ]
+                                    },
+                                    "criteriaPeriod": {
+                                        "locals": [
+                                            {
+                                                "sentence": "\uff13\uff10\u65e5\uff17\u6642\u304b\u3089\uff11\uff18\u6642\u307e\u3067\u3001\u8b66\u6212\u30ec\u30d9\u30eb\uff14\u76f8\u5f53",
+                                                "code": "41",
+                                                "time": "2026-08-30T07:00:00+09:00",
+                                                "duration": "PT11H"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820600",
+                    "kinds": [
+                        {
+                            "code": "49",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u571f\u7802\u707d\u5bb3\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "41"
+                                            }
+                                        ]
+                                    },
+                                    "criteriaPeriod": {
+                                        "locals": [
+                                            {
+                                                "sentence": "\uff13\uff10\u65e5\uff17\u6642\u304b\u3089\uff11\uff18\u6642\u307e\u3067\u3001\u8b66\u6212\u30ec\u30d9\u30eb\uff14\u76f8\u5f53",
+                                                "code": "41",
+                                                "time": "2026-08-30T07:00:00+09:00",
+                                                "duration": "PT11H"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820700",
+                    "kinds": [
+                        {
+                            "code": "49",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u571f\u7802\u707d\u5bb3\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "41"
+                                            }
+                                        ]
+                                    },
+                                    "criteriaPeriod": {
+                                        "locals": [
+                                            {
+                                                "sentence": "\uff13\uff10\u65e5\uff17\u6642\u304b\u3089\uff11\uff18\u6642\u307e\u3067\u3001\u8b66\u6212\u30ec\u30d9\u30eb\uff14\u76f8\u5f53",
+                                                "code": "41",
+                                                "time": "2026-08-30T07:00:00+09:00",
+                                                "duration": "PT11H"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820800",
+                    "kinds": [
+                        {
+                            "code": "49",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u571f\u7802\u707d\u5bb3\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "41"
+                                            }
+                                        ]
+                                    },
+                                    "criteriaPeriod": {
+                                        "locals": [
+                                            {
+                                                "sentence": "\uff13\uff10\u65e5\uff17\u6642\u304b\u3089\uff11\uff18\u6642\u307e\u3067\u3001\u8b66\u6212\u30ec\u30d9\u30eb\uff14\u76f8\u5f53",
+                                                "code": "41",
+                                                "time": "2026-08-30T07:00:00+09:00",
+                                                "duration": "PT11H"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820900",
+                    "kinds": [
+                        {
+                            "code": "49",
+                            "status": "\u767a\u8868",
+                            "properties": [
+                                {
+                                    "type": "\u571f\u7802\u707d\u5bb3\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "41"
+                                            }
+                                        ]
+                                    },
+                                    "criteriaPeriod": {
+                                        "locals": [
+                                            {
+                                                "sentence": "\uff13\uff10\u65e5\uff17\u6642\u304b\u3089\uff19\u6642\u307e\u3067\u3001\u8b66\u6212\u30ec\u30d9\u30eb\uff14\u76f8\u5f53",
+                                                "code": "41",
+                                                "time": "2026-08-30T07:00:00+09:00",
+                                                "duration": "PT2H"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1821000",
+                    "kinds": [
+                        {
+                            "code": "49",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u571f\u7802\u707d\u5bb3\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "41"
+                                            }
+                                        ]
+                                    },
+                                    "criteriaPeriod": {
+                                        "locals": [
+                                            {
+                                                "sentence": "\uff13\uff10\u65e5\uff17\u6642\u304b\u3089\uff11\uff18\u6642\u307e\u3067\u3001\u8b66\u6212\u30ec\u30d9\u30eb\uff14\u76f8\u5f53",
+                                                "code": "41",
+                                                "time": "2026-08-30T07:00:00+09:00",
+                                                "duration": "PT11H"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1832200",
+                    "kinds": [
+                        {
+                            "code": "49",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u571f\u7802\u707d\u5bb3\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "41"
+                                            }
+                                        ]
+                                    },
+                                    "criteriaPeriod": {
+                                        "locals": [
+                                            {
+                                                "sentence": "\uff13\uff10\u65e5\uff17\u6642\u304b\u3089\uff11\uff18\u6642\u307e\u3067\u3001\u8b66\u6212\u30ec\u30d9\u30eb\uff14\u76f8\u5f53",
+                                                "code": "41",
+                                                "time": "2026-08-30T07:00:00+09:00",
+                                                "duration": "PT11H"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1838200",
+                    "kinds": [
+                        {
+                            "code": "29",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u571f\u7802\u707d\u5bb3\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "21"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1840400",
+                    "kinds": [
+                        {
+                            "code": "29",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u571f\u7802\u707d\u5bb3\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "21"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1842300",
+                    "kinds": [
+                        {
+                            "code": "49",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u571f\u7802\u707d\u5bb3\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "41"
+                                            }
+                                        ]
+                                    },
+                                    "criteriaPeriod": {
+                                        "locals": [
+                                            {
+                                                "sentence": "\uff13\uff10\u65e5\uff17\u6642\u304b\u3089\uff11\uff18\u6642\u307e\u3067\u3001\u8b66\u6212\u30ec\u30d9\u30eb\uff14\u76f8\u5f53",
+                                                "code": "41",
+                                                "time": "2026-08-30T07:00:00+09:00",
+                                                "duration": "PT11H"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1844200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1848100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1848300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1850100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                }
+            ]
+        },
+        "offices": [
+            {
+                "type": "\u88dc\u8db3\u60c5\u5831\u62c5\u5f53",
+                "name": "\u798f\u4e95\u770c\u571f\u6728\u90e8\u7802\u9632\u9632\u707d\u8ab2"
+            },
+            {
+                "type": "\u6c17\u8c61\u95a2\u4fc2",
+                "name": "\u798f\u4e95\u5730\u65b9\u6c17\u8c61\u53f0"
+            }
+        ],
+        "dataTypeCode": "VPWW56"
+    },
+    {
+        "controlDatetime": "2026-08-27T07:46:27Z",
+        "reportDatetime": "2026-08-27T16:46:00+09:00",
+        "infoType": "\u767a\u8868",
+        "publishingOffice": "\u798f\u4e95\u5730\u65b9\u6c17\u8c61\u53f0",
+        "headlineText": "\u6ce8\u610f\u5831\u3092\u89e3\u9664\u3057\u307e\u3059\u3002",
+        "warning": {
+            "class10Items": [
+                {
+                    "areaCode": "180010",
+                    "kinds": [
+                        {
+                            "code": "15",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "180020",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                }
+            ],
+            "class20Items": [
+                {
+                    "areaCode": "1820100",
+                    "kinds": [
+                        {
+                            "code": "15",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820400",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820500",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820600",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820700",
+                    "kinds": [
+                        {
+                            "code": "15",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820800",
+                    "kinds": [
+                        {
+                            "code": "15",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820900",
+                    "kinds": [
+                        {
+                            "code": "15",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1821000",
+                    "kinds": [
+                        {
+                            "code": "15",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1832200",
+                    "kinds": [
+                        {
+                            "code": "15",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1838200",
+                    "kinds": [
+                        {
+                            "code": "15",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1840400",
+                    "kinds": [
+                        {
+                            "code": "15",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1842300",
+                    "kinds": [
+                        {
+                            "code": "15",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1844200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1848100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1848300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1850100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                }
+            ]
+        },
+        "dataTypeCode": "VPWW58"
+    },
+    {
+        "controlDatetime": "2026-08-12T07:12:21Z",
+        "reportDatetime": "2026-08-12T16:12:00+09:00",
+        "infoType": "\u767a\u8868",
+        "publishingOffice": "\u798f\u4e95\u5730\u65b9\u6c17\u8c61\u53f0",
+        "headlineText": "\u6ce8\u610f\u5831\u3092\u89e3\u9664\u3057\u307e\u3059\u3002",
+        "warning": {
+            "class10Items": [
+                {
+                    "areaCode": "180010",
+                    "kinds": [
+                        {
+                            "code": "16",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "180020",
+                    "kinds": [
+                        {
+                            "code": "16",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                }
+            ],
+            "class20Items": [
+                {
+                    "areaCode": "1820100",
+                    "kinds": [
+                        {
+                            "code": "16",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820200",
+                    "kinds": [
+                        {
+                            "code": "16",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820400",
+                    "kinds": [
+                        {
+                            "code": "16",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820500",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820600",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820700",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820800",
+                    "kinds": [
+                        {
+                            "code": "16",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820900",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1821000",
+                    "kinds": [
+                        {
+                            "code": "16",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1832200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1838200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1840400",
+                    "kinds": [
+                        {
+                            "code": "16",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1842300",
+                    "kinds": [
+                        {
+                            "code": "16",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1844200",
+                    "kinds": [
+                        {
+                            "code": "16",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1848100",
+                    "kinds": [
+                        {
+                            "code": "16",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1848300",
+                    "kinds": [
+                        {
+                            "code": "16",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1850100",
+                    "kinds": [
+                        {
+                            "code": "16",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                }
+            ]
+        },
+        "dataTypeCode": "VPWW59"
+    },
+    {
+        "controlDatetime": "2026-08-28T19:33:45Z",
+        "reportDatetime": "2026-08-29T04:33:00+09:00",
+        "infoType": "\u767a\u8868",
+        "publishingOffice": "\u798f\u4e95\u5730\u65b9\u6c17\u8c61\u53f0",
+        "headlineText": "\u798f\u4e95\u770c\u3067\u306f\u3001\u7adc\u5dfb\u306a\u3069\u306e\u6fc0\u3057\u3044\u7a81\u98a8\u3084\u6025\u306a\u5f37\u3044\u96e8\u3001\u843d\u96f7\u306b\u6ce8\u610f\u3057\u3066\u304f\u3060\u3055\u3044\u3002",
+        "warning": {
+            "class10Items": [
+                {
+                    "areaCode": "180010",
+                    "kinds": [
+                        {
+                            "code": "14",
+                            "status": "\u7d99\u7d9a",
+                            "additions": [
+                                "\u7adc\u5dfb",
+                                "\u3072\u3087\u3046"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "180020",
+                    "kinds": [
+                        {
+                            "code": "14",
+                            "status": "\u7d99\u7d9a",
+                            "additions": [
+                                "\u7adc\u5dfb",
+                                "\u3072\u3087\u3046"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "class20Items": [
+                {
+                    "areaCode": "1820100",
+                    "kinds": [
+                        {
+                            "code": "14",
+                            "status": "\u7d99\u7d9a",
+                            "additions": [
+                                "\u7adc\u5dfb",
+                                "\u3072\u3087\u3046"
+                            ],
+                            "properties": [
+                                {
+                                    "type": "\u96f7\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20",
+                                                "additions": [
+                                                    "\u7adc\u5dfb",
+                                                    "\u3072\u3087\u3046"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820200",
+                    "kinds": [
+                        {
+                            "code": "14",
+                            "status": "\u7d99\u7d9a",
+                            "additions": [
+                                "\u7adc\u5dfb",
+                                "\u3072\u3087\u3046"
+                            ],
+                            "properties": [
+                                {
+                                    "type": "\u96f7\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20",
+                                                "additions": [
+                                                    "\u7adc\u5dfb",
+                                                    "\u3072\u3087\u3046"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820400",
+                    "kinds": [
+                        {
+                            "code": "14",
+                            "status": "\u7d99\u7d9a",
+                            "additions": [
+                                "\u7adc\u5dfb",
+                                "\u3072\u3087\u3046"
+                            ],
+                            "properties": [
+                                {
+                                    "type": "\u96f7\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20",
+                                                "additions": [
+                                                    "\u7adc\u5dfb",
+                                                    "\u3072\u3087\u3046"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820500",
+                    "kinds": [
+                        {
+                            "code": "14",
+                            "status": "\u7d99\u7d9a",
+                            "additions": [
+                                "\u7adc\u5dfb",
+                                "\u3072\u3087\u3046"
+                            ],
+                            "properties": [
+                                {
+                                    "type": "\u96f7\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20",
+                                                "additions": [
+                                                    "\u7adc\u5dfb",
+                                                    "\u3072\u3087\u3046"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820600",
+                    "kinds": [
+                        {
+                            "code": "14",
+                            "status": "\u7d99\u7d9a",
+                            "additions": [
+                                "\u7adc\u5dfb",
+                                "\u3072\u3087\u3046"
+                            ],
+                            "properties": [
+                                {
+                                    "type": "\u96f7\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20",
+                                                "additions": [
+                                                    "\u7adc\u5dfb",
+                                                    "\u3072\u3087\u3046"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820700",
+                    "kinds": [
+                        {
+                            "code": "14",
+                            "status": "\u7d99\u7d9a",
+                            "additions": [
+                                "\u7adc\u5dfb",
+                                "\u3072\u3087\u3046"
+                            ],
+                            "properties": [
+                                {
+                                    "type": "\u96f7\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20",
+                                                "additions": [
+                                                    "\u7adc\u5dfb",
+                                                    "\u3072\u3087\u3046"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820800",
+                    "kinds": [
+                        {
+                            "code": "14",
+                            "status": "\u7d99\u7d9a",
+                            "additions": [
+                                "\u7adc\u5dfb",
+                                "\u3072\u3087\u3046"
+                            ],
+                            "properties": [
+                                {
+                                    "type": "\u96f7\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20",
+                                                "additions": [
+                                                    "\u7adc\u5dfb",
+                                                    "\u3072\u3087\u3046"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1820900",
+                    "kinds": [
+                        {
+                            "code": "14",
+                            "status": "\u7d99\u7d9a",
+                            "additions": [
+                                "\u7adc\u5dfb",
+                                "\u3072\u3087\u3046"
+                            ],
+                            "properties": [
+                                {
+                                    "type": "\u96f7\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20",
+                                                "additions": [
+                                                    "\u7adc\u5dfb",
+                                                    "\u3072\u3087\u3046"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1821000",
+                    "kinds": [
+                        {
+                            "code": "14",
+                            "status": "\u7d99\u7d9a",
+                            "additions": [
+                                "\u7adc\u5dfb",
+                                "\u3072\u3087\u3046"
+                            ],
+                            "properties": [
+                                {
+                                    "type": "\u96f7\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20",
+                                                "additions": [
+                                                    "\u7adc\u5dfb",
+                                                    "\u3072\u3087\u3046"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1832200",
+                    "kinds": [
+                        {
+                            "code": "14",
+                            "status": "\u7d99\u7d9a",
+                            "additions": [
+                                "\u7adc\u5dfb",
+                                "\u3072\u3087\u3046"
+                            ],
+                            "properties": [
+                                {
+                                    "type": "\u96f7\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20",
+                                                "additions": [
+                                                    "\u7adc\u5dfb",
+                                                    "\u3072\u3087\u3046"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1838200",
+                    "kinds": [
+                        {
+                            "code": "14",
+                            "status": "\u7d99\u7d9a",
+                            "additions": [
+                                "\u7adc\u5dfb",
+                                "\u3072\u3087\u3046"
+                            ],
+                            "properties": [
+                                {
+                                    "type": "\u96f7\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20",
+                                                "additions": [
+                                                    "\u7adc\u5dfb",
+                                                    "\u3072\u3087\u3046"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1840400",
+                    "kinds": [
+                        {
+                            "code": "14",
+                            "status": "\u7d99\u7d9a",
+                            "additions": [
+                                "\u7adc\u5dfb",
+                                "\u3072\u3087\u3046"
+                            ],
+                            "properties": [
+                                {
+                                    "type": "\u96f7\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20",
+                                                "additions": [
+                                                    "\u7adc\u5dfb",
+                                                    "\u3072\u3087\u3046"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1842300",
+                    "kinds": [
+                        {
+                            "code": "14",
+                            "status": "\u7d99\u7d9a",
+                            "additions": [
+                                "\u7adc\u5dfb",
+                                "\u3072\u3087\u3046"
+                            ],
+                            "properties": [
+                                {
+                                    "type": "\u96f7\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20",
+                                                "additions": [
+                                                    "\u7adc\u5dfb",
+                                                    "\u3072\u3087\u3046"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1844200",
+                    "kinds": [
+                        {
+                            "code": "14",
+                            "status": "\u7d99\u7d9a",
+                            "additions": [
+                                "\u7adc\u5dfb",
+                                "\u3072\u3087\u3046"
+                            ],
+                            "properties": [
+                                {
+                                    "type": "\u96f7\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20",
+                                                "additions": [
+                                                    "\u7adc\u5dfb",
+                                                    "\u3072\u3087\u3046"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1848100",
+                    "kinds": [
+                        {
+                            "code": "14",
+                            "status": "\u7d99\u7d9a",
+                            "additions": [
+                                "\u7adc\u5dfb",
+                                "\u3072\u3087\u3046"
+                            ],
+                            "properties": [
+                                {
+                                    "type": "\u96f7\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20",
+                                                "additions": [
+                                                    "\u7adc\u5dfb",
+                                                    "\u3072\u3087\u3046"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1848300",
+                    "kinds": [
+                        {
+                            "code": "14",
+                            "status": "\u7d99\u7d9a",
+                            "additions": [
+                                "\u7adc\u5dfb",
+                                "\u3072\u3087\u3046"
+                            ],
+                            "properties": [
+                                {
+                                    "type": "\u96f7\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20",
+                                                "additions": [
+                                                    "\u7adc\u5dfb",
+                                                    "\u3072\u3087\u3046"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1850100",
+                    "kinds": [
+                        {
+                            "code": "14",
+                            "status": "\u7d99\u7d9a",
+                            "additions": [
+                                "\u7adc\u5dfb",
+                                "\u3072\u3087\u3046"
+                            ],
+                            "properties": [
+                                {
+                                    "type": "\u96f7\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20",
+                                                "additions": [
+                                                    "\u7adc\u5dfb",
+                                                    "\u3072\u3087\u3046"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "dataTypeCode": "VPWW61"
+    }
+]

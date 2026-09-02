@@ -41,6 +41,8 @@ export class GeoProxyService {
     if (sourceId.includes('flood')) return this.config.geoCacheTtlFloodMs
     if (sourceId.includes('place') || sourceId.includes('shelter'))
       return this.config.geoCacheTtlPlacesMs
+    if (sourceId.includes('geocode') || sourceId.includes('nominatim'))
+      return this.config.geoCacheTtlGeocodeMs
     if (sourceId.includes('tile')) return this.config.geoCacheTtlTilesMs
     return 60_000
   }
@@ -120,6 +122,70 @@ export class GeoProxyService {
     this.cache.clear()
   }
 
+  /**
+   * Fetches an upstream that answers in bytes rather than text.
+   *
+   * Raster hazard tiles are PNG. Reading them through the text path decodes them as UTF-8, which
+   * silently mangles every non-ASCII byte — the tile still arrives, still has a plausible length,
+   * and classifies as empty. Binary needs its own path or it is quietly wrong.
+   */
+  async fetchUpstreamBinary(
+    sourceId: string,
+    targetUrl: string,
+    options: {
+      maxBytes?: number
+      /**
+       * Extra request headers. A hazard tile needs none, but a Copernicus retrieval is
+       * token-authenticated and its downloads are tens of megabytes over a slow link, so both this
+       * and `timeoutMs` are what let that path share this method rather than grow a second copy of
+       * the allowlist and the breaker.
+       */
+      headers?: Record<string, string>
+      timeoutMs?: number
+    } = {},
+  ): Promise<{ status: number; bytes: Uint8Array<ArrayBuffer>; contentType: string; redactedUrl: string }> {
+    const redactedUrl = this.redactUrl(targetUrl)
+
+    if (!isHostAllowed(this.config.geoAllowedHosts, targetUrl)) {
+      throw new Error(`HostNotAllowed: ${new URL(targetUrl).hostname}`)
+    }
+    if (this.getCircuit(sourceId).state === 'open') {
+      throw new Error(`SourceCircuitOpen: ${sourceId}`)
+    }
+
+    const maxBytes = options.maxBytes ?? 5 * 1024 * 1024
+    const controller = new AbortController()
+    const timeout = setTimeout(() => controller.abort(), options.timeoutMs ?? this.config.geoTimeoutMs)
+
+    try {
+      const res = await fetch(targetUrl, {
+        headers: {
+          'User-Agent': 'webmcp-playground/0.1.0 (safety-support)',
+          Accept: 'image/png, image/*, */*',
+          ...options.headers,
+        },
+        signal: controller.signal,
+      })
+
+      const buffer = await res.arrayBuffer()
+      if (buffer.byteLength > maxBytes) {
+        throw new Error(`UpstreamTooLarge: ${buffer.byteLength} exceeded cap ${maxBytes}`)
+      }
+
+      if (res.ok) this.recordSuccess(sourceId)
+      else if (res.status >= 500) this.recordFailure(sourceId)
+
+      return {
+        status: res.status,
+        bytes: new Uint8Array(buffer),
+        contentType: res.headers.get('content-type') ?? 'application/octet-stream',
+        redactedUrl,
+      }
+    } finally {
+      clearTimeout(timeout)
+    }
+  }
+
   async fetchUpstream(
     sourceId: string,
     targetUrl: string,
@@ -129,6 +195,13 @@ export class GeoProxyService {
       body?: string
       maxBytes?: number
       retries?: number
+      /**
+       * Override the configured timeout. Some upstreams are legitimately slow —
+       * an Overpass query over a 40 km box routinely needs tens of seconds —
+       * and holding them to the same budget as a JSON point lookup only
+       * guarantees they never answer.
+       */
+      timeoutMs?: number
     } = {},
   ): Promise<{
     status: number
@@ -159,7 +232,10 @@ export class GeoProxyService {
     for (let attempt = 0; attempt <= maxRetries; attempt++) {
       try {
         const controller = new AbortController()
-        const timeout = setTimeout(() => controller.abort(), this.config.geoTimeoutMs)
+        const timeout = setTimeout(
+          () => controller.abort(),
+          options.timeoutMs ?? this.config.geoTimeoutMs,
+        )
 
         const res = await fetch(targetUrl, {
           method,
