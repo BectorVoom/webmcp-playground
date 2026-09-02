@@ -14,7 +14,7 @@ export function CopyButton({ value, testId }: { value: unknown; testId: string }
     <button
       type="button"
       data-testid={testId}
-      className="rounded border border-border-subtle px-1.5 py-0.5 text-[11px] text-ink-muted hover:text-ink"
+      className="rounded border border-border-subtle px-1.5 py-0.5 text-ui text-ink-muted hover:text-ink"
       onClick={() => {
         void navigator.clipboard?.writeText(
           typeof value === 'string' ? value : stringify(value),
@@ -53,7 +53,7 @@ export function JsonBlock({
         <button
           type="button"
           data-testid={`${testId}-toggle`}
-          className="text-[11px] text-ink-muted underline decoration-dotted hover:text-ink"
+          className="text-ui text-ink-muted underline decoration-dotted hover:text-ink"
           onClick={() => setOpen((o) => !o)}
         >
           {open ? '▾' : '▸'} {label ?? 'raw JSON'} ({text.length} chars)
@@ -63,7 +63,7 @@ export function JsonBlock({
       {open && (
         <pre
           data-testid={testId}
-          className="mt-1 max-h-80 overflow-auto rounded bg-surface-raised p-2 font-mono text-[11px] leading-relaxed"
+          className="mt-1 max-h-80 overflow-auto rounded bg-surface-raised p-2 font-mono text-ui leading-relaxed"
         >
           {text}
         </pre>

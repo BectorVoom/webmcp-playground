@@ -5,7 +5,12 @@ import {
   LlmTransportError,
   ModelLacksToolSupport,
 } from '../../domain/errors'
-import { REQUEST_ID_HEADER, type ChatProxyResponse, type ModelsResponse } from '../../domain/wire'
+import {
+  REQUEST_ID_HEADER,
+  type ChatProxyErrorBody,
+  type ChatProxyResponse,
+  type ModelsResponse,
+} from '../../domain/wire'
 import type {
   CompletionError,
   CompletionRequest,
@@ -92,25 +97,26 @@ export const makeLocalClient = (
       const body = yield* readJson(response)
 
       if (!response.ok) {
-        const error = body as { error?: string; message?: string }
+        // The backend has already classified this and sends the error's own
+        // fields alongside its tag, so the reconstruction here is faithful
+        // rather than a tag with the details rubbed off (R6.8).
+        const error = body as Partial<ChatProxyErrorBody>
         if (error.error === 'ModelLacksToolSupport') {
           return yield* Effect.fail(
             new ModelLacksToolSupport({
               model: request.model || model,
-              hostMessage: error.message ?? '',
+              hostMessage: error.hostMessage ?? error.message ?? '',
             }),
           )
         }
-        // The backend has already classified this; preserving its tag keeps the
-        // remedy specific instead of collapsing everything to "request failed".
         if (error.error === 'LlmTimeout') {
-          return yield* Effect.fail(new LlmTimeout({ timeoutMs: 0 }))
+          return yield* Effect.fail(new LlmTimeout({ timeoutMs: error.timeoutMs ?? 0 }))
         }
         if (error.error === 'LlmProtocolError') {
           return yield* Effect.fail(
             new LlmProtocolError({
               message: error.message ?? 'Upstream protocol error',
-              bodyExcerpt: '',
+              bodyExcerpt: error.bodyExcerpt ?? '',
             }),
           )
         }

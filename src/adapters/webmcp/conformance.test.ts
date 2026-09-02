@@ -1,8 +1,8 @@
-import { describe, expect, it, vi } from 'vitest'
-import { Effect, Schema } from 'effect'
+import { describe, expect, it } from 'vitest'
+import { Effect, Fiber, Schema, Stream } from 'effect'
 import { createTraceStore } from '../trace/memory-store'
 import { makeMemorySink } from '../trace/memory-sink'
-import { asSessionId } from '../../domain/ids'
+import { asSessionId, createIdFactory } from '../../domain/ids'
 import { textResult, type AnyToolDefinition } from '../../domain/tool'
 import { ToolExecutionError } from '../../domain/errors'
 import { createFaultInjector } from '../../app/fault-injector'
@@ -49,8 +49,6 @@ const hangingTool: AnyToolDefinition = {
 interface AdapterCase {
   readonly id: string
   readonly make: () => { host: ToolHostService; store: ReturnType<typeof createTraceStore> }
-  /** Whether the host preserves a structured rejection across its boundary. */
-  readonly preservesErrorTag: boolean
   readonly supportsCancellation: boolean
 }
 
@@ -60,6 +58,7 @@ const buildDeps = () => {
   const runner = createToolRunner({
     sink,
     faults: createFaultInjector(),
+    ids: createIdFactory(),
     timeoutMs: () => 1000,
     currentTurnId: () => undefined,
   })
@@ -73,7 +72,6 @@ const cases: ReadonlyArray<AdapterCase> = [
       const { store, sink, runner } = buildDeps()
       return { host: makeInMemoryHost(runner, sink), store }
     },
-    preservesErrorTag: true,
     supportsCancellation: true,
   },
   {
@@ -82,7 +80,17 @@ const cases: ReadonlyArray<AdapterCase> = [
       const { store, sink, runner } = buildDeps()
       return { host: makeDraftHost(createFakeDraftHost(), runner, sink), store }
     },
-    preservesErrorTag: true,
+    supportsCancellation: true,
+  },
+  {
+    id: 'draft-2026-04 (current object-input draft)',
+    make: () => {
+      const { store, sink, runner } = buildDeps()
+      return {
+        host: makeDraftHost(createFakeDraftHost({ executeInput: 'object' }), runner, sink),
+        store,
+      }
+    },
     supportsCancellation: true,
   },
   {
@@ -94,11 +102,30 @@ const cases: ReadonlyArray<AdapterCase> = [
         store,
       }
     },
-    // The pessimistic case: a host that flattens rejections. Everything still
-    // works, but the tag degrades to ToolExecutionError — which is exactly the
-    // fidelity gap R6.8 asks us to keep visible rather than hide.
-    preservesErrorTag: false,
+    // The host flattens rejected promises. The adapter fulfils typed failures
+    // as an `isError` result, so this remains a precise local error.
     supportsCancellation: true,
+  },
+  {
+    // Calibrated against Chrome 152 and Edge 151 as measured, not as the prose
+    // reads: they flatten every rejection to a DOMException and hand the tool
+    // body no options argument at all. This case is what shipping browsers do,
+    // so a change that only satisfies the optimistic fake above fails here.
+    id: 'draft-2026-04 (browser-shaped: no signal, DOMException errors)',
+    make: () => {
+      const { store, sink, runner } = buildDeps()
+      return {
+        host: makeDraftHost(
+          createFakeDraftHost({ lossyErrors: true, forwardsSignal: false }),
+          runner,
+          sink,
+        ),
+        store,
+      }
+    },
+    // A host that forwards no signal cannot cancel a running tool through the
+    // boundary. The per-call timeout is what stops a hung tool there.
+    supportsCancellation: false,
   },
   {
     id: 'legacy-navigator',
@@ -106,7 +133,6 @@ const cases: ReadonlyArray<AdapterCase> = [
       const { store, sink, runner } = buildDeps()
       return { host: makeLegacyHost(createFakeLegacyHost(), runner, sink), store }
     },
-    preservesErrorTag: true,
     supportsCancellation: true,
   },
   {
@@ -118,23 +144,30 @@ const cases: ReadonlyArray<AdapterCase> = [
         store,
       }
     },
-    preservesErrorTag: true,
     supportsCancellation: true,
   },
 ]
 
-/** Adapters against the REAL browser API, skipped loudly rather than silently. */
+/**
+ * Adapters against the REAL browser API, skipped loudly rather than silently.
+ *
+ * jsdom has no `document.modelContext` and never will, so this slot stays
+ * skipped here by construction. The coverage it stands for is not missing,
+ * though: `bun tools/browser-verify.ts` drives the built app against Chrome's
+ * and Edge's real implementations, and the browser-shaped fake above is
+ * calibrated against what those measurably do.
+ */
 const realHostAvailability = (): ReadonlyArray<{ id: string; reason: string }> => [
   {
     id: 'draft-2026-04 (real document.modelContext)',
     reason:
       typeof document !== 'undefined' && 'modelContext' in document
         ? 'available'
-        : 'document.modelContext is absent in this environment',
+        : 'document.modelContext is absent in jsdom — run `bun tools/browser-verify.ts` for real-host coverage',
   },
 ]
 
-describe.each(cases)('ToolHostPort conformance — $id', ({ make, preservesErrorTag, supportsCancellation }) => {
+describe.each(cases)('ToolHostPort conformance — $id', ({ make, supportsCancellation }) => {
   const run = <A, E>(effect: Effect.Effect<A, E>) => Effect.runPromise(effect)
 
   it('registers a tool and reads it back from the host', async () => {
@@ -168,7 +201,10 @@ describe.each(cases)('ToolHostPort conformance — $id', ({ make, preservesError
     await run(host.register(echoTool))
     const error = await run(Effect.flip(host.register(echoTool)))
     expect(error._tag).toBe('ToolRegistrationError')
-    expect(error.hostMessage).toMatch(/already registered/i)
+    // Verbatim from the host, whichever words it chose — our in-memory hosts
+    // say "already registered", Chrome and Edge say "Duplicate tool name". The
+    // property under test is that the host's own message survives (R6.8).
+    expect(error.hostMessage).toMatch(/duplicate|already registered/i)
   })
 
   it('executes a registered tool and returns content blocks', async () => {
@@ -195,7 +231,7 @@ describe.each(cases)('ToolHostPort conformance — $id', ({ make, preservesError
     const error = await run(
       Effect.flip(host.execute('echo', { text: 42 }, { signal: new AbortController().signal })),
     )
-    expect(error._tag).toBe(preservesErrorTag ? 'ToolInputInvalid' : 'ToolExecutionError')
+    expect(error._tag).toBe('ToolInputInvalid')
     expect(store.snapshot().some((e) => e.payload.kind === 'ToolCallCompleted')).toBe(false)
   })
 
@@ -217,7 +253,7 @@ describe.each(cases)('ToolHostPort conformance — $id', ({ make, preservesError
     )
     controller.abort()
     const error = await promise
-    expect(error._tag).toBe(preservesErrorTag ? 'ToolAborted' : 'ToolExecutionError')
+    expect(error._tag).toBe('ToolAborted')
   })
 
   it('removes the tool from the host when the registration is unregistered', async () => {
@@ -228,16 +264,24 @@ describe.each(cases)('ToolHostPort conformance — $id', ({ make, preservesError
     expect(tools.map((t) => t.name)).not.toContain('echo')
   })
 
-  it('notifies subscribers when the tool set changes, and stops after unsubscribe', async () => {
+  it('emits tool-set changes and releases its host listener when interrupted', async () => {
     const { host } = make()
-    const listener = vi.fn()
-    const off = host.subscribeToChanges(listener)
+    let changes = 0
+    const fiber = Effect.runFork(
+      Stream.runForEach(host.changes, () =>
+        Effect.sync(() => {
+          changes += 1
+        }),
+      ),
+    )
+    await run(Effect.yieldNow())
     await run(host.register(echoTool))
-    expect(listener).toHaveBeenCalled()
-    off()
-    const before = listener.mock.calls.length
+    await run(Effect.yieldNow())
+    expect(changes).toBe(1)
+    await run(Fiber.interrupt(fiber))
     await run(host.register({ ...echoTool, name: 'echo2' }))
-    expect(listener.mock.calls.length).toBe(before)
+    await run(Effect.yieldNow())
+    expect(changes).toBe(1)
   })
 
   it('reports a spec revision, so the UI can say which draft is live', () => {

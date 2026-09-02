@@ -66,6 +66,17 @@ export type TracePayload =
       readonly raw: unknown
     }
   | { readonly kind: 'ToolCallParseFailed'; readonly reason: string; readonly text: string }
+  | {
+      /**
+       * The model answered with nothing and was asked once more. Recorded
+       * because a retry the trace does not show is a step that silently cost
+       * twice what it appears to (R5.3).
+       */
+      readonly kind: 'EmptyResponseRetried'
+      readonly step: number
+      /** True when the model produced reasoning but no answer — the usual cause. */
+      readonly hadReasoning: boolean
+    }
   | { readonly kind: 'ToolCallStarted'; readonly tool: string; readonly input: unknown }
   | { readonly kind: 'ToolCallCompleted'; readonly tool: string; readonly result: ToolResult }
   | { readonly kind: 'ToolCallFailed'; readonly tool: string; readonly errorTag: string; readonly message: string }
@@ -124,6 +135,7 @@ export const levelOf = (payload: TracePayload): TraceLevel => {
       return 'error'
     case 'ToolCallFailed':
     case 'ToolCallParseFailed':
+    case 'EmptyResponseRetried':
     case 'FaultInjected':
     case 'EventsDiscarded':
     case 'TurnCancelled':
@@ -165,6 +177,7 @@ export const categoryOf = (payload: TracePayload): TraceCategory => {
     case 'ModelRequested':
     case 'ModelResponded':
     case 'ToolCallParseFailed':
+    case 'EmptyResponseRetried':
       return 'model'
     case 'TurnStarted':
     case 'TurnCompleted':
@@ -213,6 +226,8 @@ export const summarise = (event: TraceEvent): string => {
     }
     case 'ToolCallParseFailed':
       return p.reason
+    case 'EmptyResponseRetried':
+      return `step ${p.step} returned nothing${p.hadReasoning ? ' after reasoning' : ''}; asked again`
     case 'ToolCallStarted':
       return p.tool
     case 'ToolCallCompleted':

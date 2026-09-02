@@ -59,6 +59,30 @@ export interface ChatProxyResponse {
   readonly model: string
 }
 
+/**
+ * The body a failed `/api/llm/chat` returns.
+ *
+ * The backend has already classified the failure, so the browser reconstructs
+ * the same tagged error rather than re-deriving one from prose — which means
+ * every field the error's remedy quotes has to survive the crossing. Anything
+ * missing here degrades a specific answer ("the model did not respond within
+ * 120000 ms — raise LLM_TIMEOUT_MS") into a vaguer one, so new tagged fields
+ * belong in this shape, not only in `message`.
+ */
+export interface ChatProxyErrorBody {
+  /** The failing error's `_tag`, so the client can rebuild it exactly. */
+  readonly error: string
+  readonly message: string
+  readonly remedy?: string
+  readonly requestId: string
+  /** `LlmTimeout`: the budget that was actually exceeded, in milliseconds. */
+  readonly timeoutMs?: number
+  /** `LlmProtocolError`: the excerpt of the body upstream could not parse. */
+  readonly bodyExcerpt?: string
+  /** `ModelLacksToolSupport`: the host's verbatim complaint. */
+  readonly hostMessage?: string
+}
+
 export interface UpstreamHealth {
   readonly baseUrl: string
   readonly reachable: boolean

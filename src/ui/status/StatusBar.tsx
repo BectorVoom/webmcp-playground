@@ -27,9 +27,9 @@ export function StatusBar() {
   return (
     <header
       data-testid="status-bar"
-      className="flex flex-wrap items-center gap-x-4 gap-y-1 border-b border-border-subtle bg-surface-raised px-3 py-2 text-xs"
+      className="flex flex-wrap items-center gap-x-4 gap-y-1 border-b border-border-subtle bg-surface-raised px-3 py-2 text-ui"
     >
-      <span className="font-semibold">WebMCP playground</span>
+      <span className="font-semibold">Disaster Safety · WebMCP</span>
 
       <span data-testid="status-adapter" title={state.specRevision.url}>
         adapter <span className="font-mono">{state.adapterId}</span>{' '}

@@ -56,11 +56,9 @@ In [`conformance.test.ts`](../src/adapters/webmcp/conformance.test.ts), add a ca
 spec-shaped fake to `__fixtures__/fake-hosts.ts` so the adapter is tested rather than skipped: an
 adapter skipped in CI is the code most likely to break and least likely to be caught.
 
-Declare the case's fidelity honestly:
-
-- `preservesErrorTag: false` if the host flattens rejections. The suite then expects the degraded
-  `ToolExecutionError` rather than the precise tag — which is the real behaviour, documented.
-- `supportsCancellation: false` if the host gives the tool no signal.
+Declare any cancellation limitation honestly: set `supportsCancellation: false` if the host gives the
+tool no signal. A host that flattens rejected callbacks still preserves the precise tool error when
+the adapter fulfils the standard `isError` transport envelope and decodes it after execution.
 
 **The bar: the adapter must pass the suite unchanged.** If it cannot, either the adapter is wrong or
 the port genuinely needs to grow — and if it is the port, change the port deliberately and re-run

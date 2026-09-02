@@ -1,7 +1,6 @@
 import { describe, expect, it, beforeEach } from 'vitest'
 import { createSession } from './session'
 import { createDebugHandle } from './debug-handle'
-import { resetIdCounters } from '../domain/ids'
 import { MemoryMapAdapter } from '../adapters/map/memory-map'
 import {
   setDisasterDataMode,
@@ -12,7 +11,6 @@ describe('End-to-End Reference Scenario: jp/tokyo-flood (Phase 10, Checkpoint 10
   let mapAdapter: MemoryMapAdapter
 
   beforeEach(() => {
-    resetIdCounters()
     mapAdapter = new MemoryMapAdapter()
     setDisasterMapPort(mapAdapter)
     setDisasterDataMode('fixture')

@@ -1,4 +1,4 @@
-import { Effect } from 'effect'
+import { Effect, Fiber, Stream } from 'effect'
 import { detectAdapter } from '../adapters/webmcp/detect'
 import { findAdapter } from '../adapters/webmcp/registry'
 import { makeLocalClient } from '../adapters/llm/local'
@@ -6,7 +6,7 @@ import { makeScriptedClient } from '../adapters/llm/scripted'
 import { createTraceStore } from '../adapters/trace/memory-store'
 import { makeMemorySink } from '../adapters/trace/memory-sink'
 import type { ChatMessage, Turn } from '../domain/chat'
-import { newSessionId, newTurnId, resetIdCounters, type TurnId } from '../domain/ids'
+import { createIdFactory, newSessionId, type TurnId } from '../domain/ids'
 import type { DetectionReport, TraceExport, TraceLevel } from '../domain/trace'
 import { isTraceExport, reconstructTurns } from '../domain/trace-replay'
 import type { HealthResponse, TraceWriteResponse } from '../domain/wire'
@@ -52,6 +52,7 @@ const SCRIPTED_MODEL = 'scripted'
 
 export const createSession = () => {
   const sessionId = newSessionId()
+  const ids = createIdFactory()
   const traceStore = createTraceStore(sessionId)
   const sink = makeMemorySink(traceStore)
   const runtime = createAppRuntime(traceStore)
@@ -64,6 +65,7 @@ export const createSession = () => {
   const runner = createToolRunner({
     sink,
     faults,
+    ids,
     timeoutMs: () => config.toolTimeoutMs,
     currentTurnId: () => currentTurnId,
   })
@@ -74,6 +76,7 @@ export const createSession = () => {
   let currentTurnId: TurnId | undefined
   let controller: AbortController | undefined
   let conversation: ReadonlyArray<ChatMessage> = []
+  let stopObservingHostChanges: (() => void) | undefined
 
   const manager = createToolRegistryManager(TOOL_SETS, host, sink)
 
@@ -104,6 +107,20 @@ export const createSession = () => {
   }
 
   const run = <A>(effect: Effect.Effect<A, never>) => runtime.runPromise(effect)
+
+  const observeHostChanges = (target: ToolHostService): void => {
+    stopObservingHostChanges?.()
+    const fiber = runtime.runFork(
+      Stream.runForEach(target.changes, () =>
+        Effect.flatMap(Effect.orElseSucceed(target.listTools(), () => []), (tools) =>
+          sink.emit({ kind: 'ToolChanged', tools: tools.map((tool) => tool.name) }),
+        ),
+      ),
+    )
+    stopObservingHostChanges = () => {
+      void run(Fiber.interrupt(fiber))
+    }
+  }
 
   /**
    * Driver selection (R4.4). Choosing `local` when nothing is listening would
@@ -183,13 +200,10 @@ export const createSession = () => {
         specRevision: detected.entry.specRevision.label,
       }),
     )
-    host.subscribeToChanges(() => {
-      void run(
-        Effect.flatMap(Effect.orElseSucceed(host.listTools(), () => []), (tools) =>
-          sink.emit({ kind: 'ToolChanged', tools: tools.map((t) => t.name) }),
-        ),
-      )
-    })
+    observeHostChanges(host)
+    // `runFork` schedules stream acquisition. Yield once so the listener is
+    // attached before registry registration emits its first host change.
+    await run(Effect.yieldNow())
     await run(Effect.ignore(manager.setEnabled(config.toolSets)))
     await chooseDriver()
   }
@@ -202,7 +216,7 @@ export const createSession = () => {
     if (state.snapshot().status === 'running') {
       return Promise.reject(new Error('A turn is already running'))
     }
-    const turnId = newTurnId()
+    const turnId = ids.newTurnId()
     currentTurnId = turnId
     controller = new AbortController()
     state.update((s) => ({ ...s, status: 'running' }))
@@ -212,6 +226,7 @@ export const createSession = () => {
         host,
         client,
         sink,
+        ids,
         model: state.snapshot().model,
         strategy: config.strategy,
         maxSteps: config.maxSteps,
@@ -249,6 +264,8 @@ export const createSession = () => {
   const rebuildHost = async (adapterId: AdapterId | undefined): Promise<void> => {
     const next = detectAdapter(adapterId)
     host = next.entry.make(runner, sink)
+    observeHostChanges(host)
+    await run(Effect.yieldNow())
     await run(Effect.ignore(manager.rebindHost(host)))
     await run(
       sink.emit({
@@ -365,7 +382,7 @@ export const createSession = () => {
       controller?.abort()
       await run(Effect.ignore(manager.disableAll()))
       traceStore.clear()
-      resetIdCounters()
+      ids.reset()
       resetTodos()
       conversation = []
       state.update((s) => ({ ...s, turns: [], status: 'idle', imported: false, notice: null }))

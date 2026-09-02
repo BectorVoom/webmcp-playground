@@ -10,6 +10,7 @@ import {
   resultFromHostValue,
   validateRegistration,
 } from './host-boundary'
+import { fromChangeSubscription } from './change-stream'
 
 const ID: AdapterId = 'in-memory'
 
@@ -42,6 +43,10 @@ export const makeInMemoryHost = (
   const notify = () => {
     for (const listener of listeners) listener()
   }
+  const changes = fromChangeSubscription((listener) => {
+    listeners.add(listener)
+    return () => listeners.delete(listener)
+  })
 
   const toHostTool = (tool: AnyToolDefinition): HostTool => ({
     name: tool.name,
@@ -97,9 +102,6 @@ export const makeInMemoryHost = (
         }).pipe(Effect.map(resultFromHostValue))
       }),
 
-    subscribeToChanges: (listener) => {
-      listeners.add(listener)
-      return () => listeners.delete(listener)
-    },
+    changes,
   }
 }

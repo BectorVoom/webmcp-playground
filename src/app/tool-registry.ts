@@ -73,6 +73,13 @@ export const createToolRegistryManager = (
     )
   }
 
+  // The catalogue is the whole list of sets, enabled or not, so it is known before
+  // anything registers. Publishing it up front is what keeps the selector usable
+  // when no set is enabled — otherwise `status` sits at its initial empty value,
+  // the pane renders no toggles at all, and there is no way back to a tool set
+  // from the UI. `?toolSets=` reaches exactly that state (R2.8).
+  refreshStatus()
+
   const nameOwners = (): Map<string, string> => {
     const owners = new Map<string, string>()
     for (const [setId, registrations] of live) {

@@ -72,7 +72,7 @@ export const ADAPTERS: ReadonlyArray<AdapterEntry> = [
   {
     id: 'draft-2026-04',
     specRevision: {
-      label: 'W3C CG Draft Report, 2026-04-23',
+      label: 'W3C CG Draft Report, 2026-08-26 (Origin Trial compatible)',
       url: 'https://webmachinelearning.github.io/webmcp/',
     },
     probe: probeDraft,

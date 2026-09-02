@@ -1,4 +1,4 @@
-import { Context, Effect } from 'effect'
+import { Context, Effect, type Stream } from 'effect'
 import type {
   AnyToolDefinition,
   HostTool,
@@ -59,11 +59,10 @@ export interface ToolHostService {
   >
 
   /**
-   * Host-driven change notification (R2.5). A plain subscription rather than a
-   * Stream: the only consumer is React's useSyncExternalStore, and a Stream
-   * would mean running a fiber to feed a store for no gain.
+   * Host-driven tool-set changes (R2.5). The stream is scoped: interrupting a
+   * consumer's fiber releases its host listener.
    */
-  readonly subscribeToChanges: (listener: () => void) => () => void
+  readonly changes: Stream.Stream<void>
 }
 
 export class ToolHost extends Context.Tag('app/ToolHost')<ToolHost, ToolHostService>() {}

@@ -150,7 +150,7 @@ past a partial pass.
 
 | # | Task | Deps | Size | Reqs |
 | --- | --- | --- | --- | --- |
-| 6.1 | `adapters/geo/routing/valhalla.ts` — request builder, costing map (`walk|bike|car`), response decode at the boundary, engine notes captured verbatim. | 2.2, 2.7 | L | **R3.3**, R3.9 |
+| 6.1 | `adapters/geo/routing/stadia.ts` — request builder against Stadia Maps, costing map (`walk|bike|car`), response decode at the boundary via `valhalla-trip.ts`, engine notes captured verbatim. | 2.2, 2.7 | L | **R3.3**, R3.9 |
 | 6.2 | Exclusion areas: simplify to the engine's polygon and vertex limits, attach, mark `exclusions: 'applied'`. | 6.1, 3.3 | M | **R3.4** |
 | 6.3 | Fallback path: on refusal or no-route-with-exclusions, retry **once** without them and mark `unavoided`; a test asserts the label and the summariser warning, because a silent drop here is the feature's worst artefact. | 6.2 | M | **R3.5**, ADR-6 |
 | 6.4 | Crossing detection on the returned geometry via 3.5, for `applied` and `unavoided` routes alike. | 6.1, 3.5 | M | **R3.6** |
@@ -260,6 +260,29 @@ fixtures, runs a scenario, and asserts on the exact drawn GeoJSON — reading on
 provider conformance suite green for every provider; three region scenarios replay headlessly; every
 requirement traced; and a reviewer reading only a tool result can tell whether the data was live,
 fixture, stale, partial, forecast, or scenario.
+
+---
+
+## Phase 12 — Place name resolution
+
+Added after the eight-tool budget of design §6 was set, and against it: without a geocoder, every
+question about a named place was either refused or answered at coordinates a model produced from
+memory.
+
+| # | Task | Deps | Size | Reqs |
+| --- | --- | --- | --- | --- |
+| 12.1 | `domain/geocoding.ts` and `ports/Geocoding.ts`: the match types, the name-matching score, the ambiguity rule. | 1.2 | M | **R11.2**, **R11.4** |
+| 12.2 | `FixtureGeocodingProvider` over a closed gazetteer that synthesises nothing (ADR-11). | 12.1 | M | **R11.8** |
+| 12.3 | `POST /api/geo/geocode`: boundary validation on the query text, cache keyed on it, allowlist entry for Nominatim. | 12.1, 4.2 | M | **R7.2**, **R7.3**, **R7.8** |
+| 12.4 | `NominatimGeocodingProvider` against recorded OpenStreetMap payloads, then verified live. | 12.2, 12.3 | L | **R11.1**, **R11.5**, **R11.7** |
+| 12.5 | `summariseGeocode`: coordinates, region and authority per match, ambiguity that suppresses the next-step line. | 12.1 | M | **R11.3**–**R11.6** |
+| 12.6 | `disaster.geocode` tool, and the `search-results` map layer with its own colour and focus target. | 12.4, 12.5, 9.2 | M | **R11.1**, R5.2, R5.3 |
+| 12.7 | Fix `focus()` matching a target against layer ids by substring — `floods` framed nothing at all. | 12.6 | S | **R5.3**, Boy-Scout |
+
+**Checkpoint 12 — Definition of done:** "Fukui Station" resolves to the JR station's coordinates in
+both data modes; an unknown name resolves to nothing, in both, with no coordinates anywhere in the
+result; two equally good matches suppress the next-step line rather than picking one; and the live
+path has been exercised against Nominatim, not only against recordings.
 
 ---
 

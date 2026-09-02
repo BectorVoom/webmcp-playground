@@ -15,7 +15,7 @@ export const DataModeBanner: React.FC<DataModeBannerProps> = ({ mode }) => {
       data-testid="map-banner-fixture"
       role="status"
       aria-label="Simulation Mode Banner"
-      className="bg-amber-500 text-black font-semibold text-xs py-1 px-3 text-center uppercase tracking-wide border-b border-amber-600 shadow-sm"
+      className="bg-amber-500 text-black font-semibold text-ui py-1 px-3 text-center uppercase tracking-wide border-b border-amber-600 shadow-sm"
     >
       ⚠️ Simulated Data Mode Active — Not for real-world emergency use
     </div>

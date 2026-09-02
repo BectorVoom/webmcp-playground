@@ -78,12 +78,15 @@ export class ModelLacksToolSupport extends Data.TaggedError('ModelLacksToolSuppo
 }> {}
 
 /**
- * The model returned neither text nor a tool call.
+ * The model returned neither text nor a tool call, twice running.
  *
- * Found against gemma4:e4b in prompted mode: a thinking model can spend its
- * whole budget reasoning and emit empty content. Treating that as a final
- * answer completes the turn with nothing to show, which looks to the user like
- * the app broke silently — so it is an explicit failure instead.
+ * Found against gemma4:e4b in prompted mode: a thinking model can reason its
+ * way to a decision and then end the turn without stating it. Treating that as
+ * a final answer completes the turn with nothing to show, which looks to the
+ * user like the app broke silently — so it is an explicit failure instead.
+ *
+ * The loop asks once more before raising this (see `emptyResponseNudge`), so
+ * reaching it means the model was silent on both asks.
  */
 export class EmptyModelResponse extends Data.TaggedError('EmptyModelResponse')<{
   readonly model: string
@@ -178,8 +181,8 @@ export const describeError = (error: AppError): string => {
       return `The model "${error.model}" has no native tool-calling support: ${error.hostMessage}`
     case 'EmptyModelResponse':
       return error.hadReasoning
-        ? `"${error.model}" spent step ${error.step} reasoning and returned no answer`
-        : `"${error.model}" returned neither text nor a tool call at step ${error.step}`
+        ? `"${error.model}" spent step ${error.step} reasoning and returned no answer, twice`
+        : `"${error.model}" returned neither text nor a tool call at step ${error.step}, twice`
     case 'LlmProtocolError':
       return `The model returned something unusable: ${error.message}`
     case 'LlmTimeout':
@@ -215,7 +218,7 @@ export const remedyFor = (error: AppError): string | undefined => {
     case 'ModelLacksToolSupport':
       return 'Switch the tool-call strategy to "prompted" in the selector — it describes the tools in the prompt instead, which works with any model. Or choose a model with a tool template.'
     case 'EmptyModelResponse':
-      return 'A thinking model can spend its whole budget reasoning. Retry the turn, switch to the native strategy, or use a model with a larger output budget.'
+      return 'A thinking model can reason its way to a decision and then not state it. The loop already asked a second time, so this one is persistent: switch to the native strategy, or use a model that answers outside its reasoning channel.'
     case 'LlmProtocolError':
       return 'If the tool-call strategy is "prompted", this model may not follow the JSON format. Try the native strategy or a different model.'
     case 'LlmTimeout':

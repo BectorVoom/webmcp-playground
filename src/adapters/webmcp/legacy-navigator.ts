@@ -12,6 +12,7 @@ import {
   resultFromHostValue,
   validateRegistration,
 } from './host-boundary'
+import { fromChangeSubscription } from './change-stream'
 
 const ID: AdapterId = 'legacy-navigator'
 
@@ -47,6 +48,10 @@ export const makeLegacyHost = (
   const notify = () => {
     for (const listener of listeners) listener()
   }
+  const changes = fromChangeSubscription((listener) => {
+    listeners.add(listener)
+    return () => listeners.delete(listener)
+  })
 
   const provide = () =>
     Effect.tryPromise({
@@ -157,10 +162,7 @@ export const makeLegacyHost = (
         }).pipe(Effect.map(resultFromHostValue))
       }),
 
-    subscribeToChanges: (listener) => {
-      listeners.add(listener)
-      return () => listeners.delete(listener)
-    },
+    changes,
   }
 }
 

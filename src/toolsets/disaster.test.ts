@@ -8,13 +8,18 @@ import {
 } from './disaster'
 import { MemoryMapAdapter } from '../adapters/map/memory-map'
 import { BrowserGeolocationAdapter } from '../adapters/geo/browser-geolocation'
+import type { LineString } from 'geojson'
+import { followsRoadNetwork } from '../lib/geometry/road-network'
 import type { ToolContext } from '../domain/tool'
-import { newCallId, newTurnId } from '../domain/ids'
+import { createIdFactory } from '../domain/ids'
+import { publishSchema } from '../domain/schema'
+
+const ids = createIdFactory()
 
 const makeCtx = (): ToolContext => ({
   signal: new AbortController().signal,
-  callId: newCallId(),
-  turnId: newTurnId(),
+  callId: ids.newCallId(),
+  turnId: ids.newTurnId(),
 })
 
 describe('Disaster Tool Set (Phase 8, Checkpoint 8)', () => {
@@ -35,12 +40,14 @@ describe('Disaster Tool Set (Phase 8, Checkpoint 8)', () => {
     setDisasterDataMode('fixture')
   })
 
-  it('declares 7 tools with flat schemas and honest annotations (8.1, 8.2)', () => {
-    expect(disasterToolSet.tools.length).toBe(7)
+  it('declares 9 tools with flat schemas and honest annotations (8.1, 8.2)', () => {
+    expect(disasterToolSet.tools.length).toBe(9)
     const names = disasterToolSet.tools.map((t) => t.name)
     expect(names).toEqual([
       'disaster.locate',
+      'disaster.geocode',
       'disaster.flood_forecast',
+      'disaster.inundation_model',
       'disaster.find_shelters',
       'disaster.evacuation_routes',
       'disaster.official_alerts',
@@ -54,6 +61,105 @@ describe('Disaster Tool Set (Phase 8, Checkpoint 8)', () => {
 
     const locateTool = disasterToolSet.tools.find((t) => t.name === 'disaster.locate')
     expect(locateTool?.annotations.untrustedContentHint).toBe(false)
+
+    // OSM place names are public free text and reach the model verbatim.
+    const geocodeTool = disasterToolSet.tools.find((t) => t.name === 'disaster.geocode')
+    expect(geocodeTool?.annotations.readOnlyHint).toBe(true)
+    expect(geocodeTool?.annotations.untrustedContentHint).toBe(true)
+
+    // Camera and layer controls mutate the visible page and must not be advertised as read-only.
+    expect(
+      disasterToolSet.tools.find((t) => t.name === 'disaster.focus_map')?.annotations.readOnlyHint,
+    ).toBe(false)
+    expect(
+      disasterToolSet.tools.find((t) => t.name === 'disaster.clear_map')?.annotations.readOnlyHint,
+    ).toBe(false)
+
+    const sheltersSchema = publishSchema(
+      disasterToolSet.tools.find((t) => t.name === 'disaster.find_shelters')!,
+    )
+    expect(sheltersSchema.properties).toMatchObject({
+      latitude: { minimum: -90, maximum: 90 },
+      longitude: { minimum: -180, maximum: 180 },
+      radiusKm: { minimum: 1, maximum: 20 },
+      limit: { type: 'integer', minimum: 1, maximum: 10 },
+    })
+  })
+
+  describe('disaster.geocode', () => {
+    const geocodeTool = () => disasterToolSet.tools.find((t) => t.name === 'disaster.geocode')!
+
+    it('resolves a place name to coordinates and draws it on its own layer', async () => {
+      const result = await Effect.runPromise(
+        geocodeTool().execute({ query: 'Fukui Station' }, makeCtx()),
+      )
+      const text = result.content[0]?.text ?? ''
+
+      expect(text).toContain('PLACE SEARCH')
+      expect(text).toContain('福井駅')
+      expect(text).toContain('latitude 36.0621')
+      expect(text).toContain('longitude 136.2222')
+      // Fixture mode must say so: these coordinates come from a closed list, not a geocoder.
+      expect(text).toContain('SIMULATED DATA')
+
+      const layer = await Effect.runPromise(mapAdapter.readLayer('search-results'))
+      expect(layer?.featureCount).toBeGreaterThan(0)
+      expect(layer?.geojson.features[0]?.properties?.name).toBe('福井駅')
+    })
+
+    it('tells the model exactly which tool call comes next', async () => {
+      const result = await Effect.runPromise(
+        geocodeTool().execute({ query: '福井駅', limit: 1 }, makeCtx()),
+      )
+      const text = result.content[0]?.text ?? ''
+
+      expect(text).toContain('latitude=36.0621')
+      expect(text).toContain('longitude=136.2222')
+      expect(text).toContain('disaster.flood_forecast')
+    })
+
+    it('says which authority covers the place it resolved', async () => {
+      const result = await Effect.runPromise(
+        geocodeTool().execute({ query: 'Fukui Station', limit: 1 }, makeCtx()),
+      )
+      expect(result.content[0]?.text).toContain('Japan')
+    })
+
+    it('returns Aomori Station latitude for the natural-language search phrasing', async () => {
+      const result = await Effect.runPromise(
+        geocodeTool().execute({ query: 'Aomori station latitude', limit: 1 }, makeCtx()),
+      )
+      const text = result.content[0]?.text ?? ''
+
+      expect(text).toContain('青森駅')
+      expect(text).toContain('latitude 40.8289')
+      expect(text).toContain('longitude 140.7336')
+    })
+
+    it('invents nothing for a name it cannot resolve', async () => {
+      const result = await Effect.runPromise(
+        geocodeTool().execute({ query: 'Nowhere At All Village' }, makeCtx()),
+      )
+      const text = result.content[0]?.text ?? ''
+
+      expect(text).toContain('No match')
+      expect(text).toContain('Do not guess coordinates')
+      expect(text).not.toMatch(/latitude \d/)
+
+      const layer = await Effect.runPromise(mapAdapter.readLayer('search-results'))
+      expect(layer?.featureCount).toBe(0)
+    })
+
+    it('fails loudly on an empty query rather than resolving something arbitrary', async () => {
+      const outcome = await Effect.runPromise(
+        Effect.either(geocodeTool().execute({ query: '  ' }, makeCtx())),
+      )
+
+      expect(outcome._tag).toBe('Left')
+      if (outcome._tag === 'Left') {
+        expect(outcome.left.message).toContain('No place name')
+      }
+    })
   })
 
   it('executes disaster.locate and updates user-position map layer (8.3, 8.5)', async () => {
@@ -109,9 +215,18 @@ describe('Disaster Tool Set (Phase 8, Checkpoint 8)', () => {
     expect(result.content[0]?.text).toContain('EVACUATION ROUTES')
     expect(result.content[0]?.text).toContain('Route 1 to')
 
+    // Several candidates, the way a navigation app offers a few ways round, and every one of them
+    // a path along streets rather than a line drawn to the destination.
     const layer = await Effect.runPromise(mapAdapter.readLayer('routes'))
     expect(layer).toBeDefined()
-    expect(layer?.featureCount).toBe(2)
+    expect(layer!.featureCount).toBeGreaterThan(1)
+    for (const feature of layer!.geojson.features) {
+      expect(feature.properties?.network).toBe('road')
+      expect(followsRoadNetwork(feature.geometry as LineString)).toBe(true)
+    }
+    expect(layer!.geojson.features.map((f) => f.properties?.rank)).toEqual(
+      layer!.geojson.features.map((_, i) => i + 1),
+    )
   })
 
   it('executes disaster.official_alerts with fenced output', async () => {
@@ -122,6 +237,22 @@ describe('Disaster Tool Set (Phase 8, Checkpoint 8)', () => {
 
     expect(result.content[0]?.text).toContain('OFFICIAL ALERTS')
     expect(result.content[0]?.text).toContain('```ja')
+  })
+
+  it('checks a named alert area without asking the user for coordinates', async () => {
+    // No pinned device position: this can pass only if placeName is resolved internally.
+    setDisasterGeolocationPort(new BrowserGeolocationAdapter())
+    const tool = disasterToolSet.tools.find((t) => t.name === 'disaster.official_alerts')!
+
+    const result = await Effect.runPromise(
+      tool.execute({ placeName: 'Tugaru area' } as never, makeCtx()),
+    )
+    const text = result.content[0]?.text ?? ''
+
+    expect(text).toContain('Named alert area resolved: 津軽地方, 青森県, 日本 (area)')
+    expect(text).toContain('Location: 40.809, 140.380')
+    expect(text).toContain('NO DATA covering this location')
+    expect(text).not.toMatch(/provide|ask.*latitude|ask.*longitude/i)
   })
 
   it('executes focus_map and clear_map controls', async () => {

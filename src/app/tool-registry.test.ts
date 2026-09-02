@@ -3,7 +3,7 @@ import { Effect, Schema } from 'effect'
 import { createTraceStore } from '../adapters/trace/memory-store'
 import { makeMemorySink } from '../adapters/trace/memory-sink'
 import { makeInMemoryHost } from '../adapters/webmcp/in-memory'
-import { asSessionId } from '../domain/ids'
+import { asSessionId, createIdFactory } from '../domain/ids'
 import { textResult, type ToolSet } from '../domain/tool'
 import { createFaultInjector } from './fault-injector'
 import { createToolRunner } from './tool-runner'
@@ -28,6 +28,7 @@ const build = (catalogue: ReadonlyArray<ToolSet>) => {
   const runner = createToolRunner({
     sink,
     faults: createFaultInjector(),
+    ids: createIdFactory(),
     timeoutMs: () => 1000,
     currentTurnId: () => undefined,
   })
@@ -84,6 +85,7 @@ describe('tool registry manager', () => {
     const runner = createToolRunner({
       sink,
       faults: createFaultInjector(),
+      ids: createIdFactory(),
       timeoutMs: () => 1000,
       currentTurnId: () => undefined,
     })

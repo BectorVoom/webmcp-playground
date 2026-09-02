@@ -1,0 +1,3311 @@
+[
+    {
+        "controlDatetime": "2026-08-22T11:42:34Z",
+        "reportDatetime": "2026-08-22T20:42:00+09:00",
+        "infoType": "\u767a\u8868",
+        "publishingOffice": "\u6c17\u8c61\u5e81",
+        "headlineText": "\u5371\u967a\u8b66\u5831\u3092\u89e3\u9664\u3057\u307e\u3059\u3002",
+        "warning": {
+            "class10Items": [
+                {
+                    "areaCode": "130010",
+                    "kinds": [
+                        {
+                            "code": "43",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "130020",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "130030",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "130040",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                }
+            ],
+            "class20Items": [
+                {
+                    "areaCode": "1310100",
+                    "kinds": [
+                        {
+                            "code": "03",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310200",
+                    "kinds": [
+                        {
+                            "code": "43",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310300",
+                    "kinds": [
+                        {
+                            "code": "03",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310400",
+                    "kinds": [
+                        {
+                            "code": "43",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310500",
+                    "kinds": [
+                        {
+                            "code": "43",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310600",
+                    "kinds": [
+                        {
+                            "code": "43",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310700",
+                    "kinds": [
+                        {
+                            "code": "03",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310800",
+                    "kinds": [
+                        {
+                            "code": "03",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310900",
+                    "kinds": [
+                        {
+                            "code": "03",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311000",
+                    "kinds": [
+                        {
+                            "code": "03",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311100",
+                    "kinds": [
+                        {
+                            "code": "03",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311200",
+                    "kinds": [
+                        {
+                            "code": "03",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311300",
+                    "kinds": [
+                        {
+                            "code": "03",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311400",
+                    "kinds": [
+                        {
+                            "code": "03",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311500",
+                    "kinds": [
+                        {
+                            "code": "03",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311600",
+                    "kinds": [
+                        {
+                            "code": "43",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311700",
+                    "kinds": [
+                        {
+                            "code": "43",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311800",
+                    "kinds": [
+                        {
+                            "code": "43",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311900",
+                    "kinds": [
+                        {
+                            "code": "43",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1312000",
+                    "kinds": [
+                        {
+                            "code": "43",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1312100",
+                    "kinds": [
+                        {
+                            "code": "03",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1312200",
+                    "kinds": [
+                        {
+                            "code": "10",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1312300",
+                    "kinds": [
+                        {
+                            "code": "10",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320200",
+                    "kinds": [
+                        {
+                            "code": "10",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320300",
+                    "kinds": [
+                        {
+                            "code": "03",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320400",
+                    "kinds": [
+                        {
+                            "code": "10",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320500",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320600",
+                    "kinds": [
+                        {
+                            "code": "10",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320700",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320800",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320900",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321000",
+                    "kinds": [
+                        {
+                            "code": "10",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321100",
+                    "kinds": [
+                        {
+                            "code": "10",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321300",
+                    "kinds": [
+                        {
+                            "code": "10",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321400",
+                    "kinds": [
+                        {
+                            "code": "10",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321500",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321800",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321900",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322000",
+                    "kinds": [
+                        {
+                            "code": "10",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322100",
+                    "kinds": [
+                        {
+                            "code": "10",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322200",
+                    "kinds": [
+                        {
+                            "code": "10",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322300",
+                    "kinds": [
+                        {
+                            "code": "10",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322400",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322500",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322700",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322800",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322900",
+                    "kinds": [
+                        {
+                            "code": "10",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1330300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1330500",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1330700",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1330800",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1336100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1336200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1336300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1336400",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1338100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1338200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1340100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1340200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1342100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                }
+            ]
+        },
+        "dataTypeCode": "VPWW55"
+    },
+    {
+        "controlDatetime": "2026-08-22T11:42:34Z",
+        "reportDatetime": "2026-08-22T20:42:00+09:00",
+        "infoType": "\u767a\u8868",
+        "publishingOffice": "\u6c17\u8c61\u5e81",
+        "headlineText": "\u6ce8\u610f\u5831\u3092\u89e3\u9664\u3057\u307e\u3059\u3002",
+        "warning": {
+            "class10Items": [
+                {
+                    "areaCode": "130010",
+                    "kinds": [
+                        {
+                            "code": "29",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "130020",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "130030",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "130040",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                }
+            ],
+            "class20Items": [
+                {
+                    "areaCode": "1310100",
+                    "kinds": [
+                        {
+                            "code": "29",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310300",
+                    "kinds": [
+                        {
+                            "code": "29",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310400",
+                    "kinds": [
+                        {
+                            "code": "29",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310500",
+                    "kinds": [
+                        {
+                            "code": "29",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310600",
+                    "kinds": [
+                        {
+                            "code": "29",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310700",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310800",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310900",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311000",
+                    "kinds": [
+                        {
+                            "code": "29",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311300",
+                    "kinds": [
+                        {
+                            "code": "29",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311400",
+                    "kinds": [
+                        {
+                            "code": "29",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311500",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311600",
+                    "kinds": [
+                        {
+                            "code": "29",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311700",
+                    "kinds": [
+                        {
+                            "code": "29",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311800",
+                    "kinds": [
+                        {
+                            "code": "29",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311900",
+                    "kinds": [
+                        {
+                            "code": "29",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1312000",
+                    "kinds": [
+                        {
+                            "code": "29",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1312100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1312200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1312300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320400",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320500",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320600",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320700",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320800",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320900",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321000",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321400",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321500",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321800",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321900",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322000",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322400",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322500",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322700",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322800",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322900",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1330300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1330500",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1330700",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1330800",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1336100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1336200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1336300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1336400",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1338100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1338200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1340100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1340200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1342100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                }
+            ]
+        },
+        "offices": [
+            {
+                "type": "\u88dc\u8db3\u60c5\u5831\u62c5\u5f53",
+                "name": "\u6771\u4eac\u90fd\u5efa\u8a2d\u5c40\u6cb3\u5ddd\u90e8\u9632\u707d\u8ab2"
+            },
+            {
+                "type": "\u6c17\u8c61\u95a2\u4fc2",
+                "name": "\u6c17\u8c61\u5e81\u672c\u5e81"
+            }
+        ],
+        "dataTypeCode": "VPWW56"
+    },
+    {
+        "controlDatetime": "2026-08-25T11:17:07Z",
+        "reportDatetime": "2026-08-25T20:17:00+09:00",
+        "infoType": "\u767a\u8868",
+        "publishingOffice": "\u6c17\u8c61\u5e81",
+        "headlineText": "\u6ce8\u610f\u5831\u3092\u89e3\u9664\u3057\u307e\u3059\u3002",
+        "warning": {
+            "class10Items": [
+                {
+                    "areaCode": "130010",
+                    "kinds": [
+                        {
+                            "code": "15",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "130020",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "130030",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "130040",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                }
+            ],
+            "class20Items": [
+                {
+                    "areaCode": "1310100",
+                    "kinds": [
+                        {
+                            "code": "15",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310200",
+                    "kinds": [
+                        {
+                            "code": "15",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310300",
+                    "kinds": [
+                        {
+                            "code": "15",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310400",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310500",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310600",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310700",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310800",
+                    "kinds": [
+                        {
+                            "code": "15",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310900",
+                    "kinds": [
+                        {
+                            "code": "15",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311000",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311100",
+                    "kinds": [
+                        {
+                            "code": "15",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311400",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311500",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311600",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311700",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311800",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311900",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1312000",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1312100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1312200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1312300",
+                    "kinds": [
+                        {
+                            "code": "15",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320400",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320500",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320600",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320700",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320800",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320900",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321000",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321400",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321500",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321800",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321900",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322000",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322400",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322500",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322700",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322800",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322900",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1330300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1330500",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1330700",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1330800",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1336100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1336200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1336300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1336400",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1338100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1338200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1340100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1340200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1342100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                }
+            ]
+        },
+        "dataTypeCode": "VPWW58"
+    },
+    {
+        "controlDatetime": "2026-08-27T01:09:19Z",
+        "reportDatetime": "2026-08-27T10:09:00+09:00",
+        "infoType": "\u767a\u8868",
+        "publishingOffice": "\u6c17\u8c61\u5e81",
+        "headlineText": "\u6ce8\u610f\u5831\u3092\u89e3\u9664\u3057\u307e\u3059\u3002",
+        "warning": {
+            "class10Items": [
+                {
+                    "areaCode": "130010",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "130020",
+                    "kinds": [
+                        {
+                            "code": "16",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "130030",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "130040",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                }
+            ],
+            "class20Items": [
+                {
+                    "areaCode": "1310100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310400",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310500",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310600",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310700",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310800",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310900",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311000",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311400",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311500",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311600",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311700",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311800",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311900",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1312000",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1312100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1312200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1312300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320400",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320500",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320600",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320700",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320800",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320900",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321000",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321400",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321500",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321800",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321900",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322000",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322400",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322500",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322700",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322800",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322900",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1330300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1330500",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1330700",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1330800",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1336100",
+                    "kinds": [
+                        {
+                            "code": "16",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1336200",
+                    "kinds": [
+                        {
+                            "code": "16",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1336300",
+                    "kinds": [
+                        {
+                            "code": "16",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1336400",
+                    "kinds": [
+                        {
+                            "code": "16",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1338100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1338200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1340100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1340200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1342100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                }
+            ]
+        },
+        "dataTypeCode": "VPWW59"
+    },
+    {
+        "controlDatetime": "2026-08-29T22:56:21Z",
+        "reportDatetime": "2026-08-30T07:56:00+09:00",
+        "infoType": "\u767a\u8868",
+        "publishingOffice": "\u6c17\u8c61\u5e81",
+        "headlineText": "\u4f0a\u8c46\u8af8\u5cf6\u5357\u90e8\u3067\u306f\u3001\u6025\u306a\u5f37\u3044\u96e8\u3084\u843d\u96f7\u306b\u6ce8\u610f\u3057\u3066\u304f\u3060\u3055\u3044\u3002\u6771\u4eac\u5730\u65b9\u3067\u306f\u3001\u6fc3\u9727\u306b\u3088\u308b\u8996\u7a0b\u969c\u5bb3\u306b\u6ce8\u610f\u3057\u3066\u304f\u3060\u3055\u3044\u3002",
+        "warning": {
+            "class10Items": [
+                {
+                    "areaCode": "130010",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "130020",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "130030",
+                    "kinds": [
+                        {
+                            "code": "14",
+                            "status": "\u7d99\u7d9a",
+                            "additions": [
+                                "\u7a81\u98a8"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "130040",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                }
+            ],
+            "class20Items": [
+                {
+                    "areaCode": "1310100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310400",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310500",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310600",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310700",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310800",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1310900",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311000",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311400",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311500",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311600",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311700",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311800",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1311900",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1312000",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1312100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1312200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1312300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320100",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320200",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320300",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320400",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320500",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320600",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320700",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320800",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1320900",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321000",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321100",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321200",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321300",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321400",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321500",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321800",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1321900",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322000",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322100",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322200",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322300",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322400",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322500",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322700",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322800",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1322900",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1330300",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1330500",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1330700",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1330800",
+                    "kinds": [
+                        {
+                            "code": "20",
+                            "status": "\u7d99\u7d9a",
+                            "properties": [
+                                {
+                                    "type": "\u6fc3\u9727\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "\u6fc3\u9727"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1336100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1336200",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1336300",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1336400",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1338100",
+                    "kinds": [
+                        {
+                            "code": "14",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1338200",
+                    "kinds": [
+                        {
+                            "code": "14",
+                            "status": "\u89e3\u9664"
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1340100",
+                    "kinds": [
+                        {
+                            "code": "14",
+                            "status": "\u7d99\u7d9a",
+                            "additions": [
+                                "\u7a81\u98a8"
+                            ],
+                            "properties": [
+                                {
+                                    "type": "\u96f7\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20",
+                                                "additions": [
+                                                    "\u7a81\u98a8"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1340200",
+                    "kinds": [
+                        {
+                            "code": "14",
+                            "status": "\u7d99\u7d9a",
+                            "additions": [
+                                "\u7a81\u98a8"
+                            ],
+                            "properties": [
+                                {
+                                    "type": "\u96f7\u5371\u967a\u5ea6",
+                                    "significancyPart": {
+                                        "locals": [
+                                            {
+                                                "code": "20",
+                                                "additions": [
+                                                    "\u7a81\u98a8"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "areaCode": "1342100",
+                    "kinds": [
+                        {
+                            "status": "\u767a\u8868\u8b66\u5831\u30fb\u6ce8\u610f\u5831\u306f\u306a\u3057"
+                        }
+                    ]
+                }
+            ]
+        },
+        "dataTypeCode": "VPWW61"
+    }
+]

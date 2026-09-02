@@ -19,6 +19,7 @@
       "expires": 1999999999000,
       "sender": "NWS Baltimore MD/Washington DC",
       "areaDescription": "District of Columbia; Arlington VA",
+      "area": [-77.17, 38.79, -76.91, 39.00],
       "language": "en"
     }
   ]

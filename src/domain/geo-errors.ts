@@ -67,6 +67,17 @@ export class TileAnalysisFailed extends Data.TaggedError('TileAnalysisFailed')<{
   readonly message?: string
 }> {}
 
+/**
+ * The caller asked a geocoder to resolve something that is not a place name — an empty string, or
+ * a pair of coordinates pasted into the name field. A caller bug, not a coverage gap, so it is an
+ * error rather than an empty result set (ADR-3 applies to "nothing is there", not "nothing was
+ * asked").
+ */
+export class GeocodeQueryInvalid extends Data.TaggedError('GeocodeQueryInvalid')<{
+  readonly query: string
+  readonly reason: string
+}> {}
+
 export class RoutingUnavailable extends Data.TaggedError('RoutingUnavailable')<{
   readonly engine: string
   readonly message: string
@@ -90,13 +101,16 @@ export type GeoError =
   | UpstreamTooLarge
   | HostNotAllowed
   | TileAnalysisFailed
+  | GeocodeQueryInvalid
   | RoutingUnavailable
   | RouteNotFound
 
 export const describeGeoError = (error: GeoError): string => {
   switch (error._tag) {
     case 'GeolocationDenied':
-      return 'Location access was denied by the user or browser.'
+      return error.message
+        ? `Location access was denied: ${error.message}.`
+        : 'Location access was denied by the user or browser.'
     case 'GeolocationUnavailable':
       return `Location is unavailable: ${error.message}`
     case 'GeolocationTimeout':
@@ -119,6 +133,8 @@ export const describeGeoError = (error: GeoError): string => {
       return `Outbound request to unlisted host "${error.host}" was refused.`
     case 'TileAnalysisFailed':
       return `Raster tile analysis failed for tile "${error.tile}" at stage "${error.stage}".`
+    case 'GeocodeQueryInvalid':
+      return `"${error.query}" is not a usable place name: ${error.reason}`
     case 'RoutingUnavailable':
       return `Routing engine "${error.engine}" is unavailable: ${error.message}`
     case 'RouteNotFound':
@@ -154,6 +170,8 @@ export const remedyForGeoError = (error: GeoError): string => {
       return 'Add the host to GEO_ALLOWED_HOSTS in environment configuration if intended.'
     case 'TileAnalysisFailed':
       return 'Request fewer tiles or a lower zoom level.'
+    case 'GeocodeQueryInvalid':
+      return 'Pass the place name the user actually said, such as "Fukui Station" — never coordinates, and never an empty string.'
     case 'RoutingUnavailable':
       return 'Falling back to straight-line distance estimates. Do not use for turn-by-turn navigation.'
     case 'RouteNotFound':

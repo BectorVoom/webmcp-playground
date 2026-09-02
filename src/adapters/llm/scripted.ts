@@ -18,6 +18,8 @@ import type { CompletionRequest, CompletionResponse, LlmClientService } from '..
 
 export interface ScriptedStep {
   readonly text?: string | null
+  /** Set where the step needs to look like a thinking model's reply. */
+  readonly reasoning?: string
   readonly toolCalls?: ReadonlyArray<{ readonly name: string; readonly input: unknown }>
 }
 
@@ -124,6 +126,20 @@ export const SCENARIOS: ReadonlyArray<ScriptedScenario> = [
     ],
   },
   {
+    id: 'silence',
+    description:
+      'Reasons, answers with nothing, then answers properly when nudged — the thinking-model failure.',
+    keywords: ['silent', 'say nothing', 'think only'],
+    steps: [
+      {
+        text: null,
+        reasoning:
+          'The user wants an answer. I should work out what to say. I have worked it out.',
+      },
+      { text: 'Sorry — I thought that through without saying any of it. Here is the answer.' },
+    ],
+  },
+  {
     id: 'loop',
     description: 'Calls a tool on every step forever, to exercise the step limit (R1.5).',
     keywords: ['loop', 'forever', 'many', 'limit'],
@@ -184,12 +200,22 @@ export const makeScriptedClient = (): LlmClientService => ({
         }
       }
 
+      // The loop appends a system message when re-asking a step that came back
+      // empty, and never otherwise — so this is how the driver tells a nudged
+      // ask from a first one.
+      const nudged = request.messages[request.messages.length - 1]?.role === 'system'
+
       // The `loop` scenario has one step and repeats it, which is what makes it
       // run into the step limit rather than terminating.
       const scripted =
         scenario.id === 'loop'
           ? scenario.steps[0]!
-          : (scenario.steps[step] ?? { text: 'Nothing further to do.' })
+          : scenario.id === 'silence'
+            // An empty reply adds no assistant message, so the assistant count
+            // cannot advance this one. The nudge is what moves it on — which is
+            // precisely the condition it exists to reproduce.
+            ? scenario.steps[nudged ? 1 : 0]!
+            : (scenario.steps[step] ?? { text: 'Nothing further to do.' })
 
       const toolCalls = (scripted.toolCalls ?? []).map((call, index) => ({
         id: `scripted_${step}_${index}`,
@@ -199,6 +225,7 @@ export const makeScriptedClient = (): LlmClientService => ({
 
       return {
         text: toolCalls.length > 0 ? null : (scripted.text ?? null),
+        reasoning: scripted.reasoning ?? null,
         toolCalls,
         raw: { driver: 'scripted', scenario: scenario.id, step, scripted },
         requestId: request.requestId,

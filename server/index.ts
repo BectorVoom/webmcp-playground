@@ -4,13 +4,17 @@ import { cors } from 'hono/cors'
 import { readFile, stat } from 'node:fs/promises'
 import { extname, join, resolve, sep } from 'node:path'
 import { describeError } from '../src/domain/errors'
-import { loadConfig, type ServerConfig } from './config'
+import { describeMissingRoutingKey, loadConfig, type ServerConfig } from './config'
 import type { AppEnv } from './env'
 import { requestLogger } from './logger'
 import { healthRoutes } from './routes/health'
 import { llmRoutes } from './routes/llm'
 import { traceRoutes } from './routes/traces'
 import { geoRoutes } from './routes/geo'
+import { inundationRoutes } from './routes/inundation'
+import { floodModelRoutes } from './routes/flood-model'
+import { cemsForecastRoutes } from './routes/cems-forecast'
+import { describeCemsConfig, resolveCemsCredentials } from './cems/credentials'
 import { GeoProxyService } from './geo-proxy'
 
 /** Startup fails loudly and precisely, or not at all (R8.5). */
@@ -29,11 +33,19 @@ if (Exit.isFailure(configExit)) {
 
 const config: ServerConfig = configExit.value
 
-/**
- * Local only (R8.6). This backend holds the model credential and writes files;
- * exposing it beyond the loopback interface would be a poor trade for a
- * playground that has no reason to leave the machine.
- */
+// Said once, at startup, where it is cheap to notice — rather than as a 401 per route request,
+// several layers from the cause.
+const routingKeyWarning = describeMissingRoutingKey(config)
+if (routingKeyWarning !== null) console.warn(`[config] ${routingKeyWarning}`)
+
+// Same idea for the Copernicus token: a missing one, or one pointed at the wrong store, otherwise
+// surfaces as a 404 on a dataset that says nothing about which URL was wrong. Resolved once here
+// and handed to the route, rather than read again per request.
+const cemsCredentials = resolveCemsCredentials()
+const cemsWarning = describeCemsConfig(cemsCredentials)
+if (cemsWarning !== null) console.warn(`[config] ${cemsWarning}`)
+
+/** Development CORS stays local even when production explicitly opts into a public bind (R8.6). */
 const DEV_ORIGINS = ['http://localhost:5173', 'http://127.0.0.1:5173']
 
 const MIME: Record<string, string> = {
@@ -69,12 +81,27 @@ export const createApp = (config: ServerConfig) => {
   const geoProxy = new GeoProxyService(config)
 
   app.use('*', requestLogger())
+  app.use('*', async (c, next) => {
+    await next()
+
+    // WebMCP is gated by the `tools` permissions-policy feature. Its default is self, but spelling
+    // that out prevents a hosting platform's broad default policy from silently disabling it.
+    c.header('Permissions-Policy', 'tools=(self)')
+    if (config.webMcpOriginTrialToken !== undefined) {
+      // Origin Trial tokens are public deployment metadata. Keeping the token server-side avoids a
+      // rebuild per origin and makes rotation a configuration change rather than a source edit.
+      c.header('Origin-Trial', config.webMcpOriginTrialToken)
+    }
+  })
   app.use('/api/*', cors({ origin: DEV_ORIGINS, allowHeaders: ['content-type', 'x-request-id'] }))
 
   app.route('/api/health', healthRoutes(config, geoProxy))
   app.route('/api/llm', llmRoutes(config))
   app.route('/api/traces', traceRoutes(config))
   app.route('/api/geo', geoRoutes(config, geoProxy))
+  app.route('/api/geo', inundationRoutes(config, geoProxy))
+  app.route('/api/geo', floodModelRoutes(config, geoProxy))
+  app.route('/api/geo', cemsForecastRoutes(config, geoProxy, { credentials: cemsCredentials }))
 
   app.notFound(async (c) => {
     const pathname = new URL(c.req.url).pathname
@@ -98,4 +125,4 @@ export const createApp = (config: ServerConfig) => {
 
 export const app = createApp(config)
 
-export default { port: config.port, fetch: app.fetch, hostname: '127.0.0.1' }
+export default { port: config.port, fetch: app.fetch, hostname: config.hostname }

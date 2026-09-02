@@ -10,8 +10,12 @@ const LAYER_LABELS: Record<MapLayerId, string> = {
   'user-position': 'User Location',
   'query-radius': 'Search Radius',
   'flood-zones': 'Flood Zones',
+  // Named for what it is. "Flood Zones" is an authority's map; this is this system's estimate,
+  // and a reader toggling them must be able to tell which is which.
+  'inundation-model': 'Modelled Inundation',
   facilities: 'Safe Shelters',
   routes: 'Evacuation Routes',
+  'search-results': 'Searched Places',
 }
 
 /**
@@ -24,16 +28,18 @@ export const LayerList: React.FC<LayerListProps> = ({ layers, onToggle }) => {
     'user-position',
     'query-radius',
     'flood-zones',
+    'inundation-model',
     'facilities',
     'routes',
+    'search-results',
   ]
 
   return (
     <div
       data-testid="map-layer-list"
-      className="bg-slate-900/90 text-slate-200 text-xs p-2 rounded-md border border-slate-700 shadow-md flex flex-col gap-1.5 pointer-events-auto"
+      className="bg-slate-900/90 text-slate-200 text-ui p-2 rounded-md border border-slate-700 shadow-md flex flex-col gap-1.5 pointer-events-auto"
     >
-      <div className="font-semibold text-[11px] uppercase tracking-wider text-slate-400">
+      <div className="font-semibold text-ui uppercase tracking-wider text-slate-400">
         Map Layers
       </div>
       {allLayerIds.map((id) => {
@@ -45,7 +51,7 @@ export const LayerList: React.FC<LayerListProps> = ({ layers, onToggle }) => {
           <label
             key={id}
             data-testid={`map-toggle-${id}`}
-            className="flex items-center justify-between gap-3 text-[11px] cursor-pointer hover:text-white"
+            className="flex items-center justify-between gap-3 text-ui cursor-pointer hover:text-white"
           >
             <div className="flex items-center gap-1.5">
               <input
@@ -58,7 +64,7 @@ export const LayerList: React.FC<LayerListProps> = ({ layers, onToggle }) => {
               <span>{LAYER_LABELS[id]}</span>
             </div>
             {layerData && (
-              <span className="text-[10px] text-slate-400 font-mono">({count})</span>
+              <span className="text-meta text-slate-400 font-mono">({count})</span>
             )}
           </label>
         )

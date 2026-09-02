@@ -5,7 +5,7 @@ import { simplifyZonesToBudget } from './simplify'
 import { assessFacilityRisk, findContainingZone, findNearestZoneEdge, isPointInGeometry } from './measure'
 import { assessRouteCrossings } from './crossings'
 import { getCoveringTiles, lon2tile, lat2tile, tileBBox } from './tiles'
-import { classifyPixel } from './raster'
+import { classifyPixel, GSI_FLOOD_LEGEND } from './raster'
 import { rasterTilesToFloodZones, vectoriseTileGrid } from './contour'
 import type { DepthBand, FloodZone, HazardClass } from '../../domain/hazard'
 import type { Provenance } from '../../domain/provenance'
@@ -268,24 +268,21 @@ describe('lib/geometry / slippy tiles (R2.5)', () => {
 })
 
 describe('lib/geometry / raster classification & contouring (R2.4, R8.3, Checkpoint 3)', () => {
-  it('classifies official GSI legend colors correctly', () => {
-    // Red (5.0 - 10.0m)
-    const red = classifyPixel(255, 0, 0, 255)
-    expect(red.hazardClass).toBe('extreme')
-    expect(red.depth?.minMetres).toBe(5.0)
+  /**
+   * The colour table itself is pinned against real GSI tiles in `raster.test.ts`. This case
+   * asserted #FF0000 was 5–10 m water and #FF9999 was 3–5 m; GSI paints neither colour anywhere,
+   * so the suite agreed with the implementation and both were wrong about the upstream. What
+   * belongs here is the behaviour that holds whatever the palette turns out to be.
+   */
+  it('reads transparency as no inundation and an unknown colour as unreadable', () => {
+    const legendColour = GSI_FLOOD_LEGEND[2]!
+    const onLegend = classifyPixel(legendColour.r, legendColour.g, legendColour.b, 255)
+    expect(onLegend.hazardClass).toBe(legendColour.hazardClass)
+    expect(onLegend.depth).toEqual(legendColour.depth)
 
-    // Pink (3.0 - 5.0m)
-    const pink = classifyPixel(255, 153, 153, 255)
-    expect(pink.hazardClass).toBe('high')
-    expect(pink.depth?.minMetres).toBe(3.0)
-
-    // Transparent pixel
-    const trans = classifyPixel(0, 0, 0, 0)
-    expect(trans.hazardClass).toBeNull()
-
-    // Random non-legend color (e.g. bright blue [0, 0, 255])
-    const unknownColor = classifyPixel(0, 0, 255, 255)
-    expect(unknownColor.hazardClass).toBe('unclassified')
+    expect(classifyPixel(0, 0, 0, 0).hazardClass).toBeNull()
+    // Never guessed at, however close it looks (R8.3).
+    expect(classifyPixel(0, 0, 255, 255).hazardClass).toBe('unclassified')
   })
 
   it('vectorises a synthetic raster tile grid to expected polygons', () => {

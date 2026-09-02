@@ -11,9 +11,19 @@ export interface RouteQuery {
   readonly destinations: ReadonlyArray<SafeFacility>
   readonly costing: RouteCosting
   readonly exclusions?: ReadonlyArray<Polygon | MultiPolygon>
+  /**
+   * How many routes to ask for per destination, the way a navigation app offers a fastest and a
+   * couple of other ways round. More than one is what makes a safer detour available at all when
+   * the direct path runs through water. Defaults to one; providers may return fewer.
+   */
+  readonly candidatesPerDestination?: number
   readonly signal?: AbortSignal
 }
 
+/**
+ * One entry per candidate, not per destination: a destination with three ways round contributes
+ * three `ok` entries, all carrying the same `route.destination`.
+ */
 export type DestinationRouteResult =
   | { readonly ok: true; readonly route: EvacuationRoute }
   | { readonly ok: false; readonly destinationId: string; readonly error: GeoError }

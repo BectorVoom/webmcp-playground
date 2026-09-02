@@ -6,7 +6,8 @@
  *
  * Ids are monotonic within a session rather than random, because a human or an
  * agent reading `turn_3 / call_7` can order them at a glance, and diffing two
- * exported traces stays meaningful.
+ * exported traces stays meaningful. The counters live in a per-session
+ * `IdFactory` so that "within a session" is enforced rather than assumed.
  */
 
 declare const brand: unique symbol
@@ -18,24 +19,40 @@ export type TurnId = Branded<string, 'TurnId'>
 export type CallId = Branded<string, 'CallId'>
 export type RequestId = Branded<string, 'RequestId'>
 
-let turnCounter = 0
-let callCounter = 0
-let requestCounter = 0
-
 export const newSessionId = (): SessionId =>
   `sess_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 7)}` as SessionId
 
-export const newTurnId = (): TurnId => `turn_${++turnCounter}` as TurnId
+/**
+ * The counters a session numbers its turns, calls and requests from.
+ *
+ * One factory per session, not one per module: "monotonic within a session" is
+ * the property the ids promise, and module state cannot keep that promise if a
+ * document ever holds two sessions — the second would start at `turn_4` and its
+ * trace would be unreadable against the first.
+ */
+export interface IdFactory {
+  readonly newTurnId: () => TurnId
+  readonly newCallId: () => CallId
+  readonly newRequestId: () => RequestId
+  /** Restarts the sequences, so a session reset reads `turn_1` again. */
+  readonly reset: () => void
+}
 
-export const newCallId = (): CallId => `call_${++callCounter}` as CallId
+export const createIdFactory = (): IdFactory => {
+  let turnCounter = 0
+  let callCounter = 0
+  let requestCounter = 0
 
-export const newRequestId = (): RequestId => `req_${++requestCounter}` as RequestId
-
-/** Test and session-reset helper: makes id sequences reproducible across runs. */
-export const resetIdCounters = (): void => {
-  turnCounter = 0
-  callCounter = 0
-  requestCounter = 0
+  return {
+    newTurnId: () => `turn_${++turnCounter}` as TurnId,
+    newCallId: () => `call_${++callCounter}` as CallId,
+    newRequestId: () => `req_${++requestCounter}` as RequestId,
+    reset: () => {
+      turnCounter = 0
+      callCounter = 0
+      requestCounter = 0
+    },
+  }
 }
 
 export const asSessionId = (value: string): SessionId => value as SessionId

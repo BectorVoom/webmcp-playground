@@ -1,4 +1,9 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
+import {
+  measureElement as measureVirtualRow,
+  observeElementRect,
+  useVirtualizer,
+} from '@tanstack/react-virtual'
 import { useStore } from '../hooks/useRun'
 import { useSession } from '../session-context'
 import { CopyButton, JsonBlock } from '../common/Json'
@@ -31,18 +36,22 @@ const LEVEL_TONE: Record<string, string> = {
 /**
  * The inspector is a peer of the chat, not a drawer behind it (R5.2).
  *
- * Rendering is windowed to the most recent N matching events rather than
- * virtualised with a dependency: with filters available, "the latest 300 of
- * 4,812" is both responsive and honest about what is on screen (N2).
+ * All matching events remain reachable by scrolling, while the virtualiser
+ * mounts only the rows around the viewport. Rows have expandable content, so
+ * their measured height — rather than a guessed fixed height — controls their
+ * placement (N2).
  */
-const WINDOW_STEP = 300
+const ESTIMATED_ROW_HEIGHT = 104
+const ESTIMATED_VIEWPORT_HEIGHT = 600
 
 export function InspectorPane() {
+  // TanStack Virtual keeps mutable scroll and measurement state, which React Compiler must not memoise.
+  'use no memo'
   const session = useSession()
   const events = useStore(session.traceStore)
   const [category, setCategory] = useState<TraceCategory | 'all'>('all')
   const [turnFilter, setTurnFilter] = useState<string>('all')
-  const [limit, setLimit] = useState(WINDOW_STEP)
+  const scrollRef = useRef<HTMLDivElement>(null)
 
   const turnIds = useMemo(() => {
     const ids = new Set<string>()
@@ -60,18 +69,38 @@ export function InspectorPane() {
     [events, category, turnFilter],
   )
 
-  const visible = filtered.slice(Math.max(0, filtered.length - limit))
+  const virtualizer = useVirtualizer({
+    count: filtered.length,
+    getScrollElement: () => scrollRef.current,
+    estimateSize: () => ESTIMATED_ROW_HEIGHT,
+    observeElementRect: (instance, callback) =>
+      observeElementRect(instance, (rect) =>
+        callback(
+          rect.height === 0 ? { ...rect, height: ESTIMATED_VIEWPORT_HEIGHT } : rect,
+        ),
+      ),
+    measureElement: (element, entry, instance) => {
+      const height = measureVirtualRow(element, entry, instance)
+      return height === 0 ? ESTIMATED_ROW_HEIGHT : height
+    },
+    // Renders a useful first range before the browser has reported the pane's
+    // dimensions. The observer immediately replaces this estimate in a real layout.
+    initialRect: { width: 0, height: ESTIMATED_VIEWPORT_HEIGHT },
+    overscan: 8,
+  })
   const discarded = session.traceStore.discardedCount()
+
+  const resetScroll = () => virtualizer.scrollToOffset(0)
 
   return (
     <aside
       data-pane="inspector"
       data-testid="inspector-pane"
-      className="flex w-96 shrink-0 flex-col overflow-hidden border-l border-border-subtle text-xs"
+      className="flex w-96 shrink-0 flex-col overflow-hidden border-l border-border-subtle text-ui"
     >
       <div className="flex flex-col gap-2 border-b border-border-subtle p-2">
         <div className="flex items-center justify-between">
-          <h2 className="font-semibold">Inspector</h2>
+          <h2 className="text-body font-semibold">Inspector</h2>
           <CopyButton value={session.exportTrace()} testId="inspector-copy-all" />
         </div>
 
@@ -87,7 +116,10 @@ export function InspectorPane() {
                   ? 'border-accent bg-accent/15 text-accent'
                   : 'border-border-subtle text-ink-muted hover:text-ink'
               }`}
-              onClick={() => setCategory(option)}
+              onClick={() => {
+                setCategory(option)
+                resetScroll()
+              }}
             >
               {option}
             </button>
@@ -100,7 +132,10 @@ export function InspectorPane() {
             data-testid="inspector-filter-turn"
             className="rounded border border-border-subtle bg-surface px-1 py-0.5"
             value={turnFilter}
-            onChange={(event) => setTurnFilter(event.target.value)}
+            onChange={(event) => {
+              setTurnFilter(event.target.value)
+              resetScroll()
+            }}
           >
             <option value="all">all</option>
             {turnIds.map((id) => (
@@ -118,27 +153,39 @@ export function InspectorPane() {
         </label>
 
         <div className="text-ink-muted" data-testid="inspector-count">
-          showing {visible.length} of {filtered.length} matching ({events.length} total
+          {filtered.length} matching ({events.length} total
           {discarded > 0 ? `, ${discarded} discarded` : ''})
-          {visible.length < filtered.length && (
-            <button
-              type="button"
-              data-testid="inspector-button-more"
-              className="ml-2 underline decoration-dotted"
-              onClick={() => setLimit((n) => n + WINDOW_STEP)}
-            >
-              show older
-            </button>
-          )}
         </div>
       </div>
 
-      <ol data-testid="inspector-events" className="flex-1 overflow-y-auto p-2">
-        {visible.length === 0 && <li className="text-ink-muted">no matching events</li>}
-        {visible.map((event) => (
-          <InspectorRow key={event.seq} event={event} />
-        ))}
-      </ol>
+      <div
+        ref={scrollRef}
+        data-testid="inspector-events"
+        className="flex-1 overflow-y-auto p-2"
+      >
+        {filtered.length === 0 ? (
+          <div className="text-ink-muted">no matching events</div>
+        ) : (
+          <ol
+            className="relative m-0 list-none p-0"
+            style={{ height: `${virtualizer.getTotalSize()}px` }}
+          >
+            {virtualizer.getVirtualItems().map((row) => {
+              const event = filtered[row.index]
+              if (event === undefined) return null
+              return (
+                <InspectorRow
+                  key={event.seq}
+                  event={event}
+                  index={row.index}
+                  start={row.start}
+                  measureElement={virtualizer.measureElement}
+                />
+              )
+            })}
+          </ol>
+        )}
+      </div>
     </aside>
   )
 }
@@ -155,7 +202,7 @@ function Reasoning({ text, seq }: { text: string; seq: number }) {
       <button
         type="button"
         data-testid={`inspector-reasoning-${seq}-toggle`}
-        className="text-[11px] text-accent underline decoration-dotted"
+        className="text-ui text-accent underline decoration-dotted"
         onClick={() => setOpen((o) => !o)}
       >
         {open ? '▾' : '▸'} model reasoning ({text.length} chars)
@@ -163,7 +210,7 @@ function Reasoning({ text, seq }: { text: string; seq: number }) {
       {open && (
         <p
           data-testid={`inspector-reasoning-${seq}`}
-          className="mt-1 max-h-60 overflow-auto whitespace-pre-wrap rounded bg-accent/5 p-2 text-[11px] leading-relaxed"
+          className="mt-1 max-h-60 overflow-auto whitespace-pre-wrap rounded bg-accent/5 p-2 text-body"
         >
           {text}
         </p>
@@ -172,14 +219,27 @@ function Reasoning({ text, seq }: { text: string; seq: number }) {
   )
 }
 
-function InspectorRow({ event }: { event: TraceEvent }) {
+function InspectorRow({
+  event,
+  index,
+  start,
+  measureElement,
+}: {
+  readonly event: TraceEvent
+  readonly index: number
+  readonly start: number
+  readonly measureElement: (element: Element | null) => void
+}) {
   const level = levelOf(event.payload)
   const reasoning =
     event.payload.kind === 'ModelResponded' ? (event.payload.reasoning ?? null) : null
   return (
     <li
+      ref={measureElement}
+      data-index={index}
       data-testid={`inspector-event-${event.seq}`}
-      className="border-b border-border-subtle/60 py-1.5 last:border-0"
+      className="absolute left-0 top-0 w-full border-b border-border-subtle/60 py-1.5"
+      style={{ transform: `translateY(${start}px)` }}
     >
       <div className="flex items-baseline gap-2">
         <span className="font-mono text-ink-muted">#{event.seq}</span>
@@ -193,7 +253,7 @@ function InspectorRow({ event }: { event: TraceEvent }) {
       </div>
       <div className="pl-6 text-ink-muted">{summarise(event)}</div>
       {(event.turnId !== undefined || event.requestId !== undefined) && (
-        <div className="pl-6 font-mono text-[10px] text-ink-muted">
+        <div className="pl-6 font-mono text-meta text-ink-muted">
           {[event.turnId, event.callId, event.requestId].filter(Boolean).join(' · ')}
         </div>
       )}

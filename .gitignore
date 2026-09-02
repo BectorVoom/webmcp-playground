@@ -23,6 +23,11 @@ dist-ssr
 *.sln
 *.sw?
 
-# Local env and exported traces
+# Local env, exported traces, and fetched-once upstream records
 .env
 .traces/
+.cache/
+
+# Remotion demo-video project: a self-contained side project with its own
+# node_modules (~500 MB) and rendered mp4 output. Kept local to this machine.
+movie/

@@ -4,7 +4,7 @@ import { createTraceStore } from '../adapters/trace/memory-store'
 import { makeMemorySink } from '../adapters/trace/memory-sink'
 import { makeInMemoryHost } from '../adapters/webmcp/in-memory'
 import { makeScriptedClient } from '../adapters/llm/scripted'
-import { asSessionId, asTurnId } from '../domain/ids'
+import { asSessionId, asTurnId, createIdFactory } from '../domain/ids'
 import { TOOL_SETS, resetTodos } from '../toolsets'
 import { createFaultInjector } from './fault-injector'
 import { createToolRunner } from './tool-runner'
@@ -22,9 +22,13 @@ const build = async (options: { timeoutMs?: number; maxSteps?: number } = {}) =>
   const store = createTraceStore(asSessionId('sess_loop'))
   const sink = makeMemorySink(store)
   const faults = createFaultInjector()
+  // One factory for the loop and the runner alike, as a session has: the ids in
+  // the trace only line up if both draw from the same sequence.
+  const ids = createIdFactory()
   const runner = createToolRunner({
     sink,
     faults,
+    ids,
     timeoutMs: () => options.timeoutMs ?? 1000,
     currentTurnId: () => undefined,
   })
@@ -37,6 +41,7 @@ const build = async (options: { timeoutMs?: number; maxSteps?: number } = {}) =>
     host,
     client: makeScriptedClient(),
     sink,
+    ids,
     model: 'scripted',
     strategy: 'native',
     maxSteps: options.maxSteps ?? 8,
@@ -163,11 +168,13 @@ describe('runTurn', () => {
     expect((toolMessage as { content: string }).content.length).toBeGreaterThan(0)
   })
 
-  it('fails explicitly when the model returns neither text nor a tool call', async () => {
-    // Found against gemma4:e4b in prompted mode: a thinking model can spend its
-    // whole budget reasoning and emit empty content. Completing the turn here
-    // would show a blank answer and call it success.
-    const { deps } = await build()
+  it('fails explicitly when the model returns nothing twice running', async () => {
+    // Found against gemma4:e4b in prompted mode: a thinking model can reason its
+    // way to a decision and then end the turn without stating it. The loop asks
+    // once more before giving up; a model that is silent both times has still
+    // said nothing, and completing here would show a blank answer and call it
+    // success.
+    const { deps, store } = await build()
     const turn = await Effect.runPromise(
       runTurn(asTurnId('turn_1'), [], 'anything', {
         ...deps,
@@ -190,9 +197,66 @@ describe('runTurn', () => {
     expect(turn.errorTag).toBe('EmptyModelResponse')
     expect(turn.errorMessage).toContain('reasoning')
     expect(turn.remedy).toContain('native strategy')
+    // The retry is not free, so the trace says it happened rather than leaving
+    // the step looking like one request that took twice as long.
+    expect(kinds(store).filter((k) => k === 'EmptyResponseRetried')).toHaveLength(1)
+    expect(kinds(store).filter((k) => k === 'ModelRequested')).toHaveLength(2)
   })
 
-  it('distinguishes an empty response with no reasoning from a thinking overrun', async () => {
+  it('recovers when the nudged re-ask produces an answer', async () => {
+    // Measured against gemma4:e4b: 7 of 36 asks came back empty, and one
+    // re-ask carrying the nudge recovered all 7.
+    const { deps, store } = await build()
+    const turn = await Effect.runPromise(
+      runTurn(asTurnId('turn_1'), [], 'please say nothing at first', deps),
+    )
+
+    expect(turn.state).toBe('completed')
+    expect(turn.finalText).toContain('Here is the answer.')
+    expect(kinds(store)).toContain('EmptyResponseRetried')
+    // One step, asked twice — the recovery must not consume the step budget.
+    expect(turn.steps).toBe(1)
+  })
+
+  it('keeps the nudge out of the transcript', async () => {
+    const { deps } = await build()
+    const turn = await Effect.runPromise(
+      runTurn(asTurnId('turn_1'), [], 'please say nothing at first', deps),
+    )
+
+    // The nudge prods one request. Leaving it in the messages would carry the
+    // scolding into every later step of the conversation.
+    expect(turn.messages.some((m) => m.role === 'system')).toBe(false)
+  })
+
+  it('asks only once more, never in a loop', async () => {
+    const { deps, store } = await build()
+    let asks = 0
+    await Effect.runPromise(
+      runTurn(asTurnId('turn_1'), [], 'anything', {
+        ...deps,
+        maxSteps: 1,
+        client: {
+          id: 'scripted',
+          listModels: () => Effect.succeed([]),
+          complete: (request) => {
+            asks++
+            return Effect.succeed({
+              text: null,
+              toolCalls: [],
+              raw: {},
+              requestId: request.requestId,
+            })
+          },
+        },
+      }),
+    )
+
+    expect(asks).toBe(2)
+    expect(kinds(store).filter((k) => k === 'EmptyResponseRetried')).toHaveLength(1)
+  })
+
+  it('distinguishes an empty response with no reasoning from a silent thinker', async () => {
     const { deps } = await build()
     const turn = await Effect.runPromise(
       runTurn(asTurnId('turn_1'), [], 'anything', {

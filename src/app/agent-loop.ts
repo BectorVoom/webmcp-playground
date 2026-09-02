@@ -1,7 +1,7 @@
 import { Effect } from 'effect'
 import type { ChatMessage, ToolCallRecord, Turn } from '../domain/chat'
 import { EmptyModelResponse, describeError, remedyFor, type AppError } from '../domain/errors'
-import { newCallId, newRequestId, type TurnId } from '../domain/ids'
+import type { IdFactory, TurnId } from '../domain/ids'
 import type { HostTool, PublishedTool, ToolResult } from '../domain/tool'
 import type { ToolHostService } from '../ports/ToolHost'
 import type { LlmClientService, ToolCallStrategy } from '../ports/LlmClient'
@@ -22,6 +22,7 @@ export interface TurnDeps {
   readonly host: ToolHostService
   readonly client: LlmClientService
   readonly sink: TraceSinkService
+  readonly ids: IdFactory
   readonly model: string
   readonly strategy: ToolCallStrategy
   readonly maxSteps: number
@@ -33,6 +34,31 @@ const toPublished = (tool: HostTool): PublishedTool => ({
   description: tool.description,
   inputSchema: tool.inputSchema ?? { type: 'object' },
 })
+
+const isBlank = (text: string | null | undefined): boolean =>
+  text === null || text === undefined || text.trim() === ''
+
+/**
+ * The prod sent when a model replies with nothing at all.
+ *
+ * A thinking model can spend its whole turn in the `reasoning` channel, work
+ * out what to do, and then stop without saying it. Measured against
+ * `gemma4:e4b` in prompted mode: 7 of 36 asks came back with empty content —
+ * every one with `finish_reason: "stop"`, so this is the model ending its turn
+ * rather than exhausting an output budget. Repeating the instruction it
+ * reasoned past, and telling it not to think again, recovered all 7.
+ *
+ * Worded per strategy because "the JSON block" is the answer in prompted mode
+ * (see `buildPromptedSystemMessage`) and nonsense in native mode. Only prompted
+ * mode was measured; native shares the recovery because the failure is the
+ * model's, not the strategy's.
+ */
+export const emptyResponseNudge = (strategy: ToolCallStrategy): string =>
+  'Your previous reply contained no answer. Reply now with ' +
+  (strategy === 'prompted'
+    ? 'only the JSON tool-call block, or a plain-text answer'
+    : 'your answer, or a tool call') +
+  '. Do not think further.'
 
 const flattenResult = (result: ToolResult): string => {
   const content = Array.isArray(result.content) ? result.content : []
@@ -97,29 +123,18 @@ export const runTurn = (
         ),
       )
 
-  const loop = Effect.gen(function* () {
-    yield* deps.sink.emit({ kind: 'TurnStarted', userMessage }, { turnId })
-
-    let turn = base
-
-    for (let step = 1; step <= deps.maxSteps; step++) {
-      // Re-read from the host every step rather than caching. Microseconds
-      // slower, and it means a tool set toggled mid-turn behaves correctly and
-      // the trace shows exactly what the model was offered each time (R2.4).
-      const hostTools = yield* Effect.either(deps.host.listTools())
-      if (hostTools._tag === 'Left') {
-        // A host-level failure is the one thing that aborts a turn: if we cannot
-        // see the tools, continuing would be guesswork (ADR-7).
-        return yield* failed(turn, hostTools.left)
-      }
-
-      const tools = hostTools.right.map(toPublished)
-      yield* deps.sink.emit(
-        { kind: 'ToolsListed', tools: tools.map((t) => t.name), source: 'host' },
-        { turnId },
-      )
-
-      const requestId = newRequestId()
+  /**
+   * One traced model request. Returns the completion or the error rather than
+   * failing, because at this level "the model errored" is a turn outcome, and
+   * because a step may need to ask twice.
+   */
+  const ask = (
+    messages: ReadonlyArray<ChatMessage>,
+    tools: ReadonlyArray<PublishedTool>,
+    step: number,
+  ) =>
+    Effect.gen(function* () {
+      const requestId = deps.ids.newRequestId()
       yield* deps.sink.emit(
         {
           kind: 'ModelRequested',
@@ -127,9 +142,9 @@ export const runTurn = (
           model: deps.model,
           strategy: deps.strategy,
           step,
-          messageCount: turn.messages.length,
+          messageCount: messages.length,
           tools,
-          request: { messages: turn.messages },
+          request: { messages },
         },
         { turnId, requestId },
       )
@@ -138,7 +153,7 @@ export const runTurn = (
       const completion = yield* Effect.either(
         deps.client.complete({
           model: deps.model,
-          messages: turn.messages,
+          messages,
           tools,
           strategy: deps.strategy,
           signal: deps.signal,
@@ -147,12 +162,9 @@ export const runTurn = (
       )
       const durationMs = Math.round(performance.now() - started)
 
-      if (completion._tag === 'Left') {
-        return yield* failed({ ...turn, steps: step }, completion.left)
-      }
+      if (completion._tag === 'Left') return completion
 
       const response = completion.right
-
       yield* deps.sink.emit(
         {
           kind: 'ModelResponded',
@@ -175,19 +187,80 @@ export const runTurn = (
         )
       }
 
+      return completion
+    })
+
+  const loop = Effect.gen(function* () {
+    yield* deps.sink.emit({ kind: 'TurnStarted', userMessage }, { turnId })
+
+    let turn = base
+
+    for (let step = 1; step <= deps.maxSteps; step++) {
+      // Re-read from the host every step rather than caching. Microseconds
+      // slower, and it means a tool set toggled mid-turn behaves correctly and
+      // the trace shows exactly what the model was offered each time (R2.4).
+      const hostTools = yield* Effect.either(deps.host.listTools())
+      if (hostTools._tag === 'Left') {
+        // A host-level failure is the one thing that aborts a turn: if we cannot
+        // see the tools, continuing would be guesswork (ADR-7).
+        return yield* failed(turn, hostTools.left)
+      }
+
+      const tools = hostTools.right.map(toPublished)
+      yield* deps.sink.emit(
+        { kind: 'ToolsListed', tools: tools.map((t) => t.name), source: 'host' },
+        { turnId },
+      )
+
+      const first = yield* ask(turn.messages, tools, step)
+      if (first._tag === 'Left') {
+        return yield* failed({ ...turn, steps: step }, first.left)
+      }
+
+      let response = first.right
+
+      // A thinking model can spend the whole turn in its `reasoning` channel,
+      // work out what to do, and then stop without saying it. Measured against
+      // gemma4:e4b in prompted mode: 7 of 36 asks came back empty, every one
+      // with finish_reason "stop" rather than a truncated budget — and one
+      // re-ask carrying the nudge recovered all 7.
+      //
+      // Re-asking is safe precisely here and nowhere else in this codebase: an
+      // empty reply named no tool, so nothing ran and there is no side effect
+      // to double (contrast the deliberate no-retry in server/upstream.ts).
+      if (response.toolCalls.length === 0 && isBlank(response.text)) {
+        yield* deps.sink.emit(
+          {
+            kind: 'EmptyResponseRetried',
+            step,
+            hadReasoning: !isBlank(response.reasoning),
+          },
+          { turnId },
+        )
+
+        // The nudge prods this one request only; it never enters the
+        // transcript, or every later step would carry the scolding with it.
+        const retry = yield* ask(
+          [...turn.messages, { role: 'system', content: emptyResponseNudge(deps.strategy) }],
+          tools,
+          step,
+        )
+        if (retry._tag === 'Left') {
+          return yield* failed({ ...turn, steps: step }, retry.left)
+        }
+        response = retry.right
+      }
+
       if (response.toolCalls.length === 0) {
         // No tool call AND no text is not an answer, it is an empty response.
         // Completing here would show the user a blank turn and call it success.
-        if (response.text === null || response.text.trim() === '') {
+        if (isBlank(response.text)) {
           return yield* failed(
             { ...turn, steps: step },
             new EmptyModelResponse({
               model: deps.model,
               step,
-              hadReasoning:
-                response.reasoning !== null &&
-                response.reasoning !== undefined &&
-                response.reasoning.trim() !== '',
+              hadReasoning: !isBlank(response.reasoning),
             }),
           )
         }
@@ -206,7 +279,7 @@ export const runTurn = (
       const records: ToolCallRecord[] = [...turn.toolCalls]
 
       for (const call of response.toolCalls) {
-        const callId = newCallId()
+        const callId = deps.ids.newCallId()
         const callStarted = performance.now()
         const outcome = yield* Effect.either(
           deps.host.execute(call.name, call.input, { signal: deps.signal }),

@@ -1,7 +1,11 @@
 import { Effect, Schema } from 'effect'
 import { Hono } from 'hono'
-import { describeError, remedyFor } from '../../src/domain/errors'
-import { ChatProxyRequestSchema, type ModelsResponse } from '../../src/domain/wire'
+import { describeError, remedyFor, type AppError } from '../../src/domain/errors'
+import {
+  ChatProxyRequestSchema,
+  type ChatProxyErrorBody,
+  type ModelsResponse,
+} from '../../src/domain/wire'
 import type { AppEnv } from '../env'
 import type { ServerConfig } from '../config'
 import { chatCompletion, listModels } from '../upstream'
@@ -14,6 +18,21 @@ const STATUS_FOR_TAG: Record<string, 400 | 502 | 504> = {
   // template cannot. 400 says "change the request", which is the right advice.
   ModelLacksToolSupport: 400,
 }
+
+/**
+ * Carries the failing error's own fields across, not just its tag. The client
+ * rebuilds the tagged error from this, and a field dropped here is a remedy the
+ * user reads with a hole in it.
+ */
+const errorBody = (error: AppError, requestId: string): ChatProxyErrorBody => ({
+  error: error._tag,
+  message: describeError(error),
+  remedy: remedyFor(error),
+  requestId,
+  ...(error._tag === 'LlmTimeout' ? { timeoutMs: error.timeoutMs } : {}),
+  ...(error._tag === 'LlmProtocolError' ? { bodyExcerpt: error.bodyExcerpt } : {}),
+  ...(error._tag === 'ModelLacksToolSupport' ? { hostMessage: error.hostMessage } : {}),
+})
 
 export const llmRoutes = (config: ServerConfig) =>
   new Hono<AppEnv>()
@@ -53,12 +72,7 @@ export const llmRoutes = (config: ServerConfig) =>
 
       if (result._tag === 'Left') {
         return c.json(
-          {
-            error: result.left._tag,
-            message: describeError(result.left),
-            remedy: remedyFor(result.left),
-            requestId,
-          },
+          errorBody(result.left, requestId),
           STATUS_FOR_TAG[result.left._tag] ?? 502,
         )
       }

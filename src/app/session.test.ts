@@ -1,6 +1,5 @@
 import { describe, expect, it, beforeEach } from 'vitest'
 import { createSession } from './session'
-import { resetIdCounters } from '../domain/ids'
 
 /**
  * Session-level behaviour that spans the loop, the registry and the transcript
@@ -8,7 +7,6 @@ import { resetIdCounters } from '../domain/ids'
  * turn sees the same history the original did.
  */
 beforeEach(() => {
-  resetIdCounters()
   history.replaceState(null, '', '/')
   globalThis.fetch = (() => Promise.reject(new Error('offline'))) as typeof fetch
 })
@@ -57,6 +55,31 @@ describe('turn retry (R1.7)', () => {
   })
 })
 
+describe('correlation ids are per session (R5.1)', () => {
+  it('numbers each session from turn_1, even when two share a document', async () => {
+    const first = await build('?toolSets=todo')
+    const second = await build('?toolSets=todo')
+
+    const a = await first.sendMessage('add milk')
+    const b = await second.sendMessage('add milk')
+
+    expect(a.id).toBe('turn_1')
+    // The point of the fix: the second session does not continue the first's
+    // sequence, so its trace reads on its own terms.
+    expect(b.id).toBe('turn_1')
+    expect(a.toolCalls.map((c) => c.callId)).toEqual(b.toolCalls.map((c) => c.callId))
+  })
+
+  it('restarts the sequence on reset', async () => {
+    const session = await build('?toolSets=todo')
+    await session.sendMessage('add milk')
+
+    await session.reset()
+
+    expect((await session.sendMessage('add milk')).id).toBe('turn_1')
+  })
+})
+
 describe('configuration in the URL (R2.8)', () => {
   it('restores the tool set selection from the query string on load', async () => {
     const session = await build('?toolSets=forms')
@@ -73,6 +96,21 @@ describe('configuration in the URL (R2.8)', () => {
     const session = await build('?adapter=legacy-navigator')
     expect(session.state.snapshot().adapterId).toBe('legacy-navigator')
     expect(session.state.snapshot().detection.overridden).toBe(true)
+  })
+})
+
+describe('host change stream (R2.5)', () => {
+  it('records the enabled tools after the session starts consuming host changes', async () => {
+    const session = await build('?toolSets=todo')
+
+    expect(
+      session.traceStore
+        .snapshot()
+        .some(
+          (event) =>
+            event.payload.kind === 'ToolChanged' && event.payload.tools.includes('todo.add'),
+        ),
+    ).toBe(true)
   })
 })
 

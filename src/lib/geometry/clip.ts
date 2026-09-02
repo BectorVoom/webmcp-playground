@@ -3,7 +3,7 @@ import union from '@turf/union'
 import { featureCollection } from '@turf/helpers'
 import type { Feature, MultiPolygon, Polygon } from 'geojson'
 import type { LonLat } from '../../domain/geo'
-import type { FloodZone, HazardClass } from '../../domain/hazard'
+import type { FloodZone } from '../../domain/hazard'
 import { createCircleFeature } from './circle'
 
 export interface ClippedFloodZonesResult {
@@ -26,8 +26,19 @@ export const clipAndMergeZones = (
 
   const circleFeature = createCircleFeature(center, radiusKm, 64)
 
-  // 1. Clip each zone to circle
-  const clippedByClass = new Map<HazardClass, Array<FloodZone>>()
+  /**
+   * Zones only merge with genuinely like zones.
+   *
+   * Keyed on the class **and** the kind **and** the source, not the class alone. With more than one
+   * flood provider per region — Japan now has an assumed-maximum planning map, a real-time risk
+   * grid and a global 100-year model — a class-only key unions a キキクル level-4 *forecast* into a
+   * GSI *scenario* polygon and labels the result with whichever provider happened to run first.
+   * That is the failure ADR-2 exists to prevent, arriving through the back door: the reader is
+   * shown tonight's danger and last century's planning envelope as one shape, under one name.
+   */
+  const clippedByClass = new Map<string, Array<FloodZone>>()
+  const mergeKey = (zone: FloodZone): string =>
+    `${zone.hazardClass}|${zone.kind.kind}|${zone.provenance.sourceId}`
 
   for (const zone of zones) {
     const zoneFeature: Feature<Polygon | MultiPolygon> = {
@@ -43,9 +54,10 @@ export const clipAndMergeZones = (
           ...zone,
           geometry: intersection.geometry as Polygon | MultiPolygon,
         }
-        const existing = clippedByClass.get(zone.hazardClass) ?? []
+        const key = mergeKey(zone)
+        const existing = clippedByClass.get(key) ?? []
         existing.push(clippedZone)
-        clippedByClass.set(zone.hazardClass, existing)
+        clippedByClass.set(key, existing)
       }
     } catch {
       // In case of non-manifold or degenerate geometries, keep valid parts or skip
@@ -55,7 +67,7 @@ export const clipAndMergeZones = (
   // 2. Union overlapping zones within same hazard class
   const mergedZones: Array<FloodZone> = []
 
-  for (const [hazardClass, classZones] of clippedByClass.entries()) {
+  for (const classZones of clippedByClass.values()) {
     if (classZones.length === 0) continue
 
     if (classZones.length === 1 && classZones[0]) {
@@ -89,9 +101,9 @@ export const clipAndMergeZones = (
       }
     }
 
+    // `representative` now genuinely represents the group: same class, same kind, same source.
     mergedZones.push({
       ...representative,
-      hazardClass,
       geometry: currentFeature.geometry,
     })
   }

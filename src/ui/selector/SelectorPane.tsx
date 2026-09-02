@@ -8,7 +8,7 @@ import type { AdapterId } from '../../ports/ToolHost'
 import type { DriverId, ToolCallStrategy } from '../../ports/LlmClient'
 import type { FaultKind } from '../../domain/trace'
 import type { HostTool } from '../../domain/tool'
-import { Effect } from 'effect'
+import { Effect, Fiber, Stream } from 'effect'
 
 const FAULTS: ReadonlyArray<FaultKind> = ['fail', 'hang', 'invalid']
 
@@ -33,19 +33,22 @@ export function SelectorPane() {
       .then(setHostTools)
   }, [session])
 
-  // Refresh on every host-driven change, within one frame (R2.5). Subscribing
-  // in an effect rather than through useSyncExternalStore because the host
-  // itself is swappable, so the subscription target is not stable.
+  // Refresh on every host-driven change, within one frame (R2.5). The host is
+  // swappable, so the effect owns and interrupts its stream fiber directly.
   useEffect(() => {
     refresh()
     let frame = 0
-    const unsubscribe = session.host().subscribeToChanges(() => {
-      cancelAnimationFrame(frame)
-      frame = requestAnimationFrame(refresh)
-    })
+    const fiber = session.runtime.runFork(
+      Stream.runForEach(session.host().changes, () =>
+        Effect.sync(() => {
+          cancelAnimationFrame(frame)
+          frame = requestAnimationFrame(refresh)
+        }),
+      ),
+    )
     return () => {
       cancelAnimationFrame(frame)
-      unsubscribe()
+      void session.runtime.runPromise(Fiber.interrupt(fiber))
     }
   }, [session, refresh, state.adapterId])
 
@@ -61,10 +64,10 @@ export function SelectorPane() {
     <aside
       data-pane="selector"
       data-testid="selector-pane"
-      className="flex w-72 shrink-0 flex-col gap-4 overflow-y-auto border-r border-border-subtle p-3 text-xs"
+      className="flex w-72 shrink-0 flex-col gap-4 overflow-y-auto border-r border-border-subtle p-3 text-ui"
     >
       <section>
-        <h2 className="mb-2 font-semibold">Tool sets</h2>
+        <h2 className="mb-2 text-body font-semibold">Tool sets</h2>
         <ul className="flex flex-col gap-1.5">
           {toolSets.map((set) => (
             <li key={set.id}>
@@ -108,7 +111,7 @@ export function SelectorPane() {
       </section>
 
       <section>
-        <h2 className="mb-2 font-semibold">
+        <h2 className="mb-2 text-body font-semibold">
           Registered on host{' '}
           <button
             type="button"
@@ -138,7 +141,7 @@ export function SelectorPane() {
       </section>
 
       <section className="flex flex-col gap-2">
-        <h2 className="font-semibold">Runtime</h2>
+        <h2 className="text-body font-semibold">Runtime</h2>
 
         <label className="flex flex-col gap-1">
           adapter
@@ -233,7 +236,7 @@ export function SelectorPane() {
       </section>
 
       <section>
-        <h2 className="mb-1 font-semibold">Inject a fault</h2>
+        <h2 className="mb-1 text-body font-semibold">Inject a fault</h2>
         <p className="mb-1 text-ink-muted">
           Arms the next tool call. Reproducing an error path should cost one click, not an hour.
         </p>
@@ -261,7 +264,7 @@ export function SelectorPane() {
       </section>
 
       <section>
-        <h2 className="mb-1 font-semibold">Adapter detection</h2>
+        <h2 className="mb-1 text-body font-semibold">Adapter detection</h2>
         <ul className="flex flex-col gap-1">
           {state.detection.candidates.map((candidate) => (
             <li

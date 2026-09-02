@@ -23,7 +23,7 @@ export interface ToolRunner {
     options: ToolRunOptions,
   ) => Effect.Effect<ToolResult, ToolError>
 
-  /** Promise form, for the callback shape hosts require. Rejects with ToolBoundaryError. */
+  /** Promise form for host callbacks. Rejects with `ToolBoundaryError`; lossy hosts may encode it as a result. */
   readonly executeAsPromise: (
     tool: AnyToolDefinition,
     rawInput: unknown,

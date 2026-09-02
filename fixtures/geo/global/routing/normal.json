@@ -1,72 +1,4915 @@
 {
-  "capturedAt": 1740816000000,
-  "upstreamUrl": "https://valhalla1.openstreetmap.de/route",
-  "sourceId": "global.valhalla.routing",
-  "licence": "ODbL 1.0",
-  "attribution": "© OpenStreetMap contributors, Valhalla routing engine",
-  "routes": [
-    {
-      "destinationId": "jp-fac-1",
-      "costing": "pedestrian",
-      "metres": 850,
-      "seconds": 680,
-      "steps": [
+ "capturedAt": 1787961600000,
+ "upstreamUrl": "https://valhalla1.openstreetmap.de/route",
+ "sourceId": "global.valhalla.routing",
+ "licence": "ODbL 1.0",
+ "attribution": "© OpenStreetMap contributors, Valhalla routing engine",
+ "note": "Real Valhalla pedestrian replies, recorded verbatim (trimmed to the fields the parser reads) so fixture mode draws paths that actually follow Tokyo streets. Captured from the origin below; a query starting elsewhere gets no recorded route and is reported as a straight-line distance instead of being drawn as one. jp-fac-3 is absent because the upstream engine returns a 500 for that pair, which is exactly the gap the straight-line fallback covers.",
+ "origin": {
+  "latitude": 35.6812,
+  "longitude": 139.7671
+ },
+ "originToleranceMetres": 750,
+ "captures": [
+  {
+   "destinationId": "jp-fac-1",
+   "costing": "pedestrian",
+   "response": {
+    "trip": {
+     "legs": [
+      {
+       "shape": "{yx`cAisuqiGoFwAo@hEnZ`IbFrA`KlCsB~J~MrDu@|EyAxJa@pCRpBY|B~ALU~AW~AmAdIxG`UTr@JzGdAZdF|ArCx@zBxAr@PhHxArKzBzNzCpKfCsIno@O`AfATq@bEo@~Ed@f@rCl@rDt@nAV~\\nG]zF[`BXhA^jAt@j@rA~BRl@b@lBb@xBBxAIzCCnAhAnBIREV@VDVLPNL[dCrCv@j@~@j@t@`AzAB`BJnBvAjDjEhAhFrAxCv@@l@Vv@ra@hJhPrD|ATl@GxBf@tBd@T`@ba@`JfPrD~AT[rCa@pD^^k@hDsJeBtMjCmKfx@m@lEjNjDjEdBpUvJfGjEBUtL`ExBdBda@l[l@o@fN|Mhf@`f@bb@p`@j@sAx@z@n@mAzCxCmBtDiEjI_CnEhEnEqEbJiAg@qDtKaAvCgBaAkF~@eDhLpAvGwAdE[|@{AbDqBvAsDGaCx@yBlBuCdCrDdI|@tD",
+       "summary": {
+        "length": 1.847,
+        "time": 1378
+       },
+       "maneuvers": [
         {
-          "instruction": "Walk southwest on Marunouchi Street toward Hibiya.",
-          "metres": 450,
-          "seconds": 360,
-          "streetNames": ["Marunouchi Street"]
+         "type": 40,
+         "instruction": "Take the stairs.",
+         "length": 0.013,
+         "time": 10,
+         "begin_shape_index": 0
         },
         {
-          "instruction": "Turn left into Hibiya Park entrance.",
-          "metres": 400,
-          "seconds": 320,
-          "streetNames": ["Hibiya Park Promenade"]
-        }
-      ],
-      "coordinates": [
-        [139.767, 35.681],
-        [139.761, 35.677],
-        [139.756, 35.674]
-      ]
-    },
-    {
-      "destinationId": "jp-fac-3",
-      "costing": "pedestrian",
-      "metres": 2900,
-      "seconds": 2300,
-      "steps": [
+         "type": 15,
+         "instruction": "Turn left onto 中央通路/Central Passage.",
+         "street_names": [
+          "中央通路",
+          "Central Passage"
+         ],
+         "length": 0.01,
+         "time": 7,
+         "begin_shape_index": 1
+        },
         {
-          "instruction": "Walk south on Hibiya-dori toward Shiba.",
-          "metres": 2900,
-          "seconds": 2300,
-          "streetNames": ["Hibiya-dori"]
-        }
-      ],
-      "coordinates": [
-        [139.767, 35.681],
-        [139.758, 35.668],
-        [139.749, 35.655]
-      ]
-    },
-    {
-      "destinationId": "jp-fac-4",
-      "costing": "pedestrian",
-      "metres": 1800,
-      "seconds": 1400,
-      "steps": [
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.087,
+         "time": 61,
+         "begin_shape_index": 2
+        },
         {
-          "instruction": "Walk northwest on Uchibori-dori toward Kitanomaru.",
-          "metres": 1800,
-          "seconds": 1400,
-          "streetNames": ["Uchibori-dori"]
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.046,
+         "time": 30,
+         "begin_shape_index": 5
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto 南通路/South Passage.",
+         "street_names": [
+          "南通路",
+          "South Passage"
+         ],
+         "length": 0.046,
+         "time": 30,
+         "begin_shape_index": 7
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.005,
+         "time": 4,
+         "begin_shape_index": 12
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto 東京駅丸の内南口.",
+         "street_names": [
+          "東京駅丸の内南口"
+         ],
+         "length": 0.025,
+         "time": 21,
+         "begin_shape_index": 13
+        },
+        {
+         "type": 16,
+         "instruction": "Bear left onto the walkway.",
+         "length": 0.036,
+         "time": 40,
+         "begin_shape_index": 16
+        },
+        {
+         "type": 23,
+         "instruction": "Keep right to take the walkway.",
+         "length": 0.016,
+         "time": 11,
+         "begin_shape_index": 17
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the crosswalk.",
+         "length": 0.027,
+         "time": 26,
+         "begin_shape_index": 19
+        },
+        {
+         "type": 8,
+         "instruction": "Continue on JPタワー.",
+         "street_names": [
+          "JPタワー"
+         ],
+         "length": 0.08,
+         "time": 56,
+         "begin_shape_index": 22
+        },
+        {
+         "type": 8,
+         "instruction": "Continue on the walkway.",
+         "length": 0.023,
+         "time": 23,
+         "begin_shape_index": 27
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.076,
+         "time": 71,
+         "begin_shape_index": 28
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.004,
+         "time": 3,
+         "begin_shape_index": 30
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the crosswalk.",
+         "length": 0.02,
+         "time": 20,
+         "begin_shape_index": 31
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.082,
+         "time": 57,
+         "begin_shape_index": 33
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.064,
+         "time": 42,
+         "begin_shape_index": 38
+        },
+        {
+         "type": 24,
+         "instruction": "Keep left to take the walkway.",
+         "length": 0.019,
+         "time": 14,
+         "begin_shape_index": 50
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.075,
+         "time": 61,
+         "begin_shape_index": 58
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.005,
+         "time": 4,
+         "begin_shape_index": 68
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.219,
+         "time": 163,
+         "begin_shape_index": 70
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the crosswalk.",
+         "length": 0.015,
+         "time": 12,
+         "begin_shape_index": 80
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.002,
+         "time": 1,
+         "begin_shape_index": 82
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.008,
+         "time": 6,
+         "begin_shape_index": 83
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.021,
+         "time": 15,
+         "begin_shape_index": 84
+        },
+        {
+         "type": 13,
+         "instruction": "Make a left U-turn onto 有楽町/Yurakucho.",
+         "street_names": [
+          "有楽町",
+          "Yurakucho"
+         ],
+         "length": 0.027,
+         "time": 19,
+         "begin_shape_index": 85
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right to stay on 有楽町/Yurakucho.",
+         "street_names": [
+          "有楽町",
+          "Yurakucho"
+         ],
+         "length": 0.096,
+         "time": 60,
+         "begin_shape_index": 86
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto 日比谷/Hibiya. Continue on 日比谷.",
+         "street_names": [
+          "日比谷"
+         ],
+         "length": 0.211,
+         "time": 138,
+         "begin_shape_index": 88
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto 日比谷/Hibiya.",
+         "street_names": [
+          "日比谷",
+          "Hibiya"
+         ],
+         "length": 0.003,
+         "time": 2,
+         "begin_shape_index": 96
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right to stay on 日比谷/Hibiya.",
+         "street_names": [
+          "日比谷",
+          "Hibiya"
+         ],
+         "length": 0.203,
+         "time": 155,
+         "begin_shape_index": 97
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left to stay on 日比谷/Hibiya.",
+         "street_names": [
+          "日比谷",
+          "Hibiya"
+         ],
+         "length": 0.009,
+         "time": 6,
+         "begin_shape_index": 100
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.004,
+         "time": 3,
+         "begin_shape_index": 102
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.011,
+         "time": 8,
+         "begin_shape_index": 103
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the crosswalk.",
+         "length": 0.041,
+         "time": 33,
+         "begin_shape_index": 104
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.015,
+         "time": 10,
+         "begin_shape_index": 107
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right.",
+         "length": 0.02,
+         "time": 13,
+         "begin_shape_index": 108
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.005,
+         "time": 4,
+         "begin_shape_index": 109
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.029,
+         "time": 25,
+         "begin_shape_index": 110
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.019,
+         "time": 15,
+         "begin_shape_index": 112
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.021,
+         "time": 18,
+         "begin_shape_index": 114
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.013,
+         "time": 9,
+         "begin_shape_index": 115
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.065,
+         "time": 54,
+         "begin_shape_index": 116
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.027,
+         "time": 19,
+         "begin_shape_index": 124
+        },
+        {
+         "type": 4,
+         "instruction": "You have arrived at your destination.",
+         "length": 0,
+         "time": 0,
+         "begin_shape_index": 126
         }
-      ],
-      "coordinates": [
-        [139.767, 35.681],
-        [139.758, 35.687],
-        [139.751, 35.692]
-      ]
-    }
-  ]
+       ]
+      }
+     ]
+    },
+    "alternates": [
+     {
+      "trip": {
+       "legs": [
+        {
+         "shape": "{yx`cAisuqiGoFwAo@hEnZ`IbFrA`KlCsB~J~MrDu@|EyAxJa@pCRpBY|B~ALU~AW~AmAdIxG`UTr@JzGdAZdF|ArCx@zBxAr@PhHxArKzBzNzCpKfCsIno@O`AfATq@bEo@~Ed@f@rCl@rDt@nAV~\\nG]zF[`BXhA^jAt@j@rA~BRl@b@lBb@xBBxAIzCCnAhAnBIREV@VDVLPNL[dCrCv@j@~@j@t@`AzAB`BJnBvAjDjEhAhFrAxCv@@l@Vv@[rB]dC`u@pPfAl@Vn@EZ_EzYiF`a@}@n@`Cj@lBt@tw@dRzBl@rBh@jEfAp`@tJ~AMrBn@jBj@hBf@`QxEnAZf@J`CrBk@v@{@rA{A|BaFrHwA`CkAjBnAnA|B~BrErEnAnAv@v@LdEyDnMqApEQl@qA~FW|GLz@}@dGOlCbFvD|CHtCjAtChEtDnBkCdIxPvIOdAGlCRpBr@xBl@pAbAp@fEtBeAdEzDbBk@fCc@fGAlG\\jGX|Bh@xD`FtFjDvE`@|@rDdI|@tD",
+         "summary": {
+          "length": 1.727,
+          "time": 1401
+         },
+         "maneuvers": [
+          {
+           "type": 40,
+           "instruction": "Take the stairs.",
+           "length": 0.013,
+           "time": 10,
+           "begin_shape_index": 0
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto 中央通路/Central Passage.",
+           "street_names": [
+            "中央通路",
+            "Central Passage"
+           ],
+           "length": 0.01,
+           "time": 7,
+           "begin_shape_index": 1
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.087,
+           "time": 61,
+           "begin_shape_index": 2
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.046,
+           "time": 30,
+           "begin_shape_index": 5
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto 南通路/South Passage.",
+           "street_names": [
+            "南通路",
+            "South Passage"
+           ],
+           "length": 0.046,
+           "time": 30,
+           "begin_shape_index": 7
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.005,
+           "time": 4,
+           "begin_shape_index": 12
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto 東京駅丸の内南口.",
+           "street_names": [
+            "東京駅丸の内南口"
+           ],
+           "length": 0.025,
+           "time": 21,
+           "begin_shape_index": 13
+          },
+          {
+           "type": 16,
+           "instruction": "Bear left onto the walkway.",
+           "length": 0.036,
+           "time": 40,
+           "begin_shape_index": 16
+          },
+          {
+           "type": 23,
+           "instruction": "Keep right to take the walkway.",
+           "length": 0.016,
+           "time": 11,
+           "begin_shape_index": 17
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the crosswalk.",
+           "length": 0.027,
+           "time": 26,
+           "begin_shape_index": 19
+          },
+          {
+           "type": 8,
+           "instruction": "Continue on JPタワー.",
+           "street_names": [
+            "JPタワー"
+           ],
+           "length": 0.08,
+           "time": 56,
+           "begin_shape_index": 22
+          },
+          {
+           "type": 8,
+           "instruction": "Continue on the walkway.",
+           "length": 0.023,
+           "time": 23,
+           "begin_shape_index": 27
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.076,
+           "time": 71,
+           "begin_shape_index": 28
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.004,
+           "time": 3,
+           "begin_shape_index": 30
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the crosswalk.",
+           "length": 0.02,
+           "time": 20,
+           "begin_shape_index": 31
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.082,
+           "time": 57,
+           "begin_shape_index": 33
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.064,
+           "time": 42,
+           "begin_shape_index": 38
+          },
+          {
+           "type": 24,
+           "instruction": "Keep left to take the walkway.",
+           "length": 0.019,
+           "time": 14,
+           "begin_shape_index": 50
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.075,
+           "time": 61,
+           "begin_shape_index": 58
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.016,
+           "time": 12,
+           "begin_shape_index": 68
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.104,
+           "time": 65,
+           "begin_shape_index": 72
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.099,
+           "time": 65,
+           "begin_shape_index": 74
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.144,
+           "time": 124,
+           "begin_shape_index": 79
+          },
+          {
+           "type": 24,
+           "instruction": "Keep left to take the walkway.",
+           "length": 0.136,
+           "time": 110,
+           "begin_shape_index": 85
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.05,
+           "time": 69,
+           "begin_shape_index": 94
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.04,
+           "time": 59,
+           "begin_shape_index": 100
+          },
+          {
+           "type": 9,
+           "instruction": "Bear right onto the walkway.",
+           "length": 0.073,
+           "time": 70,
+           "begin_shape_index": 105
+          },
+          {
+           "type": 23,
+           "instruction": "Keep right to take the walkway.",
+           "length": 0.019,
+           "time": 18,
+           "begin_shape_index": 112
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left.",
+           "length": 0.057,
+           "time": 58,
+           "begin_shape_index": 114
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.017,
+           "time": 12,
+           "begin_shape_index": 119
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.035,
+           "time": 25,
+           "begin_shape_index": 120
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.052,
+           "time": 35,
+           "begin_shape_index": 121
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.011,
+           "time": 9,
+           "begin_shape_index": 129
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.119,
+           "time": 84,
+           "begin_shape_index": 130
+          },
+          {
+           "type": 4,
+           "instruction": "You have arrived at your destination.",
+           "length": 0,
+           "time": 0,
+           "begin_shape_index": 141
+          }
+         ]
+        }
+       ]
+      }
+     },
+     {
+      "trip": {
+       "legs": [
+        {
+         "shape": "{yx`cAisuqiGoFwAo@hEnZ`IbFrA`KlCsB~J~MrDu@|EyAxJa@pCRpBY|B~ALU~AW~AmAdIxG`UTr@JzGdAZdF|ArCx@zBxAr@PhHxArKzBzNzCpKfCsIno@O`AfATq@bEo@~Ed@f@rCl@rDt@nAV~\\nGlb@xJWlB|D`AbFjAbDv@^aBj@Yru@pPb@`@EXzBf@zAZHk@d@BvZ`H`ZxGTBHZMdArCz@jBh@n@i@`@H`g@rLd@Jt@NjANhARd@Hf@LpNdDdCnA\\Vl@^hAp@t@b@fAD`ADxAlBd`@hf@tDtEtD~CjCjC`MxLxNtNa@n@RNfKrI`BhAbErC`RxLtGtDzCjB|@j@@h@eLzb@bBt@}@fD{AxF_]jpA[z@gBtEmD|I}BtEqEbJiAg@qDtKaAvCgBaAkF~@eDhLpAvGwAdE[|@{AbDqBvAsDGaCx@yBlBuCdCrDdI|@tD",
+         "summary": {
+          "length": 1.877,
+          "time": 1444
+         },
+         "maneuvers": [
+          {
+           "type": 40,
+           "instruction": "Take the stairs.",
+           "length": 0.013,
+           "time": 10,
+           "begin_shape_index": 0
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto 中央通路/Central Passage.",
+           "street_names": [
+            "中央通路",
+            "Central Passage"
+           ],
+           "length": 0.01,
+           "time": 7,
+           "begin_shape_index": 1
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.087,
+           "time": 61,
+           "begin_shape_index": 2
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.046,
+           "time": 30,
+           "begin_shape_index": 5
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto 南通路/South Passage.",
+           "street_names": [
+            "南通路",
+            "South Passage"
+           ],
+           "length": 0.046,
+           "time": 30,
+           "begin_shape_index": 7
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.005,
+           "time": 4,
+           "begin_shape_index": 12
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto 東京駅丸の内南口.",
+           "street_names": [
+            "東京駅丸の内南口"
+           ],
+           "length": 0.025,
+           "time": 21,
+           "begin_shape_index": 13
+          },
+          {
+           "type": 16,
+           "instruction": "Bear left onto the walkway.",
+           "length": 0.036,
+           "time": 40,
+           "begin_shape_index": 16
+          },
+          {
+           "type": 23,
+           "instruction": "Keep right to take the walkway.",
+           "length": 0.016,
+           "time": 11,
+           "begin_shape_index": 17
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the crosswalk.",
+           "length": 0.027,
+           "time": 26,
+           "begin_shape_index": 19
+          },
+          {
+           "type": 8,
+           "instruction": "Continue on JPタワー.",
+           "street_names": [
+            "JPタワー"
+           ],
+           "length": 0.08,
+           "time": 56,
+           "begin_shape_index": 22
+          },
+          {
+           "type": 8,
+           "instruction": "Continue on the walkway.",
+           "length": 0.023,
+           "time": 23,
+           "begin_shape_index": 27
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.076,
+           "time": 71,
+           "begin_shape_index": 28
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.004,
+           "time": 3,
+           "begin_shape_index": 30
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the crosswalk.",
+           "length": 0.02,
+           "time": 20,
+           "begin_shape_index": 31
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.147,
+           "time": 130,
+           "begin_shape_index": 33
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.005,
+           "time": 4,
+           "begin_shape_index": 39
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the crosswalk.",
+           "length": 0.034,
+           "time": 30,
+           "begin_shape_index": 40
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.008,
+           "time": 6,
+           "begin_shape_index": 43
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.117,
+           "time": 92,
+           "begin_shape_index": 45
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.104,
+           "time": 68,
+           "begin_shape_index": 50
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.006,
+           "time": 4,
+           "begin_shape_index": 54
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the crosswalk.",
+           "length": 0.158,
+           "time": 108,
+           "begin_shape_index": 57
+          },
+          {
+           "type": 23,
+           "instruction": "Keep right to take the walkway.",
+           "length": 0.003,
+           "time": 2,
+           "begin_shape_index": 73
+          },
+          {
+           "type": 24,
+           "instruction": "Keep left to take the walkway.",
+           "length": 0.008,
+           "time": 6,
+           "begin_shape_index": 74
+          },
+          {
+           "type": 9,
+           "instruction": "Bear right.",
+           "length": 0.193,
+           "time": 149,
+           "begin_shape_index": 76
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right.",
+           "length": 0.003,
+           "time": 2,
+           "begin_shape_index": 83
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.176,
+           "time": 137,
+           "begin_shape_index": 84
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the crosswalk.",
+           "length": 0.006,
+           "time": 4,
+           "begin_shape_index": 94
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right.",
+           "length": 0.214,
+           "time": 147,
+           "begin_shape_index": 95
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.005,
+           "time": 4,
+           "begin_shape_index": 103
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.029,
+           "time": 25,
+           "begin_shape_index": 104
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.019,
+           "time": 15,
+           "begin_shape_index": 106
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.021,
+           "time": 18,
+           "begin_shape_index": 108
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.013,
+           "time": 9,
+           "begin_shape_index": 109
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.065,
+           "time": 54,
+           "begin_shape_index": 110
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.027,
+           "time": 19,
+           "begin_shape_index": 118
+          },
+          {
+           "type": 4,
+           "instruction": "You have arrived at your destination.",
+           "length": 0,
+           "time": 0,
+           "begin_shape_index": 120
+          }
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   }
+  },
+  {
+   "destinationId": "jp-fac-2",
+   "costing": "pedestrian",
+   "response": {
+    "trip": {
+     "legs": [
+      {
+       "shape": "{yx`cAisuqiGoFwAF_@pZdIzEpAvEnAjE}CfQ_M`AVdECfi@jSbA`@l@OfHjCPj@IZnm@jUtVjSdWtLTz@dDfBv@KpCtAo@fFwD~[oA~JoCrUuBdPY~BtFtAvHdBtK~BcDdVnUjF",
+       "summary": {
+        "length": 0.749,
+        "time": 577
+       },
+       "maneuvers": [
+        {
+         "type": 40,
+         "instruction": "Take the stairs.",
+         "length": 0.013,
+         "time": 10,
+         "begin_shape_index": 0
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto 中央通路/Central Passage.",
+         "street_names": [
+          "中央通路",
+          "Central Passage"
+         ],
+         "length": 0.002,
+         "time": 1,
+         "begin_shape_index": 1
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.128,
+         "time": 95,
+         "begin_shape_index": 2
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.004,
+         "time": 3,
+         "begin_shape_index": 7
+        },
+        {
+         "type": 16,
+         "instruction": "Bear left onto 南通路/South Passage.",
+         "street_names": [
+          "南通路",
+          "South Passage"
+         ],
+         "length": 0.011,
+         "time": 9,
+         "begin_shape_index": 8
+        },
+        {
+         "type": 9,
+         "instruction": "Bear right onto 京葉ストリート 1F/Keiyo Street 1F (Ground Floor).",
+         "street_names": [
+          "京葉ストリート 1F",
+          "Keiyo Street 1F (Ground Floor)"
+         ],
+         "length": 0.085,
+         "time": 53,
+         "begin_shape_index": 9
+        },
+        {
+         "type": 41,
+         "instruction": "Take the escalator.",
+         "length": 0.022,
+         "time": 14,
+         "begin_shape_index": 11
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto 京葉地下通路 (地下3階)/Keiyo Underground Passage B3.",
+         "street_names": [
+          "京葉地下通路 (地下3階)",
+          "Keiyo Underground Passage B3"
+         ],
+         "length": 0.001,
+         "time": 1,
+         "begin_shape_index": 14
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left to stay on 京葉地下通路 (地下3階)/Keiyo Underground Passage B3.",
+         "street_names": [
+          "京葉地下通路 (地下3階)",
+          "Keiyo Underground Passage B3"
+         ],
+         "length": 0.188,
+         "time": 146,
+         "begin_shape_index": 15
+        },
+        {
+         "type": 41,
+         "instruction": "Take the escalator.",
+         "length": 0.016,
+         "time": 12,
+         "begin_shape_index": 18
+        },
+        {
+         "type": 8,
+         "instruction": "Continue on the walkway.",
+         "length": 0.009,
+         "time": 6,
+         "begin_shape_index": 21
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto 東京駅/地下2階/Tokyo Station B2.",
+         "street_names": [
+          "東京駅",
+          "地下2階",
+          "Tokyo Station B2"
+         ],
+         "length": 0.054,
+         "time": 42,
+         "begin_shape_index": 22
+        },
+        {
+         "type": 22,
+         "instruction": "Keep straight to stay on 東京駅/地下2階/Tokyo Station B2.",
+         "street_names": [
+          "東京駅",
+          "地下2階",
+          "Tokyo Station B2"
+         ],
+         "length": 0.052,
+         "time": 43,
+         "begin_shape_index": 24
+        },
+        {
+         "type": 23,
+         "instruction": "Keep right to take 東京駅/京葉地下丸の内口/地下2階/Tokyo Station Keiyo Underground Marunouchi Exit B2.",
+         "street_names": [
+          "東京駅",
+          "京葉地下丸の内口",
+          "地下2階",
+          "Tokyo Station Keiyo Underground Marunouchi Exit B2"
+         ],
+         "length": 0.032,
+         "time": 38,
+         "begin_shape_index": 26
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.014,
+         "time": 13,
+         "begin_shape_index": 28
+        },
+        {
+         "type": 40,
+         "instruction": "Take the stairs.",
+         "length": 0.018,
+         "time": 18,
+         "begin_shape_index": 29
+        },
+        {
+         "type": 8,
+         "instruction": "Continue on the walkway.",
+         "length": 0.023,
+         "time": 19,
+         "begin_shape_index": 30
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.076,
+         "time": 54,
+         "begin_shape_index": 31
+        },
+        {
+         "type": 6,
+         "instruction": "Your destination is on the left.",
+         "length": 0,
+         "time": 0,
+         "begin_shape_index": 33
+        }
+       ]
+      }
+     ]
+    },
+    "alternates": [
+     {
+      "trip": {
+       "legs": [
+        {
+         "shape": "{yx`cAisuqiGoFwAo@hEnZ`IbFrA`KlCsB~J~MrDu@|EyAxJa@pCRpBY|B~ALU~AW~AmAdIxG`UTr@JzGdAZdF|ArCx@v@qATMdc@mWjAWlVdGjEfAzDbA|~@jWb@zAv@jCkBxNaCa@VgAEtAzEx@k@rEqAtJ`Cl@tFtAvHdBtK~BcDdVnUjF",
+         "summary": {
+          "length": 0.811,
+          "time": 635
+         },
+         "maneuvers": [
+          {
+           "type": 40,
+           "instruction": "Take the stairs.",
+           "length": 0.013,
+           "time": 10,
+           "begin_shape_index": 0
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto 中央通路/Central Passage.",
+           "street_names": [
+            "中央通路",
+            "Central Passage"
+           ],
+           "length": 0.01,
+           "time": 7,
+           "begin_shape_index": 1
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.087,
+           "time": 61,
+           "begin_shape_index": 2
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.046,
+           "time": 30,
+           "begin_shape_index": 5
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto 南通路/South Passage.",
+           "street_names": [
+            "南通路",
+            "South Passage"
+           ],
+           "length": 0.046,
+           "time": 30,
+           "begin_shape_index": 7
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.005,
+           "time": 4,
+           "begin_shape_index": 12
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto 東京駅丸の内南口.",
+           "street_names": [
+            "東京駅丸の内南口"
+           ],
+           "length": 0.025,
+           "time": 21,
+           "begin_shape_index": 13
+          },
+          {
+           "type": 16,
+           "instruction": "Bear left onto the walkway.",
+           "length": 0.036,
+           "time": 40,
+           "begin_shape_index": 16
+          },
+          {
+           "type": 23,
+           "instruction": "Keep right to take the walkway.",
+           "length": 0.016,
+           "time": 11,
+           "begin_shape_index": 17
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the crosswalk.",
+           "length": 0.027,
+           "time": 26,
+           "begin_shape_index": 19
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.275,
+           "time": 201,
+           "begin_shape_index": 22
+          },
+          {
+           "type": 9,
+           "instruction": "Bear right onto the walkway.",
+           "length": 0.031,
+           "time": 29,
+           "begin_shape_index": 31
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto 東京ビルディング/エレベーター/1階.",
+           "street_names": [
+            "東京ビルディング",
+            "エレベーター",
+            "1階"
+           ],
+           "length": 0.011,
+           "time": 8,
+           "begin_shape_index": 33
+          },
+          {
+           "type": 39,
+           "instruction": "Take the elevator.",
+           "street_names": [
+            "東京ビルディング",
+            "エレベーター",
+            "地下2階"
+           ],
+           "length": 0.016,
+           "time": 11,
+           "begin_shape_index": 35
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto 東京駅/地下2階.",
+           "street_names": [
+            "東京駅",
+            "地下2階"
+           ],
+           "length": 0.035,
+           "time": 41,
+           "begin_shape_index": 37
+          },
+          {
+           "type": 8,
+           "instruction": "Continue on the walkway.",
+           "length": 0.014,
+           "time": 13,
+           "begin_shape_index": 40
+          },
+          {
+           "type": 40,
+           "instruction": "Take the stairs.",
+           "length": 0.018,
+           "time": 18,
+           "begin_shape_index": 41
+          },
+          {
+           "type": 8,
+           "instruction": "Continue on the walkway.",
+           "length": 0.023,
+           "time": 19,
+           "begin_shape_index": 42
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.076,
+           "time": 54,
+           "begin_shape_index": 43
+          },
+          {
+           "type": 6,
+           "instruction": "Your destination is on the left.",
+           "length": 0,
+           "time": 0,
+           "begin_shape_index": 45
+          }
+         ]
+        }
+       ]
+      }
+     },
+     {
+      "trip": {
+       "legs": [
+        {
+         "shape": "{yx`cAisuqiGoFwAF_@pZdIzEpAvEnAjE}CfQ_M`AVdECbCyNOq@lB{K`@_@d@iCf@uC|DsBhIjC|AqJnf@`Qt@V~GgEtItEbYvMhFnCXPn_@bToJn[yCdJuAhCbThR_Ipm@kA|@UlASrAm@~Da@lCaA|Dv@jCkBxNaCa@VgAEtAzEx@k@rEqAtJ`Cl@tFtAvHdBtK~BcDdVnUjF",
+         "summary": {
+          "length": 0.971,
+          "time": 767
+         },
+         "maneuvers": [
+          {
+           "type": 40,
+           "instruction": "Take the stairs.",
+           "length": 0.013,
+           "time": 10,
+           "begin_shape_index": 0
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto 中央通路/Central Passage.",
+           "street_names": [
+            "中央通路",
+            "Central Passage"
+           ],
+           "length": 0.002,
+           "time": 1,
+           "begin_shape_index": 1
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.128,
+           "time": 95,
+           "begin_shape_index": 2
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.004,
+           "time": 3,
+           "begin_shape_index": 7
+          },
+          {
+           "type": 16,
+           "instruction": "Bear left onto 南通路/South Passage.",
+           "street_names": [
+            "南通路",
+            "South Passage"
+           ],
+           "length": 0.011,
+           "time": 9,
+           "begin_shape_index": 8
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left to stay on 南通路/South Passage.",
+           "street_names": [
+            "南通路",
+            "South Passage"
+           ],
+           "length": 0.024,
+           "time": 24,
+           "begin_shape_index": 9
+          },
+          {
+           "type": 16,
+           "instruction": "Bear left onto 南通路/South Passage. Continue on South Passage.",
+           "street_names": [
+            "South Passage"
+           ],
+           "length": 0.038,
+           "time": 28,
+           "begin_shape_index": 10
+          },
+          {
+           "type": 9,
+           "instruction": "Bear right onto the walkway.",
+           "length": 0.049,
+           "time": 36,
+           "begin_shape_index": 15
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.097,
+           "time": 64,
+           "begin_shape_index": 18
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.153,
+           "time": 133,
+           "begin_shape_index": 21
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.119,
+           "time": 86,
+           "begin_shape_index": 26
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.138,
+           "time": 114,
+           "begin_shape_index": 30
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto 東京ビルディング/エレベーター/1階.",
+           "street_names": [
+            "東京ビルディング",
+            "エレベーター",
+            "1階"
+           ],
+           "length": 0.011,
+           "time": 8,
+           "begin_shape_index": 39
+          },
+          {
+           "type": 39,
+           "instruction": "Take the elevator.",
+           "street_names": [
+            "東京ビルディング",
+            "エレベーター",
+            "地下2階"
+           ],
+           "length": 0.016,
+           "time": 11,
+           "begin_shape_index": 41
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto 東京駅/地下2階.",
+           "street_names": [
+            "東京駅",
+            "地下2階"
+           ],
+           "length": 0.035,
+           "time": 41,
+           "begin_shape_index": 43
+          },
+          {
+           "type": 8,
+           "instruction": "Continue on the walkway.",
+           "length": 0.014,
+           "time": 13,
+           "begin_shape_index": 46
+          },
+          {
+           "type": 40,
+           "instruction": "Take the stairs.",
+           "length": 0.018,
+           "time": 18,
+           "begin_shape_index": 47
+          },
+          {
+           "type": 8,
+           "instruction": "Continue on the walkway.",
+           "length": 0.023,
+           "time": 19,
+           "begin_shape_index": 48
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.076,
+           "time": 54,
+           "begin_shape_index": 49
+          },
+          {
+           "type": 6,
+           "instruction": "Your destination is on the left.",
+           "length": 0,
+           "time": 0,
+           "begin_shape_index": 51
+          }
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   }
+  },
+  {
+   "destinationId": "jp-fac-4",
+   "costing": "pedestrian",
+   "response": {
+    "trip": {
+     "legs": [
+      {
+       "shape": "{yx`cAisuqiGoFwAo@hEuAlJIh@k@zDk@~Dq@pEiA~Ho@lEc@vC}AbK[tBA~@m@L[NyKgByBjA_Ds@cDPiAJqEV{CgAuAN_A?oDy@c@zBWnBe@fDSrAgBrBoCbSg@lDe@hDeAnJs@tGoKiC{@Ak@bAkBhNeHhh@Hj@_@dD_@`DUV{Kj{@Jz@iAUyA[m@~Ey@|GcGoAYxBMbA_]mGEd@gFnv@yZmDcBm@sc@cEa@Eo@vEXr@nA~Cy@nLu@~BwARk@H?`@Rz@W|Aq@zEoAfI{@rEIn@cBe@sAi@cA_@gA_@UtBUrBuDb]SbBqAtLgGoA}D{@u@OsApPk@nIs@jItCrLxAnIa@pK]jJyAnZAfGZlCZtAd@rAzAlBtBp@`CTnCdBx@lCqBfE_Bx@eAr@_N~L{GzDcQrDe]hHq]bIyEbAsQvDwFlAiWbGeDdFmBtF}@jDg@`B@lBMzDi@vAk@`@qA`@yE`AmBtAkCxDsAhDc@rDIvEAt@@vFJhBBz@dB|JjA~Bj@bA`FjZdKjf@iEnBu@\\qFhCaUdMmDbB_@ToA|@zHlR~@zBv@vCx@tEZ~EF`Fa@jFy@jEuAnE{AhC}CnEeChDsAdCs@pBi@dDMdE?tDs@]kAGyARw@j@c@p@i@vAG`@E|@HxAZ`BmG~BwFrBaCz@cQ~GgCbAaBh@q@TaE|B}BfBcDtDsDbB{Ad@mBViBNcBDcCAeCS_By@cBmAeBcBkAiAsA}Bu@}AaIzGkFhFqBnBiDvCyEcJ",
+       "summary": {
+        "length": 2.542,
+        "time": 2037
+       },
+       "maneuvers": [
+        {
+         "type": 40,
+         "instruction": "Take the stairs.",
+         "length": 0.013,
+         "time": 10,
+         "begin_shape_index": 0
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto 中央通路/Central Passage.",
+         "street_names": [
+          "中央通路",
+          "Central Passage"
+         ],
+         "length": 0.113,
+         "time": 85,
+         "begin_shape_index": 1
+        },
+        {
+         "type": 16,
+         "instruction": "Bear left onto the walkway.",
+         "length": 0.003,
+         "time": 2,
+         "begin_shape_index": 12
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.097,
+         "time": 67,
+         "begin_shape_index": 13
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.023,
+         "time": 18,
+         "begin_shape_index": 25
+        },
+        {
+         "type": 9,
+         "instruction": "Bear right onto the walkway.",
+         "length": 0.084,
+         "time": 73,
+         "begin_shape_index": 29
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.026,
+         "time": 24,
+         "begin_shape_index": 35
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.202,
+         "time": 194,
+         "begin_shape_index": 37
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.009,
+         "time": 6,
+         "begin_shape_index": 46
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto 丸の内 1st/Marunouchi 1st Street.",
+         "street_names": [
+          "丸の内 1st",
+          "Marunouchi 1st Street"
+         ],
+         "length": 0.023,
+         "time": 21,
+         "begin_shape_index": 48
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto 1/20/日比谷通り/Hibiya Street.",
+         "street_names": [
+          "1",
+          "20",
+          "日比谷通り",
+          "Hibiya Street"
+         ],
+         "length": 0.015,
+         "time": 15,
+         "begin_shape_index": 50
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.008,
+         "time": 6,
+         "begin_shape_index": 51
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.055,
+         "time": 36,
+         "begin_shape_index": 53
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.207,
+         "time": 142,
+         "begin_shape_index": 54
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.01,
+         "time": 7,
+         "begin_shape_index": 60
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.045,
+         "time": 30,
+         "begin_shape_index": 61
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.004,
+         "time": 3,
+         "begin_shape_index": 67
+        },
+        {
+         "type": 23,
+         "instruction": "Keep right to take the crosswalk.",
+         "length": 0.042,
+         "time": 38,
+         "begin_shape_index": 69
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.019,
+         "time": 13,
+         "begin_shape_index": 74
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.345,
+         "time": 306,
+         "begin_shape_index": 78
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.337,
+         "time": 255,
+         "begin_shape_index": 103
+        },
+        {
+         "type": 24,
+         "instruction": "Keep left to take the walkway.",
+         "length": 0.026,
+         "time": 22,
+         "begin_shape_index": 116
+        },
+        {
+         "type": 16,
+         "instruction": "Bear left onto 梅林坂/Bairinzaka Slope.",
+         "street_names": [
+          "梅林坂",
+          "Bairinzaka Slope"
+         ],
+         "length": 0.086,
+         "time": 61,
+         "begin_shape_index": 119
+        },
+        {
+         "type": 8,
+         "instruction": "Continue on the walkway.",
+         "length": 0.151,
+         "time": 122,
+         "begin_shape_index": 131
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.092,
+         "time": 60,
+         "begin_shape_index": 139
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto 代官町通り/Daikanchō Street.",
+         "street_names": [
+          "代官町通り",
+          "Daikanchō Street"
+         ],
+         "length": 0.179,
+         "time": 144,
+         "begin_shape_index": 146
+        },
+        {
+         "type": 9,
+         "instruction": "Bear right.",
+         "length": 0.037,
+         "time": 34,
+         "begin_shape_index": 163
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right at 代官町/Daikanmachi.",
+         "length": 0.081,
+         "time": 65,
+         "begin_shape_index": 173
+        },
+        {
+         "type": 8,
+         "instruction": "Continue on the walkway.",
+         "length": 0.041,
+         "time": 31,
+         "begin_shape_index": 178
+        },
+        {
+         "type": 23,
+         "instruction": "Keep right to take the walkway.",
+         "length": 0.087,
+         "time": 78,
+         "begin_shape_index": 183
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.059,
+         "time": 49,
+         "begin_shape_index": 196
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right.",
+         "length": 0.02,
+         "time": 19,
+         "begin_shape_index": 200
+        },
+        {
+         "type": 4,
+         "instruction": "You have arrived at your destination.",
+         "length": 0,
+         "time": 0,
+         "begin_shape_index": 201
+        }
+       ]
+      }
+     ]
+    },
+    "alternates": [
+     {
+      "trip": {
+       "legs": [
+        {
+         "shape": "{yx`cAisuqiGoFwAo@hEuAlJIh@k@zDk@~Dq@pEiA~Ho@lEc@vC}AbK[tBA~@m@L[NyKgByBjA_Ds@cDPiAJqEV{CgAuAN_A?oDy@c@zBWnBe@fDSrAgBrBoCbSg@lDe@hDeAnJs@tGoKiC{@Ak@bAkBhNeHhh@Hj@_@dD_@`DUV{Kj{@Jz@iAUyA[m@~Ey@|GcGoAYxBMbA_]mGEd@gFnv@yZmDcBm@sc@cEa@Eo@vEXr@nA~Cy@nLu@~BwARk@H?`@Rz@W|Aq@zEoAfI{@rEIn@cBe@sAi@cA_@gA_@AAuCeAe@OsnAeTLkAT{BmBYaCOsBLuBTk~@dW{s@jPXdDi@N{IxLe@l@ia@di@i@tAW`BwGxi@wCpUaAnIg@`Jg@xGoAjLg@`J{Hb_Aq@bIqB~UuAl@Hb@~Jh^fDlMbTxs@d@xAbFrNpGxOpCpLhC~GRxAGdB_AjDsAbAuAbA{V|QqGbFoK`IoCnBx@pB|@dCl@nAEr@}GfGyTdTi@h@{@~@sAlAYViCbDeB|CsAjDeDpNcDnH{DtF_A|@aIzGkFhFqBnBiDvCyEcJ",
+         "summary": {
+          "length": 2.532,
+          "time": 2080
+         },
+         "maneuvers": [
+          {
+           "type": 40,
+           "instruction": "Take the stairs.",
+           "length": 0.013,
+           "time": 10,
+           "begin_shape_index": 0
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto 中央通路/Central Passage.",
+           "street_names": [
+            "中央通路",
+            "Central Passage"
+           ],
+           "length": 0.113,
+           "time": 85,
+           "begin_shape_index": 1
+          },
+          {
+           "type": 16,
+           "instruction": "Bear left onto the walkway.",
+           "length": 0.003,
+           "time": 2,
+           "begin_shape_index": 12
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.097,
+           "time": 67,
+           "begin_shape_index": 13
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.023,
+           "time": 18,
+           "begin_shape_index": 25
+          },
+          {
+           "type": 9,
+           "instruction": "Bear right onto the walkway.",
+           "length": 0.084,
+           "time": 73,
+           "begin_shape_index": 29
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.026,
+           "time": 24,
+           "begin_shape_index": 35
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.202,
+           "time": 194,
+           "begin_shape_index": 37
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.009,
+           "time": 6,
+           "begin_shape_index": 46
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto 丸の内 1st/Marunouchi 1st Street.",
+           "street_names": [
+            "丸の内 1st",
+            "Marunouchi 1st Street"
+           ],
+           "length": 0.023,
+           "time": 21,
+           "begin_shape_index": 48
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto 1/20/日比谷通り/Hibiya Street.",
+           "street_names": [
+            "1",
+            "20",
+            "日比谷通り",
+            "Hibiya Street"
+           ],
+           "length": 0.015,
+           "time": 15,
+           "begin_shape_index": 50
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.008,
+           "time": 6,
+           "begin_shape_index": 51
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.055,
+           "time": 36,
+           "begin_shape_index": 53
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.207,
+           "time": 142,
+           "begin_shape_index": 54
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.01,
+           "time": 7,
+           "begin_shape_index": 60
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.045,
+           "time": 30,
+           "begin_shape_index": 61
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.004,
+           "time": 3,
+           "begin_shape_index": 67
+          },
+          {
+           "type": 23,
+           "instruction": "Keep right to take the crosswalk.",
+           "length": 0.042,
+           "time": 38,
+           "begin_shape_index": 69
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.175,
+           "time": 160,
+           "begin_shape_index": 74
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.008,
+           "time": 6,
+           "begin_shape_index": 82
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto 内堀通り/Uchibori Street/301.",
+           "street_names": [
+            "内堀通り",
+            "Uchibori Street",
+            "301"
+           ],
+           "length": 0.243,
+           "time": 189,
+           "begin_shape_index": 84
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.008,
+           "time": 6,
+           "begin_shape_index": 90
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.305,
+           "time": 284,
+           "begin_shape_index": 91
+          },
+          {
+           "type": 23,
+           "instruction": "Keep right to take the walkway.",
+           "length": 0.143,
+           "time": 97,
+           "begin_shape_index": 104
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the crosswalk.",
+           "length": 0.005,
+           "time": 4,
+           "begin_shape_index": 107
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto 代官町通り/Daikanchō Street.",
+           "street_names": [
+            "代官町通り",
+            "Daikanchō Street"
+           ],
+           "length": 0.219,
+           "time": 164,
+           "begin_shape_index": 108
+          },
+          {
+           "type": 23,
+           "instruction": "Keep right at the fork.",
+           "length": 0.054,
+           "time": 46,
+           "begin_shape_index": 115
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right.",
+           "length": 0.116,
+           "time": 94,
+           "begin_shape_index": 120
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.252,
+           "time": 234,
+           "begin_shape_index": 126
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right.",
+           "length": 0.02,
+           "time": 19,
+           "begin_shape_index": 147
+          },
+          {
+           "type": 4,
+           "instruction": "You have arrived at your destination.",
+           "length": 0,
+           "time": 0,
+           "begin_shape_index": 148
+          }
+         ]
+        }
+       ]
+      }
+     },
+     {
+      "trip": {
+       "legs": [
+        {
+         "shape": "{yx`cAisuqiGoFwAo@hEuAlJIh@k@zDk@~DaCo@iGcBOEi@Os@`EsArHIb@i@zCuHsCgImDcEeBm@|DaAxFkNjIeBNs@F[?gCBaBDw@ByBHgBN_An@mA_DuIgUsBoFWk@}@{BcCiCsBy@gSgI{@]eTaJwM_FyAhAiAUyA]yEiAwCm@oDtWgHvg@q@~EmC`S_AfAu@rFeBc@yGaBoJcByf@uH{BYJ}EkB[qJwA{Eq@y@u@a@rG[tFcBh@iBW{ItaA{Ba@}I|bAqB]g@z@q@`A[hDo@zGa@hEl@v@nB^dCb@mKfiAiBlRQ|CgC[y@Ks@IOxAgdAxXms@pRh@`EdAjJXdDi@N{IxLe@l@ia@di@i@tAW`BwGxi@wCpUaAnIg@`Jg@xGoAjLg@`J{Hb_Aq@bIqB~UuAl@Hb@~Jh^fDlMbTxs@d@xAbFrNpGxOpCpLhC~GRxAGdB_AjDsAbAuAbA{V|QqGbFoK`IoCnBx@pB|@dCl@nAEr@}GfGyTdTi@h@{@~@sAlAYViCbDeB|CsAjDeDpNcDnH{DtF_A|@aIzGkFhFqBnBiDvCyEcJ",
+         "summary": {
+          "length": 2.671,
+          "time": 2172
+         },
+         "maneuvers": [
+          {
+           "type": 40,
+           "instruction": "Take the stairs.",
+           "length": 0.013,
+           "time": 10,
+           "begin_shape_index": 0
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto 中央通路/Central Passage.",
+           "street_names": [
+            "中央通路",
+            "Central Passage"
+           ],
+           "length": 0.047,
+           "time": 34,
+           "begin_shape_index": 1
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto グランスタ東京/1階/Gransta Tokyo 1F (Ground Floor).",
+           "street_names": [
+            "グランスタ東京",
+            "1階",
+            "Gransta Tokyo 1F (Ground Floor)"
+           ],
+           "length": 0.027,
+           "time": 19,
+           "begin_shape_index": 6
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left to stay on グランスタ東京/1階/Gransta Tokyo 1F (Ground Floor).",
+           "street_names": [
+            "グランスタ東京",
+            "1階",
+            "Gransta Tokyo 1F (Ground Floor)"
+           ],
+           "length": 0.032,
+           "time": 25,
+           "begin_shape_index": 10
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto グランスタ東京/1階/Gransta Tokyo 1st Floor.",
+           "street_names": [
+            "グランスタ東京",
+            "1階",
+            "Gransta Tokyo 1st Floor"
+           ],
+           "length": 0.05,
+           "time": 33,
+           "begin_shape_index": 14
+          },
+          {
+           "type": 14,
+           "instruction": "Make a sharp left onto 東京駅丸の内北口/5. Continue on 東京駅丸の内北口.",
+           "street_names": [
+            "東京駅丸の内北口"
+           ],
+           "length": 0.021,
+           "time": 16,
+           "begin_shape_index": 17
+          },
+          {
+           "type": 9,
+           "instruction": "Bear right onto the walkway.",
+           "length": 0.031,
+           "time": 19,
+           "begin_shape_index": 19
+          },
+          {
+           "type": 9,
+           "instruction": "Bear right onto 東京駅(改札外).",
+           "street_names": [
+            "東京駅(改札外)"
+           ],
+           "length": 0.006,
+           "time": 4,
+           "begin_shape_index": 20
+          },
+          {
+           "type": 8,
+           "instruction": "Continue on the walkway.",
+           "length": 0.018,
+           "time": 16,
+           "begin_shape_index": 21
+          },
+          {
+           "type": 24,
+           "instruction": "Keep left to take the walkway.",
+           "length": 0.02,
+           "time": 17,
+           "begin_shape_index": 25
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.008,
+           "time": 6,
+           "begin_shape_index": 29
+          },
+          {
+           "type": 23,
+           "instruction": "Keep right to take the walkway.",
+           "length": 0.187,
+           "time": 147,
+           "begin_shape_index": 30
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.006,
+           "time": 4,
+           "begin_shape_index": 40
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the crosswalk.",
+           "length": 0.03,
+           "time": 51,
+           "begin_shape_index": 41
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.154,
+           "time": 141,
+           "begin_shape_index": 45
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto 錦町有楽町線/Nishikicho-Yurakucho Line/402/特例都道錦町有楽町線.",
+           "street_names": [
+            "錦町有楽町線",
+            "Nishikicho-Yurakucho Line",
+            "402",
+            "特例都道錦町有楽町線"
+           ],
+           "length": 0.122,
+           "time": 94,
+           "begin_shape_index": 51
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right.",
+           "length": 0.01,
+           "time": 8,
+           "begin_shape_index": 56
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.043,
+           "time": 36,
+           "begin_shape_index": 57
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the crosswalk.",
+           "length": 0.024,
+           "time": 26,
+           "begin_shape_index": 61
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.012,
+           "time": 8,
+           "begin_shape_index": 63
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left.",
+           "length": 0.098,
+           "time": 67,
+           "begin_shape_index": 65
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.007,
+           "time": 5,
+           "begin_shape_index": 66
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left.",
+           "length": 0.1,
+           "time": 68,
+           "begin_shape_index": 67
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.006,
+           "time": 4,
+           "begin_shape_index": 68
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.038,
+           "time": 34,
+           "begin_shape_index": 69
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.018,
+           "time": 15,
+           "begin_shape_index": 74
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right.",
+           "length": 0.146,
+           "time": 124,
+           "begin_shape_index": 77
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.014,
+           "time": 12,
+           "begin_shape_index": 80
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.231,
+           "time": 154,
+           "begin_shape_index": 83
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the crosswalk.",
+           "length": 0.034,
+           "time": 33,
+           "begin_shape_index": 86
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.305,
+           "time": 284,
+           "begin_shape_index": 89
+          },
+          {
+           "type": 23,
+           "instruction": "Keep right to take the walkway.",
+           "length": 0.143,
+           "time": 97,
+           "begin_shape_index": 102
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the crosswalk.",
+           "length": 0.005,
+           "time": 4,
+           "begin_shape_index": 105
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto 代官町通り/Daikanchō Street.",
+           "street_names": [
+            "代官町通り",
+            "Daikanchō Street"
+           ],
+           "length": 0.219,
+           "time": 164,
+           "begin_shape_index": 106
+          },
+          {
+           "type": 23,
+           "instruction": "Keep right at the fork.",
+           "length": 0.054,
+           "time": 46,
+           "begin_shape_index": 113
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right.",
+           "length": 0.116,
+           "time": 94,
+           "begin_shape_index": 118
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.252,
+           "time": 234,
+           "begin_shape_index": 124
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right.",
+           "length": 0.02,
+           "time": 19,
+           "begin_shape_index": 145
+          },
+          {
+           "type": 4,
+           "instruction": "You have arrived at your destination.",
+           "length": 0,
+           "time": 0,
+           "begin_shape_index": 146
+          }
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   }
+  },
+  {
+   "destinationId": "jp-fac-5",
+   "costing": "pedestrian",
+   "response": {
+    "trip": {
+     "legs": [
+      {
+       "shape": "{yx`cAisuqiGoFwAo@hEuAlJIh@k@zDk@~DaCo@iGcBOEi@Os@`EsArHIb@i@zCuHsCgImDcEeBm@|DaAxFkNjIeBNs@F[?gCBaBDw@ByBHgBN_An@mA_DuIgUsBoFWk@}@{BcCiCsBy@gSgI{@]eTaJwM_FyAhAiAUyA]~AgKeEsFkEqBb@sCdCePjAsHwTmGitA_`@iEgAeEcAqXgH_UmPuSoQ}HsFa@Ec@Bm@LiDsCgD{CuInHib@cMXjA{_@oKuEyA_OuEgP_H{A[oB]u_@uH{Dy@{BFcCkAw@hBHZ]HyC~@c_@|Ly@VqATQy@mBK_AWwBn@_X{ImIiCqb@iOgE{BcFeCyEyCkBh@aDbA_An@SpAa@LuC`AgCz@w@V_AW_AGuAP{Af@E]d@S`@MgA}Fm@cD]DgAXEa@wFhBuO~EyXhIyA@_@Ly@XuAd@]LiA^qGtB{TnHePzEm@VqBJ_B_@yIwBkEgAg@Mi@e@g@k@SgA@yCaAIoAIiF_@{AK_AGGd@OXUHYFYAw@S_WaHMGKSAQa@KoA]gA[}F}AGAoDcA_@QM]}Bu@aEqAgAVoB_@{LiDyKeDmAk@iAiCYgCaBIqCQkBKeBjBiEOeSu@mBCeBCM?wNOoBEuAI{@s@M?u@AcBGY?wWiAqEQw@EmACqMg@a@I]m@i@CiBKaCOoBK{AbA_Ls@uQiAob@_Cc@_@cCKcCMc@PoQeAoEUkSgAw@[w@EiAIiBKk@CaAVcR}@YAs@EyXeBeCOm@Ou@w@Si@m@EwAGmCS{AKs@EcAr@eARmCMya@kB{@EqAGub@mBi@YWUSg@YAy@E_ACe@Cy@h@m@DqA?aViACt@EjAYnGsCQcEOq^{Ac@C_A_@uDeAyI_DmViLsHiD}L{FuI_EiNuG}By@sHiB_HsAeS_EgGkAaH{@gS}BaHu@}LuAkBSgPmBmFg@kO{AiEk@oGeAsH}ASxA]dB_GBs@@uHHkLf@wABO@}PdCqDh@mLhBQeBQ{ASBaEn@ScBq@_@qA]{BKgAQcBeBu^fF_BjE{AlAsW`EyCd@sDzAgRdBRe@WmD_@aA{E`@?uB?_BuA@cIyCsDK{If@y@uRoAE{I^}WwKU[yA@e@qCDyAx@_D_@w@aA{BtAiE`Ac@",
+       "summary": {
+        "length": 4.228,
+        "time": 3256
+       },
+       "maneuvers": [
+        {
+         "type": 40,
+         "instruction": "Take the stairs.",
+         "length": 0.013,
+         "time": 10,
+         "begin_shape_index": 0
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto 中央通路/Central Passage.",
+         "street_names": [
+          "中央通路",
+          "Central Passage"
+         ],
+         "length": 0.047,
+         "time": 34,
+         "begin_shape_index": 1
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto グランスタ東京/1階/Gransta Tokyo 1F (Ground Floor).",
+         "street_names": [
+          "グランスタ東京",
+          "1階",
+          "Gransta Tokyo 1F (Ground Floor)"
+         ],
+         "length": 0.027,
+         "time": 19,
+         "begin_shape_index": 6
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left to stay on グランスタ東京/1階/Gransta Tokyo 1F (Ground Floor).",
+         "street_names": [
+          "グランスタ東京",
+          "1階",
+          "Gransta Tokyo 1F (Ground Floor)"
+         ],
+         "length": 0.032,
+         "time": 25,
+         "begin_shape_index": 10
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto グランスタ東京/1階/Gransta Tokyo 1st Floor.",
+         "street_names": [
+          "グランスタ東京",
+          "1階",
+          "Gransta Tokyo 1st Floor"
+         ],
+         "length": 0.05,
+         "time": 33,
+         "begin_shape_index": 14
+        },
+        {
+         "type": 14,
+         "instruction": "Make a sharp left onto 東京駅丸の内北口/5. Continue on 東京駅丸の内北口.",
+         "street_names": [
+          "東京駅丸の内北口"
+         ],
+         "length": 0.021,
+         "time": 16,
+         "begin_shape_index": 17
+        },
+        {
+         "type": 9,
+         "instruction": "Bear right onto the walkway.",
+         "length": 0.031,
+         "time": 19,
+         "begin_shape_index": 19
+        },
+        {
+         "type": 9,
+         "instruction": "Bear right onto 東京駅(改札外).",
+         "street_names": [
+          "東京駅(改札外)"
+         ],
+         "length": 0.006,
+         "time": 4,
+         "begin_shape_index": 20
+        },
+        {
+         "type": 8,
+         "instruction": "Continue on the walkway.",
+         "length": 0.018,
+         "time": 16,
+         "begin_shape_index": 21
+        },
+        {
+         "type": 24,
+         "instruction": "Keep left to take the walkway.",
+         "length": 0.02,
+         "time": 17,
+         "begin_shape_index": 25
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.008,
+         "time": 6,
+         "begin_shape_index": 29
+        },
+        {
+         "type": 23,
+         "instruction": "Keep right to take the walkway.",
+         "length": 0.187,
+         "time": 147,
+         "begin_shape_index": 30
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.006,
+         "time": 4,
+         "begin_shape_index": 40
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the crosswalk.",
+         "length": 0.009,
+         "time": 6,
+         "begin_shape_index": 41
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto 1/20/永代通り/Eitai Street.",
+         "street_names": [
+          "1",
+          "20",
+          "永代通り",
+          "Eitai Street"
+         ],
+         "length": 0.019,
+         "time": 13,
+         "begin_shape_index": 43
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left at 丸の内一丁目/Marunouchi 1-chome.",
+         "length": 0.028,
+         "time": 21,
+         "begin_shape_index": 44
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.048,
+         "time": 30,
+         "begin_shape_index": 46
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.391,
+         "time": 333,
+         "begin_shape_index": 49
+        },
+        {
+         "type": 23,
+         "instruction": "Keep right to take the crosswalk.",
+         "length": 0.024,
+         "time": 22,
+         "begin_shape_index": 60
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.023,
+         "time": 16,
+         "begin_shape_index": 62
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.065,
+         "time": 67,
+         "begin_shape_index": 63
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left.",
+         "length": 0.004,
+         "time": 3,
+         "begin_shape_index": 64
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto 神田ふれあい通り/Kanda Fureai-dori.",
+         "street_names": [
+          "神田ふれあい通り",
+          "Kanda Fureai-dori"
+         ],
+         "length": 0.235,
+         "time": 169,
+         "begin_shape_index": 65
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.006,
+         "time": 4,
+         "begin_shape_index": 75
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left.",
+         "length": 0.001,
+         "time": 1,
+         "begin_shape_index": 76
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right at 神田駅南口/Kanda Station.",
+         "length": 0.08,
+         "time": 56,
+         "begin_shape_index": 77
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.003,
+         "time": 2,
+         "begin_shape_index": 82
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.017,
+         "time": 14,
+         "begin_shape_index": 83
+        },
+        {
+         "type": 9,
+         "instruction": "Bear right.",
+         "length": 0.067,
+         "time": 55,
+         "begin_shape_index": 86
+        },
+        {
+         "type": 23,
+         "instruction": "Keep right at the fork.",
+         "length": 0.109,
+         "time": 78,
+         "begin_shape_index": 88
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.019,
+         "time": 13,
+         "begin_shape_index": 92
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.004,
+         "time": 3,
+         "begin_shape_index": 95
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the crosswalk.",
+         "length": 0.04,
+         "time": 30,
+         "begin_shape_index": 96
+        },
+        {
+         "type": 11,
+         "instruction": "Make a sharp right onto the walkway.",
+         "length": 0.303,
+         "time": 221,
+         "begin_shape_index": 104
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the crosswalk.",
+         "length": 0.114,
+         "time": 88,
+         "begin_shape_index": 134
+        },
+        {
+         "type": 24,
+         "instruction": "Keep left to take the walkway.",
+         "length": 0.113,
+         "time": 83,
+         "begin_shape_index": 153
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the crosswalk.",
+         "length": 0.848,
+         "time": 670,
+         "begin_shape_index": 166
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.018,
+         "time": 17,
+         "begin_shape_index": 242
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto 中央通り/Chuo-dori Avenue/437.",
+         "street_names": [
+          "中央通り",
+          "Chuo-dori Avenue",
+          "437"
+         ],
+         "length": 0.077,
+         "time": 59,
+         "begin_shape_index": 245
+        },
+        {
+         "type": 23,
+         "instruction": "Keep right to stay on 中央通り/437.",
+         "street_names": [
+          "中央通り",
+          "437"
+         ],
+         "length": 0.489,
+         "time": 381,
+         "begin_shape_index": 249
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.009,
+         "time": 6,
+         "begin_shape_index": 273
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.131,
+         "time": 87,
+         "begin_shape_index": 275
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the crosswalk.",
+         "length": 0.009,
+         "time": 8,
+         "begin_shape_index": 284
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.012,
+         "time": 9,
+         "begin_shape_index": 286
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.023,
+         "time": 18,
+         "begin_shape_index": 288
+        },
+        {
+         "type": 23,
+         "instruction": "Keep right to take the walkway.",
+         "length": 0.007,
+         "time": 5,
+         "begin_shape_index": 293
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.057,
+         "time": 58,
+         "begin_shape_index": 294
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.116,
+         "time": 76,
+         "begin_shape_index": 295
+        },
+        {
+         "type": 11,
+         "instruction": "Make a sharp right onto the walkway.",
+         "length": 0.013,
+         "time": 9,
+         "begin_shape_index": 301
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.012,
+         "time": 9,
+         "begin_shape_index": 304
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.009,
+         "time": 6,
+         "begin_shape_index": 305
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.054,
+         "time": 44,
+         "begin_shape_index": 307
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.029,
+         "time": 19,
+         "begin_shape_index": 311
+        },
+        {
+         "type": 16,
+         "instruction": "Bear left onto the walkway.",
+         "length": 0.078,
+         "time": 65,
+         "begin_shape_index": 312
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.042,
+         "time": 28,
+         "begin_shape_index": 317
+        },
+        {
+         "type": 5,
+         "instruction": "Your destination is on the right.",
+         "length": 0,
+         "time": 0,
+         "begin_shape_index": 324
+        }
+       ]
+      }
+     ]
+    },
+    "alternates": [
+     {
+      "trip": {
+       "legs": [
+        {
+         "shape": "{yx`cAisuqiGoFwAo@hEuAlJIh@k@zDk@~DaCo@iGcBOEi@Os@`EsArHIb@i@zCuHsCgImDcEeBm@|DaAxFkNjIeBNs@F[?gCBaBDw@ByBHgBN_An@mA_DuIgUsBoFWk@}@{BcCiCsBy@gSgI{@]eTaJwM_FyAhAiAUyA]~AgKeEsFkEqBb@sCdCePjAsHwTmGitA_`@iEgAeEcAqXgH_UmPuSoQ}HsFa@Ec@Bm@LiDsCgD{CuInHcA|@yAnAic@pa@kAFs@f@s@f@cT`RaBlA{AjAaF~D}Ax@u@c@iCt@s@qAmGqJyEd@mBP_EDsSkC{B[{LaBiBCgBK}UcAiO_AcHYePq@uP}@aRc@gRbC}Dn@yC~@e_ApYaAX{AJkBN_EXeSxAyK~@qX|BgCnAcLvFk@XuSlK`@vAfDdLr@`Cb@zA_A?eCCsGKwAAk@AE|Ai@|@cKRqH_@uAIwAG{BKkLqCeBa@}MqEcAe@q@YgAq@aBtEoAnDuXkQu[kRkAW_BiAmA}@q@yAi@]_HgEgAs@eC}@}@J_As@k@]k@SsGiCuKuEcCmAeBFgAb@UQwAIsBKgCMo@EaAcAXqA\\mBmc@eF}Fu@iBOqGg@FuD_GWsAGcPm@aEO{Os@_FQwI]eRi@qK]cDOuDOgLe@uNg@oBWwHsAsa@{GcEhAmDk@yFgAyE{@uGkA_RqC}G_@yQe@wIUyFQoIUuDK}DKsZk@OwE|@{YwRi@eQe@u@A`@{QTcLoQy@aAEgPu@aBIB_Az@oX@a@Ds@q@CDgBgAKViJRiII_@G]SUg@UJcDNeEZUBe@JiBe@s@_EoBu^qQgAF_AWyA_@wAUo@KUeBaAw@uUkEmKoBgANq@l@{@QaB]uCk@{@QmA}@{LuB{Dq@wTuDq@Mg@I_AI_YiCwJ{@uAM{@IkD[oAfBgAQcC_@yCe@o@KoBiD_GBs@@uHHkLf@wABO@}PdCqDh@mLhBQeBQ{ASBaEn@ScBq@_@qA]{BKgAQcBeBu^fF_BjE{AlAsW`EyCd@sDzAgRdBRe@WmD_@aA{E`@?uB?_BuA@cIyCsDK{If@y@uRoAE{I^}WwKU[yA@e@qCDyAx@_D_@w@aA{BtAiE`Ac@",
+         "summary": {
+          "length": 4.491,
+          "time": 3420
+         },
+         "maneuvers": [
+          {
+           "type": 40,
+           "instruction": "Take the stairs.",
+           "length": 0.013,
+           "time": 10,
+           "begin_shape_index": 0
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto 中央通路/Central Passage.",
+           "street_names": [
+            "中央通路",
+            "Central Passage"
+           ],
+           "length": 0.047,
+           "time": 34,
+           "begin_shape_index": 1
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto グランスタ東京/1階/Gransta Tokyo 1F (Ground Floor).",
+           "street_names": [
+            "グランスタ東京",
+            "1階",
+            "Gransta Tokyo 1F (Ground Floor)"
+           ],
+           "length": 0.027,
+           "time": 19,
+           "begin_shape_index": 6
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left to stay on グランスタ東京/1階/Gransta Tokyo 1F (Ground Floor).",
+           "street_names": [
+            "グランスタ東京",
+            "1階",
+            "Gransta Tokyo 1F (Ground Floor)"
+           ],
+           "length": 0.032,
+           "time": 25,
+           "begin_shape_index": 10
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto グランスタ東京/1階/Gransta Tokyo 1st Floor.",
+           "street_names": [
+            "グランスタ東京",
+            "1階",
+            "Gransta Tokyo 1st Floor"
+           ],
+           "length": 0.05,
+           "time": 33,
+           "begin_shape_index": 14
+          },
+          {
+           "type": 14,
+           "instruction": "Make a sharp left onto 東京駅丸の内北口/5. Continue on 東京駅丸の内北口.",
+           "street_names": [
+            "東京駅丸の内北口"
+           ],
+           "length": 0.021,
+           "time": 16,
+           "begin_shape_index": 17
+          },
+          {
+           "type": 9,
+           "instruction": "Bear right onto the walkway.",
+           "length": 0.031,
+           "time": 19,
+           "begin_shape_index": 19
+          },
+          {
+           "type": 9,
+           "instruction": "Bear right onto 東京駅(改札外).",
+           "street_names": [
+            "東京駅(改札外)"
+           ],
+           "length": 0.006,
+           "time": 4,
+           "begin_shape_index": 20
+          },
+          {
+           "type": 8,
+           "instruction": "Continue on the walkway.",
+           "length": 0.018,
+           "time": 16,
+           "begin_shape_index": 21
+          },
+          {
+           "type": 24,
+           "instruction": "Keep left to take the walkway.",
+           "length": 0.02,
+           "time": 17,
+           "begin_shape_index": 25
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.008,
+           "time": 6,
+           "begin_shape_index": 29
+          },
+          {
+           "type": 23,
+           "instruction": "Keep right to take the walkway.",
+           "length": 0.187,
+           "time": 147,
+           "begin_shape_index": 30
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.006,
+           "time": 4,
+           "begin_shape_index": 40
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the crosswalk.",
+           "length": 0.009,
+           "time": 6,
+           "begin_shape_index": 41
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto 1/20/永代通り/Eitai Street.",
+           "street_names": [
+            "1",
+            "20",
+            "永代通り",
+            "Eitai Street"
+           ],
+           "length": 0.019,
+           "time": 13,
+           "begin_shape_index": 43
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left at 丸の内一丁目/Marunouchi 1-chome.",
+           "length": 0.028,
+           "time": 21,
+           "begin_shape_index": 44
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.048,
+           "time": 30,
+           "begin_shape_index": 46
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.391,
+           "time": 333,
+           "begin_shape_index": 49
+          },
+          {
+           "type": 23,
+           "instruction": "Keep right to take the crosswalk.",
+           "length": 0.024,
+           "time": 22,
+           "begin_shape_index": 60
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.216,
+           "time": 158,
+           "begin_shape_index": 62
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right.",
+           "length": 0.027,
+           "time": 19,
+           "begin_shape_index": 76
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto 内神田中央通り/Uchikanda Chuo-dori.",
+           "street_names": [
+            "内神田中央通り",
+            "Uchikanda Chuo-dori"
+           ],
+           "length": 0.677,
+           "time": 499,
+           "begin_shape_index": 78
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.037,
+           "time": 24,
+           "begin_shape_index": 107
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the crosswalk.",
+           "length": 0.032,
+           "time": 32,
+           "begin_shape_index": 111
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.008,
+           "time": 6,
+           "begin_shape_index": 116
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.127,
+           "time": 98,
+           "begin_shape_index": 118
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the crosswalk.",
+           "length": 0.02,
+           "time": 17,
+           "begin_shape_index": 129
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.152,
+           "time": 126,
+           "begin_shape_index": 131
+          },
+          {
+           "type": 23,
+           "instruction": "Keep right to take the walkway.",
+           "length": 0.068,
+           "time": 47,
+           "begin_shape_index": 139
+          },
+          {
+           "type": 24,
+           "instruction": "Keep left to take the walkway.",
+           "length": 0.018,
+           "time": 13,
+           "begin_shape_index": 147
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the crosswalk.",
+           "length": 0.028,
+           "time": 26,
+           "begin_shape_index": 150
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the crosswalk.",
+           "length": 0.009,
+           "time": 6,
+           "begin_shape_index": 156
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto 17/昌平橋通り/Shoheibashi-dori Ave.. Continue on 昌平橋通り.",
+           "street_names": [
+            "昌平橋通り"
+           ],
+           "length": 0.716,
+           "time": 545,
+           "begin_shape_index": 158
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right.",
+           "length": 0.049,
+           "time": 35,
+           "begin_shape_index": 193
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left.",
+           "length": 0.07,
+           "time": 58,
+           "begin_shape_index": 195
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right.",
+           "length": 0.046,
+           "time": 36,
+           "begin_shape_index": 198
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left.",
+           "length": 0.072,
+           "time": 48,
+           "begin_shape_index": 200
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.043,
+           "time": 29,
+           "begin_shape_index": 204
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left.",
+           "length": 0.003,
+           "time": 2,
+           "begin_shape_index": 208
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right.",
+           "length": 0.005,
+           "time": 4,
+           "begin_shape_index": 209
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.004,
+           "time": 3,
+           "begin_shape_index": 210
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.032,
+           "time": 27,
+           "begin_shape_index": 211
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.005,
+           "time": 4,
+           "begin_shape_index": 214
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the crosswalk.",
+           "length": 0.019,
+           "time": 16,
+           "begin_shape_index": 217
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.103,
+           "time": 70,
+           "begin_shape_index": 221
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.005,
+           "time": 4,
+           "begin_shape_index": 230
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.274,
+           "time": 223,
+           "begin_shape_index": 231
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.006,
+           "time": 4,
+           "begin_shape_index": 252
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.032,
+           "time": 26,
+           "begin_shape_index": 253
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.131,
+           "time": 87,
+           "begin_shape_index": 258
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the crosswalk.",
+           "length": 0.009,
+           "time": 8,
+           "begin_shape_index": 267
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.012,
+           "time": 9,
+           "begin_shape_index": 269
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.023,
+           "time": 18,
+           "begin_shape_index": 271
+          },
+          {
+           "type": 23,
+           "instruction": "Keep right to take the walkway.",
+           "length": 0.007,
+           "time": 5,
+           "begin_shape_index": 276
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.057,
+           "time": 58,
+           "begin_shape_index": 277
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.116,
+           "time": 76,
+           "begin_shape_index": 278
+          },
+          {
+           "type": 11,
+           "instruction": "Make a sharp right onto the walkway.",
+           "length": 0.013,
+           "time": 9,
+           "begin_shape_index": 284
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.012,
+           "time": 9,
+           "begin_shape_index": 287
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.009,
+           "time": 6,
+           "begin_shape_index": 288
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.054,
+           "time": 44,
+           "begin_shape_index": 290
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.029,
+           "time": 19,
+           "begin_shape_index": 294
+          },
+          {
+           "type": 16,
+           "instruction": "Bear left onto the walkway.",
+           "length": 0.078,
+           "time": 65,
+           "begin_shape_index": 295
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.042,
+           "time": 28,
+           "begin_shape_index": 300
+          },
+          {
+           "type": 5,
+           "instruction": "Your destination is on the right.",
+           "length": 0,
+           "time": 0,
+           "begin_shape_index": 307
+          }
+         ]
+        }
+       ]
+      }
+     },
+     {
+      "trip": {
+       "legs": [
+        {
+         "shape": "{yx`cAisuqiGoFwAo@hEuAlJIh@k@zDk@~DaCo@iGcBOEi@Os@`EsArHIb@i@zCuHsCgImDcEeBm@|DaAxFkNjIeBNs@F[?gCBaBDw@ByBHgBN_An@mA_DuIgUsBoFWk@}@{BcCiCsBy@gSgI{@]eTaJwM_FyAhAiAUyA]~AgKeEsFkEqBb@sCdCePjAsHwTmGitA_`@iEgAeEcAqXgH_UmPuSoQ}HsFa@Ec@Bm@LiDsCgD{CuInHib@cMXjA{_@oKuEyA_OuEgP_H{A[oB]u_@uH{Dy@{BFcCkAcBu@oBw@oCy@uJkB_@KgKuE}[wNwUoJaCwA}@iCkAkDi@mCwF{YUmA_C_MwB}KwBaLmAoGSeA[eB]eBsBoKuAkH_E}ScB{IqAb@{SzGkCsNyD}SoBl@_EjA}K~CYsBmGib@iMiAm@`AiHe@sE[q@eAcBMc^mCwAOm_@yBg@`AG\\sBEsBGcFMaBEaACuAsCo@w@mIm@_\\}BuA|AwAKqBOyAmAkHk@aS[gACeAEkMMo@x@}CAwBCcCG[i@m@_@cTB_A?iA?}AAuCCeUGim@Oo@?o@tA}AA}BC}AiBkDEgAAcBC}Ya@qQWcAAeAAuHK{BMub@oB_Lg@gA~@iBSyBSs@y@e]sBkW}AaAd@s@|A_BMgAIuAKqCUq@lQC`AE|@gAfYCv@i[}CwXoCa_@qDkAMqAMsAMcKaAcLgAkEa@u@GuQeAw\\kB}Ko@yAIcAGcACoi@iB{@Co|@{DeAI_@lImCQoCM{@z@ErAkLkAcO{@}BMwUe@iCEqBEaTnBiZlCmU~BgSdAgBC?zHuKScKYoFk@wIkAeK}BiGsBsAg@a@hIo@M{A_@kD{@cDs@iBc@s@tIM|Ac@?sLsD_EcBeGgCIXg@~A[lA_@tAwAi@k@Ue@QUIIb@e@bCdA^~AnDgB~GmB`HWbAeDT}@lDkBxE@lAq@[i@Q{@Js@Le@~@WfAApAN|AaAfAwAn@{A?aBGkG]_@SWVQIeKs@a@CQPA\\]v@{A`Eg@bEtAjFfBlBDj@iJ~@eCOoAE{I^}WwKU[yA@e@qCDyAx@_D_@w@aA{BtAiE`Ac@",
+         "summary": {
+          "length": 4.559,
+          "time": 3482
+         },
+         "maneuvers": [
+          {
+           "type": 40,
+           "instruction": "Take the stairs.",
+           "length": 0.013,
+           "time": 10,
+           "begin_shape_index": 0
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto 中央通路/Central Passage.",
+           "street_names": [
+            "中央通路",
+            "Central Passage"
+           ],
+           "length": 0.047,
+           "time": 34,
+           "begin_shape_index": 1
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto グランスタ東京/1階/Gransta Tokyo 1F (Ground Floor).",
+           "street_names": [
+            "グランスタ東京",
+            "1階",
+            "Gransta Tokyo 1F (Ground Floor)"
+           ],
+           "length": 0.027,
+           "time": 19,
+           "begin_shape_index": 6
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left to stay on グランスタ東京/1階/Gransta Tokyo 1F (Ground Floor).",
+           "street_names": [
+            "グランスタ東京",
+            "1階",
+            "Gransta Tokyo 1F (Ground Floor)"
+           ],
+           "length": 0.032,
+           "time": 25,
+           "begin_shape_index": 10
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto グランスタ東京/1階/Gransta Tokyo 1st Floor.",
+           "street_names": [
+            "グランスタ東京",
+            "1階",
+            "Gransta Tokyo 1st Floor"
+           ],
+           "length": 0.05,
+           "time": 33,
+           "begin_shape_index": 14
+          },
+          {
+           "type": 14,
+           "instruction": "Make a sharp left onto 東京駅丸の内北口/5. Continue on 東京駅丸の内北口.",
+           "street_names": [
+            "東京駅丸の内北口"
+           ],
+           "length": 0.021,
+           "time": 16,
+           "begin_shape_index": 17
+          },
+          {
+           "type": 9,
+           "instruction": "Bear right onto the walkway.",
+           "length": 0.031,
+           "time": 19,
+           "begin_shape_index": 19
+          },
+          {
+           "type": 9,
+           "instruction": "Bear right onto 東京駅(改札外).",
+           "street_names": [
+            "東京駅(改札外)"
+           ],
+           "length": 0.006,
+           "time": 4,
+           "begin_shape_index": 20
+          },
+          {
+           "type": 8,
+           "instruction": "Continue on the walkway.",
+           "length": 0.018,
+           "time": 16,
+           "begin_shape_index": 21
+          },
+          {
+           "type": 24,
+           "instruction": "Keep left to take the walkway.",
+           "length": 0.02,
+           "time": 17,
+           "begin_shape_index": 25
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.008,
+           "time": 6,
+           "begin_shape_index": 29
+          },
+          {
+           "type": 23,
+           "instruction": "Keep right to take the walkway.",
+           "length": 0.187,
+           "time": 147,
+           "begin_shape_index": 30
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.006,
+           "time": 4,
+           "begin_shape_index": 40
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the crosswalk.",
+           "length": 0.009,
+           "time": 6,
+           "begin_shape_index": 41
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto 1/20/永代通り/Eitai Street.",
+           "street_names": [
+            "1",
+            "20",
+            "永代通り",
+            "Eitai Street"
+           ],
+           "length": 0.019,
+           "time": 13,
+           "begin_shape_index": 43
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left at 丸の内一丁目/Marunouchi 1-chome.",
+           "length": 0.028,
+           "time": 21,
+           "begin_shape_index": 44
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.048,
+           "time": 30,
+           "begin_shape_index": 46
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.391,
+           "time": 333,
+           "begin_shape_index": 49
+          },
+          {
+           "type": 23,
+           "instruction": "Keep right to take the crosswalk.",
+           "length": 0.024,
+           "time": 22,
+           "begin_shape_index": 60
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.023,
+           "time": 16,
+           "begin_shape_index": 62
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.065,
+           "time": 67,
+           "begin_shape_index": 63
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left.",
+           "length": 0.004,
+           "time": 3,
+           "begin_shape_index": 64
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto 神田ふれあい通り/Kanda Fureai-dori.",
+           "street_names": [
+            "神田ふれあい通り",
+            "Kanda Fureai-dori"
+           ],
+           "length": 0.411,
+           "time": 321,
+           "begin_shape_index": 65
+          },
+          {
+           "type": 9,
+           "instruction": "Bear right at 神田駅前/Kanda Station mae.",
+           "length": 0.237,
+           "time": 204,
+           "begin_shape_index": 84
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left.",
+           "length": 0.044,
+           "time": 29,
+           "begin_shape_index": 100
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right.",
+           "length": 0.056,
+           "time": 40,
+           "begin_shape_index": 102
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left.",
+           "length": 0.041,
+           "time": 32,
+           "begin_shape_index": 104
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right.",
+           "length": 0.059,
+           "time": 37,
+           "begin_shape_index": 107
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.03,
+           "time": 21,
+           "begin_shape_index": 109
+          },
+          {
+           "type": 22,
+           "instruction": "Keep straight to take the crosswalk.",
+           "length": 0.158,
+           "time": 126,
+           "begin_shape_index": 111
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.005,
+           "time": 4,
+           "begin_shape_index": 118
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the crosswalk.",
+           "length": 0.035,
+           "time": 35,
+           "begin_shape_index": 120
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.012,
+           "time": 8,
+           "begin_shape_index": 125
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.764,
+           "time": 559,
+           "begin_shape_index": 127
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.005,
+           "time": 4,
+           "begin_shape_index": 174
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the crosswalk.",
+           "length": 0.022,
+           "time": 20,
+           "begin_shape_index": 175
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.074,
+           "time": 50,
+           "begin_shape_index": 179
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto ルビーストリート/Ruby Street.",
+           "street_names": [
+            "ルビーストリート",
+            "Ruby Street"
+           ],
+           "length": 0.545,
+           "time": 397,
+           "begin_shape_index": 184
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.015,
+           "time": 10,
+           "begin_shape_index": 204
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the crosswalk.",
+           "length": 0.024,
+           "time": 20,
+           "begin_shape_index": 205
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto 御徒町駅前通り/Okachimachi Ekimae Dori. Continue on 御徒町駅前通り.",
+           "street_names": [
+            "御徒町駅前通り"
+           ],
+           "length": 0.284,
+           "time": 205,
+           "begin_shape_index": 209
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left.",
+           "length": 0.014,
+           "time": 10,
+           "begin_shape_index": 220
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right.",
+           "length": 0.121,
+           "time": 86,
+           "begin_shape_index": 221
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.015,
+           "time": 10,
+           "begin_shape_index": 228
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.033,
+           "time": 29,
+           "begin_shape_index": 229
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.075,
+           "time": 57,
+           "begin_shape_index": 234
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.014,
+           "time": 11,
+           "begin_shape_index": 240
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.012,
+           "time": 8,
+           "begin_shape_index": 244
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.008,
+           "time": 6,
+           "begin_shape_index": 248
+          },
+          {
+           "type": 39,
+           "instruction": "Take the elevator.",
+           "length": 0.014,
+           "time": 10,
+           "begin_shape_index": 250
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.031,
+           "time": 25,
+           "begin_shape_index": 252
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.009,
+           "time": 6,
+           "begin_shape_index": 255
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.023,
+           "time": 16,
+           "begin_shape_index": 256
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.012,
+           "time": 8,
+           "begin_shape_index": 259
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.051,
+           "time": 44,
+           "begin_shape_index": 263
+          },
+          {
+           "type": 23,
+           "instruction": "Keep right to take the walkway.",
+           "length": 0.002,
+           "time": 1,
+           "begin_shape_index": 272
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.18,
+           "time": 144,
+           "begin_shape_index": 273
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.042,
+           "time": 28,
+           "begin_shape_index": 292
+          },
+          {
+           "type": 5,
+           "instruction": "Your destination is on the right.",
+           "length": 0,
+           "time": 0,
+           "begin_shape_index": 299
+          }
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   }
+  },
+  {
+   "destinationId": "jp-fac-6",
+   "costing": "pedestrian",
+   "response": {
+    "trip": {
+     "legs": [
+      {
+       "shape": "{yx`cAisuqiGoFwAo@hEuAlJIh@k@zDk@~Dq@pEiA~Ho@lEc@vC}AbK[tBA~@m@L[NyKgByBjA_Ds@cDPiAJqEV{CgAuAN_A?oDy@c@zBWnBe@fDSrAgBrBoCbSg@lDe@hDeAnJs@tGoKiC{@Ak@bAkBhNeHhh@Hj@_@dD_@`DUV{Kj{@Jz@iAUyA[m@~Ey@|GcGoAYxBMbA_]mGEd@gFnv@yZmDcBm@sc@cEa@Eo@vEXr@nA~Cy@nLu@~BwARk@H?`@Rz@W|Aq@zEoAfI{@rEIn@cBe@sAi@cA_@gA_@AAuCeAe@OsnAeTLkAT{BmBYaCOsBLuBTk~@dW{s@jPyGbF{E~Esa@lj@oArCq@lDeHhi@yGuAqCi@aD~EwCAkRW}D@iBBaUAo@CEzFOfGi@zAyD?mCAGxRIpBSlB[zAc@fAi@fAy@pAgAlAkAhAcT|Oy`@z^a@v@O~@A|@Fx@Pj@Zh@f@`@f@Jb@CgIdHwEjEcAnAy@tAm@vAoAdEKvT{`@hLk\\tJl@~IoDdUsM|z@iAxHiDtN_ElIu@lAx@~@cA|AxJtK|AbBjFxEt@aBJSvMrHq@xBi@bBxGfG_@v@o@pAaDwC",
+       "summary": {
+        "length": 2.571,
+        "time": 2103
+       },
+       "maneuvers": [
+        {
+         "type": 40,
+         "instruction": "Take the stairs.",
+         "length": 0.013,
+         "time": 10,
+         "begin_shape_index": 0
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto 中央通路/Central Passage.",
+         "street_names": [
+          "中央通路",
+          "Central Passage"
+         ],
+         "length": 0.113,
+         "time": 85,
+         "begin_shape_index": 1
+        },
+        {
+         "type": 16,
+         "instruction": "Bear left onto the walkway.",
+         "length": 0.003,
+         "time": 2,
+         "begin_shape_index": 12
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.097,
+         "time": 67,
+         "begin_shape_index": 13
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.023,
+         "time": 18,
+         "begin_shape_index": 25
+        },
+        {
+         "type": 9,
+         "instruction": "Bear right onto the walkway.",
+         "length": 0.084,
+         "time": 73,
+         "begin_shape_index": 29
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.026,
+         "time": 24,
+         "begin_shape_index": 35
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.202,
+         "time": 194,
+         "begin_shape_index": 37
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.009,
+         "time": 6,
+         "begin_shape_index": 46
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto 丸の内 1st/Marunouchi 1st Street.",
+         "street_names": [
+          "丸の内 1st",
+          "Marunouchi 1st Street"
+         ],
+         "length": 0.023,
+         "time": 21,
+         "begin_shape_index": 48
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto 1/20/日比谷通り/Hibiya Street.",
+         "street_names": [
+          "1",
+          "20",
+          "日比谷通り",
+          "Hibiya Street"
+         ],
+         "length": 0.015,
+         "time": 15,
+         "begin_shape_index": 50
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.008,
+         "time": 6,
+         "begin_shape_index": 51
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.055,
+         "time": 36,
+         "begin_shape_index": 53
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.207,
+         "time": 142,
+         "begin_shape_index": 54
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.01,
+         "time": 7,
+         "begin_shape_index": 60
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.045,
+         "time": 30,
+         "begin_shape_index": 61
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.004,
+         "time": 3,
+         "begin_shape_index": 67
+        },
+        {
+         "type": 23,
+         "instruction": "Keep right to take the crosswalk.",
+         "length": 0.042,
+         "time": 38,
+         "begin_shape_index": 69
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.175,
+         "time": 160,
+         "begin_shape_index": 74
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.008,
+         "time": 6,
+         "begin_shape_index": 82
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto 内堀通り/Uchibori Street/301.",
+         "street_names": [
+          "内堀通り",
+          "Uchibori Street",
+          "301"
+         ],
+         "length": 0.446,
+         "time": 401,
+         "begin_shape_index": 84
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.024,
+         "time": 21,
+         "begin_shape_index": 96
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.014,
+         "time": 11,
+         "begin_shape_index": 98
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.101,
+         "time": 70,
+         "begin_shape_index": 99
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the crosswalk.",
+         "length": 0.046,
+         "time": 39,
+         "begin_shape_index": 105
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left.",
+         "length": 0.043,
+         "time": 30,
+         "begin_shape_index": 110
+        },
+        {
+         "type": 9,
+         "instruction": "Bear right.",
+         "length": 0.168,
+         "time": 109,
+         "begin_shape_index": 114
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right.",
+         "length": 0.063,
+         "time": 52,
+         "begin_shape_index": 130
+        },
+        {
+         "type": 16,
+         "instruction": "Bear left onto 神田警察通り/Kanda Keisatsu-dori.",
+         "street_names": [
+          "神田警察通り",
+          "Kanda Keisatsu-dori"
+         ],
+         "length": 0.031,
+         "time": 31,
+         "begin_shape_index": 136
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto 雉子橋通り/Kijibashi-dori.",
+         "street_names": [
+          "雉子橋通り",
+          "Kijibashi-dori"
+         ],
+         "length": 0.118,
+         "time": 120,
+         "begin_shape_index": 137
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left.",
+         "length": 0.203,
+         "time": 163,
+         "begin_shape_index": 139
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.004,
+         "time": 3,
+         "begin_shape_index": 146
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.006,
+         "time": 4,
+         "begin_shape_index": 147
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.051,
+         "time": 34,
+         "begin_shape_index": 148
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left.",
+         "length": 0.046,
+         "time": 38,
+         "begin_shape_index": 151
+        },
+        {
+         "type": 15,
+         "instruction": "Turn left onto the walkway.",
+         "length": 0.02,
+         "time": 17,
+         "begin_shape_index": 156
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the crosswalk.",
+         "length": 0.008,
+         "time": 7,
+         "begin_shape_index": 157
+        },
+        {
+         "type": 10,
+         "instruction": "Turn right onto the walkway.",
+         "length": 0.011,
+         "time": 7,
+         "begin_shape_index": 159
+        },
+        {
+         "type": 4,
+         "instruction": "You have arrived at your destination.",
+         "length": 0,
+         "time": 0,
+         "begin_shape_index": 160
+        }
+       ]
+      }
+     ]
+    },
+    "alternates": [
+     {
+      "trip": {
+       "legs": [
+        {
+         "shape": "{yx`cAisuqiGoFwAo@hEuAlJIh@k@zDk@~DaCo@iGcBOEi@Os@`EsArHIb@i@zCuHsCgImDcEeBm@|DaAxFkNjIeBNs@F[?gCBaBDw@ByBHgBN_An@mA_DuIgUsBoFWk@}@{BcCiCsBy@gSgI{@]eTaJwM_FyAhAiAUyA]yEiAwCm@oDtWgHvg@q@~EmC`S_AfAu@rFeBc@yGaBoJcByf@uH{BYJ}EkB[qJwA{Eq@y@u@a@rG[tFcBh@iBW{ItaA{Ba@}I|bAqB]g@z@q@`A[hDo@zGa@hEl@v@nB^dCb@mKfiAiBlRQ|CgC[y@Ks@IOxAgdAxXms@pRiFvAy@T{Ep@cA~Bm@tAqAxDu@|AMVkAd@_A\\}BqE_gAkAo@xCq@~C_@nDUvCDnT@dCNndAiBBaUAo@CEzFOfGi@zAyD?mCAGxRIpBSlB[zAc@fAi@fAy@pAgAlAkAhAcT|Oy`@z^a@v@O~@A|@Fx@Pj@Zh@f@`@f@Jb@CgIdHwEjEcAnAy@tAm@vAoAdEKvT{`@hLk\\tJl@~IoDdUsM|z@iAxHiDtN_ElIu@lAx@~@cA|AxJtK|AbBjFxEt@aBJSvMrHq@xBi@bBxGfG_@v@o@pAaDwC",
+         "summary": {
+          "length": 2.764,
+          "time": 2208
+         },
+         "maneuvers": [
+          {
+           "type": 40,
+           "instruction": "Take the stairs.",
+           "length": 0.013,
+           "time": 10,
+           "begin_shape_index": 0
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto 中央通路/Central Passage.",
+           "street_names": [
+            "中央通路",
+            "Central Passage"
+           ],
+           "length": 0.047,
+           "time": 34,
+           "begin_shape_index": 1
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto グランスタ東京/1階/Gransta Tokyo 1F (Ground Floor).",
+           "street_names": [
+            "グランスタ東京",
+            "1階",
+            "Gransta Tokyo 1F (Ground Floor)"
+           ],
+           "length": 0.027,
+           "time": 19,
+           "begin_shape_index": 6
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left to stay on グランスタ東京/1階/Gransta Tokyo 1F (Ground Floor).",
+           "street_names": [
+            "グランスタ東京",
+            "1階",
+            "Gransta Tokyo 1F (Ground Floor)"
+           ],
+           "length": 0.032,
+           "time": 25,
+           "begin_shape_index": 10
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto グランスタ東京/1階/Gransta Tokyo 1st Floor.",
+           "street_names": [
+            "グランスタ東京",
+            "1階",
+            "Gransta Tokyo 1st Floor"
+           ],
+           "length": 0.05,
+           "time": 33,
+           "begin_shape_index": 14
+          },
+          {
+           "type": 14,
+           "instruction": "Make a sharp left onto 東京駅丸の内北口/5. Continue on 東京駅丸の内北口.",
+           "street_names": [
+            "東京駅丸の内北口"
+           ],
+           "length": 0.021,
+           "time": 16,
+           "begin_shape_index": 17
+          },
+          {
+           "type": 9,
+           "instruction": "Bear right onto the walkway.",
+           "length": 0.031,
+           "time": 19,
+           "begin_shape_index": 19
+          },
+          {
+           "type": 9,
+           "instruction": "Bear right onto 東京駅(改札外).",
+           "street_names": [
+            "東京駅(改札外)"
+           ],
+           "length": 0.006,
+           "time": 4,
+           "begin_shape_index": 20
+          },
+          {
+           "type": 8,
+           "instruction": "Continue on the walkway.",
+           "length": 0.018,
+           "time": 16,
+           "begin_shape_index": 21
+          },
+          {
+           "type": 24,
+           "instruction": "Keep left to take the walkway.",
+           "length": 0.02,
+           "time": 17,
+           "begin_shape_index": 25
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.008,
+           "time": 6,
+           "begin_shape_index": 29
+          },
+          {
+           "type": 23,
+           "instruction": "Keep right to take the walkway.",
+           "length": 0.187,
+           "time": 147,
+           "begin_shape_index": 30
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.006,
+           "time": 4,
+           "begin_shape_index": 40
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the crosswalk.",
+           "length": 0.03,
+           "time": 51,
+           "begin_shape_index": 41
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.154,
+           "time": 141,
+           "begin_shape_index": 45
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto 錦町有楽町線/Nishikicho-Yurakucho Line/402/特例都道錦町有楽町線.",
+           "street_names": [
+            "錦町有楽町線",
+            "Nishikicho-Yurakucho Line",
+            "402",
+            "特例都道錦町有楽町線"
+           ],
+           "length": 0.122,
+           "time": 94,
+           "begin_shape_index": 51
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right.",
+           "length": 0.01,
+           "time": 8,
+           "begin_shape_index": 56
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.043,
+           "time": 36,
+           "begin_shape_index": 57
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the crosswalk.",
+           "length": 0.024,
+           "time": 26,
+           "begin_shape_index": 61
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.012,
+           "time": 8,
+           "begin_shape_index": 63
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left.",
+           "length": 0.098,
+           "time": 67,
+           "begin_shape_index": 65
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.007,
+           "time": 5,
+           "begin_shape_index": 66
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left.",
+           "length": 0.1,
+           "time": 68,
+           "begin_shape_index": 67
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.006,
+           "time": 4,
+           "begin_shape_index": 68
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.038,
+           "time": 34,
+           "begin_shape_index": 69
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.018,
+           "time": 15,
+           "begin_shape_index": 74
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right.",
+           "length": 0.146,
+           "time": 124,
+           "begin_shape_index": 77
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.014,
+           "time": 12,
+           "begin_shape_index": 80
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.261,
+           "time": 175,
+           "begin_shape_index": 83
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.037,
+           "time": 31,
+           "begin_shape_index": 89
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right toward お茶の水.",
+           "street_names": [
+            "301"
+           ],
+           "length": 0.012,
+           "time": 10,
+           "begin_shape_index": 96
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left.",
+           "length": 0.128,
+           "time": 142,
+           "begin_shape_index": 97
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left.",
+           "length": 0.167,
+           "time": 116,
+           "begin_shape_index": 98
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.048,
+           "time": 34,
+           "begin_shape_index": 105
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the crosswalk.",
+           "length": 0.046,
+           "time": 39,
+           "begin_shape_index": 108
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left.",
+           "length": 0.043,
+           "time": 30,
+           "begin_shape_index": 113
+          },
+          {
+           "type": 9,
+           "instruction": "Bear right.",
+           "length": 0.168,
+           "time": 109,
+           "begin_shape_index": 117
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right.",
+           "length": 0.063,
+           "time": 52,
+           "begin_shape_index": 133
+          },
+          {
+           "type": 16,
+           "instruction": "Bear left onto 神田警察通り/Kanda Keisatsu-dori.",
+           "street_names": [
+            "神田警察通り",
+            "Kanda Keisatsu-dori"
+           ],
+           "length": 0.031,
+           "time": 31,
+           "begin_shape_index": 139
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto 雉子橋通り/Kijibashi-dori.",
+           "street_names": [
+            "雉子橋通り",
+            "Kijibashi-dori"
+           ],
+           "length": 0.118,
+           "time": 120,
+           "begin_shape_index": 140
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left.",
+           "length": 0.203,
+           "time": 163,
+           "begin_shape_index": 142
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.004,
+           "time": 3,
+           "begin_shape_index": 149
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.006,
+           "time": 4,
+           "begin_shape_index": 150
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.051,
+           "time": 34,
+           "begin_shape_index": 151
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left.",
+           "length": 0.046,
+           "time": 38,
+           "begin_shape_index": 154
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.02,
+           "time": 17,
+           "begin_shape_index": 159
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the crosswalk.",
+           "length": 0.008,
+           "time": 7,
+           "begin_shape_index": 160
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.011,
+           "time": 7,
+           "begin_shape_index": 162
+          },
+          {
+           "type": 4,
+           "instruction": "You have arrived at your destination.",
+           "length": 0,
+           "time": 0,
+           "begin_shape_index": 163
+          }
+         ]
+        }
+       ]
+      }
+     },
+     {
+      "trip": {
+       "legs": [
+        {
+         "shape": "{yx`cAisuqiGoFwAo@hEuAlJIh@k@zDk@~DaCo@iGcBOEi@Os@`EsArHIb@i@zCuHsCgImDcEeBm@|DaAxFkNjIeBNs@F[?gCBaBDw@ByBHgBN_An@mA_DuIgUsBoFWk@}@{BcCiCsBy@gSgI{@]eTaJwM_FyAhAiAUyA]yEiAwCm@oDtWgHvg@q@~EmC`S_AfAu@rFeBc@yGaBoJcByf@uH{BYJ}EkB[qJwA{Eq@y@u@g@y@a@o@eB]aCUcBS}BrBm`@kFwCe@mFu@aNmB]GgWuDw_@uFwCe@yB]wUeCsX_E]nE_@hFMD{@TmEo@kFu@uCnc@MfBMtB{AnSMbBst@oII`BI\\_AlPs@pPw@pO}@hM~@|@lALSlCg@xGWhDk@Gi@Ng@tAwAdTgDhg@kG|bAK`BIjAmBfZ|@v@uCbCTdGaNjTa@n@_ItLJpH@z@dEDpClgBf@BtAlBEzFOfGi@zAyD?mCAGxRIpBSlB[zAc@fAi@fAy@pAgAlAkAhAcT|Oy`@z^a@v@O~@A|@Fx@Pj@Zh@f@`@f@Jb@CgIdHwEjEcAnAy@tAm@vAoAdEKvT{`@hLk\\tJl@~IoDdUsM|z@iAxHiDtN_ElIu@lAx@~@cA|AxJtK|AbBjFxEt@aBJSvMrHq@xBi@bBxGfG_@v@o@pAaDwC",
+         "summary": {
+          "length": 2.916,
+          "time": 2274
+         },
+         "maneuvers": [
+          {
+           "type": 40,
+           "instruction": "Take the stairs.",
+           "length": 0.013,
+           "time": 10,
+           "begin_shape_index": 0
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto 中央通路/Central Passage.",
+           "street_names": [
+            "中央通路",
+            "Central Passage"
+           ],
+           "length": 0.047,
+           "time": 34,
+           "begin_shape_index": 1
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto グランスタ東京/1階/Gransta Tokyo 1F (Ground Floor).",
+           "street_names": [
+            "グランスタ東京",
+            "1階",
+            "Gransta Tokyo 1F (Ground Floor)"
+           ],
+           "length": 0.027,
+           "time": 19,
+           "begin_shape_index": 6
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left to stay on グランスタ東京/1階/Gransta Tokyo 1F (Ground Floor).",
+           "street_names": [
+            "グランスタ東京",
+            "1階",
+            "Gransta Tokyo 1F (Ground Floor)"
+           ],
+           "length": 0.032,
+           "time": 25,
+           "begin_shape_index": 10
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto グランスタ東京/1階/Gransta Tokyo 1st Floor.",
+           "street_names": [
+            "グランスタ東京",
+            "1階",
+            "Gransta Tokyo 1st Floor"
+           ],
+           "length": 0.05,
+           "time": 33,
+           "begin_shape_index": 14
+          },
+          {
+           "type": 14,
+           "instruction": "Make a sharp left onto 東京駅丸の内北口/5. Continue on 東京駅丸の内北口.",
+           "street_names": [
+            "東京駅丸の内北口"
+           ],
+           "length": 0.021,
+           "time": 16,
+           "begin_shape_index": 17
+          },
+          {
+           "type": 9,
+           "instruction": "Bear right onto the walkway.",
+           "length": 0.031,
+           "time": 19,
+           "begin_shape_index": 19
+          },
+          {
+           "type": 9,
+           "instruction": "Bear right onto 東京駅(改札外).",
+           "street_names": [
+            "東京駅(改札外)"
+           ],
+           "length": 0.006,
+           "time": 4,
+           "begin_shape_index": 20
+          },
+          {
+           "type": 8,
+           "instruction": "Continue on the walkway.",
+           "length": 0.018,
+           "time": 16,
+           "begin_shape_index": 21
+          },
+          {
+           "type": 24,
+           "instruction": "Keep left to take the walkway.",
+           "length": 0.02,
+           "time": 17,
+           "begin_shape_index": 25
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.008,
+           "time": 6,
+           "begin_shape_index": 29
+          },
+          {
+           "type": 23,
+           "instruction": "Keep right to take the walkway.",
+           "length": 0.187,
+           "time": 147,
+           "begin_shape_index": 30
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.006,
+           "time": 4,
+           "begin_shape_index": 40
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the crosswalk.",
+           "length": 0.03,
+           "time": 51,
+           "begin_shape_index": 41
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.154,
+           "time": 141,
+           "begin_shape_index": 45
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto 錦町有楽町線/Nishikicho-Yurakucho Line/402/特例都道錦町有楽町線.",
+           "street_names": [
+            "錦町有楽町線",
+            "Nishikicho-Yurakucho Line",
+            "402",
+            "特例都道錦町有楽町線"
+           ],
+           "length": 0.122,
+           "time": 94,
+           "begin_shape_index": 51
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right.",
+           "length": 0.01,
+           "time": 8,
+           "begin_shape_index": 56
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.068,
+           "time": 58,
+           "begin_shape_index": 57
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.009,
+           "time": 6,
+           "begin_shape_index": 66
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.318,
+           "time": 230,
+           "begin_shape_index": 67
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the crosswalk.",
+           "length": 0.021,
+           "time": 17,
+           "begin_shape_index": 78
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.029,
+           "time": 23,
+           "begin_shape_index": 80
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.098,
+           "time": 77,
+           "begin_shape_index": 84
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right.",
+           "length": 0.097,
+           "time": 68,
+           "begin_shape_index": 89
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.103,
+           "time": 80,
+           "begin_shape_index": 90
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.009,
+           "time": 6,
+           "begin_shape_index": 96
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the crosswalk.",
+           "length": 0.027,
+           "time": 25,
+           "begin_shape_index": 98
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.005,
+           "time": 4,
+           "begin_shape_index": 101
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.247,
+           "time": 190,
+           "begin_shape_index": 103
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the crosswalk.",
+           "length": 0.01,
+           "time": 7,
+           "begin_shape_index": 111
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left.",
+           "length": 0.012,
+           "time": 8,
+           "begin_shape_index": 112
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto 錦町有楽町線/Nishikicho-Yurakucho Line/402/特例都道錦町有楽町線.",
+           "street_names": [
+            "錦町有楽町線",
+            "Nishikicho-Yurakucho Line",
+            "402",
+            "特例都道錦町有楽町線"
+           ],
+           "length": 0.087,
+           "time": 62,
+           "begin_shape_index": 113
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.011,
+           "time": 7,
+           "begin_shape_index": 118
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.151,
+           "time": 98,
+           "begin_shape_index": 119
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the crosswalk.",
+           "length": 0.009,
+           "time": 6,
+           "begin_shape_index": 120
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the crosswalk.",
+           "length": 0.046,
+           "time": 39,
+           "begin_shape_index": 122
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left.",
+           "length": 0.043,
+           "time": 30,
+           "begin_shape_index": 127
+          },
+          {
+           "type": 9,
+           "instruction": "Bear right.",
+           "length": 0.168,
+           "time": 109,
+           "begin_shape_index": 131
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right.",
+           "length": 0.063,
+           "time": 52,
+           "begin_shape_index": 147
+          },
+          {
+           "type": 16,
+           "instruction": "Bear left onto 神田警察通り/Kanda Keisatsu-dori.",
+           "street_names": [
+            "神田警察通り",
+            "Kanda Keisatsu-dori"
+           ],
+           "length": 0.031,
+           "time": 31,
+           "begin_shape_index": 153
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto 雉子橋通り/Kijibashi-dori.",
+           "street_names": [
+            "雉子橋通り",
+            "Kijibashi-dori"
+           ],
+           "length": 0.118,
+           "time": 120,
+           "begin_shape_index": 154
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left.",
+           "length": 0.203,
+           "time": 163,
+           "begin_shape_index": 156
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.004,
+           "time": 3,
+           "begin_shape_index": 163
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.006,
+           "time": 4,
+           "begin_shape_index": 164
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.051,
+           "time": 34,
+           "begin_shape_index": 165
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left.",
+           "length": 0.046,
+           "time": 38,
+           "begin_shape_index": 168
+          },
+          {
+           "type": 15,
+           "instruction": "Turn left onto the walkway.",
+           "length": 0.02,
+           "time": 17,
+           "begin_shape_index": 173
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the crosswalk.",
+           "length": 0.008,
+           "time": 7,
+           "begin_shape_index": 174
+          },
+          {
+           "type": 10,
+           "instruction": "Turn right onto the walkway.",
+           "length": 0.011,
+           "time": 7,
+           "begin_shape_index": 176
+          },
+          {
+           "type": 4,
+           "instruction": "You have arrived at your destination.",
+           "length": 0,
+           "time": 0,
+           "begin_shape_index": 177
+          }
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ ]
 }

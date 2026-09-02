@@ -1,0 +1,64 @@
+{
+  "_comment": "A ready reply from this server's own /api/geo/cems-forecast, recorded so the EU forecast provider can be exercised without a Copernicus token or a queued retrieval. The shape is what server/routes/cems-forecast.ts builds: zones scored against each cell's 1991-2020 flood frequency, with full provenance.",
+  "ok": true,
+  "sourceId": "eu.copernicus.glofas-forecast",
+  "state": "ready",
+  "detail": "GloFAS ensemble forecast scored against each cell's own 1991-2020 flood frequency.",
+  "progress": {
+    "thresholdChunksReady": 6,
+    "thresholdChunksTotal": 6,
+    "thresholdsFitted": true,
+    "forecastRetrieved": true
+  },
+  "run": {
+    "basetime": 1756598400000,
+    "leadHours": [24, 48, 72, 96, 120],
+    "memberCount": 52
+  },
+  "zones": [
+    {
+      "id": "glofas-forecast-high",
+      "kind": {
+        "kind": "forecast",
+        "validFrom": 1756598400000,
+        "validTo": 1757030400000
+      },
+      "hazardClass": "high",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-0.2, 51.45],
+            [-0.1, 51.45],
+            [-0.1, 51.55],
+            [-0.2, 51.55],
+            [-0.2, 51.45]
+          ]
+        ]
+      },
+      "provenance": {
+        "sourceId": "eu.copernicus.glofas-forecast",
+        "sourceName": "Copernicus GloFAS — ensemble river discharge forecast",
+        "upstreamUrl": "https://ewds.climate.copernicus.eu/datasets/cems-glofas-forecast",
+        "datasetVintage": "GloFAS run 2026-08-31 00Z",
+        "issuedAt": 1756598400000,
+        "retrievedAt": 1756620000000,
+        "cache": { "hit": false, "ageMs": 0 },
+        "licence": "Copernicus Open Access (free reuse with attribution)",
+        "attribution": "Copernicus Emergency Management Service — Global Flood Awareness System (GloFAS), via the ECMWF Data Store",
+        "mode": "live"
+      }
+    }
+  ],
+  "coverage": {
+    "state": "partial",
+    "reason": "no_data_for_area",
+    "detail": "GloFAS models river discharge on a 0.05° grid, so it does not resolve small watercourses, surface-water flooding from rainfall, or drainage failure. 412 of 560 cells have no 1991-2020 record that supports a flood frequency fit — mostly cells that carry no river — and carry no verdict either way.",
+    "failedSources": []
+  },
+  "staleness": {
+    "stale": false,
+    "ageMs": 21600000,
+    "expectedRefreshMs": 86400000
+  }
+}

@@ -1,0 +1,66 @@
+[
+ {
+  "basetime": "20260830014000",
+  "validtime": "20260830014000",
+  "member": "immed0",
+  "elements": [
+   "land",
+   "inund",
+   "flood_mesh",
+   "rain_mesh",
+   "flood",
+   "designated_river",
+   "inland_flood",
+   "designated_river_nation",
+   "flood_riskline"
+  ]
+ },
+ {
+  "basetime": "20260830013000",
+  "validtime": "20260830013000",
+  "member": "immed1",
+  "elements": [
+   "land",
+   "inund",
+   "flood_mesh",
+   "rain_mesh",
+   "flood",
+   "designated_river",
+   "inland_flood",
+   "designated_river_nation",
+   "flood_riskline"
+  ]
+ },
+ {
+  "basetime": "20260830012000",
+  "validtime": "20260830012000",
+  "member": "immed2",
+  "elements": [
+   "land",
+   "inund",
+   "flood_mesh",
+   "rain_mesh",
+   "flood",
+   "designated_river",
+   "inland_flood",
+   "designated_river_nation",
+   "flood_riskline"
+  ]
+ },
+ {
+  "basetime": "20260830011000",
+  "validtime": "20260830011000",
+  "member": "none",
+  "elements": [
+   "land",
+   "inund",
+   "flood_mesh",
+   "rain_mesh",
+   "flood",
+   "designated_river",
+   "inland_flood",
+   "designated_river_nation",
+   "flood_riskline"
+  ]
+ }
+]
