@@ -94,6 +94,7 @@ export interface ServerConfig {
   readonly geoBreakerCooldownMs: number
   readonly geoCoordPrecision: number
   readonly geoTraceCoordPrecision: number
+  readonly backendApiUrl?: string
 }
 
 const DEFAULTS = {
@@ -420,5 +421,6 @@ export const loadConfig = (
       geoBreakerCooldownMs,
       geoCoordPrecision,
       geoTraceCoordPrecision,
+      backendApiUrl: optional(env.BACKEND_API_URL ?? env.VITE_BACKEND_API_URL),
     }
   })

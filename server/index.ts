@@ -95,13 +95,40 @@ export const createApp = (config: ServerConfig) => {
   })
   app.use('/api/*', cors({ origin: DEV_ORIGINS, allowHeaders: ['content-type', 'x-request-id'] }))
 
-  app.route('/api/health', healthRoutes(config, geoProxy))
-  app.route('/api/llm', llmRoutes(config))
-  app.route('/api/traces', traceRoutes(config))
-  app.route('/api/geo', geoRoutes(config, geoProxy))
-  app.route('/api/geo', inundationRoutes(config, geoProxy))
-  app.route('/api/geo', floodModelRoutes(config, geoProxy))
-  app.route('/api/geo', cemsForecastRoutes(config, geoProxy, { credentials: cemsCredentials }))
+  if (config.backendApiUrl !== undefined) {
+    const upstreamBase = config.backendApiUrl.replace(/\/$/, '')
+    app.all('/api/*', async (c) => {
+      const url = new URL(c.req.url)
+      const target = `${upstreamBase}${url.pathname}${url.search}`
+      const headers = new Headers(c.req.raw.headers)
+      headers.set('host', new URL(upstreamBase).host)
+      try {
+        const res = await fetch(target, {
+          method: c.req.method,
+          headers,
+          body:
+            c.req.method !== 'GET' && c.req.method !== 'HEAD'
+              ? await c.req.raw.arrayBuffer()
+              : undefined,
+        })
+        return new Response(res.body, {
+          status: res.status,
+          headers: res.headers,
+        })
+      } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : String(err)
+        return c.json({ error: 'UpstreamBackendUnavailable', message }, 502)
+      }
+    })
+  } else {
+    app.route('/api/health', healthRoutes(config, geoProxy))
+    app.route('/api/llm', llmRoutes(config))
+    app.route('/api/traces', traceRoutes(config))
+    app.route('/api/geo', geoRoutes(config, geoProxy))
+    app.route('/api/geo', inundationRoutes(config, geoProxy))
+    app.route('/api/geo', floodModelRoutes(config, geoProxy))
+    app.route('/api/geo', cemsForecastRoutes(config, geoProxy, { credentials: cemsCredentials }))
+  }
 
   app.notFound(async (c) => {
     const pathname = new URL(c.req.url).pathname

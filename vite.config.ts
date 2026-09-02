@@ -28,13 +28,26 @@ const loadServerEnv = (mode: string): void => {
 
 export default defineConfig(({ mode }) => {
   loadServerEnv(mode)
+  const backendApiUrl = process.env.BACKEND_API_URL || process.env.VITE_BACKEND_API_URL
   return {
     plugins: [
       react(),
       babel({ presets: [reactCompilerPreset()] }),
       tailwindcss(),
-      devServer({ entry: 'server/index.ts', exclude: [NON_API] }),
+      ...(backendApiUrl ? [] : [devServer({ entry: 'server/index.ts', exclude: [NON_API] })]),
     ],
-    server: { host: '127.0.0.1', port: 5173 },
+    server: {
+      host: '127.0.0.1',
+      port: 5173,
+      proxy: backendApiUrl
+        ? {
+            '/api': {
+              target: backendApiUrl,
+              changeOrigin: true,
+              secure: true,
+            },
+          }
+        : undefined,
+    },
   }
 })
