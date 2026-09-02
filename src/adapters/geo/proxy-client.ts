@@ -2,7 +2,23 @@ import { Effect } from 'effect'
 import type { LonLat } from '../../domain/geo'
 import { SourceRateLimited, SourceUnavailable, type GeoError } from '../../domain/geo-errors'
 
-const API_BASE = '/api/geo'
+export const resolveApiUrl = (path: string): string => {
+  if (typeof window !== 'undefined' && window.location?.origin) {
+    return path
+  }
+  const base =
+    (typeof process !== 'undefined' && (process.env?.BACKEND_API_URL || process.env?.VITE_BACKEND_API_URL)) ||
+    (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_BACKEND_API_URL) ||
+    'http://127.0.0.1:8787'
+  return `${String(base).replace(/\/$/, '')}${path.startsWith('/') ? path : `/${path}`}`
+}
+
+export const getWebMcpHeaders = (): Record<string, string> => {
+  const secret =
+    (typeof process !== 'undefined' && (process.env?.WEBMCP_SHARED_SECRET || process.env?.VITE_WEBMCP_SHARED_SECRET)) ||
+    (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_WEBMCP_SHARED_SECRET)
+  return secret ? { 'x-webmcp-secret': secret } : {}
+}
 
 export type GeoProxyKind = 'flood' | 'places' | 'alerts' | 'geocode'
 
@@ -76,9 +92,9 @@ export const fetchViaProxy = (
 
     const response = yield* Effect.tryPromise({
       try: () =>
-        fetchImpl(`${API_BASE}/${kind}`, {
+        fetchImpl(resolveApiUrl(`/api/geo/${kind}`), {
           method: 'POST',
-          headers: { 'content-type': 'application/json' },
+          headers: { 'content-type': 'application/json', ...getWebMcpHeaders() },
           body: JSON.stringify({
             at: at ? { latitude: at.latitude, longitude: at.longitude } : undefined,
             sourceId,
@@ -176,9 +192,9 @@ export const fetchRasterViaProxy = (
 
     const response = yield* Effect.tryPromise({
       try: () =>
-        fetchImpl(`${API_BASE}/raster`, {
+        fetchImpl(resolveApiUrl('/api/geo/raster'), {
           method: 'POST',
-          headers: { 'content-type': 'application/json' },
+          headers: { 'content-type': 'application/json', ...getWebMcpHeaders() },
           body: JSON.stringify({ sourceId, upstreamUrl, ttlMs }),
           signal,
         }),

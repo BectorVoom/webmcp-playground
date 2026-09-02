@@ -18,8 +18,7 @@ import {
   type ParsedTrip,
   type ValhallaRouteResponse,
 } from './valhalla-trip'
-
-const API_BASE = '/api/geo'
+import { resolveApiUrl, getWebMcpHeaders } from '../proxy-client'
 
 /**
  * Named in failures. The engine inside is Valhalla, but "Valhalla is unavailable" sends a reader
@@ -150,7 +149,7 @@ export class StadiaRoutingProvider implements RoutingPort {
               provenance: {
                 sourceId: this.meta.sourceId,
                 sourceName: this.meta.sourceName,
-                upstreamUrl: `${API_BASE}/route`,
+                upstreamUrl: resolveApiUrl('/api/geo/route'),
                 datasetVintage: this.meta.vintage,
                 retrievedAt: Date.now(),
                 cache: { hit: false, ageMs: 0 },
@@ -218,9 +217,9 @@ export class StadiaRoutingProvider implements RoutingPort {
 
       const response = yield* Effect.tryPromise({
         try: () =>
-          this.fetchImpl(`${API_BASE}/route`, {
+          this.fetchImpl(resolveApiUrl('/api/geo/route'), {
             method: 'POST',
-            headers: { 'content-type': 'application/json' },
+            headers: { 'content-type': 'application/json', ...getWebMcpHeaders() },
             body: JSON.stringify(body),
             ...(query.signal ? { signal: query.signal } : {}),
           }),

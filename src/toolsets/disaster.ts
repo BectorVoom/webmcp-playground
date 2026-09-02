@@ -7,6 +7,7 @@ import { isAmbiguous, normalisePlaceQuery, type GeocodedPlace } from '../domain/
 import { resolveRegion } from '../adapters/geo/region'
 import { getGeocoderForMode, getRegistryForMode } from '../adapters/geo/registry'
 import { BrowserGeolocationAdapter } from '../adapters/geo/browser-geolocation'
+import { resolveApiUrl, getWebMcpHeaders } from '../adapters/geo/proxy-client'
 import { setGsiTileCap } from '../adapters/geo/jp/flood'
 import { defaultMapPort } from '../adapters/map/memory-map'
 import type { GeolocationPort } from '../ports/Geolocation'
@@ -30,9 +31,9 @@ import type { FeatureCollection } from 'geojson'
 
 export let currentGeolocationPort: GeolocationPort = new BrowserGeolocationAdapter()
 export let currentMapPort: MapPort = defaultMapPort
-export let currentDataMode: 'live' | 'fixture' = 'fixture'
+export let currentDataMode: 'live' | 'fixture' = 'live'
 /** Routing is resolved separately from the hazard data; see `ServerConfig.routingMode`. */
-export let currentRoutingMode: 'live' | 'fixture' = 'fixture'
+export let currentRoutingMode: 'live' | 'fixture' = 'live'
 
 interface ServerModes {
   readonly dataMode: 'live' | 'fixture'
@@ -57,8 +58,8 @@ export const setDisasterDataMode = (mode: 'live' | 'fixture'): void => {
 export const resetDisasterDataMode = (): void => {
   pinnedDataMode = undefined
   modeProbe = undefined
-  currentDataMode = 'fixture'
-  currentRoutingMode = 'fixture'
+  currentDataMode = 'live'
+  currentRoutingMode = 'live'
 }
 
 /**
@@ -75,9 +76,11 @@ const resolveDataMode = Effect.promise(async (): Promise<ServerModes> => {
     return { dataMode: pinnedDataMode, routingMode: pinnedDataMode }
   }
   modeProbe ??= (async (): Promise<ServerModes> => {
-    const offline: ServerModes = { dataMode: 'fixture', routingMode: 'fixture' }
+    const offline: ServerModes = { dataMode: 'live', routingMode: 'live' }
     try {
-      const response = await fetch('/api/geo/providers')
+      const response = await fetch(resolveApiUrl('/api/geo/providers'), {
+        headers: getWebMcpHeaders(),
+      })
       if (!response.ok) return offline
       const body = (await response.json()) as {
         dataMode?: unknown
@@ -86,16 +89,8 @@ const resolveDataMode = Effect.promise(async (): Promise<ServerModes> => {
       }
       if (typeof body.tileCap === 'number') setGsiTileCap(body.tileCap)
       return {
-        dataMode: body.dataMode === 'live' ? 'live' : 'fixture',
-        // A server too old to report one routed on the data mode, which is what it would have done.
-        routingMode:
-          body.routingMode === 'live'
-            ? 'live'
-            : body.routingMode === 'fixture'
-              ? 'fixture'
-              : body.dataMode === 'live'
-                ? 'live'
-                : 'fixture',
+        dataMode: body.dataMode === 'fixture' ? 'fixture' : 'live',
+        routingMode: body.routingMode === 'fixture' ? 'fixture' : 'live',
       }
     } catch {
       return offline
