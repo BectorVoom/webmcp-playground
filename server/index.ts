@@ -102,6 +102,9 @@ export const createApp = (config: ServerConfig) => {
       const target = `${upstreamBase}${url.pathname}${url.search}`
       const headers = new Headers(c.req.raw.headers)
       headers.set('host', new URL(upstreamBase).host)
+      if (config.webMcpSharedSecret !== undefined) {
+        headers.set('x-webmcp-secret', config.webMcpSharedSecret)
+      }
       try {
         const res = await fetch(target, {
           method: c.req.method,

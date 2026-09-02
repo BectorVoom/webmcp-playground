@@ -95,6 +95,7 @@ export interface ServerConfig {
   readonly geoCoordPrecision: number
   readonly geoTraceCoordPrecision: number
   readonly backendApiUrl?: string
+  readonly webMcpSharedSecret?: string
 }
 
 const DEFAULTS = {
@@ -110,7 +111,7 @@ const DEFAULTS = {
   WATER_CACHE_DIR: '.cache/osm-water',
   CEMS_CACHE_DIR: '.cache/cems',
 
-  GEO_DATA_MODE: 'fixture',
+  GEO_DATA_MODE: 'live',
   // `ewds.climate.copernicus.eu` is the ECMWF Data Store, which is where CEMS-Flood moved to and
   // the only catalogue carrying the GloFAS forecast; `os-api.cci2.ecmwf.int` is the object store a
   // finished retrieval is collected from, and a download that cannot reach it is a job that ran
@@ -422,5 +423,6 @@ export const loadConfig = (
       geoCoordPrecision,
       geoTraceCoordPrecision,
       backendApiUrl: optional(env.BACKEND_API_URL ?? env.VITE_BACKEND_API_URL),
+      webMcpSharedSecret: optional(env.WEBMCP_SHARED_SECRET ?? env.WEBMCP_API_SECRET),
     }
   })

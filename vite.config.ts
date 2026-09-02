@@ -45,6 +45,9 @@ export default defineConfig(({ mode }) => {
               target: backendApiUrl,
               changeOrigin: true,
               secure: true,
+              headers: process.env.WEBMCP_SHARED_SECRET
+                ? { 'x-webmcp-secret': process.env.WEBMCP_SHARED_SECRET }
+                : undefined,
             },
           }
         : undefined,
