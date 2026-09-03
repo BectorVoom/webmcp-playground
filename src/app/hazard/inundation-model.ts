@@ -21,8 +21,7 @@ import type { FeatureCollection } from 'geojson'
 import type { FloodZone } from '../../domain/hazard'
 import { ToolExecutionError } from '../../domain/errors'
 import { fitZonesToMapBudget, MAP_VERTEX_BUDGET } from '../../lib/geometry/simplify'
-
-const API_URL = '/api/geo/flood-model'
+import { resolveApiUrl, getWebMcpHeaders } from '../../adapters/geo/proxy-client'
 
 export interface InundationModelRequest {
   readonly at: { readonly latitude: number; readonly longitude: number }
@@ -76,9 +75,9 @@ export const fetchInundationModel = (
   Effect.gen(function* () {
     const response = yield* Effect.tryPromise({
       try: () =>
-        fetchImpl(API_URL, {
+        fetchImpl(resolveApiUrl('/api/geo/flood-model'), {
           method: 'POST',
-          headers: { 'content-type': 'application/json' },
+          headers: { 'content-type': 'application/json', ...getWebMcpHeaders() },
           body: JSON.stringify({
             at: { latitude: request.at.latitude, longitude: request.at.longitude },
             radiusKm: request.radiusKm,
