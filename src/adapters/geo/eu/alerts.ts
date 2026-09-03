@@ -61,9 +61,23 @@ const parseCapPolygon = (raw: string): GeoJSON.Polygon | null => {
   return { type: 'Polygon', coordinates: [ring] }
 }
 
+const createXmlDocument = (xml: string): Document | null => {
+  try {
+    if (typeof globalThis.DOMParser !== 'undefined') {
+      return new globalThis.DOMParser().parseFromString(xml, 'application/xml')
+    }
+    // Node/Bun CLI environment fallback
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { JSDOM } = require('jsdom')
+    return new JSDOM(xml, { contentType: 'application/xml' }).window.document
+  } catch {
+    return null
+  }
+}
+
 export const parseMeteoAlarmFeed = (xml: string): ReadonlyArray<AtomEntry> => {
-  const doc = new DOMParser().parseFromString(xml, 'application/xml')
-  if (doc.getElementsByTagName('parsererror').length > 0) return []
+  const doc = createXmlDocument(xml)
+  if (!doc || doc.getElementsByTagName('parsererror').length > 0) return []
 
   const entries: Array<AtomEntry> = []
   const nodes = doc.getElementsByTagNameNS(ATOM_NS, 'entry')
